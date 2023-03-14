@@ -1,0 +1,54 @@
+Kod,Operator,Partner,Navyseni_Ubytek,Kodovani_zpusobu,Puvod_Zpusob,Popis_zpusobu
+A00,(+),NE,1,Původ odpadů,Původ odpadů,Produkce odpadu (vlastní vyprodukovaný odpad)
+B00,(+),ANO,1,Původ odpadů,Původ odpadů,"Odpad převzatý od původce, jiné oprávněné osoby (sběr, výkup, shromažďování), nebo jiné provozovny"
+BN16,(+),ANO,1,Způsob nakládání s odpady,Ostatní,"Dovoz odpadu ze státu, který není členským státem EU"
+BN30,(+),ANO,1,Způsob nakládání s odpady,Ostatní,"Převzetí zpětně odebraných některých výrobků nebo zpětně odebraných elektrozařízení od právnické osoby nebo fyzické osoby oprávněné k podnikání, která zajišťuje zpětný odběr podle § 37k nebo § 38 zákona nebo převzetí odpadů od nepodnikajících fyzických osob - občanů"
+BN40,(+),NE,1,Způsob nakládání s odpady,Ostatní,"Odpad po úpravě, když nedošlo ke změně katalogového čísla odpadu"
+BN6,(+),ANO,1,Způsob nakládání s odpady,Ostatní,Přeshraniční přeprava odpadu z členského státu EU do CR
+C00,(+),NE,1,Původ odpadů,Původ odpadů,Množství odpadu převedené z minulého roku (zůstatek na skladu k 1. lednu vykazovaného roku)
+Předání,(-),ANO,-1,,,
+Převzetí,(+),ANO,1,,,
+XD1,(-),NE,-1,Způsob nakládání s odpady,Odstraňování odpadů,Ukládání v úrovni nebo pod úrovní terénu (skládkování)
+XD10,(-),NE,-1,Způsob nakládání s odpady,Odstraňování odpadů,Spalování na pevnině
+XD12,(-),NE,-1,Způsob nakládání s odpady,Odstraňování odpadů,Konečné či trvalé uložení (např. ukládání v kontejnerech do dolů)
+XD13,(-),NE,-1,Způsob nakládání s odpady,Odstraňování odpadů,Úprava složení nebo smíšení odpadů před jejich odstraněním některým z postupů uvedených pod označením D1 až D12
+XD14,(-),NE,-1,Způsob nakládání s odpady,Odstraňování odpadů,Úprava jiných vlastností odpadů (kromě úpravy zahrnuté do D13) před jejich odstraněním některým z postupů uvedených pod označením D1 až D13
+XD15,(-),NE,-1,Způsob nakládání s odpady,Odstraňování odpadů,Skladování materiálů před jejich odstraněním některým z postupů uvedených pod označením Dl až D14 (s výjimkou dočasného skladování na místě vzniku před shromážděním potřebného množství) k 31. prosinci vykazovaného roku
+XD2,(-),NE,-1,Způsob nakládání s odpady,Odstraňování odpadů,"Úprava půdními procesy (např. biologický rozklad kapalných odpadů či kalů v půdě, apod.)"
+XD3,(-),NE,-1,Způsob nakládání s odpady,Odstraňování odpadů,"Hlubinná injektáž (např. injektáž čerpatelných kapalných odpadů do vrtů, solných komor nebo prostor přírodního původu, apod.)"
+XD4,(-),NE,-1,Způsob nakládání s odpady,Odstraňování odpadů,"Ukládání do povrchových nádrží (např. vypouštění kapalných odpadů nebo kalů do prohlubní, vodních nádrží, lagun, apod.)"
+XD5,(-),NE,-1,Způsob nakládání s odpady,Odstraňování odpadů,"Ukládání do speciálně technicky provedených skládek (např. ukládání do oddělených, utěsněných, zavřených prostor izolovaných navzájem i od okolního prostředí, apod.)"
+XD8,(-),NE,-1,Způsob nakládání s odpady,Odstraňování odpadů,"Biologická úprava jinde v této příloze nespecifikovaná, jejímž konečným produktem jsou sloučeniny nebo směsi, které se odstraňují některým z postupů uvedených pod označením Dl až D12"
+XD9,(-),NE,-1,Způsob nakládání s odpady,Odstraňování odpadů,"Fyzikálně-chemická úprava jinde v této příloze nespecifikovaná, jejímž konečným produktem jsou sloučeniny nebo směsi, které se odstraňují některým z postupů uvedených pod označením D1 až D12 (např. odpařování, sušení, kalcinace)"
+XN1,(-),NE,-1,Způsob nakládání s odpady,Ostatní,Využití odpadů s výjimkou využívání kalů podle vyhl. 382/2001 Sb. na terénní úpravy apod.
+XN10,(-),ANO,-1,Způsob nakládání s odpady,Ostatní,"Prodej odpadu jako suroviny („druhotné suroviny"")"
+XN11,(-),NE,-1,Způsob nakládání s odpady,Ostatní,Využití odpadu na rekultivace skládek
+XN12,(-),NE,-1,Způsob nakládání s odpady,Ostatní,Ukládání odpadů jako technologický materiál na zajištění skládky
+XN13,(-),NE,-1,Způsob nakládání s odpady,Ostatní,Kompostování
+XN14,(-),NE,-1,Způsob nakládání s odpady,Ostatní,Biologická dekontaminace
+XN15,(-),NE,-1,Způsob nakládání s odpady,Ostatní,Protektorování pneumatik
+XN17,(-),ANO,-1,Způsob nakládání s odpady,Ostatní,"Vývoz odpadu do státu, který není členským státem EU"
+XN18,(-),NE,-1,Způsob nakládání s odpady,Ostatní,Zpracování elektroodpadu
+XN2,(-),ANO,-1,Způsob nakládání s odpady,Ostatní,Předání kalů ČOV k použití na zemědělské půdě
+XN3,(-),ANO,-1,Způsob nakládání s odpady,Ostatní,"Předání jiné oprávněné osobě (kromě přepravce, dopravce), nebo jiné provozovně"
+XN5,(-),NE,-1,Způsob nakládání s odpady,Ostatní,Zůstatek na skladu k 31. prosinci vykazovaného roku
+XN50,(+),NE,1,Způsob nakládání s odpady,Ostatní,Inventurní rozdíl - vyrovnání nedostatku odpadu
+XN53,(-),NE,-1,Způsob nakládání s odpady,Ostatní,Inventurní rozdíl - vyrovnání přebytku odpadu
+XN60,(+),NE,1,Způsob nakládání s odpady,Ostatní,"Staré zátěže, živelní pohromy, černé skládky apod."
+XN63,(-),NE,-1,Způsob nakládání s odpady,Ostatní,"Staré zátěže, živelní pohromy, černé skládky apod."
+XN7,(-),ANO,-1,Způsob nakládání s odpady,Ostatní,Přeshraniční přeprava odpadu do členského státu EU z ČR
+XN8,(-),ANO,-1,Způsob nakládání s odpady,Ostatní,"Předání (dílů, odpadů) pro opětovné použití"
+XN9,(-),NE,-1,Způsob nakládání s odpady,Ostatní,Zpracování autovraku
+XR1,(-),NE,-1,Způsob nakládání s odpady,Využívání odpadů,Využití odpadu způsobem obdobným jako paliva nebo jiným způsobem k výrobě energie
+XR10,(-),NE,-1,Způsob nakládání s odpady,Využívání odpadů,"Aplikace do půdy, která je přínosem pro zemědělství nebo zlepšuje ekologii"
+XR11,(-),NE,-1,Způsob nakládání s odpady,Využívání odpadů,"Využití odpadů, které vznikly aplikací některého z postupů uvedených pod označením R1 až R10"
+XR12,(-),NE,-1,Způsob nakládání s odpady,Využívání odpadů,Předúprava odpadů k aplikaci některého z postupů uvedených pod označením R1 až R11
+XR13,(-),NE,-1,Způsob nakládání s odpady,Využívání odpadů,Skladování materiálů před aplikací některého z postupů uvedených pod označením R1 až R12 (s výjimkou dočasného skladování na místě vzniku před sběrem) k 31. prosinci vykazovaného roku
+XR2,(-),NE,-1,Způsob nakládání s odpady,Využívání odpadů,Získání /regenerace rozpouštědel
+XR3,(-),NE,-1,Způsob nakládání s odpady,Využívání odpadů,"Získání/regenerace organických látek, které se nepoužívají jako rozpouštědla (včetně biologických procesů mimo kompostování a biologickou dekontaminaci)"
+XR4,(-),NE,-1,Způsob nakládání s odpady,Využívání odpadů,Recyklace/znovuzískání kovů a kovových sloučenin
+XR5,(-),NE,-1,Způsob nakládání s odpady,Využívání odpadů,Recyklace/znovuzískání ostatních anorganických materiálů
+XR6,(-),NE,-1,Způsob nakládání s odpady,Využívání odpadů,Regenerace kyselin a zásad
+XR7,(-),NE,-1,Způsob nakládání s odpady,Využívání odpadů,Obnova látek používaných ke snižování znečištění
+XR8,(-),NE,-1,Způsob nakládání s odpady,Využívání odpadů,Získání složek katalyzátorů
+XR9,(-),NE,-1,Způsob nakládání s odpady,Využívání odpadů,Rafinace použitých olejů nebo jiný způsob opětného použití olejů
