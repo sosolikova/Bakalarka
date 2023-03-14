@@ -1,4 +1,4 @@
-﻿Kod;Operator;Partner;Navyseni_Ubytek;Kodovani_zpusobu;Puvod_Zpusob;Popis_zpusobu
+﻿Kod;Operator;Uvedeni_Partnera;Navyseni_Ubytek;Kodovani_zpusobu;Puvod_Zpusob;Popis_zpusobu
 A00;(+);NE;1;Původ odpadů;Původ odpadů;Produkce odpadu (vlastní vyprodukovaný odpad)
 B00;(+);ANO;1;Původ odpadů;Původ odpadů;Odpad převzatý od původce, jiné oprávněné osoby (sběr, výkup, shromažďování), nebo jiné provozovny
 BN16;(+);ANO;1;Způsob nakládání s odpady;Ostatní;Dovoz odpadu ze státu, který není členským státem EU

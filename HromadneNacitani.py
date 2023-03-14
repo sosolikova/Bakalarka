@@ -2,7 +2,10 @@ import os
 import pandas as pd
 import Funkce
 
-dtypes_odpady2= {
+dtypes_nakladani = {
+    'Navyseni_Ubytek': 'int'
+}
+dtypes_odpady= {
     'Evident':              'string',
     'Evident_A':            'string',
     'Evident_TypSubjektu':  'string',
@@ -22,11 +25,7 @@ dtypes_odpady2= {
 
 'Funkce pro načtení dat z CSV do DataFrame'
 def load_csv_type_conversion(filename, dtypes):
-    df = pd.read_csv(filename, delimiter=';', decimal=',')
-
-    for column, dtype in dtypes.items():
-        if column in df.columns:
-          df[column].astype(dtype)
+    df = pd.read_csv(filename, delimiter=';', decimal=',',dtype = dtypes)
     return df
 
 def load_files_to_df(directory,extension,dtypes):
@@ -43,9 +42,20 @@ def load_files_to_df(directory,extension,dtypes):
         df = df.append(data)
     return df
 
-Zdrojovy2 = load_files_to_df('Data','.csv',dtypes_odpady2)
+Zdrojovy = load_files_to_df('Data','.csv',dtypes_odpady)
 print('________---sloucene soubory ----__________')
-print(Zdrojovy2)
-Funkce.save_dataframe_to_csv(Zdrojovy2,'Zdrojovy2')
+print(Zdrojovy)
+Funkce.save_dataframe_to_csv(Zdrojovy,'Zdrojovy')
 
-Zdrojovy2.info()
+Zdrojovy.info()
+
+Kody = load_csv_type_conversion('Kod_Nakladani.csv',dtypes_nakladani)
+
+'Funkce pro spárování dvou DataFrame'
+def merge_left(df1, df2, on_columns):
+    merged_df = pd.merge(df1, df2, on=on_columns, how = 'left')
+    return merged_df
+
+Zdrojovy_Kody = merge_left(Zdrojovy,Kody,'Kod')
+Funkce.save_dataframe_to_csv(Zdrojovy_Kody,'Zdrojovy_Kody')
+Zdrojovy_Kody.info()
