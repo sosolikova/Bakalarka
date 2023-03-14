@@ -59,3 +59,27 @@ def merge_left(df1, df2, on_columns):
 Zdrojovy_Kody = merge_left(Zdrojovy,Kody,'Kod')
 Funkce.save_dataframe_to_csv(Zdrojovy_Kody,'Zdrojovy_Kody')
 Zdrojovy_Kody.info()
+
+'Kontrola sparovani radku'
+def check_match (dataframe,column):
+    unmatched_row = dataframe[dataframe[column].isnull()]
+    if unmatched_row.empty:
+        print(f'Ke vsem radkum leve tabulky byly dohledany hodnoty do sloupce {column}')
+        return(True, None)
+    else: 
+        unmatched_row_count = unmatched_row.shape[0]
+        print(f'K {unmatched_row_count} radkum nebyla dohledana hodnota do sloupce {column}')
+        print(unmatched_row)
+        return(False,unmatched_row)
+
+'APLIKACE kontrola sparovani'
+check_match(Zdrojovy_Kody,'Navyseni_Ubytek')
+    
+'Vynásobení Množství * (-1 nebo +1) a převede na Kg vynásobením 1000'
+def add_col_multipl(df):
+    df.insert(loc=0,column='ZmenaMnozstvi',value=(df['Mnozstvi'] * df['Navyseni_Ubytek']) * 1000)
+    return df
+
+'APLIKACE přidání sloupce ZmenaMnozstvi'
+Zdrojovy_kody_mnozstvi=add_col_multipl(Zdrojovy_Kody)
+Funkce.save_dataframe_to_csv(Zdrojovy_kody_mnozstvi,'Zdrojovy_kody_mnozstvi')
