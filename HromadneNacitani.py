@@ -39,10 +39,9 @@ def load_files_to_df(directory,extension):
         filename = os.path.splitext(file)[0]
         data['source_file'] = filename
         df = df.append(data)
-        print('________---sloucene soubory ----__________')
-        print(df)
     return df
 
 Zdrojovy = load_files_to_df('Data','.csv')
-
+print('________---sloucene soubory ----__________')
+print(Zdrojovy)
 Funkce.save_dataframe_to_csv(Zdrojovy,'Zdrojovy')
