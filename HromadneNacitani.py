@@ -1,9 +1,14 @@
 import os
 import pandas as pd
+import matplotlib.pyplot as plt
 import Funkce
 
 dtypes_nakladani = {
     'Navyseni_Ubytek': 'int'
+}
+dtypes_zuj = {
+    'ZUJ_Kod': 'string',
+    'ORP_Kod':  'string'
 }
 dtypes_odpady= {
     'Evident':              'string',
@@ -38,7 +43,7 @@ def load_files_to_df(directory,extension,dtypes):
         data = pd.read_csv(filepath,delimiter=';', decimal=',', usecols = None, dtype=dtypes)
 
         filename = os.path.splitext(file)[0]
-        data['Zdrojovy_soubor'] = filename
+        data['Druh_Odpadu'] = filename
         df = df.append(data)
     return df
 
@@ -93,7 +98,7 @@ def group_data_by_columns(data, func_column, *group_columns ):
     return grouped_data
 
 'APLIKACE slouceni podle sloupcu Evident, Evidnet_TypSubjektu, funkce bude na sloupci ZmenaMnozstvi'
-Zdrojovy_kody_mnozstvi_group = group_data_by_columns(Zdrojovy_kody_mnozstvi,'ZmenaMnozstvi','Zdrojovy_soubor','Evident','Evident_TypSubjektu')
+Zdrojovy_kody_mnozstvi_group = group_data_by_columns(Zdrojovy_kody_mnozstvi,'ZmenaMnozstvi','Druh_Odpadu','Evident','Evident_TypSubjektu')
 Funkce.save_dataframe_to_csv(Zdrojovy_kody_mnozstvi_group,'Zdrojovy_kody_mnozstvi_group')
 
 'Funkce pro kontrolu, ze u kazde ZUJ vyjde bilance 0'
@@ -128,6 +133,14 @@ else:
     print('Zadna ZUJ nema bilanci rocniho zuctovani v odchylce vetsi nez +/- 1 Kg.')
 
 '_____________________'
+'Pripojeni tabulky ZUJ_ORP'
+"""
+'Nacteni tabulky ZUJ_ORP'
+ZUJ_ORP = load_csv_type_conversion('ZUJ_ORP.csv',dtypes_zuj)
+
+Zdrojovy_Kody_Mnozstvi_Zuj = merge_left(Zdrojovy_kody_mnozstvi, ZUJ_ORP, 'ZUJ_Kod')
+
+"""
 
 
 
