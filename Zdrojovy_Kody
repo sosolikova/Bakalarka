@@ -1,4 +1,4 @@
-Evident,Evident_A,Evident_TypSubjektu,Evident_Nazev,Evident_Nazev_A,Evident_Kraj,Partner,Partner_A,Partner_TypSubjektu,Partner_Nazev,Partner_Nazev_A,Partner_Kraj,Kod,Indikator,Mnozstvi,Druh_odpadu,Zdrojovy_soubor,Operator,Uvedeni_Partnera,Navyseni_Ubytek,Kodovani_zpusobu,Puvod_Zpusob,Popis_zpusobu
+Evident,Evident_A,Evident_TypSubjektu,Evident_Nazev,Evident_Nazev_A,Evident_Kraj,Partner,Partner_A,Partner_TypSubjektu,Partner_Nazev,Partner_Nazev_A,Partner_Kraj,Kod,Indikator,Mnozstvi,Druh_odpadu,Druh_Odpadu,Operator,Uvedeni_Partnera,Navyseni_Ubytek,Kodovani_zpusobu,Puvod_Zpusob,Popis_zpusobu
 500020,40001,4,Petrov nad Desnou,HANHET,Olomoucký,500020,40001,4,Petrov nad Desnou,HANHET,Olomoucký,A00,Produkce,2.289,200110,200110,(+),NE,1,Původ odpadů,Původ odpadů,Produkce odpadu (vlastní vyprodukovaný odpad)
 581372,42300,1,Boskovice,ROTHAF,Jihomoravský,500020,40001,4,Petrov nad Desnou,HANHET,Olomoucký,Převzetí,Převzetí,2.289,200110,200110,(+),ANO,1,,,
 500046,40002,4,Libhošť,HABHIT,Moravskoslezský,500046,40002,4,Libhošť,HABHIT,Moravskoslezský,A00,Produkce,3.943,200110,200110,(+),NE,1,Původ odpadů,Původ odpadů,Produkce odpadu (vlastní vyprodukovaný odpad)
