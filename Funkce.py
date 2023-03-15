@@ -52,7 +52,7 @@ sloucena = merge_left(nactena_200111,nakladani_fce,'Kod')
 save_dataframe_to_csv(sloucena,'sloucena_200111')
 
 'Kontrola sparovani radku'
-def unmatched (dataframe,column):
+def check_match (dataframe,column):
     unmatched_row = dataframe[dataframe[column].isnull()]
     if unmatched_row.empty:
         print(f'Ke vsem radkum leve tabulky byly dohledany hodnoty do sloupce {column}')
@@ -64,7 +64,7 @@ def unmatched (dataframe,column):
         return(False,unmatched_row)
 
 'APLIKACE kontrola sparovani'
-unmatched(sloucena,'Navyseni_Ubytek')
+check_match(sloucena,'Navyseni_Ubytek')
 
 'Vynásobení Množství * (-1 nebo +1) a převede na Kg vynásobením 1000'
 def add_col_multipl(df):

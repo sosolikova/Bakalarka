@@ -120,3 +120,14 @@ def filter_sum_after_grouping(grouped_data, column):
     return filtered_data
 Zdrojovy_kody_mnozstvi_group_nevyhov_1 = filter_sum_after_grouping(Zdrojovy_kody_mnozstvi_group,'ZmenaMnozstvi')
 Funkce.save_dataframe_to_csv(Zdrojovy_kody_mnozstvi_group_nevyhov_1,'Zdrojovy_kody_mnozstvi_group_nevyhov_1')
+
+if not Zdrojovy_kody_mnozstvi_group_nevyhov_1.empty:
+    print(f"Pocet ZUJ, které mají rocni zuctovani > 1 Kg nebo < -1 Kg: {Zdrojovy_kody_mnozstvi_group_nevyhov_1.shape[0]}")
+    print(Zdrojovy_kody_mnozstvi_group_nevyhov_1)
+else: 
+    print('Zadna ZUJ nema bilanci rocniho zuctovani v odchylce vetsi nez +/- 1 Kg.')
+
+'_____________________'
+
+
+
