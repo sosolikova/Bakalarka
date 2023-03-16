@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 import Funkce
 
 dtypes_nakladani = {
@@ -33,7 +34,7 @@ def load_csv_type_conversion(filename, dtypes):
     df = pd.read_csv(filename, delimiter=';', decimal=',',dtype = dtypes)
     return df
 
-def load_files_to_df(directory,extension,dtypes):
+def load_files_to_df(directory,extension,dtypes,column_name):
     files = [file for file in os.listdir(directory) if file.endswith(extension)]
 
     df = pd.DataFrame()
@@ -43,16 +44,36 @@ def load_files_to_df(directory,extension,dtypes):
         data = pd.read_csv(filepath,delimiter=';', decimal=',', usecols = None, dtype=dtypes)
 
         filename = os.path.splitext(file)[0]
-        data['Druh_Odpadu'] = filename
+        data[column_name] = filename
         df = df.append(data)
     return df
 
-Zdrojovy = load_files_to_df('Data','.csv',dtypes_odpady)
+Zdrojovy = load_files_to_df('Data','.csv',dtypes_odpady,'Druh_Odpadu')
 print('________---sloucene soubory ----__________')
 print(Zdrojovy)
 Funkce.save_dataframe_to_csv(Zdrojovy,'Zdrojovy')
 print('______----Zdrojovy----______')
 Zdrojovy.info()
+
+def checknull(df):
+  check = df.isnull().sum()
+  print('_________checknull__________')
+  print(check)
+  return 
+
+checknull(Zdrojovy)
+
+def je_soucet_nulovy(df):
+    check_sum = df.isnull().sum().sum()  # součet všech NaN hodnot v DataFrame
+    if check_sum == 0:
+        print('Nechybi zadna hodnota')
+        return True
+    else:
+        missing_rows = df[df.isnull().any(axis=1)].index.tolist()  # seznam řádků s chybějícími hodnotami
+        print("Indexy radku s chybejicimi hodnotami: ", missing_rows)
+        return False
+
+je_soucet_nulovy(Zdrojovy)
 
 Kody = load_csv_type_conversion('Kod_Nakladani.csv',dtypes_nakladani)
 
@@ -141,6 +162,8 @@ ZUJ_ORP = load_csv_type_conversion('ZUJ_ORP.csv',dtypes_zuj)
 Zdrojovy_Kody_Mnozstvi_Zuj = merge_left(Zdrojovy_kody_mnozstvi, ZUJ_ORP, 'ZUJ_Kod')
 
 """
-
+'_________GRAFY____________'
+Produkce_and_Prevzeti = Zdrojovy_kody_mnozstvi[(Zdrojovy_kody_mnozstvi['Indikator'] == "Produkce") | (Zdrojovy_kody_mnozstvi['Indikator'] == "Převzetí")]
+print(Produkce_and_Prevzeti.groupby('Indikator')['ZmenaMnozstvi'].agg([np.mean,np.median])) 
 
 

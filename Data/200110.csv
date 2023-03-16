@@ -1,6 +1,6 @@
 ﻿Evident;Evident_A;Evident_TypSubjektu;Evident_Nazev;Evident_Nazev_A;Evident_Kraj;Partner;Partner_A;Partner_TypSubjektu;Partner_Nazev;Partner_Nazev_A;Partner_Kraj;Kod;Indikator;Mnozstvi;Druh_odpadu
 500020;40001;4;Petrov nad Desnou;HANHET;Olomoucký;500020;40001;4;Petrov nad Desnou;HANHET;Olomoucký;A00;Produkce;2,289;200110
-581372;42300;1;Boskovice;ROTHAF;Jihomoravský;500020;40001;4;Petrov nad Desnou;HANHET;Olomoucký;Převzetí;Převzetí;2,289;200110
+581372;42300;;Boskovice;ROTHAF;Jihomoravský;500020;40001;4;Petrov nad Desnou;HANHET;Olomoucký;Převzetí;Převzetí;2,289;200110
 500046;40002;4;Libhošť;HABHIT;Moravskoslezský;500046;40002;4;Libhošť;HABHIT;Moravskoslezský;A00;Produkce;3,943;200110
 500046;40002;4;Libhošť;HABHIT;Moravskoslezský;500046;40002;4;Libhošť;HABHIT;Moravskoslezský;Předání;Předání;3,943;200110
 500046;40002;4;Libhošť;HABHIT;Moravskoslezský;500046;40002;4;Libhošť;HABHIT;Moravskoslezský;Převzetí;Převzetí;3,943;200110
@@ -11,7 +11,7 @@
 581372;42300;1;Boskovice;ROTHAF;Jihomoravský;500291;40005;4;Vřesina;HAMHAT;Moravskoslezský;Převzetí;Převzetí;4,771;200110
 500496;40006;1;Olomouc;HAPHET;Olomoucký;500496;40006;1;Olomouc;HAPHET;Olomoucký;A00;Produkce;25,407;200110
 500496;40006;4;Olomouc;HAPHET;Olomoucký;500496;40006;4;Olomouc;HAPHET;Olomoucký;A00;Produkce;274,005;200110
-500496;40006;1;Olomouc;HAPHET;Olomoucký;500496;40006;1;Olomouc;HAPHET;Olomoucký;C00;Vyskladnění;0,66;200110
+500496;40006;;Olomouc;HAPHET;Olomoucký;500496;40006;1;Olomouc;HAPHET;Olomoucký;C00;Vyskladnění;0,66;200110
 554782;41269;1;Praha;KIZBUB;Hlavní město Praha;500496;40006;1;Olomouc;HAPHET;Olomoucký;Předání;Předání;0,0875;200110
 500496;40006;1;Olomouc;HAPHET;Olomoucký;500496;40006;1;Olomouc;HAPHET;Olomoucký;Předání;Předání;0,944;200110
 511382;40089;1;Přerov;HAZLUT;Olomoucký;500496;40006;1;Olomouc;HAPHET;Olomoucký;Předání;Předání;0,12;200110

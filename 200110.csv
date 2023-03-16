@@ -9,7 +9,7 @@
 581372;42300;1;Boskovice;ROTHAF;Jihomoravský;500259;40004;4;Veřovice;HALHUT;Moravskoslezský;Převzetí;Převzetí;2,381
 500291;40005;4;Vřesina;HAMHAT;Moravskoslezský;500291;40005;4;Vřesina;HAMHAT;Moravskoslezský;A00;Produkce;4,771
 581372;42300;1;Boskovice;ROTHAF;Jihomoravský;500291;40005;4;Vřesina;HAMHAT;Moravskoslezský;Převzetí;Převzetí;4,771
-500496;40006;1;Olomouc;HAPHET;Olomoucký;500496;40006;1;Olomouc;HAPHET;Olomoucký;A00;Produkce;25,407
+500496;40006;;Olomouc;HAPHET;Olomoucký;500496;40006;1;Olomouc;HAPHET;Olomoucký;A00;Produkce;25,407
 500496;40006;4;Olomouc;HAPHET;Olomoucký;500496;40006;4;Olomouc;HAPHET;Olomoucký;A00;Produkce;274,005
 500496;40006;1;Olomouc;HAPHET;Olomoucký;500496;40006;1;Olomouc;HAPHET;Olomoucký;C00;Vyskladnění;0,66
 554782;41269;1;Praha;KIZBUB;Hlavní město Praha;500496;40006;1;Olomouc;HAPHET;Olomoucký;Předání;Předání;0,0875
