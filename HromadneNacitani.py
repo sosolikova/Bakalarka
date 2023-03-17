@@ -165,15 +165,21 @@ Zdrojovy_Kody_Mnozstvi_Zuj = merge_left(Zdrojovy_kody_mnozstvi, ZUJ_ORP, 'ZUJ_Ko
 """
 '_________GRAFY____________'
 Produkce_and_Prevzeti = Zdrojovy_kody_mnozstvi[(Zdrojovy_kody_mnozstvi['Indikator'] == "Produkce") | (Zdrojovy_kody_mnozstvi['Indikator'] == "Převzetí")]
+print('____produkce a prevzeti_______')
 print(Produkce_and_Prevzeti.groupby('Indikator')['ZmenaMnozstvi'].agg([np.mean,np.median])) 
 
+def summary_stat_parametr(df,parametr,volba,column_summary):
+    sort = df[(df[parametr] == volba)]
+    print(f'Průměr a medián pro parametr {parametr} = {volba}')
+    print(sort.groupby(parametr)[column_summary].agg([np.mean,np.median]))
 
+summary_stat_parametr(Zdrojovy_kody_mnozstvi,'Indikator','Převzetí','ZmenaMnozstvi')
 # vytvořit seznam unikátních hodnot ze sloupce
 def unique_list(df,column_name):
     u_list = list(df[column_name].unique())
     u_list.insert(0,'-all-') # přidá novou položku "-all-" na pozici 0
     print(f'_________unikatni hodnoty{column_name}___________')
-    print(u_list)
+    #print(u_list)
     return u_list
 
 u_list_partner_kraj = unique_list(Zdrojovy,'Partner_Kraj')
@@ -185,45 +191,3 @@ unikatni_indikator = list(Zdrojovy['Indikator'].unique())
 print('_________unikatni hodnoty___________')
 print(unikatni_indikator)
 '''
-import tkinter as tk
-
-def handle_selection(selection):
-    """Funkce, která bude spuštěna při výběru položky v menu"""
-   # print(f"Vybráno: {selection}")
-    text_widget.insert("end",f"Vybráno: {selection}\n")
-
-# Vytvoření okna
-root = tk.Tk()
-
-# Vytvoření menu
-menu = tk.Menu(root)
-root.config(menu=menu)
-
-# Vytvoření položek v menu
-file_menu = tk.Menu(menu)
-menu.add_cascade(label="File", menu=file_menu)
-file_menu.add_command(label="New", command=lambda: handle_selection(Zdrojovy_kody_mnozstvi_group_nevyhov_0))
-file_menu.add_command(label="Open", command=lambda: handle_selection("Open"))
-file_menu.add_separator()
-file_menu.add_command(label="Exit", command=root.quit)
-
-edit_menu = tk.Menu(menu)
-menu.add_cascade(label="Edit", menu=edit_menu)
-edit_menu.add_command(label="Cut", command=lambda: handle_selection("Cut"))
-edit_menu.add_command(label="Copy", command=lambda: handle_selection("Copy"))
-edit_menu.add_command(label="Paste", command=lambda: handle_selection("Paste"))
-
-# Vytvoření Text widget
-text_widget = tk.Text(root)
-text_widget.pack()
-
-# Spuštění hlavní smyčky
-root.mainloop()
-
-options3 = [
-    "Pondeli",
-    "Utery",
-    "Streda",
-    "Patek",
-    "Friday",
-] 
