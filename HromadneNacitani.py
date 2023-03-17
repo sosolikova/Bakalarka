@@ -168,11 +168,20 @@ Produkce_and_Prevzeti = Zdrojovy_kody_mnozstvi[(Zdrojovy_kody_mnozstvi['Indikato
 print(Produkce_and_Prevzeti.groupby('Indikator')['ZmenaMnozstvi'].agg([np.mean,np.median])) 
 
 
-# vytvořit seznam unikátních hodnot ze sloupce Indikator
+# vytvořit seznam unikátních hodnot ze sloupce
+def unique_list(df,column_name):
+    u_list = list(df[column_name].unique())
+    print(f'_________unikatni hodnoty{column_name}___________')
+    print(u_list)
+    return u_list
+
+u_list_partner_kraj = unique_list(Zdrojovy,'Partner_Kraj')
+u_list_indikator = unique_list(Zdrojovy,'Indikator')
+'''
 unikatni_indikator = list(Zdrojovy['Indikator'].unique())
 print('_________unikatni hodnoty___________')
 print(unikatni_indikator)
-
+'''
 import tkinter as tk
 
 def handle_selection(selection):

@@ -17,7 +17,7 @@ def comboclick(event):
     else:
         myLabel = Label(root, text=myCombo.get()).pack()
 
-options = hn.unikatni_indikator          
+options = hn.u_list_indikator          
 options2 = [
     "Monday",
     "Tueseday",
