@@ -170,8 +170,8 @@ print(Produkce_and_Prevzeti.groupby('Indikator')['ZmenaMnozstvi'].agg([np.mean,n
 
 def summary_stat_parametr(df,parametr,volba,column_summary):
     sort = df[(df[parametr] == volba)]
-    print(f'Průměr a medián pro parametr {parametr} = {volba}')
-    print(sort.groupby(parametr)[column_summary].agg([np.mean,np.median]))
+    #print(f'Průměr a medián pro parametr {parametr} = {volba}')
+    #print(sort.groupby(parametr)[column_summary].agg([np.mean,np.median]))
     return sort.groupby(parametr)[column_summary].agg([np.mean,np.median])
 
 summary = summary_stat_parametr(Zdrojovy_kody_mnozstvi,'Indikator','Převzetí','ZmenaMnozstvi')

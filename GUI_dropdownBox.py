@@ -109,10 +109,14 @@ def get_checkbox_values():
 
 def funkce1():
     vysledek = hn.summary_stat_parametr(hn.Zdrojovy_kody_mnozstvi,'Indikator',indikator_combo.get(),'ZmenaMnozstvi')
+    text_widget.delete("1.0","end")
     text_widget.insert("1.0", vysledek)
+  
 def funkce2():
     vysledek = hn.Zdrojovy_kody_mnozstvi_group_nevyhov_0
+    text_widget.delete("1.0","end")
     text_widget.insert("1.0", vysledek)
+    
 
 
 # tlačítko pro získání hodnot z checkboxů
