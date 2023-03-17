@@ -10,12 +10,6 @@ root.title('Data o odpadech')
 'root.iconbitmap(c:/gui/codemy.ico)'
 root.geometry("400x400")
 
-def selected(event):
-    if clicked.get() == 'Friday':
-        myLabel = Label(root, text="Yay Its Friday").pack()
-    else:
-        myLabel = Label(root, text=clicked.get()).pack()
-
 def comboclick(event):
     #myLabel = Label(root, text=myCombo.get()).pack()
     if myCombo.get() == 'Friday':
@@ -35,9 +29,6 @@ options2 = [
 ]
 clicked = StringVar()
 clicked.set(options[0])
-
-drop = OptionMenu(root, clicked, *options, command=selected)
-drop.pack(pady=20)
 
 myCombo = ttk.Combobox(root, value=options)
 myCombo.current(0)
