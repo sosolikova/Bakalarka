@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from PIL import ImageTk, Image
 from pandas import options
+import HromadneNacitani as hn
 
 
 root = Tk()
@@ -18,11 +19,12 @@ def selected(event):
 def comboclick(event):
     #myLabel = Label(root, text=myCombo.get()).pack()
     if myCombo.get() == 'Friday':
-        myLabel = Label(root, text="Yay Its Friday").pack()
+        myLabel = Label(root, text="Yay Its patek").pack()
     else:
         myLabel = Label(root, text=myCombo.get()).pack()
-            
-options = [
+
+options = hn.unikatni_indikator          
+options2 = [
     "Monday",
     "Tueseday",
     "Wednesday",

@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import Funkce
+import geopandas as gpd
 
 dtypes_nakladani = {
     'Navyseni_Ubytek': 'int'
@@ -167,11 +168,17 @@ Produkce_and_Prevzeti = Zdrojovy_kody_mnozstvi[(Zdrojovy_kody_mnozstvi['Indikato
 print(Produkce_and_Prevzeti.groupby('Indikator')['ZmenaMnozstvi'].agg([np.mean,np.median])) 
 
 
+# vytvořit seznam unikátních hodnot ze sloupce Indikator
+unikatni_indikator = list(Zdrojovy['Indikator'].unique())
+print('_________unikatni hodnoty___________')
+print(unikatni_indikator)
+
 import tkinter as tk
 
 def handle_selection(selection):
     """Funkce, která bude spuštěna při výběru položky v menu"""
-    print(f"Vybráno: {selection}")
+   # print(f"Vybráno: {selection}")
+    text_widget.insert("end",f"Vybráno: {selection}\n")
 
 # Vytvoření okna
 root = tk.Tk()
@@ -183,7 +190,7 @@ root.config(menu=menu)
 # Vytvoření položek v menu
 file_menu = tk.Menu(menu)
 menu.add_cascade(label="File", menu=file_menu)
-file_menu.add_command(label="New", command=lambda: handle_selection("New"))
+file_menu.add_command(label="New", command=lambda: handle_selection(Zdrojovy_kody_mnozstvi_group_nevyhov_0))
 file_menu.add_command(label="Open", command=lambda: handle_selection("Open"))
 file_menu.add_separator()
 file_menu.add_command(label="Exit", command=root.quit)
@@ -194,5 +201,17 @@ edit_menu.add_command(label="Cut", command=lambda: handle_selection("Cut"))
 edit_menu.add_command(label="Copy", command=lambda: handle_selection("Copy"))
 edit_menu.add_command(label="Paste", command=lambda: handle_selection("Paste"))
 
+# Vytvoření Text widget
+text_widget = tk.Text(root)
+text_widget.pack()
+
 # Spuštění hlavní smyčky
 root.mainloop()
+
+options3 = [
+    "Pondeli",
+    "Utery",
+    "Streda",
+    "Patek",
+    "Friday",
+] 
