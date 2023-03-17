@@ -171,12 +171,15 @@ print(Produkce_and_Prevzeti.groupby('Indikator')['ZmenaMnozstvi'].agg([np.mean,n
 # vytvořit seznam unikátních hodnot ze sloupce
 def unique_list(df,column_name):
     u_list = list(df[column_name].unique())
+    u_list.insert(0,'-all-') # přidá novou položku "-all-" na pozici 0
     print(f'_________unikatni hodnoty{column_name}___________')
     print(u_list)
     return u_list
 
 u_list_partner_kraj = unique_list(Zdrojovy,'Partner_Kraj')
 u_list_indikator = unique_list(Zdrojovy,'Indikator')
+u_list_evident = unique_list(Zdrojovy,'Evident')
+u_list_evident_typ = unique_list(Zdrojovy,'Evident_TypSubjektu')
 '''
 unikatni_indikator = list(Zdrojovy['Indikator'].unique())
 print('_________unikatni hodnoty___________')
