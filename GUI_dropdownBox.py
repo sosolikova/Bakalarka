@@ -5,6 +5,8 @@ import tkinter as tk
 from PIL import ImageTk, Image
 import matplotlib.pyplot as plt
 from pandas import options
+from ttkthemes import ThemedTk
+from ttkthemes import ThemedStyle
 import HromadneNacitani as hn
 
 # funkce pro výpočet grafu
@@ -29,6 +31,8 @@ def show_graph(indikator, partner_kraj):
 root = Tk()
 root.title('Data o odpadech')
 root.geometry("800x400")
+style = ThemedStyle(root)
+style.set_theme('elegance')
 
 # vytvoříme dvě hlavní části okna
 left_frame = Frame(root)
