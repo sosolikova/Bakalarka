@@ -30,7 +30,7 @@ def show_graph(indikator, partner_kraj):
 
 root = Tk()
 root.title('Data o odpadech')
-root.geometry("800x400")
+root.geometry("1000x800")
 style = ThemedStyle(root)
 style.set_theme('elegance')
 
@@ -107,6 +107,13 @@ def get_checkbox_values():
         values.append("Možnost 3")
     print(values)
 
+def on_button_click():
+    volba = indikator_combo.get()
+    if volba == "-all-":
+        funkce3()
+    else:
+        funkce1()
+
 def funkce1():
     vysledek = hn.summary_stat_parametr(hn.Zdrojovy_kody_mnozstvi,'Indikator',indikator_combo.get(),'ZmenaMnozstvi')
     text_widget.delete("1.0","end")
@@ -117,10 +124,13 @@ def funkce2():
     text_widget.delete("1.0","end")
     text_widget.insert("1.0", vysledek)
     
-
+def funkce3():
+    vysledek = hn.summary_stat(hn.Zdrojovy_kody_mnozstvi,'Indikator','ZmenaMnozstvi')
+    text_widget.delete("1.0","end")
+    text_widget.insert("1.0", vysledek)
 
 # tlačítko pro získání hodnot z checkboxů
-button1 = tk.Button(root, text="Tlačítko 1", command=funkce1)
+button1 = tk.Button(root, text="Tlačítko 1", command=on_button_click)
 button2 = tk.Button(root, text="Tlačítko 2", command=funkce2)
 button1.pack()
 button2.pack()

@@ -1,3 +1,4 @@
+import locale
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -172,9 +173,19 @@ def summary_stat_parametr(df,parametr,volba,column_summary):
     sort = df[(df[parametr] == volba)]
     #print(f'Průměr a medián pro parametr {parametr} = {volba}')
     #print(sort.groupby(parametr)[column_summary].agg([np.mean,np.median]))
-    return sort.groupby(parametr)[column_summary].agg([np.mean,np.median])
+    result = sort.groupby(parametr)[column_summary].agg([np.mean,np.median,np.min,np.max])
+    result = result.applymap(lambda x: round(x))
+    return result
+def summary_stat(df,parametr,column_summary):
+    result = df.groupby(parametr)[column_summary].agg([np.mean,np.median,np.min,np.max])
+    result = result.applymap(lambda x: round(x))
+    locale.setlocale(locale.LC_ALL, '')
+    result = result.applymap(lambda x: locale.format_string('%d', x, grouping=True))
+    print(result)
+    return result
 
 summary = summary_stat_parametr(Zdrojovy_kody_mnozstvi,'Indikator','Převzetí','ZmenaMnozstvi')
+
 
 # vytvořit seznam unikátních hodnot ze sloupce
 def unique_list(df,column_name):
