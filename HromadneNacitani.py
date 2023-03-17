@@ -172,8 +172,10 @@ def summary_stat_parametr(df,parametr,volba,column_summary):
     sort = df[(df[parametr] == volba)]
     print(f'Průměr a medián pro parametr {parametr} = {volba}')
     print(sort.groupby(parametr)[column_summary].agg([np.mean,np.median]))
+    return sort.groupby(parametr)[column_summary].agg([np.mean,np.median])
 
-summary_stat_parametr(Zdrojovy_kody_mnozstvi,'Indikator','Převzetí','ZmenaMnozstvi')
+summary = summary_stat_parametr(Zdrojovy_kody_mnozstvi,'Indikator','Převzetí','ZmenaMnozstvi')
+
 # vytvořit seznam unikátních hodnot ze sloupce
 def unique_list(df,column_name):
     u_list = list(df[column_name].unique())

@@ -1,3 +1,4 @@
+from cgitb import text
 from tkinter import *
 from tkinter import ttk
 import tkinter as tk
@@ -72,7 +73,8 @@ def calculate_and_show_graph():
     show_graph(indikator, partner_kraj)
 
 # vytvoříme tlačítko pro spuštění výpočtu grafu
-calculate_button = Button(left_frame, text="Spočítej", command=calculate_and_show_graph)
+#calculate_button = Button(left_frame, text="Spočítej", command=calculate_and_show_graph)
+calculate_button = Button(left_frame, text="Spočítej", command=hn.Zdrojovy_kody_mnozstvi_group_nevyhov_0)
 calculate_button.pack()
 
 # vytvoření proměnných pro každý checkbox
@@ -101,9 +103,22 @@ def get_checkbox_values():
         values.append("Možnost 3")
     print(values)
 
-# tlačítko pro získání hodnot z checkboxů
-button = tk.Button(root, text="Získat hodnoty", command=get_checkbox_values)
-button.pack()
+def funkce1():
+    vysledek = hn.summary_stat_parametr(hn.Zdrojovy_kody_mnozstvi,'Indikator',indikator_combo.get(),'ZmenaMnozstvi')
+    text_widget.insert("1.0", vysledek)
+def funkce2():
+    vysledek = hn.Zdrojovy_kody_mnozstvi_group_nevyhov_0
+    text_widget.insert("1.0", vysledek)
 
+
+# tlačítko pro získání hodnot z checkboxů
+button1 = tk.Button(root, text="Tlačítko 1", command=funkce1)
+button2 = tk.Button(root, text="Tlačítko 2", command=funkce2)
+button1.pack()
+button2.pack()
+
+# Vytvoření Text widget
+text_widget = tk.Text(root)
+text_widget.pack(side=tk.BOTTOM)
 
 root.mainloop()
