@@ -30,7 +30,7 @@ def show_graph(indikator, partner_kraj):
 
 root = Tk()
 root.title('Data o odpadech')
-root.geometry("1000x800")
+root.geometry("800x500")
 style = ThemedStyle(root)
 style.set_theme('elegance')
 
@@ -128,6 +128,14 @@ def funkce3():
     vysledek = hn.summary_stat(hn.Zdrojovy_kody_mnozstvi,'Indikator','ZmenaMnozstvi')
     text_widget.delete("1.0","end")
     text_widget.insert("1.0", vysledek)
+
+def graph():
+    indikator_select = hn.Zdrojovy_kody_mnozstvi[hn.Zdrojovy_kody_mnozstvi['Indikator'] == indikator_combo.get()]
+    indikator_select['ZmenaMnozstvi'].hist(bins=30)
+    plt.show()
+
+my_button = Button(root,text="Graph It!",command=graph)
+my_button.pack()
 
 # tlačítko pro získání hodnot z checkboxů
 button1 = tk.Button(root, text="Tlačítko 1", command=on_button_click)

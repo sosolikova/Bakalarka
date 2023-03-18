@@ -171,11 +171,12 @@ print(Produkce_and_Prevzeti.groupby('Indikator')['ZmenaMnozstvi'].agg([np.mean,n
 
 def summary_stat_parametr(df,parametr,volba,column_summary):
     sort = df[(df[parametr] == volba)]
-    #print(f'Průměr a medián pro parametr {parametr} = {volba}')
-    #print(sort.groupby(parametr)[column_summary].agg([np.mean,np.median]))
     result = sort.groupby(parametr)[column_summary].agg([np.mean,np.median,np.min,np.max])
     result = result.applymap(lambda x: round(x))
+    locale.setlocale(locale.LC_ALL, '')
+    result = result.applymap(lambda x: locale.format_string('%d', x, grouping=True))
     return result
+
 def summary_stat(df,parametr,column_summary):
     result = df.groupby(parametr)[column_summary].agg([np.mean,np.median,np.min,np.max])
     result = result.applymap(lambda x: round(x))
@@ -204,3 +205,8 @@ unikatni_indikator = list(Zdrojovy['Indikator'].unique())
 print('_________unikatni hodnoty___________')
 print(unikatni_indikator)
 '''
+indikator_select = Zdrojovy_kody_mnozstvi[Zdrojovy_kody_mnozstvi['Indikator'] == 'Převzetí']
+print('_____indikator select __________')
+print(indikator_select)
+indikator_select['ZmenaMnozstvi'].hist(bins=30)
+plt.show()
