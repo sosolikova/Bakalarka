@@ -11,6 +11,8 @@ from ttkthemes import ThemedStyle
 import HromadneNacitani as hn
 import Funkce as fc
 
+
+
 # funkce pro výpočet grafu
 def calculate_graph(indikator, partner_kraj):
     # zde by byl kód pro výpočet grafu na základě zadaných parametrů
@@ -83,31 +85,8 @@ def calculate_and_show_graph():
 calculate_button = Button(left_frame, text="Spočítej", command=hn.Zdrojovy_kody_mnozstvi_group_nevyhov_0)
 calculate_button.pack()
 
-# vytvoření proměnných pro každý checkbox
-var1 = tk.IntVar()
-var2 = tk.IntVar()
-var3 = tk.IntVar()
 
-# vytvoření checkboxů a nastavení proměnných
-c1 = tk.Checkbutton(root, text="Možnost 1", variable=var1)
-c2 = tk.Checkbutton(root, text="Možnost 2", variable=var2)
-c3 = tk.Checkbutton(root, text="Možnost 3", variable=var3)
 
-# umístění checkboxů na okno
-c1.pack()
-c2.pack()
-c3.pack()
-
-# získání hodnot z proměnných
-def get_checkbox_values():
-    values = []
-    if var1.get() == 1:
-        values.append("Možnost 1")
-    if var2.get() == 1:
-        values.append("Možnost 2")
-    if var3.get() == 1:
-        values.append("Možnost 3")
-    print(values)
     
 # Výběr složky pro načtení dat
 def browse_folder():
@@ -148,6 +127,18 @@ def graph():
 def save_to_csv():
     fc.save_dataframe_to_csv(hn.Zdrojovy_kody_mnozstvi_group_nevyhov_0,'Novy')
 
+# Funkce pro výběr souboru a otevření souboru
+def open_file():
+    filepath = filedialog.askopenfilename()
+    if filepath:
+        with open(filepath, "r", encoding="utf-8") as f:
+            file_contents = f.read()
+            text_widget.delete("1.0","end")
+            text_widget.insert("1.0", file_contents)
+
+button_open_file = tk.Button(root, text="Vybrat soubor", command=open_file)
+button_open_file.pack()
+
 my_button = Button(root,text="Graph It!",command=graph)
 my_button.pack()
 
@@ -159,8 +150,16 @@ button1.pack()
 button2.pack()
 button3.pack()
 
-# Vytvoření Text widget
+# Vytvoření Text widgetu a Scrollbaru
 text_widget = tk.Text(root)
-text_widget.pack(side=tk.BOTTOM)
+y_scrollbar = tk.Scrollbar(root, command=text_widget.yview)
+x_scrollbar = tk.Scrollbar(root, command=text_widget.xview, orient=tk.HORIZONTAL)
+
+# Připojení Scrollbaru k Text widgetu
+text_widget.config(xscrollcommand=x_scrollbar.set, yscrollcommand=y_scrollbar.set)
+y_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+x_scrollbar.pack(side=tk.BOTTOM, fill=tk.X)
+text_widget.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+
 
 root.mainloop()

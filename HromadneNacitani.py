@@ -36,7 +36,7 @@ def load_csv_type_conversion(filename, dtypes):
     df = pd.read_csv(filename, delimiter=';', decimal=',',dtype = dtypes)
     return df
 
-def load_files_to_df(directory,extension,dtypes,column_name):
+def load_files_to_df(directory,extension,dtypes,column_name,column_year):
     files = [file for file in os.listdir(directory) if file.endswith(extension)]
 
     df = pd.DataFrame()
@@ -46,11 +46,12 @@ def load_files_to_df(directory,extension,dtypes,column_name):
         data = pd.read_csv(filepath,delimiter=';', decimal=',', usecols = None, dtype=dtypes)
 
         filename = os.path.splitext(file)[0]
-        data[column_name] = filename
+        data[column_name] = filename.split("_")[0]
+        data[column_year] = filename.split("_")[1]
         df = df.append(data)
     return df
 
-Zdrojovy = load_files_to_df('Data','.csv',dtypes_odpady,'Druh_Odpadu')
+Zdrojovy = load_files_to_df('Data','.csv',dtypes_odpady,'Druh_Odpadu','Rok')
 print('________---sloucene soubory ----__________')
 print(Zdrojovy)
 Funkce.save_dataframe_to_csv(Zdrojovy,'Zdrojovy')
@@ -205,7 +206,7 @@ unikatni_indikator = list(Zdrojovy['Indikator'].unique())
 print('_________unikatni hodnoty___________')
 print(unikatni_indikator)
 '''
-indikator_select = Zdrojovy_kody_mnozstvi[Zdrojovy_kody_mnozstvi['Indikator'] == 'Převzetí']
+indikator_select = Zdrojovy_kody_mnozstvi[Zdrojovy_kody_mnozstvi['Kod'] == 'XD1']
 print('_____indikator select __________')
 print(indikator_select)
 indikator_select['ZmenaMnozstvi'].hist(bins=30)
