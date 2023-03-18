@@ -11,7 +11,11 @@ dtypes_nakladani = {
 }
 dtypes_zuj = {
     'ZUJ_Kod': 'string',
-    'ORP_Kod':  'string'
+    'ORP_Kod':  'string',
+    'ZUJ_Nazev': 'string',
+    'ORP_Nazev': 'string',
+    'Kraj_Kod': 'string',
+    'Kraj_Nazev': 'string'
 }
 dtypes_odpady= {
     'Evident':              'string',
@@ -48,7 +52,11 @@ def load_files_to_df(directory,extension,dtypes,column_name,column_year):
         filename = os.path.splitext(file)[0]
         data[column_name] = filename.split("_")[0]
         data[column_year] = filename.split("_")[1]
+
         df = df.append(data)
+        df[column_name] = df[column_name].astype(str)
+        df[column_year] = df[column_year].astype(str)
+
     return df
 
 Zdrojovy = load_files_to_df('Data','.csv',dtypes_odpady,'Druh_Odpadu','Rok')
@@ -81,14 +89,29 @@ je_soucet_nulovy(Zdrojovy)
 Kody = load_csv_type_conversion('Kod_Nakladani.csv',dtypes_nakladani)
 
 'Funkce pro spárování dvou DataFrame'
-def merge_left(df1, df2, on_columns):
-    merged_df = pd.merge(df1, df2, on=on_columns, how = 'left')
+def merge_left(df1, df2, column1, column2):
+    merged_df = pd.merge(df1, df2, left_on=column1,right_on=column2, how = 'left')
+    return merged_df
+#Funkce pro spárování dvou DataFrame se suffixes'
+def merge_left2(df1, df2, column1, column2,suffixes1,suffixes2):
+    merged_df = pd.merge(df1, df2, left_on=column1,right_on=column2, how = 'left',suffixes=(suffixes1,suffixes2))
     return merged_df
 
-Zdrojovy_Kody = merge_left(Zdrojovy,Kody,'Kod')
+Zdrojovy_Kody = merge_left(Zdrojovy,Kody,'Kod','Kod')
 Funkce.save_dataframe_to_csv(Zdrojovy_Kody,'Zdrojovy_Kody')
 print('______-------Zdrojovy_Kody----______')
 Zdrojovy_Kody.info()
+
+ZUJ_ORP = load_csv_type_conversion('ZUJ_ORP.csv',dtypes_zuj)
+Zdrojovy_Kody_ORP_Evident = merge_left2(Zdrojovy,ZUJ_ORP,'Evident','ZUJ_Kod','Zdroj','Evident')
+Funkce.save_dataframe_to_csv(Zdrojovy_Kody_ORP_Evident,'Zdrojovy_Kody_ORP_Evident')
+print('_____--zdrojovy-ZUJ-ORP-Evident_________-')
+Zdrojovy_Kody_ORP_Evident.info()
+
+Zdrojovy_Kody_ORP_Partner = merge_left2(Zdrojovy_Kody_ORP_Evident,ZUJ_ORP,'Partner','ZUJ_Kod','_Evident','_Partner')
+Funkce.save_dataframe_to_csv(Zdrojovy_Kody_ORP_Partner,'Zdrojovy_Kody_ORP_Partner')
+print('_____--zdrojovy-ZUJ-ORP-Partner_________-')
+Zdrojovy_Kody_ORP_Partner.info()
 
 'Kontrola sparovani radku'
 def check_match (dataframe,column):

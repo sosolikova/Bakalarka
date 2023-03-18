@@ -25,7 +25,7 @@ dtypes_odpady = {
 'Funkce pro načtení dat z CSV do DataFrame'
 def load_csv_type_conversion(filename, dtypes):
     df = pd.read_csv(filename, delimiter=';', decimal=',')
-
+    
     for column, dtype in dtypes.items():
         if column in df.columns:
           df[column].astype(dtype)
