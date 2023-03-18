@@ -112,7 +112,8 @@ def get_checkbox_values():
 # Výběr složky pro načtení dat
 def browse_folder():
     folder_path = filedialog.askdirectory()
-    print("Vybraná složka: ", folder_path)
+    text_widget.delete("1.0","end")
+    text_widget.insert("1.0","Vybraná složka:\n" + folder_path)
 
 browse_button = tk.Button(text="Vybrat složku", command=browse_folder)
 browse_button.pack()
