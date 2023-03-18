@@ -2,6 +2,7 @@ from cgitb import text
 from tkinter import *
 from tkinter import ttk
 import tkinter as tk
+from tkinter import filedialog
 from PIL import ImageTk, Image
 import matplotlib.pyplot as plt
 from pandas import options
@@ -107,6 +108,14 @@ def get_checkbox_values():
     if var3.get() == 1:
         values.append("Možnost 3")
     print(values)
+    
+# Výběr složky pro načtení dat
+def browse_folder():
+    folder_path = filedialog.askdirectory()
+    print("Vybraná složka: ", folder_path)
+
+browse_button = tk.Button(text="Vybrat složku", command=browse_folder)
+browse_button.pack()
 
 def on_button_click():
     volba = indikator_combo.get()
