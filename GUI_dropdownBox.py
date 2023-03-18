@@ -8,6 +8,7 @@ from pandas import options
 from ttkthemes import ThemedTk
 from ttkthemes import ThemedStyle
 import HromadneNacitani as hn
+import Funkce as fc
 
 # funkce pro výpočet grafu
 def calculate_graph(indikator, partner_kraj):
@@ -134,14 +135,19 @@ def graph():
     indikator_select['ZmenaMnozstvi'].hist(bins=30)
     plt.show()
 
+def save_to_csv():
+    fc.save_dataframe_to_csv(hn.Zdrojovy_kody_mnozstvi_group_nevyhov_0,'Novy')
+
 my_button = Button(root,text="Graph It!",command=graph)
 my_button.pack()
 
 # tlačítko pro získání hodnot z checkboxů
 button1 = tk.Button(root, text="Tlačítko 1", command=on_button_click)
 button2 = tk.Button(root, text="Tlačítko 2", command=funkce2)
+button3 = tk.Button(root, text="Uložit CSV", command=save_to_csv)
 button1.pack()
 button2.pack()
+button3.pack()
 
 # Vytvoření Text widget
 text_widget = tk.Text(root)
