@@ -1,248 +1,248 @@
 Druh_Odpadu,Indikator,Evident_Kraj,ZmenaMnozstvi
 200110,Energeticky,Hlavní město Praha,-24080.0
-200110,Energeticky,Jihomoravský,-66740.0
-200110,Energeticky,Liberecký,-540.0
-200110,Energeticky,Moravskoslezský,-37134.6
-200110,Energeticky,Plzeňský,-4640.0
-200110,Energeticky,Středočeský,-1140.0
-200110,Import,Jihomoravský,524134.0
-200110,Import,Plzeňský,3728063.8174199997
-200110,Jiné uložení,Moravskoslezský,-11284.0
-200110,Materiálově,Jihomoravský,-15358711.03
-200110,Materiálově,Jihočeský,-10570.0
-200110,Materiálově,Karlovarský,-352695.0
-200110,Materiálově,Královehradecký,-803.0
-200110,Materiálově,Liberecký,-5131706.600000001
-200110,Materiálově,Moravskoslezský,-27100.0
-200110,Materiálově,Pardubický,-84040.0
-200110,Materiálově,Plzeňský,-3850164.0
-200110,Materiálově,Středočeský,-6754.0
-200110,Materiálově,Vysočina,-296.651685
-200110,Materiálově,Zlínský,-10407.0
-200110,Materiálově,Ústecký,-15030.0
+200110,Energeticky,Jihomoravský kraj,-66740.0
+200110,Energeticky,Liberecký kraj,-540.0
+200110,Energeticky,Moravskoslezský kraj,-37134.6
+200110,Energeticky,Plzeňský kraj,-4640.0
+200110,Energeticky,Středočeský kraj,-1140.0
+200110,Import,Jihomoravský kraj,524134.0
+200110,Import,Plzeňský kraj,3728063.8174199997
+200110,Jiné uložení,Moravskoslezský kraj,-11284.0
+200110,Materiálově,Jihomoravský kraj,-15358711.03
+200110,Materiálově,Jihočeský kraj,-10570.0
+200110,Materiálově,Karlovarský kraj,-352695.0
+200110,Materiálově,Královehradecký kraj,-803.0
+200110,Materiálově,Liberecký kraj,-5131706.600000001
+200110,Materiálově,Moravskoslezský kraj,-27100.0
+200110,Materiálově,Pardubický kraj,-84040.0
+200110,Materiálově,Plzeňský kraj,-3850164.0
+200110,Materiálově,Středočeský kraj,-6754.0
+200110,Materiálově,Vysočina kraj,-296.651685
+200110,Materiálově,Zlínský kraj,-10407.0
+200110,Materiálově,Ústecký kraj,-15030.0
 200110,Naskladnění,Hlavní město Praha,-930.0
-200110,Naskladnění,Jihomoravský,-7954.767941
-200110,Naskladnění,Jihočeský,-2286.0
-200110,Naskladnění,Karlovarský,-54674.0
-200110,Naskladnění,Královehradecký,-1891.0
-200110,Naskladnění,Liberecký,-613.0
-200110,Naskladnění,Moravskoslezský,-12563.4
-200110,Naskladnění,Olomoucký,-20057.74
-200110,Naskladnění,Pardubický,-5205.0
-200110,Naskladnění,Plzeňský,-2753.0
-200110,Naskladnění,Středočeský,-1936.0
-200110,Naskladnění,Vysočina,-5740.348315
-200110,Naskladnění,Zlínský,-1409.1100000000001
-200110,Naskladnění,Ústecký,-160.5
+200110,Naskladnění,Jihomoravský kraj,-7954.767941
+200110,Naskladnění,Jihočeský kraj,-2286.0
+200110,Naskladnění,Karlovarský kraj,-54674.0
+200110,Naskladnění,Královehradecký kraj,-1891.0
+200110,Naskladnění,Liberecký kraj,-613.0
+200110,Naskladnění,Moravskoslezský kraj,-12563.4
+200110,Naskladnění,Olomoucký kraj,-20057.74
+200110,Naskladnění,Pardubický kraj,-5205.0
+200110,Naskladnění,Plzeňský kraj,-2753.0
+200110,Naskladnění,Středočeský kraj,-1936.0
+200110,Naskladnění,Vysočina kraj,-5740.348315
+200110,Naskladnění,Zlínský kraj,-1409.1100000000001
+200110,Naskladnění,Ústecký kraj,-160.5
 200110,Produkce,Hlavní město Praha,115637.1
-200110,Produkce,Jihomoravský,9297553.7
-200110,Produkce,Jihočeský,806937.2999999999
-200110,Produkce,Karlovarský,298286.0
-200110,Produkce,Královehradecký,1294880.5
-200110,Produkce,Liberecký,2077965.5
-200110,Produkce,Moravskoslezský,1130245.7
-200110,Produkce,Olomoucký,1359976.5
-200110,Produkce,Pardubický,925109.0
-200110,Produkce,Plzeňský,814207.9828819999
-200110,Produkce,Středočeský,1547985.9
-200110,Produkce,Vysočina,969867.823567
-200110,Produkce,Zlínský,677318.0
-200110,Produkce,Ústecký,207688.5
-200110,Produkce ostatní,Vysočina,1.149813
-200110,Produkce ostatní,Zlínský,120.0
+200110,Produkce,Jihomoravský kraj,9297553.7
+200110,Produkce,Jihočeský kraj,806937.2999999999
+200110,Produkce,Karlovarský kraj,298286.0
+200110,Produkce,Královehradecký kraj,1294880.5
+200110,Produkce,Liberecký kraj,2077965.5
+200110,Produkce,Moravskoslezský kraj,1130245.7
+200110,Produkce,Olomoucký kraj,1359976.5
+200110,Produkce,Pardubický kraj,925109.0
+200110,Produkce,Plzeňský kraj,814207.9828819999
+200110,Produkce,Středočeský kraj,1547985.9
+200110,Produkce,Vysočina kraj,969867.823567
+200110,Produkce,Zlínský kraj,677318.0
+200110,Produkce,Ústecký kraj,207688.5
+200110,Produkce ostatní,Vysočina kraj,1.149813
+200110,Produkce ostatní,Zlínský kraj,120.0
 200110,Předání,Hlavní město Praha,-1161514.603
-200110,Předání,Jihomoravský,-1362182.7
-200110,Předání,Jihočeský,-1169209.0
-200110,Předání,Karlovarský,-304339.0
-200110,Předání,Královehradecký,-1672777.5
-200110,Předání,Liberecký,-309302.0
-200110,Předání,Moravskoslezský,-1171129.3
-200110,Předání,Olomoucký,-1362676.0
-200110,Předání,Pardubický,-1005047.0
-200110,Předání,Plzeňský,-835465.8
-200110,Předání,Středočeský,-1764288.2
-200110,Předání,Vysočina,-1069949.4
-200110,Předání,Zlínský,-689069.49
-200110,Předání,Ústecký,-215908.5
+200110,Předání,Jihomoravský kraj,-1362182.7
+200110,Předání,Jihočeský kraj,-1169209.0
+200110,Předání,Karlovarský kraj,-304339.0
+200110,Předání,Královehradecký kraj,-1672777.5
+200110,Předání,Liberecký kraj,-309302.0
+200110,Předání,Moravskoslezský kraj,-1171129.3
+200110,Předání,Olomoucký kraj,-1362676.0
+200110,Předání,Pardubický kraj,-1005047.0
+200110,Předání,Plzeňský kraj,-835465.8
+200110,Předání,Středočeský kraj,-1764288.2
+200110,Předání,Vysočina kraj,-1069949.4
+200110,Předání,Zlínský kraj,-689069.49
+200110,Předání,Ústecký kraj,-215908.5
 200110,Převzetí,Hlavní město Praha,1060571.4
-200110,Převzetí,Jihomoravský,6943976.8
-200110,Převzetí,Jihočeský,327841.7
-200110,Převzetí,Karlovarský,407508.0
-200110,Převzetí,Královehradecký,927139.0
-200110,Převzetí,Liberecký,3364168.1
-200110,Převzetí,Moravskoslezský,179759.2
-200110,Převzetí,Olomoucký,25128.489999999998
-200110,Převzetí,Pardubický,167692.0
-200110,Převzetí,Plzeňský,153739.0
-200110,Převzetí,Středočeský,295127.3
-200110,Převzetí,Vysočina,100134.5
-200110,Převzetí,Zlínský,22464.503
-200110,Převzetí,Ústecký,117608.5
-200110,Skládkování,Jihočeský,-5493.0
-200110,Skládkování,Královehradecký,-495668.0
-200110,Skládkování,Moravskoslezský,-59530.0
-200110,Skládkování,Olomoucký,-12520.5
-200110,Skládkování,Pardubický,-3325.0
-200110,Skládkování,Plzeňský,-4840.0
-200110,Skládkování,Středočeský,-600.0
-200110,Skládkování,Ústecký,-11930.0
-200110,Spalování,Jihočeský,-95.0
-200110,Spalování,Liberecký,-85.0
-200110,Spalování,Moravskoslezský,-256.0
-200110,Spalování,Olomoucký,-462.0
-200110,Spalování,Plzeňský,-1081.0
-200110,Spalování,Středočeský,-64354.0
-200110,Spalování,Vysočina,-15.0
-200110,Spalování,Zlínský,-170.0
-200110,Spalování,Ústecký,-3800.0
+200110,Převzetí,Jihomoravský kraj,6943976.8
+200110,Převzetí,Jihočeský kraj,327841.7
+200110,Převzetí,Karlovarský kraj,407508.0
+200110,Převzetí,Královehradecký kraj,927139.0
+200110,Převzetí,Liberecký kraj,3364168.1
+200110,Převzetí,Moravskoslezský kraj,179759.2
+200110,Převzetí,Olomoucký kraj,25128.489999999998
+200110,Převzetí,Pardubický kraj,167692.0
+200110,Převzetí,Plzeňský kraj,153739.0
+200110,Převzetí,Středočeský kraj,295127.3
+200110,Převzetí,Vysočina kraj,100134.5
+200110,Převzetí,Zlínský kraj,22464.503
+200110,Převzetí,Ústecký kraj,117608.5
+200110,Skládkování,Jihočeský kraj,-5493.0
+200110,Skládkování,Královehradecký kraj,-495668.0
+200110,Skládkování,Moravskoslezský kraj,-59530.0
+200110,Skládkování,Olomoucký kraj,-12520.5
+200110,Skládkování,Pardubický kraj,-3325.0
+200110,Skládkování,Plzeňský kraj,-4840.0
+200110,Skládkování,Středočeský kraj,-600.0
+200110,Skládkování,Ústecký kraj,-11930.0
+200110,Spalování,Jihočeský kraj,-95.0
+200110,Spalování,Liberecký kraj,-85.0
+200110,Spalování,Moravskoslezský kraj,-256.0
+200110,Spalování,Olomoucký kraj,-462.0
+200110,Spalování,Plzeňský kraj,-1081.0
+200110,Spalování,Středočeský kraj,-64354.0
+200110,Spalování,Vysočina kraj,-15.0
+200110,Spalování,Zlínský kraj,-170.0
+200110,Spalování,Ústecký kraj,-3800.0
 200110,Vyskladnění,Hlavní město Praha,10321.1
-200110,Vyskladnění,Jihomoravský,29924.0
-200110,Vyskladnění,Jihočeský,52874.0
-200110,Vyskladnění,Karlovarský,5914.0
-200110,Vyskladnění,Královehradecký,1530.0
-200110,Vyskladnění,Liberecký,113.0
-200110,Vyskladnění,Moravskoslezský,8992.4
-200110,Vyskladnění,Olomoucký,20396.25
-200110,Vyskladnění,Pardubický,4816.0
-200110,Vyskladnění,Plzeňský,2933.0
-200110,Vyskladnění,Středočeský,615.0
-200110,Vyskladnění,Vysočina,5998.076433
-200110,Vyskladnění,Zlínský,1174.1
-200110,Vyskladnění,Ústecký,1.0
+200110,Vyskladnění,Jihomoravský kraj,29924.0
+200110,Vyskladnění,Jihočeský kraj,52874.0
+200110,Vyskladnění,Karlovarský kraj,5914.0
+200110,Vyskladnění,Královehradecký kraj,1530.0
+200110,Vyskladnění,Liberecký kraj,113.0
+200110,Vyskladnění,Moravskoslezský kraj,8992.4
+200110,Vyskladnění,Olomoucký kraj,20396.25
+200110,Vyskladnění,Pardubický kraj,4816.0
+200110,Vyskladnění,Plzeňský kraj,2933.0
+200110,Vyskladnění,Středočeský kraj,615.0
+200110,Vyskladnění,Vysočina kraj,5998.076433
+200110,Vyskladnění,Zlínský kraj,1174.1
+200110,Vyskladnění,Ústecký kraj,1.0
 200110,Zpracování ostatní,Hlavní město Praha,-5.0
-200110,Zpracování ostatní,Královehradecký,-52410.0
-200110,Zpracování ostatní,Olomoucký,-9785.0
-200110,Zpracování ostatní,Středočeský,-4656.0
-200110,Zpracování ostatní,Zlínský,-21.0
-200110,Zpracování ostatní,Ústecký,-78469.0
+200110,Zpracování ostatní,Královehradecký kraj,-52410.0
+200110,Zpracování ostatní,Olomoucký kraj,-9785.0
+200110,Zpracování ostatní,Středočeský kraj,-4656.0
+200110,Zpracování ostatní,Zlínský kraj,-21.0
+200110,Zpracování ostatní,Ústecký kraj,-78469.0
 200111,Energeticky,Hlavní město Praha,-54000.0
-200111,Energeticky,Jihomoravský,-174523.0
-200111,Energeticky,Liberecký,-75290.0
-200111,Energeticky,Moravskoslezský,-2130.0
-200111,Energeticky,Plzeňský,-30130.0
-200111,Energeticky,Středočeský,-66540.0
-200111,Export,Liberecký,-13974051.344
+200111,Energeticky,Jihomoravský kraj,-174523.0
+200111,Energeticky,Liberecký kraj,-75290.0
+200111,Energeticky,Moravskoslezský kraj,-2130.0
+200111,Energeticky,Plzeňský kraj,-30130.0
+200111,Energeticky,Středočeský kraj,-66540.0
+200111,Export,Liberecký kraj,-13974051.344
 200111,Import,Hlavní město Praha,470.0
-200111,Import,Jihočeský,134120.0
-200111,Import,Karlovarský,2834605.9930000002
-200111,Import,Liberecký,1938206.5
-200111,Import,Pardubický,979943.9207
-200111,Import,Plzeňský,94759.0
-200111,Import,Ústecký,546764.0
-200111,Jiné uložení,Jihomoravský,-40.0
-200111,Jiné uložení,Královehradecký,-10610.0
+200111,Import,Jihočeský kraj,134120.0
+200111,Import,Karlovarský kraj,2834605.9930000002
+200111,Import,Liberecký kraj,1938206.5
+200111,Import,Pardubický kraj,979943.9207
+200111,Import,Plzeňský kraj,94759.0
+200111,Import,Ústecký kraj,546764.0
+200111,Jiné uložení,Jihomoravský kraj,-40.0
+200111,Jiné uložení,Královehradecký kraj,-10610.0
 200111,Materiálově,Hlavní město Praha,-2000.0
-200111,Materiálově,Jihomoravský,-58889.898259999994
-200111,Materiálově,Jihočeský,-380076.0
-200111,Materiálově,Karlovarský,-3365897.0
-200111,Materiálově,Královehradecký,-2526.0
-200111,Materiálově,Liberecký,-492592.2796
-200111,Materiálově,Moravskoslezský,-1565.0
-200111,Materiálově,Olomoucký,-2908.0
-200111,Materiálově,Pardubický,-1886332.0
-200111,Materiálově,Plzeňský,-231865.0
-200111,Materiálově,Středočeský,-19836.0
-200111,Materiálově,Zlínský,-23432.0
-200111,Materiálově,Ústecký,-3290052.72844
+200111,Materiálově,Jihomoravský kraj,-58889.898259999994
+200111,Materiálově,Jihočeský kraj,-380076.0
+200111,Materiálově,Karlovarský kraj,-3365897.0
+200111,Materiálově,Královehradecký kraj,-2526.0
+200111,Materiálově,Liberecký kraj,-492592.2796
+200111,Materiálově,Moravskoslezský kraj,-1565.0
+200111,Materiálově,Olomoucký kraj,-2908.0
+200111,Materiálově,Pardubický kraj,-1886332.0
+200111,Materiálově,Plzeňský kraj,-231865.0
+200111,Materiálově,Středočeský kraj,-19836.0
+200111,Materiálově,Zlínský kraj,-23432.0
+200111,Materiálově,Ústecký kraj,-3290052.72844
 200111,Naskladnění,Hlavní město Praha,-3260.0
-200111,Naskladnění,Jihomoravský,-35748.26174
-200111,Naskladnění,Jihočeský,-14833.0
-200111,Naskladnění,Karlovarský,-63005.0
-200111,Naskladnění,Královehradecký,-2429.0
-200111,Naskladnění,Liberecký,-250224.236
-200111,Naskladnění,Moravskoslezský,-928.0
-200111,Naskladnění,Olomoucký,-97549.20000000001
-200111,Naskladnění,Pardubický,-17094.28
-200111,Naskladnění,Plzeňský,-24661.0
-200111,Naskladnění,Středočeský,-276768.1355
-200111,Naskladnění,Vysočina,-6890.0
-200111,Naskladnění,Zlínský,-6918.0
-200111,Naskladnění,Ústecký,-177049.271757
+200111,Naskladnění,Jihomoravský kraj,-35748.26174
+200111,Naskladnění,Jihočeský kraj,-14833.0
+200111,Naskladnění,Karlovarský kraj,-63005.0
+200111,Naskladnění,Královehradecký kraj,-2429.0
+200111,Naskladnění,Liberecký kraj,-250224.236
+200111,Naskladnění,Moravskoslezský kraj,-928.0
+200111,Naskladnění,Olomoucký kraj,-97549.20000000001
+200111,Naskladnění,Pardubický kraj,-17094.28
+200111,Naskladnění,Plzeňský kraj,-24661.0
+200111,Naskladnění,Středočeský kraj,-276768.1355
+200111,Naskladnění,Vysočina kraj,-6890.0
+200111,Naskladnění,Zlínský kraj,-6918.0
+200111,Naskladnění,Ústecký kraj,-177049.271757
 200111,Produkce,Hlavní město Praha,39310.0
-200111,Produkce,Jihomoravský,300629.218755
-200111,Produkce,Jihočeský,990706.640663
-200111,Produkce,Karlovarský,381105.0
-200111,Produkce,Královehradecký,2011074.0942000002
-200111,Produkce,Liberecký,10400415.914
-200111,Produkce,Moravskoslezský,128869.89319100001
-200111,Produkce,Olomoucký,795347.5
-200111,Produkce,Pardubický,212699.900382
-200111,Produkce,Plzeňský,695626.094
-200111,Produkce,Středočeský,1654513.85193
-200111,Produkce,Vysočina,85325.0
-200111,Produkce,Zlínský,308108.66224
-200111,Produkce,Ústecký,1473027.8
-200111,Produkce ostatní,Pardubický,855640.0793
-200111,Produkce ostatní,Plzeňský,600.0
-200111,Produkce ostatní,Zlínský,150.0
+200111,Produkce,Jihomoravský kraj,300629.218755
+200111,Produkce,Jihočeský kraj,990706.640663
+200111,Produkce,Karlovarský kraj,381105.0
+200111,Produkce,Královehradecký kraj,2011074.0942000002
+200111,Produkce,Liberecký kraj,10400415.914
+200111,Produkce,Moravskoslezský kraj,128869.89319100001
+200111,Produkce,Olomoucký kraj,795347.5
+200111,Produkce,Pardubický kraj,212699.900382
+200111,Produkce,Plzeňský kraj,695626.094
+200111,Produkce,Středočeský kraj,1654513.85193
+200111,Produkce,Vysočina kraj,85325.0
+200111,Produkce,Zlínský kraj,308108.66224
+200111,Produkce,Ústecký kraj,1473027.8
+200111,Produkce ostatní,Pardubický kraj,855640.0793
+200111,Produkce ostatní,Plzeňský kraj,600.0
+200111,Produkce ostatní,Zlínský kraj,150.0
 200111,Předání,Hlavní město Praha,-516564.0
-200111,Předání,Jihomoravský,-404828.0
-200111,Předání,Jihočeský,-1998487.4340000001
-200111,Předání,Karlovarský,-410685.0
-200111,Předání,Královehradecký,-2271127.1
-200111,Předání,Liberecký,-1110679.8
-200111,Předání,Moravskoslezský,-236469.0
-200111,Předání,Olomoucký,-1161103.0
-200111,Předání,Pardubický,-289280.0
-200111,Předání,Plzeňský,-1123382.09
-200111,Předání,Středočeský,-2052432.317
-200111,Předání,Vysočina,-110628.0
-200111,Předání,Zlínský,-356789.52
-200111,Předání,Ústecký,-1568682.55
+200111,Předání,Jihomoravský kraj,-404828.0
+200111,Předání,Jihočeský kraj,-1998487.4340000001
+200111,Předání,Karlovarský kraj,-410685.0
+200111,Předání,Královehradecký kraj,-2271127.1
+200111,Předání,Liberecký kraj,-1110679.8
+200111,Předání,Moravskoslezský kraj,-236469.0
+200111,Předání,Olomoucký kraj,-1161103.0
+200111,Předání,Pardubický kraj,-289280.0
+200111,Předání,Plzeňský kraj,-1123382.09
+200111,Předání,Středočeský kraj,-2052432.317
+200111,Předání,Vysočina kraj,-110628.0
+200111,Předání,Zlínský kraj,-356789.52
+200111,Předání,Ústecký kraj,-1568682.55
 200111,Převzetí,Hlavní město Praha,530065.0
-200111,Převzetí,Jihomoravský,373040.0
-200111,Převzetí,Jihočeský,1529914.0
-200111,Převzetí,Karlovarský,654656.0
-200111,Převzetí,Královehradecký,1232961.0
-200111,Převzetí,Liberecký,3375126.241
-200111,Převzetí,Moravskoslezský,217813.0
-200111,Převzetí,Olomoucký,1031502.0
-200111,Převzetí,Pardubický,242812.0
-200111,Převzetí,Plzeňský,632814.0
-200111,Převzetí,Středočeský,755781.5
-200111,Převzetí,Vysočina,28472.0
-200111,Převzetí,Zlínský,113240.52
-200111,Převzetí,Ústecký,2892940.55
-200111,Skládkování,Jihomoravský,-9590.0
-200111,Skládkování,Jihočeský,-282324.0
-200111,Skládkování,Karlovarský,-33200.0
-200111,Skládkování,Královehradecký,-961433.0
-200111,Skládkování,Liberecký,-15451.0
-200111,Skládkování,Moravskoslezský,-106108.0
-200111,Skládkování,Olomoucký,-655763.0
-200111,Skládkování,Pardubický,-94721.0
-200111,Skládkování,Plzeňský,-47460.0
-200111,Skládkování,Středočeský,-138989.664454
-200111,Skládkování,Zlínský,-33370.0
-200111,Skládkování,Ústecký,-173959.0
-200111,Spalování,Jihočeský,-211.0
-200111,Spalování,Moravskoslezský,-40.0
-200111,Spalování,Olomoucký,-14.0
-200111,Spalování,Plzeňský,-25.0
-200111,Spalování,Středočeský,-5579.0
-200111,Spalování,Vysočina,-431.0
-200111,Spalování,Zlínský,-4802.52
-200111,Spalování,Ústecký,-1088.0
+200111,Převzetí,Jihomoravský kraj,373040.0
+200111,Převzetí,Jihočeský kraj,1529914.0
+200111,Převzetí,Karlovarský kraj,654656.0
+200111,Převzetí,Královehradecký kraj,1232961.0
+200111,Převzetí,Liberecký kraj,3375126.241
+200111,Převzetí,Moravskoslezský kraj,217813.0
+200111,Převzetí,Olomoucký kraj,1031502.0
+200111,Převzetí,Pardubický kraj,242812.0
+200111,Převzetí,Plzeňský kraj,632814.0
+200111,Převzetí,Středočeský kraj,755781.5
+200111,Převzetí,Vysočina kraj,28472.0
+200111,Převzetí,Zlínský kraj,113240.52
+200111,Převzetí,Ústecký kraj,2892940.55
+200111,Skládkování,Jihomoravský kraj,-9590.0
+200111,Skládkování,Jihočeský kraj,-282324.0
+200111,Skládkování,Karlovarský kraj,-33200.0
+200111,Skládkování,Královehradecký kraj,-961433.0
+200111,Skládkování,Liberecký kraj,-15451.0
+200111,Skládkování,Moravskoslezský kraj,-106108.0
+200111,Skládkování,Olomoucký kraj,-655763.0
+200111,Skládkování,Pardubický kraj,-94721.0
+200111,Skládkování,Plzeňský kraj,-47460.0
+200111,Skládkování,Středočeský kraj,-138989.664454
+200111,Skládkování,Zlínský kraj,-33370.0
+200111,Skládkování,Ústecký kraj,-173959.0
+200111,Spalování,Jihočeský kraj,-211.0
+200111,Spalování,Moravskoslezský kraj,-40.0
+200111,Spalování,Olomoucký kraj,-14.0
+200111,Spalování,Plzeňský kraj,-25.0
+200111,Spalování,Středočeský kraj,-5579.0
+200111,Spalování,Vysočina kraj,-431.0
+200111,Spalování,Zlínský kraj,-4802.52
+200111,Spalování,Ústecký kraj,-1088.0
 200111,Vyskladnění,Hlavní město Praha,5979.0
-200111,Vyskladnění,Jihomoravský,22369.141249
-200111,Vyskladnění,Jihočeský,21261.289337
-200111,Vyskladnění,Karlovarský,2420.007435
-200111,Vyskladnění,Královehradecký,6987.005809
-200111,Vyskladnění,Liberecký,206580.0
-200111,Vyskladnění,Moravskoslezský,557.106806
-200111,Vyskladnění,Olomoucký,97137.7
-200111,Vyskladnění,Pardubický,17940.379575
-200111,Vyskladnění,Plzeňský,33724.0
-200111,Vyskladnění,Středočeský,150159.74
-200111,Vyskladnění,Vysočina,4152.0
-200111,Vyskladnění,Zlínský,3817.85776
-200111,Vyskladnění,Ústecký,301600.75
-200111,Zpracování ostatní,Jihomoravský,-12419.2
-200111,Zpracování ostatní,Jihočeský,-70.5
-200111,Zpracování ostatní,Královehradecký,-2897.0
-200111,Zpracování ostatní,Liberecký,-2040.0
-200111,Zpracování ostatní,Olomoucký,-6650.0
-200111,Zpracování ostatní,Pardubický,-21609.0
-200111,Zpracování ostatní,Středočeský,-310.0
-200111,Zpracování ostatní,Zlínský,-5.0
-200111,Zpracování ostatní,Ústecký,-3501.55
+200111,Vyskladnění,Jihomoravský kraj,22369.141249
+200111,Vyskladnění,Jihočeský kraj,21261.289337
+200111,Vyskladnění,Karlovarský kraj,2420.007435
+200111,Vyskladnění,Královehradecký kraj,6987.005809
+200111,Vyskladnění,Liberecký kraj,206580.0
+200111,Vyskladnění,Moravskoslezský kraj,557.106806
+200111,Vyskladnění,Olomoucký kraj,97137.7
+200111,Vyskladnění,Pardubický kraj,17940.379575
+200111,Vyskladnění,Plzeňský kraj,33724.0
+200111,Vyskladnění,Středočeský kraj,150159.74
+200111,Vyskladnění,Vysočina kraj,4152.0
+200111,Vyskladnění,Zlínský kraj,3817.85776
+200111,Vyskladnění,Ústecký kraj,301600.75
+200111,Zpracování ostatní,Jihomoravský kraj,-12419.2
+200111,Zpracování ostatní,Jihočeský kraj,-70.5
+200111,Zpracování ostatní,Královehradecký kraj,-2897.0
+200111,Zpracování ostatní,Liberecký kraj,-2040.0
+200111,Zpracování ostatní,Olomoucký kraj,-6650.0
+200111,Zpracování ostatní,Pardubický kraj,-21609.0
+200111,Zpracování ostatní,Středočeský kraj,-310.0
+200111,Zpracování ostatní,Zlínský kraj,-5.0
+200111,Zpracování ostatní,Ústecký kraj,-3501.55
