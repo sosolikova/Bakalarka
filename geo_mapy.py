@@ -5,24 +5,23 @@ import folium
 import chardet
 import HromadneNacitani as hn
 
-#gdf = gpd.read_file('kraje-simple.json')
-#gdf = gpd.read_file('kraje-simple.json', encoding='utf-8')
-with open("kraje-simple.json", "r", encoding="utf-8") as f:
-    gdf = json.load(f)
+# ziskani df s vyfiltrovanými údaji pro Indikator 'Produkce' a použita funkce sum za jednotlivé kraje
+indikator_map = hn.Zdrojovy_kody_mnozstvi[(hn.Zdrojovy_kody_mnozstvi['Indikator'] == 'Produkce') & (hn.Zdrojovy_kody_mnozstvi['Druh_Odpadu'] == '200111')]
+kraje_produkce = hn.group_data_by_columns(indikator_map,'ZmenaMnozstvi','Evident_Kraj','Indikator')
+print('___----indikator-map - kraje_produkce ___________')
+print(kraje_produkce.head)
 
-'''
-with open('kraje-simple.json') as f:
-    gdf = json.load(f)
-gdf.head()
-'''
+
+gdf_kraje = gpd.read_file('kraje-simple.json', encoding='utf-8')
+
 # vytvoření prázdné mapy
 m = folium.Map(location=[49.8, 15.6], zoom_start=7)
 
 # přidání vrstvy pro zobrazení dat z dataframe
 folium.Choropleth(
-    geo_data='kraje-simple.json',
+    geo_data=gdf_kraje,
     name='choropleth',
-    data=hn.Zdrojovy_kody_mnozstvi,
+    data=kraje_produkce,
     columns=['Evident_Kraj', 'ZmenaMnozstvi'],
     key_on='feature.properties.NAZEV',
     fill_color='YlGn',
