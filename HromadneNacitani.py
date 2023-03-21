@@ -166,18 +166,7 @@ equal_rows, non_equal_rows = count_rows(Zdrojovy_kody_mnozstvi_group, 'ZmenaMnoz
 print(f"Počet ZUJ, které mají roční zúčtování rovno nule: {equal_rows}")
 print(f"Počet ZUJ, které roční zúčtování nemají vyrovnané: {non_equal_rows}")
 
-'Funkce pro kontrolu, ze u kazde ZUJ vyjde bilance <-1 nebo >1'
-def filter_sum_after_grouping(grouped_data, column):
-    filtered_data = grouped_data[grouped_data[column] > 1] | grouped_data[grouped_data[column] < -1].reset_index()
-    return filtered_data
-Zdrojovy_kody_mnozstvi_group_nevyhov_1 = filter_sum_after_grouping(Zdrojovy_kody_mnozstvi_group,'ZmenaMnozstvi')
-Funkce.save_dataframe_to_csv(Zdrojovy_kody_mnozstvi_group_nevyhov_1,'Zdrojovy_kody_mnozstvi_group_nevyhov_1')
 
-if not Zdrojovy_kody_mnozstvi_group_nevyhov_1.empty:
-    print(f"Pocet ZUJ, které mají rocni zuctovani > 1 Kg nebo < -1 Kg: {Zdrojovy_kody_mnozstvi_group_nevyhov_1.shape[0]}")
-    print(Zdrojovy_kody_mnozstvi_group_nevyhov_1)
-else: 
-    print('Zadna ZUJ nema bilanci rocniho zuctovani v odchylce vetsi nez +/- 1 Kg.')
 
 '_____________________'
 'Pripojeni tabulky ZUJ_ORP'
@@ -221,9 +210,12 @@ def unique_list(df,column_name):
     return u_list
 
 u_list_partner_kraj = unique_list(Zdrojovy,'Partner_Kraj')
+u_list_evident_kraj = unique_list(Zdrojovy,'Evident_Kraj')
 u_list_indikator = unique_list(Zdrojovy,'Indikator')
 u_list_evident = unique_list(Zdrojovy,'Evident')
+u_list_evident_nazev = unique_list(Zdrojovy,'Evident_Nazev')
 u_list_evident_typ = unique_list(Zdrojovy,'Evident_TypSubjektu')
+u_list_evident_orp = unique_list(Zdrojovy,'Evident_TypSubjektu')
 '''
 unikatni_indikator = list(Zdrojovy['Indikator'].unique())
 print('_________unikatni hodnoty___________')
