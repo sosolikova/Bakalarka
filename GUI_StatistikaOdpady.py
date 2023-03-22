@@ -1,6 +1,7 @@
 import tkinter
 from tkinter import ttk
 from tkinter import messagebox
+import customtkinter as ctk
 
 def enter_data():
     accepted = accept_var.get()
@@ -105,5 +106,10 @@ terms_check.grid(row=0, column=0)
 # Button
 button = tkinter.Button(frame, text = "Enter data", command=enter_data)
 button.grid(row=3, column=0, sticky="news", padx=20, pady=10)
+
+scrollable_frame = ctk.CTkScrollableFrame(frame, width=500, height=200)
+scrollable_frame.grid(row=4,column=0)
+entry = ctk.CTkEntry(scrollable_frame, placeholder_text="Add todo")
+entry.pack(fill="x")
 
 window.mainloop()
