@@ -11,12 +11,20 @@ from ttkthemes import ThemedStyle
 import HromadneNacitani as hn
 import Funkce as fc
 
+
+
+volby_evident_kraj = []
 # Definice funkcí
 
 def handle_selection(selection):
+    """Funkce bude přidávat volby do seznamu"""
+    volby_evident_kraj.append(selection)
     """Funkce se spustí při výběru položky v menu"""
     text_widget.insert('1.0', f"Vybráno: {selection}\n")
 
+def vytisknout_volby():
+    """Tato funkce se spustí po stisknutí tlačítka Uložit volby"""
+    print("Ukládám volby evident_kraj: ", volby_evident_kraj)
 
 root = Tk()
 root.title('Data o odpadech')
@@ -40,7 +48,7 @@ partner_frame.pack(side=tk.TOP)
 
 # Vytvoření prvků pro výběr parametrů
 
-# Evident kraj listbox (více možností)
+# Evident kraj combobox (více možností)
 evident_kraj_label = tk.Label(evident_frame, text="Kraj")
 evident_kraj_label.pack(side=tk.TOP)
 options = hn.u_list_evident_kraj
@@ -48,6 +56,10 @@ evident_kraj_combo=ttk.Combobox(evident_frame, value=options)
 evident_kraj_combo.bind("<<ComboboxSelected>>", lambda event: handle_selection(evident_kraj_combo.get()))
 evident_kraj_combo.current(0)
 evident_kraj_combo.pack(side=tk.TOP)
+
+# Tlačítko uložit volby
+ulozit_button = tk.Button(evident_frame, text="Uložit volby",command=vytisknout_volby)
+ulozit_button.pack(side=tk.TOP)
 
 # Evident typ subjektu
 evident_typSubjektu_label = tk.Label(evident_frame, text="Typ subjektu")
