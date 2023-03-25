@@ -20,9 +20,7 @@ volby_evident_typ = []
 # Definice funkcí
 
 def handle_evident_kraj(selection):
-    """Funkce bude přidávat volby do seznamu"""
     volby_evident_kraj.append(selection)
-    """Funkce se spustí při výběru položky v menu"""
     text_widget.insert('1.0', f"Evident kraj: {selection}\n")
 
 def handle_evident_ORP(selection):
@@ -59,6 +57,14 @@ def on_button_click():
     vysledek=hn.summary_stat_parametr(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj',volby_evident_kraj,'ZmenaMnozstvi')
     text_widget.delete("1.0","end")
     text_widget.insert("1.0",vysledek)
+
+def on_checkbox_click():
+    if check_var.get():
+        # Zobrazení comboboxu
+        evident_kraj_combo.pack(side=tk.TOP)
+    else:
+        # Skrytí comboboxu
+        evident_kraj_combo.pack_forget()    
 
 root = Tk()
 root.title('Data o odpadech')
@@ -137,6 +143,19 @@ vymazat_button.pack(side=tk.TOP)
 # Funkce
 button1 = tk.Button(parametry_frame,text="Tlačítko1", command=on_button_click)
 button1.pack(side=tk.RIGHT)
+
+# Vytvoření checkboxu
+check_var = tk.BooleanVar()
+checkbox = tk.Checkbutton(partner_frame, text="Zobrazit combobox", variable=check_var, command=on_checkbox_click)
+checkbox.pack(side=tk.LEFT)
+
+# Vytvoření comboboxu (přidán jako vnořený widget do jiného framu)
+evident_kraj_combo = ttk.Combobox(partner_frame, values=["Volba 1", "Volba 2", "Volba 3"])
+
+# Počátečně skrytí comboboxu
+evident_kraj_combo.pack_forget()
+
+
 
 
 # Vytvoření Text Widget a Scroollbar
