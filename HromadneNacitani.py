@@ -188,6 +188,17 @@ def summary_stat_parametr(df,parametr,volba,column_summary):
     result = result.applymap(lambda x: round(x))
     locale.setlocale(locale.LC_ALL, '')
     result = result.applymap(lambda x: locale.format_string('%d', x, grouping=True))
+    print(result)
+    return result
+
+def summary_stat_parametr(df,parametr,seznam,column_summary):
+    sort = df[(df[parametr].isin(seznam))]
+    result = sort.groupby(parametr)[column_summary].agg([np.mean,np.median,np.min,np.max])
+    result = result.applymap(lambda x: round(x))
+    locale.setlocale(locale.LC_ALL, '')
+    result = result.applymap(lambda x: locale.format_string('%d', x, grouping=True))
+    print('Výsledek funkce summary_stat_parametr:')
+    print(result)
     return result
 
 def summary_stat(df,parametr,column_summary):
@@ -198,13 +209,18 @@ def summary_stat(df,parametr,column_summary):
     print(result)
     return result
 
-summary = summary_stat_parametr(Zdrojovy_kody_mnozstvi,'Indikator','Převzetí','ZmenaMnozstvi')
+my_list=['Zlínský kraj','Jihomoravský kraj','Jihočeský kraj']
+print('Zkouška sortování')
+sortovani = Zdrojovy_kody_mnozstvi[Zdrojovy_kody_mnozstvi['Evident_Kraj'].isin(my_list)]
+result = summary_stat(sortovani,'Evident_Kraj','ZmenaMnozstvi')
 
+summary_stat_parametr(Zdrojovy_kody_mnozstvi,'Evident_Kraj',my_list,'ZmenaMnozstvi')
 
 # vytvořit seznam unikátních hodnot ze sloupce
 def unique_list(df,column_name):
     u_list = list(df[column_name].unique())
     u_list.insert(0,'-all-') # přidá novou položku "-all-" na pozici 0
+    u_list = sorted(u_list) # seřazení seznamu podle abecedy
     print(f'_________unikatni hodnoty{column_name}___________')
     #print(u_list)
     return u_list
@@ -215,7 +231,7 @@ u_list_indikator = unique_list(Zdrojovy,'Indikator')
 u_list_evident = unique_list(Zdrojovy,'Evident')
 u_list_evident_nazev = unique_list(Zdrojovy,'Evident_Nazev')
 u_list_evident_typ = unique_list(Zdrojovy,'Evident_TypSubjektu')
-u_list_evident_orp = unique_list(Zdrojovy,'Evident_TypSubjektu')
+u_list_evident_orp = unique_list(Zdrojovy,'Evident_Nazev')
 '''
 unikatni_indikator = list(Zdrojovy['Indikator'].unique())
 print('_________unikatni hodnoty___________')
@@ -226,3 +242,5 @@ print('_____indikator select __________')
 print(indikator_select)
 indikator_select['ZmenaMnozstvi'].hist(bins=30)
 plt.show()
+
+
