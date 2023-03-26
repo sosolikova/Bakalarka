@@ -82,16 +82,33 @@ def handle_funkce(selection):
     volby_funkce.append(selection)
     text_widget.insert('1.0', f"Vybraný výpočet: {selection}\n")
 
+def perform_action():
+    selected_func=funkce_combo.get()
+    print(f"Vybrána funkce: {selected_func}")
+    # tady umístit kód pro spuštění vybrané funkce
+
 def vytisknout_volby():
     """Tato funkce se spustí po stisknutí tlačítka Uložit volby"""
-    print("Zadané volby: ")
-    print("Evident kraj: ", volby_evident_kraj)
-    print("Evident ORP: ", volby_evident_ORP)
-    print("Evident název: ", volby_evident_nazev)
-    print("Evident typ subjektu: ", volby_evident_typ)
+    text_widget.delete('1.0','end')
+    text_widget.insert("end",'Zadané volby: \n')
+    text_widget.insert("end",f"Identifikátor: {volby_identifikator}\n")
+    text_widget.insert("end",f"Kód nakládání: {volby_kod}\n")
+    text_widget.insert("end",f"Druh odpadu: {volby_druhOdpadu}\n")
+    text_widget.insert("end",f"Rok: {volby_rok}\n\n")
+
+    text_widget.insert("end",f"Evident kraj: {volby_evident_kraj}\n")
+    text_widget.insert("end",f"Evident ORP: {volby_evident_ORP}\n")
+    text_widget.insert("end",f"Evident název ZÚJ: {volby_evident_nazev}\n")
+    text_widget.insert("end",f"Evident název typ: {volby_evident_typ}\n\n")
+
+    text_widget.insert("end",f"Partner kraj: {volby_partner_kraj}\n")
+    text_widget.insert("end",f"Partner ORP: {volby_partner_ORP}\n")
+    text_widget.insert("end",f"Partner název ZÚJ: {volby_partner_nazev}\n")
+    text_widget.insert("end",f"Partner název typ: {volby_partner_typ}\n\n")
 
 def vymazat_volby():
     """Tato funkce se spustí po stisknutí tlačítka Vymazat volby"""
+    text_widget.delete('1.0','end')
     volby_evident_kraj.clear()
     volby_evident_ORP.clear()
     volby_evident_nazev.clear()
@@ -100,6 +117,25 @@ def vymazat_volby():
     evident_ORP_combo.current(0)
     evident_nazev_combo.current(0)
     evident_typSubjektu_combo.current(0)
+
+    volby_partner_kraj.clear()
+    volby_partner_ORP.clear()
+    volby_partner_nazev.clear()
+    volby_partner_typ.clear()
+    partner_kraj_combo.current(0)
+    partner_ORP_combo.current(0)
+    partner_nazev_combo.current(0)
+    partner_typSubjektu_combo.current(0)
+
+    volby_identifikator.clear()
+    volby_kod.clear()
+    volby_druhOdpadu.clear()
+    volby_rok.clear()
+    identifikator_combo.current(0)
+    kod_combo.current(0)
+    druhOdpadu_combo.current(0)
+    rok_combo.current(0)
+
 
 def on_button_click():
     vysledek=hn.summary_stat_parametr(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj',volby_evident_kraj,'ZmenaMnozstvi')
@@ -258,54 +294,58 @@ partner_typSubjektu_combo.pack_forget()
 # RIGHT frame (parametry)
 # Identifikátor
 identifikator_label = tk.Label(right_frame, text="Identifikátor")
-identifikator_label.grid(row=0, column=0, padx=5, pady=5)
+identifikator_label.grid(row=0, column=0)
 options = hn.u_list_indikator
 identifikator_combo = ttk.Combobox(right_frame, value=options)
 identifikator_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_identifikator(identifikator_combo.get()))
 identifikator_combo.current(0)
-identifikator_combo.grid(row=1, column=0, padx=10, pady=5)
+identifikator_combo.grid(row=1, column=0)
 # Kód nakládání
 kod_label = tk.Label(right_frame, text="Kód nakládání")
-kod_label.grid(row=2, column=0, padx=5, pady=5)
+kod_label.grid(row=2, column=0)
 options = hn.u_list_kod
 kod_combo = ttk.Combobox(right_frame, value=options)
-kod_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_druhOdpadu(kod_combo.get()))
+kod_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_kod(kod_combo.get()))
 kod_combo.current(0)
-kod_combo.grid(row=3, column=0, padx=10, pady=5)
+kod_combo.grid(row=3, column=0)
 # Druh odpadu
 druhOdpadu_label= tk.Label(right_frame, text="Druh odpadu")
-druhOdpadu_label.grid(row=4, column=0, padx=5, pady=5)
+druhOdpadu_label.grid(row=4, column=0)
 options = hn.u_list_druhOdpadu
 druhOdpadu_combo = ttk.Combobox(right_frame, value=options)
 druhOdpadu_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_druhOdpadu(druhOdpadu_combo.get()))
 druhOdpadu_combo.current(0)
-druhOdpadu_combo.grid(row=5, column=0, padx=10, pady=5)
+druhOdpadu_combo.grid(row=5, column=0)
 # Rok
 rok_label= tk.Label(right_frame, text="Rok")
-rok_label.grid(row=6, column=0, padx=5, pady=5)
+rok_label.grid(row=6, column=0)
 options = hn.u_list_rok
 rok_combo = ttk.Combobox(right_frame, value=options)
 rok_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_rok(rok_combo.get()))
 rok_combo.current(0)
-rok_combo.grid(row=7, column=0, padx=10, pady=5)
+rok_combo.grid(row=7, column=0)
 
 
 
 
 # Funkce
 button1 = tk.Button(right_frame,text="Tlačítko1", command=on_button_click)
-button1.grid(row=0, column=1, padx=20, pady=10)
+button1.grid(row=0, column=2, padx=20, pady=0)
 # Funkce
 button2 = tk.Button(right_frame,text="Tlačítko2", command=on_button_click)
-button2.grid(row=0, column=2, padx=20, pady=10)
+button2.grid(row=0, column=3, padx=20, pady=0)
 # Seznam funkcí
 funkce_label= tk.Label(right_frame, text="Funkce")
-funkce_label.grid(row=2, column=1, padx=5, pady=5)
-options = ['Sumarizace', 'Kontingenční tabulka', 'Percentily']
+funkce_label.grid(row=2, column=1, padx=20, pady=0)
+options = ['','Sumarizace', 'Kontingenční tabulka', 'Percentily']
 funkce_combo = ttk.Combobox(right_frame, value=options)
 funkce_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_funkce(funkce_combo.get()))
 funkce_combo.current(0)
-funkce_combo.grid(row=3, column=1, padx=10, pady=5)
+funkce_combo.grid(row=3, column=1,padx=20, pady=0)
+
+# Talčítko pro spuštění funkce
+funkce_button=tk.Button(right_frame, text="Spuštění funkce", command=perform_action)
+funkce_button.grid(row=5, column=1, padx=20,pady=0)
 
 
 # Vytvoření Text Widget a Scroollbar
