@@ -12,11 +12,17 @@ import HromadneNacitani as hn
 import Funkce as fc
 
 
-
+# Seznamy pro evidenta
 volby_evident_kraj = []
 volby_evident_ORP = []
 volby_evident_nazev = []
 volby_evident_typ = []
+
+# Seznamy pro partnera
+volby_partner_kraj = []
+volby_partner_ORP = []
+volby_partner_nazev = []
+volby_partner_typ = []
 # Definice funkcí
 
 def handle_evident_kraj(selection):
@@ -47,6 +53,7 @@ def vymazat_volby():
     """Tato funkce se spustí po stisknutí tlačítka Vymazat volby"""
     volby_evident_kraj.clear()
     volby_evident_ORP.clear()
+    volby_evident_nazev.clear()
     volby_evident_typ.clear()
     evident_kraj_combo.current(0)
     evident_ORP_combo.current(0)
@@ -61,10 +68,10 @@ def on_button_click():
 def on_checkbox_click():
     if check_var.get():
         # Zobrazení comboboxu
-        evident_kraj_combo.pack(side=tk.TOP)
+        partner_kraj_combo.pack(side=tk.TOP)
     else:
         # Skrytí comboboxu
-        evident_kraj_combo.pack_forget()    
+        partner_kraj_combo.pack_forget()    
 
 root = Tk()
 root.title('Data o odpadech')
@@ -100,7 +107,6 @@ evident_kraj_combo.bind("<<ComboboxSelected>>", lambda event: handle_evident_kra
 evident_kraj_combo.current(0)
 evident_kraj_combo.pack(side=tk.TOP)
 
-
 # Evident ORP
 evident_ORP_label = tk.Label(evident_frame, text="ORP")
 evident_ORP_label.pack(side=tk.TOP)
@@ -118,7 +124,6 @@ evident_nazev_combo = ttk.Combobox(evident_frame, value=options)
 evident_nazev_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_evident_nazev(evident_nazev_combo.get()))
 evident_nazev_combo.current(0)
 evident_nazev_combo.pack()
-
 
 # Evident typ subjektu
 evident_typSubjektu_label = tk.Label(evident_frame, text="Typ subjektu")
@@ -140,20 +145,21 @@ vymazat_button = tk.Button(evident_frame, text="Vymazat volby",command=vymazat_v
 vymazat_button.pack(side=tk.TOP)
 
 
+# Pravý frame
 # Funkce
 button1 = tk.Button(parametry_frame,text="Tlačítko1", command=on_button_click)
 button1.pack(side=tk.RIGHT)
 
 # Vytvoření checkboxu
 check_var = tk.BooleanVar()
-checkbox = tk.Checkbutton(partner_frame, text="Zobrazit combobox", variable=check_var, command=on_checkbox_click)
-checkbox.pack(side=tk.LEFT)
+checkbox = tk.Checkbutton(left_frame, text="Zobrazit partnera", variable=check_var, command=on_checkbox_click)
+checkbox.pack(side=tk.TOP)
 
 # Vytvoření comboboxu (přidán jako vnořený widget do jiného framu)
-evident_kraj_combo = ttk.Combobox(partner_frame, values=["Volba 1", "Volba 2", "Volba 3"])
+partner_kraj_combo = ttk.Combobox(partner_frame, values=["Volba 1", "Volba 2", "Volba 3"])
 
 # Počátečně skrytí comboboxu
-evident_kraj_combo.pack_forget()
+partner_kraj_combo.pack_forget()
 
 
 
