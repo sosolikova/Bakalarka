@@ -225,13 +225,28 @@ def unique_list(df,column_name):
     #print(u_list)
     return u_list
 
-u_list_partner_kraj = unique_list(Zdrojovy,'Partner_Kraj')
-u_list_evident_kraj = unique_list(Zdrojovy,'Evident_Kraj')
+
 u_list_indikator = unique_list(Zdrojovy,'Indikator')
+u_list_kod = unique_list(Zdrojovy,'Kod')
+u_list_druhOdpadu = unique_list(Zdrojovy, 'Druh_Odpadu')
+u_list_rok = unique_list(Zdrojovy,'Rok')
+
+u_list_evident_kraj = unique_list(Zdrojovy,'Evident_Kraj')
 u_list_evident = unique_list(Zdrojovy,'Evident')
 u_list_evident_nazev = unique_list(Zdrojovy,'Evident_Nazev')
 u_list_evident_typ = unique_list(Zdrojovy,'Evident_TypSubjektu')
 u_list_evident_orp = unique_list(Zdrojovy,'Evident_Nazev')
+
+u_list_partner_kraj = unique_list(Zdrojovy,'Partner_Kraj')
+u_list_partner_orp = unique_list(Zdrojovy,'Partner_Nazev')
+u_list_partner_nazev = unique_list(Zdrojovy,'Partner_Nazev')
+u_list_partner_typ = unique_list(Zdrojovy,'Evident_TypSubjektu')
+u_list_partner = unique_list(Zdrojovy,'Partner')
+
+
+
+
+
 '''
 unikatni_indikator = list(Zdrojovy['Indikator'].unique())
 print('_________unikatni hodnoty___________')
