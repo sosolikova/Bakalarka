@@ -84,11 +84,14 @@ left_frame = Frame(root)
 left_frame.pack(side=LEFT,padx=20, pady=20)
 
 right_frame = Frame(root)
-right_frame.pack(side=RIGHT, padx=20, pady=20)
+right_frame.pack(side=TOP, padx=20, pady=20)
 
 # Vytvoření prvků pro výběr parametrů
+'''
 parametry_frame = tk.LabelFrame(right_frame, text= "Výběr parametrů")
-parametry_frame.pack(side=tk.TOP)
+parametry_frame.pack(side=tk.TOP, expand=True)
+'''
+
 # Vytvoření frame pro Evident a Partner
 evident_frame = tk.LabelFrame(left_frame, text="Evident")
 evident_frame.pack(side=tk.TOP)
@@ -144,12 +147,7 @@ ulozit_button.pack(side=tk.TOP)
 vymazat_button = tk.Button(evident_frame, text="Vymazat volby",command=vymazat_volby)
 vymazat_button.pack(side=tk.TOP)
 
-
-# Pravý frame
-# Funkce
-button1 = tk.Button(parametry_frame,text="Tlačítko1", command=on_button_click)
-button1.pack(side=tk.RIGHT)
-
+# Partner frame
 # Vytvoření checkboxu
 check_var = tk.BooleanVar()
 checkbox = tk.Checkbutton(left_frame, text="Zobrazit partnera", variable=check_var, command=on_checkbox_click)
@@ -161,13 +159,20 @@ partner_kraj_combo = ttk.Combobox(partner_frame, values=["Volba 1", "Volba 2", "
 # Počátečně skrytí comboboxu
 partner_kraj_combo.pack_forget()
 
-
-
+# Parametry frame
+# Funkce
+button1 = tk.Button(right_frame,text="Tlačítko1", command=on_button_click)
+#button1.pack(side=tk.TOP)
+button1.grid(row=0, column=0, padx=20, pady=10)
+# Funkce
+button2 = tk.Button(right_frame,text="Tlačítko2", command=on_button_click)
+#button2.pack(side=tk.TOP)
+button2.grid(row=0, column=1, padx=20, pady=10)
 
 # Vytvoření Text Widget a Scroollbar
-text_widget = tk.Text(right_frame)
-y_scrollbar = tk.Scrollbar(right_frame, command=text_widget.yview)
-x_scrollbar = tk.Scrollbar(right_frame, command=text_widget.xview,orient=tk.HORIZONTAL)
+text_widget = tk.Text(root)
+y_scrollbar = tk.Scrollbar(root, command=text_widget.yview)
+x_scrollbar = tk.Scrollbar(root, command=text_widget.xview,orient=tk.HORIZONTAL)
 
 # Připojení Scrollbar k Text Widget
 text_widget.config(xscrollcommand=x_scrollbar.set, yscrollcommand=y_scrollbar.set)
