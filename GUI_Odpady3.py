@@ -80,10 +80,12 @@ def handle_druhOdpadu(selection):
 
 def handle_funkce(selection):
     volby_funkce.append(selection)
-    text_widget.delete('1.0','end')
+    #text_widget.delete('1.0','end')
     text_widget.insert('1.0', f"Vybraný výpočet: {selection}\n")
 def funkce1():
-    text_widget.insert(tk.END, "Funkce1\n")
+    vysledek=hn.summary_stat_parametr(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'ZmenaMnozstvi')
+    text_widget.delete("1.0","end")
+    text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY DLE KRAJŮ\n {vysledek}\n")
 def funkce2():
     text_widget.insert(tk.END, "Funkce2\n")
 def funkce3():
@@ -91,9 +93,10 @@ def funkce3():
 
 # Slovník, kde klíče jsou názvy funkcí a hodnoty jsou samotné funkce
 funkce_dict = {
-    "Percentily": funkce1,
-    "Kontingenční tabulka": funkce2,
-    "Summarizace": funkce3
+    "Sumarizace": funkce1,
+    "Percentily": funkce2,
+    "Kontingenční tabulka": funkce3,
+    
 }
 
 def perform_action():
@@ -111,6 +114,7 @@ def vytisknout_volby():
     """Tato funkce se spustí po stisknutí tlačítka Uložit volby"""
     text_widget.delete('1.0','end')
     text_widget.insert("end",'Zadané volby: \n')
+    text_widget.insert("end",f"Vybraný výpočet: {volby_funkce}")
     text_widget.insert("end",f"Identifikátor: {volby_identifikator}\n")
     text_widget.insert("end",f"Kód nakládání: {volby_kod}\n")
     text_widget.insert("end",f"Druh odpadu: {volby_druhOdpadu}\n")
@@ -147,10 +151,12 @@ def vymazat_volby():
     partner_nazev_combo.current(0)
     partner_typSubjektu_combo.current(0)
 
+    volby_funkce.clear()
     volby_identifikator.clear()
     volby_kod.clear()
     volby_druhOdpadu.clear()
     volby_rok.clear()
+    funkce_combo.current(0)
     identifikator_combo.current(0)
     kod_combo.current(0)
     druhOdpadu_combo.current(0)
@@ -250,7 +256,7 @@ evident_ORP_combo.pack()
 # Evident název
 evident_nazev_label = tk.Label(evident_frame, text="Název")
 evident_nazev_label.pack(side=tk.TOP)
-options = hn.u_list_evident_orp
+options = hn.u_list_evident_zuj_nazev
 evident_nazev_combo = ttk.Combobox(evident_frame, value=options)
 evident_nazev_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_evident_nazev(evident_nazev_combo.get()))
 evident_nazev_combo.current(0)
@@ -293,7 +299,7 @@ partner_ORP_combo.pack_forget()
 # Partner název
 partner_nazev_label = tk.Label(partner_frame, text="Název")
 #partner_nazev_label.pack(side=tk.TOP)
-options = hn.u_list_partner_orp
+options = hn.u_list_partner_zuj_nazev
 partner_nazev_combo = ttk.Combobox(partner_frame, value=options)
 partner_nazev_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_partner_nazev(partner_nazev_combo.get()))
 partner_nazev_combo.current(0)
