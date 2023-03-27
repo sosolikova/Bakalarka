@@ -275,7 +275,44 @@ plt.show()
 def vyber_subjektu(df,column1,volby1,column2,volby2,column3,volby3):
     vysledek=df[(df[column1].isin(volby1)) | (df[column2].isin(volby2)) | (df[column3].isin(volby3))]
     return vysledek
+''' tohle funguje, ale je potřeba dořešit -all-
+def vyber_kriterii(df,column1,volby1,column2,volby2,column3,volby3):
+    vysledek=df[(df[column1].isin(volby1)) & (df[column2].isin(volby2)) & (df[column3].isin(volby3))]
+    return vysledek
 
 def vyber_kriterii(df,column1,volby1,column2,volby2,column3,volby3):
+    if volby1 == ["-all-"] and volby2 == ["-all-"] and volby3 == ["-all-"]:
+        return df
+    elif volby1 == ["-all-"] and volby2 == ["-all-"]:
+        return  df[(df[column3].isin(volby3))]
+    elif volby1 == ["-all-"] and volby3 == ["-all-"]:
+        return df[(df[column2].isin(volby2)) & (df[column3].isin(volby3))]
+    elif volby2 == ["-all-"] and volby3 == ["-all-"]:
+        return df[(df[column1].isin(volby1))]
+    elif volby1 == ["-all-"]:
+        volby1 = unique_list(df,column1)
+    elif volby2 == ["-all-"]:
+        volby2 = unique_list(df,column2)
+    elif volby3 == ["-all-"]:
+        volby3 = unique_list(df,column3)
+    vysledek=df[(df[column1].isin(volby1)) & (df[column2].isin(volby2)) & (df[column3].isin(volby3))]
+    return vysledek
+'''
+def vyber_kriterii(df,column1,volby1,column2,volby2,column3,volby3):
+    try:
+        if "-all-" in volby1:
+            volby1 = unique_list(df,column1)
+    except TypeError:
+        pass
+    try:
+        if "-all-" in volby2:
+            volby2 = unique_list(df,column2)
+    except TypeError:
+        pass
+    try:
+        if "-all-" in volby3:
+            volby3 = unique_list(df,column3)
+    except TypeError:
+        pass
     vysledek=df[(df[column1].isin(volby1)) & (df[column2].isin(volby2)) & (df[column3].isin(volby3))]
     return vysledek

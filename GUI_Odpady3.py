@@ -96,6 +96,7 @@ def vyber_dat_partner():
     text_widget.insert("1.0",f"VÝPIS DAT PARTNERA DLE VÝBĚRU MÍSTA\n {vysledek}\n")
 def vyber_kriterii():
     vysledek = hn.vyber_kriterii(hn.Zdrojovy_kody_mnozstvi,'Rok',volby_rok,'Druh_Odpadu',volby_druhOdpadu,'Indikator',volby_indikator)
+    vysledek = vysledek.loc[:,['Evident_ZUJ_Nazev','Indikator','ZmenaMnozstvi','Druh_Odpadu','Rok']]
     text_widget.insert("1.0","end")
     text_widget.insert("1.0",f"VÝPIS DAT DLE VÝBĚRU KRITÉRIÍ\n {vysledek}\n")
 
