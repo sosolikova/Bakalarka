@@ -11,7 +11,7 @@ from ttkthemes import ThemedStyle
 import HromadneNacitani as hn
 import Funkce as fc
 
-volby_identifikator = []
+volby_indikator = []
 volby_kod = []
 volby_rok = []
 volby_druhOdpadu = []
@@ -62,8 +62,8 @@ def handle_partner_typSubjektu(selection):
     volby_partner_typ.append(selection)
     text_widget.insert('1.0', f"Partner typ subjektu: {selection}\n")
 
-def handle_identifikator(selection):
-    volby_identifikator.append(selection)
+def handle_indikator(selection):
+    volby_indikator.append(selection)
     text_widget.insert('1.0', f"Identifikátor: {selection}\n")
 
 def handle_kod(selection):
@@ -86,19 +86,24 @@ def funkce1():
     vysledek=hn.summary_stat_parametr(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'ZmenaMnozstvi')
     text_widget.delete("1.0","end")
     text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY DLE KRAJŮ\n {vysledek}\n")
-def funkce2():
-    vysledek=hn.Zdrojovy_kody_mnozstvi[(hn.Zdrojovy_kody_mnozstvi['Evident_Kraj_Nazev'].isin(volby_evident_kraj)) | (hn.Zdrojovy_kody_mnozstvi['Evident_ORP_Nazev'].isin(volby_evident_ORP))| (hn.Zdrojovy_kody_mnozstvi['Evident_ZUJ_Nazev'].isin(volby_evident_nazev))| (hn.Zdrojovy_kody_mnozstvi['Evident_TypSubjektu'].isin(volby_evident_typ))]
+def vyber_dat_evident():
+    vysledek = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev)
     text_widget.insert("1.0","end")
     text_widget.insert("1.0",f"VÝPIS DAT EVIDENTA DLE VÝBĚRU MÍSTA\n {vysledek}\n")
 def vyber_dat_partner():
     vysledek = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev)
     text_widget.insert("1.0","end")
     text_widget.insert("1.0",f"VÝPIS DAT PARTNERA DLE VÝBĚRU MÍSTA\n {vysledek}\n")
+def vyber_kriterii():
+    vysledek = hn.vyber_kriterii(hn.Zdrojovy_kody_mnozstvi,'Rok',volby_rok,'Druh_Odpadu',volby_druhOdpadu,'Indikator',volby_indikator)
+    text_widget.insert("1.0","end")
+    text_widget.insert("1.0",f"VÝPIS DAT DLE VÝBĚRU KRITÉRIÍ\n {vysledek}\n")
 
 # Slovník, kde klíče jsou názvy funkcí a hodnoty jsou samotné funkce
 funkce_dict = {
     "Sumarizace": funkce1,
-    "Percentily": funkce2,
+    "Výběr kritérií": vyber_kriterii,
+    "Výběr dat evident": vyber_dat_evident,
     "Výběr dat partner": vyber_dat_partner,
     
 }
@@ -119,7 +124,7 @@ def vytisknout_volby():
     text_widget.delete('1.0','end')
     text_widget.insert("end",'Zadané volby: \n')
     text_widget.insert("end",f"Vybraný výpočet: {volby_funkce}")
-    text_widget.insert("end",f"Identifikátor: {volby_identifikator}\n")
+    text_widget.insert("end",f"Identifikátor: {volby_indikator}\n")
     text_widget.insert("end",f"Kód nakládání: {volby_kod}\n")
     text_widget.insert("end",f"Druh odpadu: {volby_druhOdpadu}\n")
     text_widget.insert("end",f"Rok: {volby_rok}\n\n")
@@ -156,12 +161,12 @@ def vymazat_volby():
     partner_typSubjektu_combo.current(0)
 
     volby_funkce.clear()
-    volby_identifikator.clear()
+    volby_indikator.clear()
     volby_kod.clear()
     volby_druhOdpadu.clear()
     volby_rok.clear()
     funkce_combo.current(0)
-    identifikator_combo.current(0)
+    indikator_combo.current(0)
     kod_combo.current(0)
     druhOdpadu_combo.current(0)
     rok_combo.current(0)
@@ -329,13 +334,13 @@ partner_typSubjektu_combo.pack_forget()
 
 # RIGHT frame (parametry)
 # Identifikátor
-identifikator_label = tk.Label(right_frame, text="Identifikátor")
-identifikator_label.grid(row=0, column=0)
+indikator_label = tk.Label(right_frame, text="Indikátor")
+indikator_label.grid(row=0, column=0)
 options = hn.u_list_indikator
-identifikator_combo = ttk.Combobox(right_frame, value=options)
-identifikator_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_identifikator(identifikator_combo.get()))
-identifikator_combo.current(0)
-identifikator_combo.grid(row=1, column=0)
+indikator_combo = ttk.Combobox(right_frame, value=options)
+indikator_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_indikator(indikator_combo.get()))
+indikator_combo.current(0)
+indikator_combo.grid(row=1, column=0)
 # Kód nakládání
 kod_label = tk.Label(right_frame, text="Kód nakládání")
 kod_label.grid(row=2, column=0)
@@ -373,7 +378,7 @@ button2.grid(row=0, column=3, padx=20, pady=0)
 # Seznam funkcí
 funkce_label= tk.Label(right_frame, text="Funkce")
 funkce_label.grid(row=2, column=1, padx=20, pady=0)
-options = ['','Sumarizace', 'Percentily','Výběr dat partner']
+options = ['','Sumarizace','Výběr kritérií', 'Výběr dat evident','Výběr dat partner']
 funkce_combo = ttk.Combobox(right_frame, value=options)
 funkce_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_funkce(funkce_combo.get()))
 funkce_combo.current(0)
