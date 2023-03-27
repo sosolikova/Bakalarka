@@ -202,7 +202,10 @@ def summary_stat_parametr(df,parametr,volba,column_summary):
     return result
 
 def summary_stat_parametr(df,parametr,seznam,column_summary):
-    sort = df[(df[parametr].isin(seznam))]
+    if seznam == ["-all-"]:
+        sort = df
+    else:
+      sort = df[(df[parametr].isin(seznam))]
     result = sort.groupby(parametr)[column_summary].agg([np.mean,np.median,np.min,np.max])
     result = result.applymap(lambda x: round(x))
     locale.setlocale(locale.LC_ALL, '')
