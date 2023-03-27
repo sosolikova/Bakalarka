@@ -158,7 +158,7 @@ def vymazat_volby():
 
 
 def on_button_click():
-    vysledek=hn.summary_stat_parametr(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj',volby_evident_kraj,'ZmenaMnozstvi')
+    vysledek=hn.summary_stat_parametr(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'ZmenaMnozstvi')
     text_widget.delete("1.0","end")
     text_widget.insert("1.0",vysledek)
 

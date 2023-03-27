@@ -18,18 +18,26 @@ dtypes_zuj = {
     'Kraj_Nazev': 'string'
 }
 dtypes_odpady= {
-    'Evident':              'string',
-    'Evident_A':            'string',
+    'Evident_ZUJ_Cislo':    'string',
+    'Evident_ZUJ_Nazev':    'string',
+    'Evident_ZUJ_Cislo_A':  'string',
+    'Evident_ZUJ_Nazev_A':  'string',
+    'Evident_ORP_Cislo':    'string',
+    'Evident_ORP_Nazev':    'string',
+    'Evident_Kraj_Cislo':   'string',
+    'Evident_Kraj_Nazev':   'string',
     'Evident_TypSubjektu':  'string',
-    'Evident_Nazev':        'string',
-    'Evident_Nazev_A':      'string',
-    'Evident_Kraj':         'string',
-    'Partner':              'string',
-    'Partner_A':            'string',
+
+    'Partner_ZUJ_Cislo':    'string',
+    'Partner_ZUJ_Nazev':    'string',
+    'Partner_ZUJ_Cislo_A':  'string',
+    'Partner_ZUJ_Nazev_A':  'string',
+    'Partner_ORP_Cislo':    'string',
+    'Partner_ORP_Nazev':    'string',
+    'Partner_Kraj_Cislo':   'string',
+    'Partner_Kraj_Nazev':   'string',
     'Partner_TypSubjektu':  'string',
-    'Partner_Nazev':        'string',
-    'Partner_Nazev_A':      'string',
-    'Partner_Kraj':         'string',
+
     'Kod':                  'string',
     'Indikator':            'string',
     'Mnozstvi':             'float'
@@ -103,6 +111,7 @@ print('______-------Zdrojovy_Kody----______')
 Zdrojovy_Kody.info()
 
 ZUJ_ORP = load_csv_type_conversion('ZUJ_ORP.csv',dtypes_zuj)
+''' Po přejmenování sloupců zdrojových souborů raději zakomentuji 
 Zdrojovy_Kody_ORP_Evident = merge_left2(Zdrojovy,ZUJ_ORP,'Evident','ZUJ_Kod','Zdroj','Evident')
 Funkce.save_dataframe_to_csv(Zdrojovy_Kody_ORP_Evident,'Zdrojovy_Kody_ORP_Evident')
 print('_____--zdrojovy-ZUJ-ORP-Evident_________-')
@@ -112,6 +121,7 @@ Zdrojovy_Kody_ORP_Partner = merge_left2(Zdrojovy_Kody_ORP_Evident,ZUJ_ORP,'Partn
 Funkce.save_dataframe_to_csv(Zdrojovy_Kody_ORP_Partner,'Zdrojovy_Kody_ORP_Partner')
 print('_____--zdrojovy-ZUJ-ORP-Partner_________-')
 Zdrojovy_Kody_ORP_Partner.info()
+'''
 
 'Kontrola sparovani radku'
 def check_match (dataframe,column):
@@ -145,7 +155,7 @@ def group_data_by_columns(data, func_column, *group_columns ):
     return grouped_data
 
 'APLIKACE slouceni podle sloupcu Evident, Evidnet_TypSubjektu, funkce bude na sloupci ZmenaMnozstvi'
-Zdrojovy_kody_mnozstvi_group = group_data_by_columns(Zdrojovy_kody_mnozstvi,'ZmenaMnozstvi','Druh_Odpadu','Evident','Evident_TypSubjektu')
+Zdrojovy_kody_mnozstvi_group = group_data_by_columns(Zdrojovy_kody_mnozstvi,'ZmenaMnozstvi','Druh_Odpadu','Evident_ZUJ_Cislo','Evident_TypSubjektu')
 Funkce.save_dataframe_to_csv(Zdrojovy_kody_mnozstvi_group,'Zdrojovy_kody_mnozstvi_group')
 
 'Funkce pro kontrolu, ze u kazde ZUJ vyjde bilance 0'
@@ -211,10 +221,10 @@ def summary_stat(df,parametr,column_summary):
 
 my_list=['Zlínský kraj','Jihomoravský kraj','Jihočeský kraj']
 print('Zkouška sortování')
-sortovani = Zdrojovy_kody_mnozstvi[Zdrojovy_kody_mnozstvi['Evident_Kraj'].isin(my_list)]
-result = summary_stat(sortovani,'Evident_Kraj','ZmenaMnozstvi')
+sortovani = Zdrojovy_kody_mnozstvi[Zdrojovy_kody_mnozstvi['Evident_Kraj_Nazev'].isin(my_list)]
+result = summary_stat(sortovani,'Evident_Kraj_Nazev','ZmenaMnozstvi')
 
-summary_stat_parametr(Zdrojovy_kody_mnozstvi,'Evident_Kraj',my_list,'ZmenaMnozstvi')
+summary_stat_parametr(Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',my_list,'ZmenaMnozstvi')
 
 # vytvořit seznam unikátních hodnot ze sloupce
 def unique_list(df,column_name):
@@ -232,17 +242,17 @@ u_list_kod = unique_list(Zdrojovy,'Kod')
 u_list_druhOdpadu = unique_list(Zdrojovy, 'Druh_Odpadu')
 u_list_rok = unique_list(Zdrojovy,'Rok')
 
-u_list_evident_kraj = unique_list(Zdrojovy,'Evident_Kraj')
-u_list_evident = unique_list(Zdrojovy,'Evident')
-u_list_evident_nazev = unique_list(Zdrojovy,'Evident_Nazev')
+u_list_evident_kraj = unique_list(Zdrojovy,'Evident_Kraj_Nazev')
+u_list_evident = unique_list(Zdrojovy,'Evident_ZUJ_Cislo')
+u_list_evident_nazev = unique_list(Zdrojovy,'Evident_ZUJ_Nazev')
 u_list_evident_typ = unique_list(Zdrojovy,'Evident_TypSubjektu')
-u_list_evident_orp = unique_list(Zdrojovy,'Evident_Nazev')
+u_list_evident_orp = unique_list(Zdrojovy,'Evident_ORP_Nazev')
 
-u_list_partner_kraj = unique_list(Zdrojovy,'Partner_Kraj')
-u_list_partner_orp = unique_list(Zdrojovy,'Partner_Nazev')
-u_list_partner_nazev = unique_list(Zdrojovy,'Partner_Nazev')
-u_list_partner_typ = unique_list(Zdrojovy,'Evident_TypSubjektu')
-u_list_partner = unique_list(Zdrojovy,'Partner')
+u_list_partner_kraj = unique_list(Zdrojovy,'Partner_Kraj_Nazev')
+u_list_partner_orp = unique_list(Zdrojovy,'Partner_ORP_Nazev')
+u_list_partner_nazev = unique_list(Zdrojovy,'Partner_ZUJ_Nazev')
+u_list_partner_typ = unique_list(Zdrojovy,'Partner_TypSubjektu')
+u_list_partner = unique_list(Zdrojovy,'Partner_ZUJ_Cislo')
 
 
 
