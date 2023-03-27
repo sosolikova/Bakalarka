@@ -87,15 +87,19 @@ def funkce1():
     text_widget.delete("1.0","end")
     text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY DLE KRAJŮ\n {vysledek}\n")
 def funkce2():
-    text_widget.insert(tk.END, "Funkce2\n")
-def funkce3():
-    text_widget.insert(tk.END, "Funkce3\n")
+    vysledek=hn.Zdrojovy_kody_mnozstvi[(hn.Zdrojovy_kody_mnozstvi['Evident_Kraj_Nazev'].isin(volby_evident_kraj)) | (hn.Zdrojovy_kody_mnozstvi['Evident_ORP_Nazev'].isin(volby_evident_ORP))| (hn.Zdrojovy_kody_mnozstvi['Evident_ZUJ_Nazev'].isin(volby_evident_nazev))| (hn.Zdrojovy_kody_mnozstvi['Evident_TypSubjektu'].isin(volby_evident_typ))]
+    text_widget.insert("1.0","end")
+    text_widget.insert("1.0",f"VÝPIS DAT EVIDENTA DLE VÝBĚRU MÍSTA\n {vysledek}\n")
+def vyber_dat_partner():
+    vysledek = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev)
+    text_widget.insert("1.0","end")
+    text_widget.insert("1.0",f"VÝPIS DAT PARTNERA DLE VÝBĚRU MÍSTA\n {vysledek}\n")
 
 # Slovník, kde klíče jsou názvy funkcí a hodnoty jsou samotné funkce
 funkce_dict = {
     "Sumarizace": funkce1,
     "Percentily": funkce2,
-    "Kontingenční tabulka": funkce3,
+    "Výběr dat partner": vyber_dat_partner,
     
 }
 
@@ -369,7 +373,7 @@ button2.grid(row=0, column=3, padx=20, pady=0)
 # Seznam funkcí
 funkce_label= tk.Label(right_frame, text="Funkce")
 funkce_label.grid(row=2, column=1, padx=20, pady=0)
-options = ['','Sumarizace', 'Kontingenční tabulka', 'Percentily']
+options = ['','Sumarizace', 'Percentily','Výběr dat partner']
 funkce_combo = ttk.Combobox(right_frame, value=options)
 funkce_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_funkce(funkce_combo.get()))
 funkce_combo.current(0)
