@@ -220,6 +220,7 @@ summary_stat_parametr(Zdrojovy_kody_mnozstvi,'Evident_Kraj',my_list,'ZmenaMnozst
 def unique_list(df,column_name):
     u_list = list(df[column_name].unique())
     u_list.insert(0,'-all-') # přidá novou položku "-all-" na pozici 0
+    u_list.insert(0,'') # přidá novou položku "" na pozici 0
     u_list = sorted(u_list) # seřazení seznamu podle abecedy
     print(f'_________unikatni hodnoty{column_name}___________')
     #print(u_list)

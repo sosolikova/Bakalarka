@@ -80,12 +80,32 @@ def handle_druhOdpadu(selection):
 
 def handle_funkce(selection):
     volby_funkce.append(selection)
+    text_widget.delete('1.0','end')
     text_widget.insert('1.0', f"Vybraný výpočet: {selection}\n")
+def funkce1():
+    text_widget.insert(tk.END, "Funkce1\n")
+def funkce2():
+    text_widget.insert(tk.END, "Funkce2\n")
+def funkce3():
+    text_widget.insert(tk.END, "Funkce3\n")
+
+# Slovník, kde klíče jsou názvy funkcí a hodnoty jsou samotné funkce
+funkce_dict = {
+    "Percentily": funkce1,
+    "Kontingenční tabulka": funkce2,
+    "Summarizace": funkce3
+}
 
 def perform_action():
     selected_func=funkce_combo.get()
-    print(f"Vybrána funkce: {selected_func}")
+    text_widget.delete('1.0','end')
+    text_widget.insert("end",f"Vybrána funkce: {selected_func.upper()}\n")
     # tady umístit kód pro spuštění vybrané funkce
+        # kontrolujeme, zda klíč existuje ve slovníku a voláme příslušnou funkci
+    if selected_func in funkce_dict:
+        funkce_dict[selected_func]()
+    else:
+        text_widget.insert("end","Chybná volba funkce")
 
 def vytisknout_volby():
     """Tato funkce se spustí po stisknutí tlačítka Uložit volby"""
@@ -98,13 +118,13 @@ def vytisknout_volby():
 
     text_widget.insert("end",f"Evident kraj: {volby_evident_kraj}\n")
     text_widget.insert("end",f"Evident ORP: {volby_evident_ORP}\n")
-    text_widget.insert("end",f"Evident název ZÚJ: {volby_evident_nazev}\n")
-    text_widget.insert("end",f"Evident název typ: {volby_evident_typ}\n\n")
+    text_widget.insert("end",f"Evident ZÚJ: {volby_evident_nazev}\n")
+    text_widget.insert("end",f"Evident typ subjektu: {volby_evident_typ}\n\n")
 
     text_widget.insert("end",f"Partner kraj: {volby_partner_kraj}\n")
     text_widget.insert("end",f"Partner ORP: {volby_partner_ORP}\n")
-    text_widget.insert("end",f"Partner název ZÚJ: {volby_partner_nazev}\n")
-    text_widget.insert("end",f"Partner název typ: {volby_partner_typ}\n\n")
+    text_widget.insert("end",f"Partner ZÚJ: {volby_partner_nazev}\n")
+    text_widget.insert("end",f"Partner typ subjektu: {volby_partner_typ}\n\n")
 
 def vymazat_volby():
     """Tato funkce se spustí po stisknutí tlačítka Vymazat volby"""
