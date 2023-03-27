@@ -165,6 +165,7 @@ def on_button_click():
 def on_checkbox_click():
     if check_var.get():
         # Zobrazení comboboxu
+        partner_frame.pack(side=tk.TOP)
         partner_kraj_label.pack(side=tk.TOP)
         partner_kraj_combo.pack(side=tk.TOP)
         partner_ORP_label.pack(side=tk.TOP)
@@ -175,6 +176,7 @@ def on_checkbox_click():
         partner_typSubjektu_combo.pack(side=tk.TOP)
     else:
         # Skrytí comboboxu
+        partner_frame.pack_forget()
         partner_kraj_label.pack_forget()
         partner_kraj_combo.pack_forget()
         partner_ORP_label.pack_forget()
@@ -189,6 +191,9 @@ root.title('Data o odpadech')
 root.geometry("1000x750")
 style = ThemedStyle(root)
 # style.set_theme('elegance')
+bg = PhotoImage(file="green_forest.png")
+bg_label = Label(root,image=bg)
+bg_label.place (x=0, y=0, relwidth=1, relheight=1)
 
 # Vvytvoření frame
 left_frame = Frame(root)
@@ -212,7 +217,8 @@ evident_frame = tk.LabelFrame(left_frame, text="Evident", padx=10, pady=10)
 evident_frame.pack(side=tk.TOP)
 
 partner_frame = tk.LabelFrame(left_frame, text = "Partner", padx=10, pady=10)
-partner_frame.pack(side=tk.TOP)
+#partner_frame.pack(side=tk.TOP)
+partner_frame.pack_forget()
 
 # Tlačítko uložit volby
 ulozit_button = tk.Button(funkcni_frame, text="Uložit volby",command=vytisknout_volby)

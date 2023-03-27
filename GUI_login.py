@@ -7,7 +7,7 @@ root.title('Data o odpadech')
 'root.iconbitmap(c:/gui/codemy.ico)'
 root.geometry("900x700")
 
-bg = ImageTk.PhotoImage(file="eco.png")
+bg = ImageTk.PhotoImage(file="green_forest.png")
 # Define Canvas
 my_canvas = Canvas(root, width=900, height=700, bd=0, highlightthickness=0)
 my_canvas.pack(fill="both", expand=True)
