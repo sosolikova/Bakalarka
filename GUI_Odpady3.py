@@ -263,8 +263,8 @@ evident_ORP_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_evident_ORP(
 evident_ORP_combo.current(0)
 evident_ORP_combo.pack()
 
-# Evident název
-evident_nazev_label = tk.Label(evident_frame, text="Název")
+# Evident název (ZÚJ)
+evident_nazev_label = tk.Label(evident_frame, text="ZÚJ")
 evident_nazev_label.pack(side=tk.TOP)
 options = hn.u_list_evident_zuj_nazev
 evident_nazev_combo = ttk.Combobox(evident_frame, value=options)
@@ -306,8 +306,8 @@ partner_ORP_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_partner_ORP(
 partner_ORP_combo.current(0)
 partner_ORP_combo.pack_forget()
 
-# Partner název
-partner_nazev_label = tk.Label(partner_frame, text="Název")
+# Partner název (ZÚJ)
+partner_nazev_label = tk.Label(partner_frame, text="ZÚJ")
 #partner_nazev_label.pack(side=tk.TOP)
 options = hn.u_list_partner_zuj_nazev
 partner_nazev_combo = ttk.Combobox(partner_frame, value=options)
