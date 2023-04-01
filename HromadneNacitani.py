@@ -230,31 +230,34 @@ result = summary_stat(sortovani,'Evident_Kraj_Nazev','ZmenaMnozstvi')
 summary_stat_parametr(Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',my_list,'ZmenaMnozstvi')
 
 # vytvořit seznam unikátních hodnot ze sloupce
-def unique_list(df,column_name):
+def unique_list(df,column_name,start):
     u_list = list(df[column_name].unique())
-    u_list.insert(0,'-all-') # přidá novou položku "-all-" na pozici 0
-    u_list.insert(0,'') # přidá novou položku "" na pozici 0
+    if start == "-all-":
+        u_list.insert(0,'-all-') # přidá novou položku "-all-" na pozici 0
+    else:
+        u_list.insert(0,'') # přidá novou položku "" na pozici 0
+        u_list.insert(0,'-all-') # přidá novou položku "-all-" na pozici 0
     u_list = sorted(u_list) # seřazení seznamu podle abecedy
     print(f'_________unikatni hodnoty{column_name}___________')
     #print(u_list)
     return u_list
 
-u_list_indikator = unique_list(Zdrojovy,'Indikator')
-u_list_kod = unique_list(Zdrojovy,'Kod')
-u_list_druhOdpadu = unique_list(Zdrojovy, 'Druh_Odpadu')
-u_list_rok = unique_list(Zdrojovy,'Rok')
+u_list_indikator = unique_list(Zdrojovy,'Indikator','')
+u_list_kod = unique_list(Zdrojovy,'Kod','')
+u_list_druhOdpadu = unique_list(Zdrojovy, 'Druh_Odpadu','-all-')
+u_list_rok = unique_list(Zdrojovy,'Rok','-all-')
 
-u_list_evident_kraj = unique_list(Zdrojovy,'Evident_Kraj_Nazev')
-u_list_evident_zuj_cislo = unique_list(Zdrojovy,'Evident_ZUJ_Cislo')
-u_list_evident_zuj_nazev = unique_list(Zdrojovy,'Evident_ZUJ_Nazev')
-u_list_evident_typ = unique_list(Zdrojovy,'Evident_TypSubjektu')
-u_list_evident_orp = unique_list(Zdrojovy,'Evident_ORP_Nazev')
+u_list_evident_kraj = unique_list(Zdrojovy,'Evident_Kraj_Nazev','')
+u_list_evident_zuj_cislo = unique_list(Zdrojovy,'Evident_ZUJ_Cislo','')
+u_list_evident_zuj_nazev = unique_list(Zdrojovy,'Evident_ZUJ_Nazev','')
+u_list_evident_typ = unique_list(Zdrojovy,'Evident_TypSubjektu','-all-')
+u_list_evident_orp = unique_list(Zdrojovy,'Evident_ORP_Nazev','')
 
-u_list_partner_kraj = unique_list(Zdrojovy,'Partner_Kraj_Nazev')
-u_list_partner_orp = unique_list(Zdrojovy,'Partner_ORP_Nazev')
-u_list_partner_zuj_nazev = unique_list(Zdrojovy,'Partner_ZUJ_Nazev')
-u_list_partner_typ = unique_list(Zdrojovy,'Partner_TypSubjektu')
-u_list_partner_zuj_cislo = unique_list(Zdrojovy,'Partner_ZUJ_Cislo')
+u_list_partner_kraj = unique_list(Zdrojovy,'Partner_Kraj_Nazev','')
+u_list_partner_orp = unique_list(Zdrojovy,'Partner_ORP_Nazev','')
+u_list_partner_zuj_nazev = unique_list(Zdrojovy,'Partner_ZUJ_Nazev','')
+u_list_partner_typ = unique_list(Zdrojovy,'Partner_TypSubjektu','-all-')
+u_list_partner_zuj_cislo = unique_list(Zdrojovy,'Partner_ZUJ_Cislo','')
 
 
 
@@ -271,9 +274,15 @@ print(indikator_select)
 indikator_select['ZmenaMnozstvi'].hist(bins=30)
 plt.show()
 
-def vyber_subjektu(df,column1,volby1,column2,volby2,column3,volby3):
-    vysledek=df[(df[column1].isin(volby1)) | (df[column2].isin(volby2)) | (df[column3].isin(volby3))]
+def vyber_subjektu(df,column1,volby1,column2,volby2,column3,volby3,column4,volby4):
+    vysledek = df[((df[column1].isin(volby1)) | (df[column2].isin(volby2)) | (df[column3].isin(volby3)))&(df[column4].isin(volby4))]
     return vysledek
+
+
+
+
+
+
 
 def vyber_kriterii(df,column1,volby1,column2,volby2,column3,volby3,column4,volby4):
     try:

@@ -89,12 +89,13 @@ def funkce1():
     text_widget.delete("1.0","end")
     text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY DLE KRAJŮ\n {vysledek}\n")
 def vyber_dat_evident():
-    vysledek = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev)
+    vysledek = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
+    
     text_widget.insert("1.0","end")
     text_widget.insert("1.0",f"VÝPIS DAT EVIDENTA DLE VÝBĚRU MÍSTA\n {vysledek}\n")
     
 def vyber_dat_partner():
-    vysledek = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev)
+    vysledek = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
     text_widget.insert("1.0","end")
     text_widget.insert("1.0",f"VÝPIS DAT PARTNERA DLE VÝBĚRU MÍSTA\n {vysledek}\n")
 def vyber_kriterii():
@@ -118,6 +119,15 @@ def vyber_subjekt_kriteria():
     text_widget.insert("1.0","end")
     text_widget.insert(END, f"\n\nVÝPIS DAT DLE VÝBĚRU KRITÉRIÍ (počet řádků: {pocet_polozek_kriteria}) \n {vysledek.to_string(index=False, justify='left')}\n")
 
+
+# Sloučení podmínek výběru dle kritérií, výběr evidenta, výběr partnera
+
+def vyber_evident_partner_kriteria():
+    vyber_subjekt_kriteria()
+
+
+
+
 # Slovník, kde klíče jsou názvy funkcí a hodnoty jsou samotné funkce
 funkce_dict = {
     "Sumarizace": funkce1,
@@ -125,6 +135,7 @@ funkce_dict = {
     "Výběr dat evident": vyber_dat_evident,
     "Výběr dat partner": vyber_dat_partner,
     "Výběr subjekt kritéria": vyber_subjekt_kriteria,
+    "Výběr evident partner kritéria": vyber_evident_partner_kriteria,
     
 }
 
@@ -400,7 +411,7 @@ button2.grid(row=0, column=4, padx=20, pady=0)
 # Seznam funkcí
 funkce_label= tk.Label(right_frame, text="Funkce")
 funkce_label.grid(row=0, column=2, padx=20, pady=0)
-options = ['','Sumarizace','Výběr kritérií', 'Výběr dat evident','Výběr dat partner','Výběr subjekt kritéria']
+options = ['','Sumarizace','Výběr kritérií', 'Výběr dat evident','Výběr dat partner','Výběr subjekt kritéria','Výběr evident partner kritéria']
 funkce_combo = ttk.Combobox(right_frame, value=options)
 funkce_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_funkce(funkce_combo.get()))
 funkce_combo.current(0)
