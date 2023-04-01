@@ -298,21 +298,15 @@ def vyber_subjektu(df, column1, volby1, column2, volby2, column3, volby3, column
 '''
 #Funguje
 def vyber_subjektu(df, column1, volby1, column2, volby2, column3, volby3, column4, volby4) :
-    print(volby1)
-    print(volby4)
     if not (volby2 or volby3):
       if (volby1 == [] or volby1 == ['-all-']):
-          print('chytla se')
           volby1 = unique_list(Zdrojovy,column1,'-all-')
           del volby1[0:2]
-          print(volby1)
       else: volby1   
 
     if (volby4 == [] or volby4 == ['-all-']):
-        print('chytla se')
         volby4 = unique_list(Zdrojovy,column4,'-all-')
         del volby4[0:2]
-        print(volby4)
     else: volby4
 
     vysledek = df[((df[column1].isin(volby1)) | (df[column2].isin(volby2)) | (df[column3].isin(volby3)))&(df[column4].isin(volby4))]
