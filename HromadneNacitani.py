@@ -234,26 +234,26 @@ def unique_list(df,column_name,start):
     u_list = list(df[column_name].unique())
     if start == "-all-":
         u_list.insert(0,'-all-') # přidá novou položku "-all-" na pozici 0
+        u_list.insert(0,'') # přidá novou položku "" na pozici 0
     else:
         u_list.insert(0,'') # přidá novou položku "" na pozici 0
-        u_list.insert(0,'-all-') # přidá novou položku "-all-" na pozici 0
     u_list = sorted(u_list) # seřazení seznamu podle abecedy
     print(f'_________unikatni hodnoty{column_name}___________')
     #print(u_list)
     return u_list
 
-u_list_indikator = unique_list(Zdrojovy,'Indikator','')
+u_list_indikator = unique_list(Zdrojovy,'Indikator','-all-')
 u_list_kod = unique_list(Zdrojovy,'Kod','')
 u_list_druhOdpadu = unique_list(Zdrojovy, 'Druh_Odpadu','-all-')
 u_list_rok = unique_list(Zdrojovy,'Rok','-all-')
 
-u_list_evident_kraj = unique_list(Zdrojovy,'Evident_Kraj_Nazev','')
+u_list_evident_kraj = unique_list(Zdrojovy,'Evident_Kraj_Nazev','-all-')
 u_list_evident_zuj_cislo = unique_list(Zdrojovy,'Evident_ZUJ_Cislo','')
 u_list_evident_zuj_nazev = unique_list(Zdrojovy,'Evident_ZUJ_Nazev','')
 u_list_evident_typ = unique_list(Zdrojovy,'Evident_TypSubjektu','-all-')
 u_list_evident_orp = unique_list(Zdrojovy,'Evident_ORP_Nazev','')
 
-u_list_partner_kraj = unique_list(Zdrojovy,'Partner_Kraj_Nazev','')
+u_list_partner_kraj = unique_list(Zdrojovy,'Partner_Kraj_Nazev','-all-')
 u_list_partner_orp = unique_list(Zdrojovy,'Partner_ORP_Nazev','')
 u_list_partner_zuj_nazev = unique_list(Zdrojovy,'Partner_ZUJ_Nazev','')
 u_list_partner_typ = unique_list(Zdrojovy,'Partner_TypSubjektu','-all-')

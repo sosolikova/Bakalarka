@@ -203,7 +203,6 @@ def vymazat_volby():
     druhOdpadu_combo.current(0)
     rok_combo.current(0)
 
-
 def on_button_click():
     vysledek=hn.summary_stat_parametr(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'ZmenaMnozstvi')
     text_widget.delete("1.0","end")
