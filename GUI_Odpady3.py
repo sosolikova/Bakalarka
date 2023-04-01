@@ -10,6 +10,8 @@ from ttkthemes import ThemedTk
 from ttkthemes import ThemedStyle
 import HromadneNacitani as hn
 import Funkce as fc
+import locale
+locale.setlocale(locale.LC_ALL, '')
 
 volby_indikator = []
 volby_kod = []
@@ -95,10 +97,13 @@ def vyber_dat_partner():
     text_widget.insert("1.0","end")
     text_widget.insert("1.0",f"VÝPIS DAT PARTNERA DLE VÝBĚRU MÍSTA\n {vysledek}\n")
 def vyber_kriterii():
-    vysledek = hn.vyber_kriterii(hn.Zdrojovy_kody_mnozstvi,'Rok',volby_rok,'Druh_Odpadu',volby_druhOdpadu,'Indikator',volby_indikator)
-    vysledek = vysledek.loc[:,['Evident_ZUJ_Nazev','Indikator','ZmenaMnozstvi','Druh_Odpadu','Rok']]
+    vysledek = hn.vyber_kriterii(hn.Zdrojovy_kody_mnozstvi,'Rok',volby_rok,'Druh_Odpadu',volby_druhOdpadu,'Indikator',volby_indikator,'Kod',volby_kod)
+    vysledek = vysledek.loc[:,['Evident_Kraj_Nazev','Evident_ORP_Nazev','Evident_ZUJ_Nazev','Indikator','Kod','ZmenaMnozstvi','Druh_Odpadu','Rok']]
+    vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+    vysledek=vysledek.sort_values(['Rok','Druh_Odpadu','Kod'])
+    pocet_polozek = len(vysledek.index)
     text_widget.insert("1.0","end")
-    text_widget.insert("1.0",f"VÝPIS DAT DLE VÝBĚRU KRITÉRIÍ\n {vysledek}\n")
+    text_widget.insert(END, f"\n\nVÝPIS DAT DLE VÝBĚRU KRITÉRIÍ ({pocet_polozek} položek):\n {vysledek.to_string(index=False, justify='left')}\n")
 
 # Slovník, kde klíče jsou názvy funkcí a hodnoty jsou samotné funkce
 funkce_dict = {
@@ -124,7 +129,8 @@ def vytisknout_volby():
     """Tato funkce se spustí po stisknutí tlačítka Uložit volby"""
     text_widget.delete('1.0','end')
     text_widget.insert("end",'Zadané volby: \n')
-    text_widget.insert("end",f"Vybraný výpočet: {volby_funkce}")
+    text_widget.insert("end",f"Vybraný výpočet: {volby_funkce}\n\n")
+
     text_widget.insert("end",f"Identifikátor: {volby_indikator}\n")
     text_widget.insert("end",f"Kód nakládání: {volby_kod}\n")
     text_widget.insert("end",f"Druh odpadu: {volby_druhOdpadu}\n")
@@ -334,6 +340,7 @@ partner_typSubjektu_combo.pack_forget()
 
 
 # RIGHT frame (parametry)
+
 # Identifikátor
 indikator_label = tk.Label(right_frame, text="Indikátor")
 indikator_label.grid(row=0, column=0)
@@ -341,7 +348,7 @@ options = hn.u_list_indikator
 indikator_combo = ttk.Combobox(right_frame, value=options)
 indikator_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_indikator(indikator_combo.get()))
 indikator_combo.current(0)
-indikator_combo.grid(row=1, column=0)
+indikator_combo.grid(row=1, column=0,padx=20, pady=0)
 # Kód nakládání
 kod_label = tk.Label(right_frame, text="Kód nakládání")
 kod_label.grid(row=2, column=0)
@@ -349,45 +356,45 @@ options = hn.u_list_kod
 kod_combo = ttk.Combobox(right_frame, value=options)
 kod_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_kod(kod_combo.get()))
 kod_combo.current(0)
-kod_combo.grid(row=3, column=0)
+kod_combo.grid(row=3, column=0,padx=20, pady=0)
 # Druh odpadu
 druhOdpadu_label= tk.Label(right_frame, text="Druh odpadu")
-druhOdpadu_label.grid(row=4, column=0)
+druhOdpadu_label.grid(row=0, column=1)
 options = hn.u_list_druhOdpadu
 druhOdpadu_combo = ttk.Combobox(right_frame, value=options)
 druhOdpadu_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_druhOdpadu(druhOdpadu_combo.get()))
 druhOdpadu_combo.current(0)
-druhOdpadu_combo.grid(row=5, column=0)
+druhOdpadu_combo.grid(row=1, column=1,padx=20, pady=0)
 # Rok
 rok_label= tk.Label(right_frame, text="Rok")
-rok_label.grid(row=6, column=0)
+rok_label.grid(row=2, column=1)
 options = hn.u_list_rok
 rok_combo = ttk.Combobox(right_frame, value=options)
 rok_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_rok(rok_combo.get()))
 rok_combo.current(0)
-rok_combo.grid(row=7, column=0)
+rok_combo.grid(row=3, column=1,padx=20, pady=0)
 
 
 
 
 # Funkce
 button1 = tk.Button(right_frame,text="Tlačítko1", command=on_button_click)
-button1.grid(row=0, column=2, padx=20, pady=0)
+button1.grid(row=0, column=3, padx=20, pady=0)
 # Funkce
 button2 = tk.Button(right_frame,text="Tlačítko2", command=on_button_click)
-button2.grid(row=0, column=3, padx=20, pady=0)
+button2.grid(row=0, column=4, padx=20, pady=0)
 # Seznam funkcí
 funkce_label= tk.Label(right_frame, text="Funkce")
-funkce_label.grid(row=2, column=1, padx=20, pady=0)
+funkce_label.grid(row=0, column=2, padx=20, pady=0)
 options = ['','Sumarizace','Výběr kritérií', 'Výběr dat evident','Výběr dat partner']
 funkce_combo = ttk.Combobox(right_frame, value=options)
 funkce_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_funkce(funkce_combo.get()))
 funkce_combo.current(0)
-funkce_combo.grid(row=3, column=1,padx=20, pady=0)
+funkce_combo.grid(row=1, column=2,padx=20, pady=0)
 
 # Talčítko pro spuštění funkce
 funkce_button=tk.Button(right_frame, text="Spuštění funkce", command=perform_action)
-funkce_button.grid(row=5, column=1, padx=20,pady=0)
+funkce_button.grid(row=3, column=2, padx=20,pady=0)
 
 
 # Vytvoření Text Widget a Scroollbar

@@ -239,7 +239,6 @@ def unique_list(df,column_name):
     #print(u_list)
     return u_list
 
-
 u_list_indikator = unique_list(Zdrojovy,'Indikator')
 u_list_kod = unique_list(Zdrojovy,'Kod')
 u_list_druhOdpadu = unique_list(Zdrojovy, 'Druh_Odpadu')
@@ -298,7 +297,7 @@ def vyber_kriterii(df,column1,volby1,column2,volby2,column3,volby3):
     vysledek=df[(df[column1].isin(volby1)) & (df[column2].isin(volby2)) & (df[column3].isin(volby3))]
     return vysledek
 '''
-def vyber_kriterii(df,column1,volby1,column2,volby2,column3,volby3):
+def vyber_kriterii(df,column1,volby1,column2,volby2,column3,volby3,column4,volby4):
     try:
         if "-all-" in volby1:
             volby1 = unique_list(df,column1)
@@ -314,5 +313,10 @@ def vyber_kriterii(df,column1,volby1,column2,volby2,column3,volby3):
             volby3 = unique_list(df,column3)
     except TypeError:
         pass
-    vysledek=df[(df[column1].isin(volby1)) & (df[column2].isin(volby2)) & (df[column3].isin(volby3))]
+    try:
+      if "-all-" in volby4:
+            volby4 = unique_list(df,column4)
+    except TypeError:
+        pass
+    vysledek=df[(df[column1].isin(volby1)) & (df[column2].isin(volby2)) & ((df[column3].isin(volby3)) | (df[column4].isin(volby4)))]
     return vysledek
