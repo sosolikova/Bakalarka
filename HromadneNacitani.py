@@ -278,18 +278,46 @@ def vyber_subjektu(df,column1,volby1,column2,volby2,column3,volby3,column4,volby
     vysledek = df[((df[column1].isin(volby1)) | (df[column2].isin(volby2)) | (df[column3].isin(volby3)))&(df[column4].isin(volby4))]
     return vysledek
 '''
+'''
 def vyber_subjektu(df, column1, volby1, column2, volby2, column3, volby3, column4, volby4) :
+    print(volby1)
     print(volby4)
-    if volby4 != ['-all-']:
-        print('ostatni')
-        vysledek = df[((df[column1].isin(volby1)) | (df[column2].isin(volby2)) | (df[column3].isin(volby3)))&(df[column4].isin(volby4))]
+    if (volby1 == [] or volby1 == ['-all-']) and (volby4 == [] or volby4 == ['-all-']):
+        print('kraje vse, typy vse')
+        if (volby2 == [] or volby2 == ['-all-']) and (volby3 == [] or volby3 == ['-all-']): vysledek = df
+        else:
+          vysledek = df[( (df[column2].isin(volby2)) | (df[column3].isin(volby3)))]
+    elif (volby1 == [] or volby1 == ['-all-']):
+        print('kraj vse, typ vyber')
+        vysledek = df[((df[column2].isin(volby2)) | (df[column3].isin(volby3)))&(df[column4].isin(volby4))]
     else:
-        vysledek = df[((df[column1].isin(volby1)) | (df[column2].isin(volby2)) | (df[column3].isin(volby3)))]
-        print('-all-')
+        vysledek = df[((df[column1].isin(volby1)) | (df[column2].isin(volby2)) | (df[column3].isin(volby3)))&(df[column4].isin(volby4))]
+        print('kraje vyber, typ vyber')
         
     return vysledek
+'''
+#Funguje
+def vyber_subjektu(df, column1, volby1, column2, volby2, column3, volby3, column4, volby4) :
+    print(volby1)
+    print(volby4)
+    if not (volby2 or volby3):
+      if (volby1 == [] or volby1 == ['-all-']):
+          print('chytla se')
+          volby1 = unique_list(Zdrojovy,column1,'-all-')
+          del volby1[0:2]
+          print(volby1)
+      else: volby1   
 
+    if (volby4 == [] or volby4 == ['-all-']):
+        print('chytla se')
+        volby4 = unique_list(Zdrojovy,column4,'-all-')
+        del volby4[0:2]
+        print(volby4)
+    else: volby4
 
+    vysledek = df[((df[column1].isin(volby1)) | (df[column2].isin(volby2)) | (df[column3].isin(volby3)))&(df[column4].isin(volby4))]
+        
+    return vysledek
 
 
 
