@@ -273,11 +273,21 @@ print('_____indikator select __________')
 print(indikator_select)
 indikator_select['ZmenaMnozstvi'].hist(bins=30)
 plt.show()
-
+'''
 def vyber_subjektu(df,column1,volby1,column2,volby2,column3,volby3,column4,volby4):
     vysledek = df[((df[column1].isin(volby1)) | (df[column2].isin(volby2)) | (df[column3].isin(volby3)))&(df[column4].isin(volby4))]
     return vysledek
-
+'''
+def vyber_subjektu(df, column1, volby1, column2, volby2, column3, volby3, column4, volby4) :
+    print(volby4)
+    if volby4 != ['-all-']:
+        print('ostatni')
+        vysledek = df[((df[column1].isin(volby1)) | (df[column2].isin(volby2)) | (df[column3].isin(volby3)))&(df[column4].isin(volby4))]
+    else:
+        vysledek = df[((df[column1].isin(volby1)) | (df[column2].isin(volby2)) | (df[column3].isin(volby3)))]
+        print('-all-')
+        
+    return vysledek
 
 
 
