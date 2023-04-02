@@ -264,12 +264,6 @@ u_list_partner_zuj_cislo = unique_list(Zdrojovy,'Partner_ZUJ_Cislo','')
 u_list_column_names = list(Zdrojovy_kody_mnozstvi.columns)
 
 
-
-'''
-unikatni_indikator = list(Zdrojovy['Indikator'].unique())
-print('_________unikatni hodnoty___________')
-print(unikatni_indikator)
-'''
 indikator_select = Zdrojovy_kody_mnozstvi[Zdrojovy_kody_mnozstvi['Kod'] == 'XD1']
 print('_____indikator select __________')
 print(indikator_select)
@@ -315,9 +309,31 @@ def vyber_subjektu(df, column1, volby1, column2, volby2, column3, volby3, column
         
     return vysledek
 
+#Výběr kritérií - nový
+def vyber_kriterii(df, column1, volby1, column2, volby2, column3, volby3, column4, volby4) :
+    if not (volby2):
+      if (volby1 == [] or volby1 == ['-all-']):
+          volby1 = unique_list(Zdrojovy,column1,'-all-')
+          del volby1[0:2]
+      else: volby1   
+
+    if (volby3 == [] or volby3 == ['-all-']):
+        volby3 = unique_list(Zdrojovy,column3,'-all-')
+        del volby3[0:2]
+    else: volby3
+
+    if (volby4 == [] or volby4 == ['-all-']):
+        volby4 = unique_list(Zdrojovy,column4,'-all-')
+        del volby4[0:2]
+    else: volby4
+
+    vysledek = df[((df[column1].isin(volby1)) | (df[column2].isin(volby2))) & (df[column3].isin(volby3)) & (df[column4].isin(volby4))]
+        
+    return vysledek
 
 
 
+'''
 def vyber_kriterii(df,column1,volby1,column2,volby2,column3,volby3,column4,volby4):
     try:
         if "-all-" in volby1:
@@ -341,3 +357,4 @@ def vyber_kriterii(df,column1,volby1,column2,volby2,column3,volby3,column4,volby
         pass
     vysledek=df[(df[column1].isin(volby1)) & (df[column2].isin(volby2)) & ((df[column3].isin(volby3)) | (df[column4].isin(volby4)))]
     return vysledek
+'''

@@ -94,21 +94,43 @@ def funkce1():
     vysledek=hn.summary_stat_parametr(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'ZmenaMnozstvi')
     text_widget.delete("1.0","end")
     text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY DLE KRAJŮ\n {vysledek}\n")
+
+
 def vyber_dat_evident():
     vysledek = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
-    vysledek = vysledek.loc[:,volby_sloupce]
+    if not volby_sloupce:
+        vysledek = vysledek.loc[:,['Evident_Kraj_Nazev','Evident_ORP_Nazev','Evident_ZUJ_Nazev','Indikator','Kod','ZmenaMnozstvi','Partner_Kraj_Nazev','Druh_Odpadu','Rok']]
+    else: vysledek = vysledek.loc[:,volby_sloupce]
+    if 'ZmenaMnozstvi' in vysledek.columns:
+        vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
     pocet_polozek = len(vysledek.index)
     text_widget.insert("1.0","end")
     text_widget.insert("1.0",f"VÝPIS DAT EVIDENTA DLE VÝBĚRU MÍSTA({pocet_polozek} položek):\n {vysledek.to_string(index=False, justify='left')}\n")
     
 def vyber_dat_partner():
     vysledek = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
-    vysledek = vysledek.loc[:,volby_sloupce]
+    if not volby_sloupce:
+        vysledek = vysledek.loc[:,['Evident_Kraj_Nazev','Evident_ORP_Nazev','Evident_ZUJ_Nazev','Indikator','Kod','ZmenaMnozstvi','Partner_Kraj_Nazev','Druh_Odpadu','Rok']]
+    else: vysledek = vysledek.loc[:,volby_sloupce]
+    if 'ZmenaMnozstvi' in vysledek.columns:
+        vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
     pocet_polozek = len(vysledek.index)
     text_widget.insert("1.0","end")
     text_widget.insert("1.0",f"VÝPIS DAT PARTNERA DLE VÝBĚRU MÍSTA({pocet_polozek} položek):\n {vysledek.to_string(index=False, justify='left')}\n")
-    
+
 def vyber_kriterii():
+    vysledek = hn.vyber_kriterii(hn.Zdrojovy_kody_mnozstvi,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
+    if not volby_sloupce:
+        vysledek = vysledek.loc[:,['Evident_Kraj_Nazev','Evident_ORP_Nazev','Evident_ZUJ_Nazev','Indikator','Kod','ZmenaMnozstvi','Partner_Kraj_Nazev','Druh_Odpadu','Rok']]
+    else: vysledek = vysledek.loc[:,volby_sloupce]
+    if 'ZmenaMnozstvi' in vysledek.columns:
+        vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+    pocet_polozek = len(vysledek.index)
+    text_widget.insert("1.0","end")
+    text_widget.insert("1.0",f"VÝPIS DAT DLE VÝBĚRU KRITÉRIÍ ({pocet_polozek} položek):\n {vysledek.to_string(index=False, justify='right')}\n")
+    
+#původní
+def vyber_kriterii_puvodni():
     vysledek = hn.vyber_kriterii(hn.Zdrojovy_kody_mnozstvi,'Rok',volby_rok,'Druh_Odpadu',volby_druhOdpadu,'Indikator',volby_indikator,'Kod',volby_kod)
     vysledek = vysledek.loc[:,['Evident_Kraj_Nazev','Evident_ORP_Nazev','Evident_ZUJ_Nazev','Indikator','Kod','ZmenaMnozstvi','Druh_Odpadu','Rok']]
     vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
