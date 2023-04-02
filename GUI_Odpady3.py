@@ -187,6 +187,29 @@ def vyber_evident_partner_kriteria():
         text_widget.delete("1.0","end")
         text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")        
 
+def grouping():
+    vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
+
+    vysledek_evidentApartner = hn.vyber_subjektu(vysledek_evident,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
+
+    vysledek = hn.vyber_kriterii(vysledek_evidentApartner,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
+    if not volby_sloupce:
+        vysledek = vysledek.loc[:,volby_sloupce_univ]
+    else: vysledek = vysledek.loc[:,volby_sloupce]
+    if not vysledek.empty:
+        if 'ZmenaMnozstvi' in vysledek.columns:
+            #grouping
+            vysledek = hn.group_data_by_columns(vysledek,'ZmenaMnozstvi','Druh_Odpadu','Rok','Kod','Evident_Kraj_Nazev')
+            vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+            pocet_polozek = len(vysledek.index)
+            text_widget.delete("1.0","end")
+            text_widget.insert("1.0",f"SESKUPENÍ DAT DLE 'ZmenaMnozstvi' ({pocet_polozek} položek):\n\n {vysledek.to_string(index=False, justify='right')}\n")
+    else:
+        text_widget.delete("1.0","end")
+        text_widget.insert("1.0","Výběr nesplnil žádný záznam. \n")
+
+
+
 # Slovník, kde klíče jsou názvy funkcí a hodnoty jsou samotné funkce
 funkce_dict = {
     "Sumarizace": funkce1,
@@ -195,6 +218,7 @@ funkce_dict = {
     "Výběr dat partner": vyber_dat_partner,
     "Výběr subjekt kritéria": vyber_subjekt_kriteria,
     "Výběr evident partner kritéria": vyber_evident_partner_kriteria,
+    "Seskupení dat": grouping,
     
 }
 
@@ -271,6 +295,27 @@ def on_button_click():
     text_widget.delete("1.0","end")
     text_widget.insert("1.0",vysledek)
  
+def graph_it():
+    vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
+
+    vysledek_evidentApartner = hn.vyber_subjektu(vysledek_evident,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
+
+    vysledek = hn.vyber_kriterii(vysledek_evidentApartner,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
+    if not volby_sloupce:
+        vysledek = vysledek.loc[:,volby_sloupce_univ]
+    else: vysledek = vysledek.loc[:,volby_sloupce]
+    if not vysledek.empty:
+        if 'ZmenaMnozstvi' in vysledek.columns:
+            vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+            vysledek['ZmenaMnozstvi'].plot()
+            plt.show()
+    else:
+        text_widget.delete("1.0","end")
+        text_widget.insert("1.0","Výběr nesplnil žádný záznam, nelze zobrazit graf. \n")
+        
+       
+
+
 
 root = Tk()
 root.title('Data o odpadech')
@@ -443,7 +488,7 @@ rok_combo.grid(row=3, column=1,padx=20, pady=0)
 
 
 # Funkce
-button1 = tk.Button(right_frame,text="Tlačítko1", command=on_button_click)
+button1 = tk.Button(right_frame,text="Graf", command=graph_it)
 button1.grid(row=0, column=4, padx=20, pady=0)
 # Funkce
 button2 = tk.Button(right_frame,text="Tlačítko2", command=on_button_click)
@@ -461,7 +506,7 @@ sloupce_combo.grid(row=1, column=2,padx=20, pady=0)
 # Seznam funkcí
 funkce_label= tk.Label(right_frame, text="Funkce")
 funkce_label.grid(row=0, column=3, padx=20, pady=0)
-options = ['','Sumarizace','Výběr kritérií', 'Výběr dat evident','Výběr dat partner','Výběr subjekt kritéria','Výběr evident partner kritéria']
+options = ['','Sumarizace','Výběr kritérií', 'Výběr dat evident','Výběr dat partner','Výběr subjekt kritéria','Výběr evident partner kritéria','Seskupení dat']
 funkce_combo = ttk.Combobox(right_frame, value=options)
 funkce_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_funkce(funkce_combo.get()))
 funkce_combo.current(0)
