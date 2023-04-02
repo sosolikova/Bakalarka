@@ -263,8 +263,6 @@ u_list_partner_zuj_cislo = unique_list(Zdrojovy,'Partner_ZUJ_Cislo','')
 
 u_list_column_names = list(Zdrojovy_kody_mnozstvi.columns)
 
-print('_________Jména sloupců_________')
-print(u_list_column_names)
 
 
 '''

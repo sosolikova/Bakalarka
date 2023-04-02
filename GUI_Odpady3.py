@@ -18,6 +18,7 @@ volby_kod = []
 volby_rok = []
 volby_druhOdpadu = []
 volby_funkce = []
+volby_sloupce = []
 
 # Seznamy pro evidenta
 volby_evident_kraj = []
@@ -80,25 +81,32 @@ def handle_druhOdpadu(selection):
     volby_druhOdpadu.append(selection)
     text_widget.insert('1.0', f"Druh odpadu: {selection}\n")
 
+def handle_sloupce(selection):
+    volby_sloupce.append(selection)
+    text_widget.insert('1.0', f"Sloupec: {selection}\n")
+
 def handle_funkce(selection):
     volby_funkce.append(selection)
     #text_widget.delete('1.0','end')
     text_widget.insert('1.0', f"Vybraný výpočet: {selection}\n")
+
 def funkce1():
     vysledek=hn.summary_stat_parametr(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'ZmenaMnozstvi')
     text_widget.delete("1.0","end")
     text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY DLE KRAJŮ\n {vysledek}\n")
 def vyber_dat_evident():
     vysledek = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
-    
+    vysledek = vysledek.loc[:,volby_sloupce]
+    pocet_polozek = len(vysledek.index)
     text_widget.insert("1.0","end")
-    text_widget.insert("1.0",f"VÝPIS DAT EVIDENTA DLE VÝBĚRU MÍSTA\n {vysledek}\n")
+    text_widget.insert("1.0",f"VÝPIS DAT EVIDENTA DLE VÝBĚRU MÍSTA({pocet_polozek} položek):\n {vysledek.to_string(index=False, justify='left')}\n")
     
 def vyber_dat_partner():
     vysledek = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
-
+    vysledek = vysledek.loc[:,volby_sloupce]
+    pocet_polozek = len(vysledek.index)
     text_widget.insert("1.0","end")
-    text_widget.insert("1.0",f"VÝPIS DAT PARTNERA DLE VÝBĚRU MÍSTA\n {vysledek}\n")
+    text_widget.insert("1.0",f"VÝPIS DAT PARTNERA DLE VÝBĚRU MÍSTA({pocet_polozek} položek):\n {vysledek.to_string(index=False, justify='left')}\n")
     
 def vyber_kriterii():
     vysledek = hn.vyber_kriterii(hn.Zdrojovy_kody_mnozstvi,'Rok',volby_rok,'Druh_Odpadu',volby_druhOdpadu,'Indikator',volby_indikator,'Kod',volby_kod)
@@ -158,6 +166,8 @@ def vytisknout_volby():
     text_widget.insert("end",'Zadané volby: \n')
     text_widget.insert("end",f"Vybraný výpočet: {volby_funkce}\n\n")
 
+    text_widget.insert("end",f"Sloupce na výstup: {volby_sloupce}\n\n")
+
     text_widget.insert("end",f"Identifikátor: {volby_indikator}\n")
     text_widget.insert("end",f"Kód nakládání: {volby_kod}\n")
     text_widget.insert("end",f"Druh odpadu: {volby_druhOdpadu}\n")
@@ -194,11 +204,13 @@ def vymazat_volby():
     partner_nazev_combo.current(0)
     partner_typSubjektu_combo.current(0)
 
+    volby_sloupce.clear()
     volby_funkce.clear()
     volby_indikator.clear()
     volby_kod.clear()
     volby_druhOdpadu.clear()
     volby_rok.clear()
+    sloupce_combo.current(0)
     funkce_combo.current(0)
     indikator_combo.current(0)
     kod_combo.current(0)
@@ -383,22 +395,32 @@ rok_combo.grid(row=3, column=1,padx=20, pady=0)
 
 # Funkce
 button1 = tk.Button(right_frame,text="Tlačítko1", command=on_button_click)
-button1.grid(row=0, column=3, padx=20, pady=0)
+button1.grid(row=0, column=4, padx=20, pady=0)
 # Funkce
 button2 = tk.Button(right_frame,text="Tlačítko2", command=on_button_click)
-button2.grid(row=0, column=4, padx=20, pady=0)
+button2.grid(row=0, column=5, padx=20, pady=0)
+# Volba sloupečků pro zobrazení ve výstupu
+sloupce_label= tk.Label(right_frame, text="Volba sloupců na výstup")
+sloupce_label.grid(row=0, column=2, padx=20, pady=0)
+options = hn.u_list_column_names
+sloupce_combo = ttk.Combobox(right_frame, value=options)
+sloupce_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_sloupce(sloupce_combo.get()))
+sloupce_combo.current(0)
+sloupce_combo.grid(row=1, column=2,padx=20, pady=0)
+
+
 # Seznam funkcí
 funkce_label= tk.Label(right_frame, text="Funkce")
-funkce_label.grid(row=0, column=2, padx=20, pady=0)
+funkce_label.grid(row=0, column=3, padx=20, pady=0)
 options = ['','Sumarizace','Výběr kritérií', 'Výběr dat evident','Výběr dat partner','Výběr subjekt kritéria','Výběr evident partner kritéria']
 funkce_combo = ttk.Combobox(right_frame, value=options)
 funkce_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_funkce(funkce_combo.get()))
 funkce_combo.current(0)
-funkce_combo.grid(row=1, column=2,padx=20, pady=0)
+funkce_combo.grid(row=1, column=3,padx=20, pady=0)
 
 # Talčítko pro spuštění funkce
 funkce_button=tk.Button(right_frame, text="Spuštění funkce", command=perform_action)
-funkce_button.grid(row=3, column=2, padx=20,pady=0)
+funkce_button.grid(row=3, column=3, padx=20,pady=0)
 
 
 # Vytvoření Text Widget a Scroollbar
