@@ -229,6 +229,8 @@ result = summary_stat(sortovani,'Evident_Kraj_Nazev','ZmenaMnozstvi')
 
 summary_stat_parametr(Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',my_list,'ZmenaMnozstvi')
 
+
+
 # vytvořit seznam unikátních hodnot ze sloupce
 def unique_list(df,column_name,start):
     u_list = list(df[column_name].unique())
@@ -259,8 +261,10 @@ u_list_partner_zuj_nazev = unique_list(Zdrojovy,'Partner_ZUJ_Nazev','')
 u_list_partner_typ = unique_list(Zdrojovy,'Partner_TypSubjektu','-all-')
 u_list_partner_zuj_cislo = unique_list(Zdrojovy,'Partner_ZUJ_Cislo','')
 
+u_list_column_names = list(Zdrojovy_kody_mnozstvi.columns)
 
-
+print('_________Jména sloupců_________')
+print(u_list_column_names)
 
 
 '''
