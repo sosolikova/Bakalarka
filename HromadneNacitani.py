@@ -264,6 +264,7 @@ u_list_partner_zuj_cislo = unique_list(Zdrojovy,'Partner_ZUJ_Cislo','')
 u_list_column_names = list(Zdrojovy_kody_mnozstvi.columns)
 
 
+
 indikator_select = Zdrojovy_kody_mnozstvi[Zdrojovy_kody_mnozstvi['Kod'] == 'XD1']
 print('_____indikator select __________')
 print(indikator_select)

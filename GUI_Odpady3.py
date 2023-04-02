@@ -19,6 +19,7 @@ volby_rok = []
 volby_druhOdpadu = []
 volby_funkce = []
 volby_sloupce = []
+volby_sloupce_univ = ['Evident_Kraj_Nazev','Evident_ORP_Nazev','Evident_ZUJ_Nazev','Indikator','Kod','ZmenaMnozstvi','Partner_Kraj_Nazev','Partner_ZUJ_Nazev','Druh_Odpadu','Rok']
 
 # Seznamy pro evidenta
 volby_evident_kraj = []
@@ -99,7 +100,7 @@ def funkce1():
 def vyber_dat_evident():
     vysledek = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
     if not volby_sloupce:
-        vysledek = vysledek.loc[:,['Evident_Kraj_Nazev','Evident_ORP_Nazev','Evident_ZUJ_Nazev','Indikator','Kod','ZmenaMnozstvi','Partner_Kraj_Nazev','Druh_Odpadu','Rok']]
+        vysledek = vysledek.loc[:,volby_sloupce_univ]
     else: vysledek = vysledek.loc[:,volby_sloupce]
     if not vysledek.empty:
         if 'ZmenaMnozstvi' in vysledek.columns:
@@ -115,7 +116,7 @@ def vyber_dat_evident():
 def vyber_dat_partner():
     vysledek = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
     if not volby_sloupce:
-        vysledek = vysledek.loc[:,['Evident_Kraj_Nazev','Evident_ORP_Nazev','Evident_ZUJ_Nazev','Indikator','Kod','ZmenaMnozstvi','Partner_Kraj_Nazev','Druh_Odpadu','Rok']]
+        vysledek = vysledek.loc[:,volby_sloupce_univ]
     else: vysledek = vysledek.loc[:,volby_sloupce]
     if not vysledek.empty:
         if 'ZmenaMnozstvi' in vysledek.columns:
@@ -130,7 +131,7 @@ def vyber_dat_partner():
 def vyber_kriterii():
     vysledek = hn.vyber_kriterii(hn.Zdrojovy_kody_mnozstvi,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
     if not volby_sloupce:
-        vysledek = vysledek.loc[:,['Evident_Kraj_Nazev','Evident_ORP_Nazev','Evident_ZUJ_Nazev','Indikator','Kod','ZmenaMnozstvi','Partner_Kraj_Nazev','Druh_Odpadu','Rok']]
+        vysledek = vysledek.loc[:,volby_sloupce_univ]
     else: vysledek = vysledek.loc[:,volby_sloupce]
     if not vysledek.empty:
         if 'ZmenaMnozstvi' in vysledek.columns:
@@ -174,7 +175,7 @@ def vyber_evident_partner_kriteria():
 
     vysledek = hn.vyber_kriterii(vysledek_evidentApartner,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
     if not volby_sloupce:
-        vysledek = vysledek.loc[:,['Evident_Kraj_Nazev','Evident_ORP_Nazev','Evident_ZUJ_Nazev','Indikator','Kod','ZmenaMnozstvi','Partner_Kraj_Nazev','Druh_Odpadu','Rok']]
+        vysledek = vysledek.loc[:,volby_sloupce_univ]
     else: vysledek = vysledek.loc[:,volby_sloupce]
     if not vysledek.empty:
         if 'ZmenaMnozstvi' in vysledek.columns:
