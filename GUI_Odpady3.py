@@ -209,30 +209,7 @@ def on_button_click():
     vysledek=hn.summary_stat_parametr(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'ZmenaMnozstvi')
     text_widget.delete("1.0","end")
     text_widget.insert("1.0",vysledek)
-
-def on_checkbox_click():
-    if check_var.get():
-        # Zobrazení comboboxu
-        partner_frame.pack(side=tk.TOP)
-        partner_kraj_label.pack(side=tk.TOP)
-        partner_kraj_combo.pack(side=tk.TOP)
-        partner_ORP_label.pack(side=tk.TOP)
-        partner_ORP_combo.pack(side=tk.TOP)
-        partner_nazev_label.pack(side=tk.TOP)
-        partner_nazev_combo.pack(side=tk.TOP)
-        partner_typSubjektu_label.pack(side=tk.TOP)
-        partner_typSubjektu_combo.pack(side=tk.TOP)
-    else:
-        # Skrytí comboboxu
-        partner_frame.pack_forget()
-        partner_kraj_label.pack_forget()
-        partner_kraj_combo.pack_forget()
-        partner_ORP_label.pack_forget()
-        partner_ORP_combo.pack_forget()
-        partner_nazev_label.pack_forget()
-        partner_nazev_combo.pack_forget()
-        partner_typSubjektu_label.pack_forget()
-        partner_typSubjektu_combo.pack_forget()   
+ 
 
 root = Tk()
 root.title('Data o odpadech')
@@ -244,6 +221,7 @@ bg_label = Label(root,image=bg)
 bg_label.place (x=0, y=0, relwidth=1, relheight=1)
 
 # Vvytvoření frame
+
 left_frame = Frame(root)
 left_frame.pack(side=LEFT,padx=20, pady=20)
 
@@ -257,24 +235,29 @@ parametry_frame.pack(side=tk.TOP, expand=True)
 '''
 
 # Vytvoření frame pro Evident a Partner
+'''
 funkcni_frame = tk.LabelFrame(left_frame, padx=40, pady=30)
 funkcni_frame.configure(borderwidth=0, highlightthickness=0)
 funkcni_frame.pack(side=tk.TOP, expand=True)
+'''
+funkcni_frame = tk.LabelFrame(left_frame, padx=10, pady=10)
+funkcni_frame.configure(borderwidth=0, highlightthickness=0)
+funkcni_frame.pack(side=tk.TOP, pady=(20, 0))
 
 evident_frame = tk.LabelFrame(left_frame, text="Evident", padx=10, pady=10)
-evident_frame.pack(side=tk.TOP)
+evident_frame.pack(side=tk.TOP, pady=(20, 0))
 
 partner_frame = tk.LabelFrame(left_frame, text = "Partner", padx=10, pady=10)
-#partner_frame.pack(side=tk.TOP)
-partner_frame.pack_forget()
+partner_frame.pack(side=tk.TOP, pady=(20, 0))
+
 
 # Tlačítko uložit volby
-ulozit_button = tk.Button(funkcni_frame, text="Uložit volby",command=vytisknout_volby)
-ulozit_button.pack(side=tk.TOP)
+ulozit_button = tk.Button(funkcni_frame, text="Zobrazit volby",command=vytisknout_volby)
+ulozit_button.pack(side=tk.TOP, pady=(20,0))
 
 # Tlačítko vymazat volby
-vymazat_button = tk.Button(funkcni_frame, text="Vymazat volby",command=vymazat_volby)
-vymazat_button.pack(side=tk.TOP)
+vymazat_button = tk.Button(funkcni_frame, text="Smazat volby",command=vymazat_volby)
+vymazat_button.pack(side=tk.TOP, pady = (20,0))
 
 # EVIDENT frame
 # Evident kraj combobox
@@ -315,47 +298,42 @@ evident_typSubjektu_combo.pack()
 
 
 # PARTNER frame
-# Vytvoření checkboxu
-check_var = tk.BooleanVar()
-checkbox = tk.Checkbutton(left_frame, text="Zobrazit partnera", variable=check_var, command=on_checkbox_click)
-checkbox.pack(side=tk.TOP)
 
 # Partner kraj combobox (více možností)
 partner_kraj_label = tk.Label(partner_frame, text="Kraj")
-#partner_kraj_label.pack(side=tk.TOP)
+partner_kraj_label.pack(side=tk.TOP)
 options = hn.u_list_partner_kraj
 partner_kraj_combo=ttk.Combobox(partner_frame, value=options)
 partner_kraj_combo.bind("<<ComboboxSelected>>", lambda event: handle_partner_kraj(partner_kraj_combo.get()))
 partner_kraj_combo.current(0)
-partner_kraj_combo.pack_forget()
+partner_kraj_combo.pack()
 
 # Partner ORP
 partner_ORP_label = tk.Label(partner_frame, text="ORP")
-#partner_ORP_label.pack(side=tk.TOP)
+partner_ORP_label.pack(side=tk.TOP)
 options = hn.u_list_partner_orp
 partner_ORP_combo = ttk.Combobox(partner_frame, value=options)
 partner_ORP_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_partner_ORP(partner_ORP_combo.get()))
 partner_ORP_combo.current(0)
-partner_ORP_combo.pack_forget()
+partner_ORP_combo.pack()
 
 # Partner název (ZÚJ)
 partner_nazev_label = tk.Label(partner_frame, text="ZÚJ")
-#partner_nazev_label.pack(side=tk.TOP)
+partner_nazev_label.pack(side=tk.TOP)
 options = hn.u_list_partner_zuj_nazev
 partner_nazev_combo = ttk.Combobox(partner_frame, value=options)
 partner_nazev_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_partner_nazev(partner_nazev_combo.get()))
 partner_nazev_combo.current(0)
-partner_nazev_combo.pack_forget()
+partner_nazev_combo.pack()
 
 # Partner typ subjektu
 partner_typSubjektu_label = tk.Label(partner_frame, text="Typ subjektu")
-#partner_typSubjektu_label.pack(side=tk.TOP)
+partner_typSubjektu_label.pack(side=tk.TOP)
 options = hn.u_list_partner_typ
 partner_typSubjektu_combo = ttk.Combobox(partner_frame, value=options)
 partner_typSubjektu_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_partner_typSubjektu(partner_typSubjektu_combo.get()))
 partner_typSubjektu_combo.current(0)
 partner_typSubjektu_combo.pack()
-partner_typSubjektu_combo.pack_forget()
 
 
 
