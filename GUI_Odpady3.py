@@ -95,39 +95,52 @@ def funkce1():
     text_widget.delete("1.0","end")
     text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY DLE KRAJŮ\n {vysledek}\n")
 
-
+#Platný
 def vyber_dat_evident():
     vysledek = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
     if not volby_sloupce:
         vysledek = vysledek.loc[:,['Evident_Kraj_Nazev','Evident_ORP_Nazev','Evident_ZUJ_Nazev','Indikator','Kod','ZmenaMnozstvi','Partner_Kraj_Nazev','Druh_Odpadu','Rok']]
     else: vysledek = vysledek.loc[:,volby_sloupce]
-    if 'ZmenaMnozstvi' in vysledek.columns:
-        vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
-    pocet_polozek = len(vysledek.index)
-    text_widget.insert("1.0","end")
-    text_widget.insert("1.0",f"VÝPIS DAT EVIDENTA DLE VÝBĚRU MÍSTA({pocet_polozek} položek):\n {vysledek.to_string(index=False, justify='left')}\n")
-    
+    if not vysledek.empty:
+        if 'ZmenaMnozstvi' in vysledek.columns:
+            vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+        pocet_polozek = len(vysledek.index)
+        text_widget.delete("1.0","end")
+        text_widget.insert("1.0",f"VÝPIS DAT EVIDENTA DLE VÝBĚRU MÍSTA({pocet_polozek} položek):\n\n {vysledek.to_string(index=False, justify='left')}\n")
+    else:
+        text_widget.delete("1.0","end")
+        text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")        
+
+# platný    
 def vyber_dat_partner():
     vysledek = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
     if not volby_sloupce:
         vysledek = vysledek.loc[:,['Evident_Kraj_Nazev','Evident_ORP_Nazev','Evident_ZUJ_Nazev','Indikator','Kod','ZmenaMnozstvi','Partner_Kraj_Nazev','Druh_Odpadu','Rok']]
     else: vysledek = vysledek.loc[:,volby_sloupce]
-    if 'ZmenaMnozstvi' in vysledek.columns:
-        vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
-    pocet_polozek = len(vysledek.index)
-    text_widget.insert("1.0","end")
-    text_widget.insert("1.0",f"VÝPIS DAT PARTNERA DLE VÝBĚRU MÍSTA({pocet_polozek} položek):\n {vysledek.to_string(index=False, justify='left')}\n")
-
+    if not vysledek.empty:
+        if 'ZmenaMnozstvi' in vysledek.columns:
+            vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+        pocet_polozek = len(vysledek.index)
+        text_widget.insert("1.0","end")
+        text_widget.insert("1.0",f"VÝPIS DAT PARTNERA DLE VÝBĚRU MÍSTA({pocet_polozek} položek):\n\n {vysledek.to_string(index=False, justify='left')}\n")
+    else:
+        text_widget.delete("1.0","end")
+        text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")    
+#Platný
 def vyber_kriterii():
     vysledek = hn.vyber_kriterii(hn.Zdrojovy_kody_mnozstvi,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
     if not volby_sloupce:
         vysledek = vysledek.loc[:,['Evident_Kraj_Nazev','Evident_ORP_Nazev','Evident_ZUJ_Nazev','Indikator','Kod','ZmenaMnozstvi','Partner_Kraj_Nazev','Druh_Odpadu','Rok']]
     else: vysledek = vysledek.loc[:,volby_sloupce]
-    if 'ZmenaMnozstvi' in vysledek.columns:
-        vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
-    pocet_polozek = len(vysledek.index)
-    text_widget.insert("1.0","end")
-    text_widget.insert("1.0",f"VÝPIS DAT DLE VÝBĚRU KRITÉRIÍ ({pocet_polozek} položek):\n {vysledek.to_string(index=False, justify='right')}\n")
+    if not vysledek.empty:
+        if 'ZmenaMnozstvi' in vysledek.columns:
+            vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+        pocet_polozek = len(vysledek.index)
+        text_widget.delete("1.0","end")
+        text_widget.insert("1.0",f"VÝPIS DAT DLE VÝBĚRU KRITÉRIÍ ({pocet_polozek} položek):\n {vysledek.to_string(index=False, justify='right')}\n")
+    else:
+        text_widget.delete("1.0","end")
+        text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")  
     
 #původní
 def vyber_kriterii_puvodni():
@@ -153,12 +166,25 @@ def vyber_subjekt_kriteria():
 
 
 # Sloučení podmínek výběru dle kritérií, výběr evidenta, výběr partnera
-
+#Platný
 def vyber_evident_partner_kriteria():
-    vyber_subjekt_kriteria()
+    vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
 
+    vysledek_evidentApartner = hn.vyber_subjektu(vysledek_evident,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
 
-
+    vysledek = hn.vyber_kriterii(vysledek_evidentApartner,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
+    if not volby_sloupce:
+        vysledek = vysledek.loc[:,['Evident_Kraj_Nazev','Evident_ORP_Nazev','Evident_ZUJ_Nazev','Indikator','Kod','ZmenaMnozstvi','Partner_Kraj_Nazev','Druh_Odpadu','Rok']]
+    else: vysledek = vysledek.loc[:,volby_sloupce]
+    if not vysledek.empty:
+        if 'ZmenaMnozstvi' in vysledek.columns:
+            vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+        pocet_polozek = len(vysledek.index)
+        text_widget.delete("1.0","end")
+        text_widget.insert("1.0",f"VÝPIS DAT DLE VÝBĚRU EVIDENTA, PARTNERA A KRITÉRIÍ ({pocet_polozek} položek):\n\n {vysledek.to_string(index=False, justify='right')}\n")
+    else:
+        text_widget.delete("1.0","end")
+        text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")        
 
 # Slovník, kde klíče jsou názvy funkcí a hodnoty jsou samotné funkce
 funkce_dict = {
