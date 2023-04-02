@@ -212,7 +212,7 @@ def perform_action():
 def vytisknout_volby():
     """Tato funkce se spustí po stisknutí tlačítka Uložit volby"""
     text_widget.delete('1.0','end')
-    text_widget.insert("end",'Zadané volby: \n')
+    text_widget.insert("end",'ZADANÉ VOLBY: \n\n')
     text_widget.insert("end",f"Vybraný výpočet: {volby_funkce}\n\n")
 
     text_widget.insert("end",f"Sloupce na výstup: {volby_sloupce}\n\n")
