@@ -17,6 +17,12 @@ dtypes_zuj = {
     'Kraj_Kod': 'string',
     'Kraj_Nazev': 'string'
 }
+dtypes_obyvatele = {
+    'Kod_Okresu':     'string',
+    'Kod_Obce':       'string',
+    'Nazev_Obce':     'string',
+    'Pocet_Obyvatel':  'int'
+}
 dtypes_odpady= {
     'Evident_ZUJ_Cislo':    'string',
     'Evident_ZUJ_Nazev':    'string',
@@ -74,6 +80,10 @@ Funkce.save_dataframe_to_csv(Zdrojovy,'Zdrojovy')
 print('______----Zdrojovy----______')
 Zdrojovy.info()
 
+Pocet_obyvatel = load_csv_type_conversion('Pocet_obyvatel_2021.csv',dtypes_obyvatele)
+print('_______--pocet obyvatel--___________')
+#print(Pocet_obyvatel)
+
 def checknull(df):
   check = df.isnull().sum()
   print('_________checknull__________')
@@ -96,6 +106,7 @@ je_soucet_nulovy(Zdrojovy)
 
 Kody = load_csv_type_conversion('Kod_Nakladani.csv',dtypes_nakladani)
 
+
 'Funkce pro spárování dvou DataFrame'
 def merge_left(df1, df2, column1, column2):
     merged_df = pd.merge(df1, df2, left_on=column1,right_on=column2, how = 'left')
@@ -104,6 +115,8 @@ def merge_left(df1, df2, column1, column2):
 def merge_left2(df1, df2, column1, column2,suffixes1,suffixes2):
     merged_df = pd.merge(df1, df2, left_on=column1,right_on=column2, how = 'left',suffixes=(suffixes1,suffixes2))
     return merged_df
+
+Zdrojovy = merge_left(Zdrojovy,Pocet_obyvatel,'Evident_ZUJ_Cislo','Kod_obce')
 
 Zdrojovy_Kody = merge_left(Zdrojovy,Kody,'Kod','Kod')
 Funkce.save_dataframe_to_csv(Zdrojovy_Kody,'Zdrojovy_Kody')
