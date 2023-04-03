@@ -210,17 +210,7 @@ def grouping():
 
 
 
-# Slovník, kde klíče jsou názvy funkcí a hodnoty jsou samotné funkce
-funkce_dict = {
-    "Sumarizace": funkce1,
-    "Výběr kritérií": vyber_kriterii,
-    "Výběr dat evident": vyber_dat_evident,
-    "Výběr dat partner": vyber_dat_partner,
-    "Výběr subjekt kritéria": vyber_subjekt_kriteria,
-    "Výběr evident partner kritéria": vyber_evident_partner_kriteria,
-    "Seskupení dat": grouping,
-    
-}
+
 
 def perform_action():
     selected_func=funkce_combo.get()
@@ -294,7 +284,10 @@ def on_button_click():
     vysledek=hn.summary_stat_parametr(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'ZmenaMnozstvi')
     text_widget.delete("1.0","end")
     text_widget.insert("1.0",vysledek)
- 
+
+
+    
+
 def graph_it():
     vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
 
@@ -306,14 +299,27 @@ def graph_it():
     else: vysledek = vysledek.loc[:,volby_sloupce]
     if not vysledek.empty:
         if 'ZmenaMnozstvi' in vysledek.columns:
-            vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
-            vysledek['ZmenaMnozstvi'].plot()
+            '''
+            vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))'''
+            fig,ax = plt.subplots()
+            ax.scatter(vysledek['ZmenaMnozstvi'],vysledek['ZmenaMnozstvi'],color="red",label="200111")
             plt.show()
     else:
         text_widget.delete("1.0","end")
         text_widget.insert("1.0","Výběr nesplnil žádný záznam, nelze zobrazit graf. \n")
         
-       
+# Slovník, kde klíče jsou názvy funkcí a hodnoty jsou samotné funkce
+funkce_dict = {
+    "Sumarizace": funkce1,
+    "Výběr kritérií": vyber_kriterii,
+    "Výběr dat evident": vyber_dat_evident,
+    "Výběr dat partner": vyber_dat_partner,
+    "Výběr subjekt kritéria": vyber_subjekt_kriteria,
+    "Výběr evident partner kritéria": vyber_evident_partner_kriteria,
+    "Seskupení dat": grouping,
+    "Graf scatter": graph_it,
+    
+}       
 
 
 
@@ -506,7 +512,7 @@ sloupce_combo.grid(row=1, column=2,padx=20, pady=0)
 # Seznam funkcí
 funkce_label= tk.Label(right_frame, text="Funkce")
 funkce_label.grid(row=0, column=3, padx=20, pady=0)
-options = ['','Sumarizace','Výběr kritérií', 'Výběr dat evident','Výběr dat partner','Výběr subjekt kritéria','Výběr evident partner kritéria','Seskupení dat']
+options = ['','Sumarizace','Výběr kritérií', 'Výběr dat evident','Výběr dat partner','Výběr subjekt kritéria','Výběr evident partner kritéria','Seskupení dat','Graf scatter']
 funkce_combo = ttk.Combobox(right_frame, value=options)
 funkce_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_funkce(funkce_combo.get()))
 funkce_combo.current(0)
