@@ -116,7 +116,7 @@ def merge_left2(df1, df2, column1, column2,suffixes1,suffixes2):
     merged_df = pd.merge(df1, df2, left_on=column1,right_on=column2, how = 'left',suffixes=(suffixes1,suffixes2))
     return merged_df
 
-Zdrojovy = merge_left(Zdrojovy,Pocet_obyvatel,'Evident_ZUJ_Cislo','Kod_obce')
+Zdrojovy = merge_left(Zdrojovy,Pocet_obyvatel,'Evident_ZUJ_Cislo','Kod_Obce')
 
 Zdrojovy_Kody = merge_left(Zdrojovy,Kody,'Kod','Kod')
 Funkce.save_dataframe_to_csv(Zdrojovy_Kody,'Zdrojovy_Kody')
