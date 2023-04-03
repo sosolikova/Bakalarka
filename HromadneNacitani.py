@@ -152,7 +152,8 @@ Zdrojovy_kody_mnozstvi.info()
 'Grouping DataFrame podle jednoho či více sloupců'
 def group_data_by_columns(data, func_column, *group_columns ):
     grouped_data = data.groupby(list(group_columns))[func_column].sum().reset_index()
-    return grouped_data
+    sorted_data = grouped_data.sort_values(by=func_column,ascending=False)
+    return sorted_data
 
 'APLIKACE slouceni podle sloupcu Evident, Evidnet_TypSubjektu, funkce bude na sloupci ZmenaMnozstvi'
 Zdrojovy_kody_mnozstvi_group = group_data_by_columns(Zdrojovy_kody_mnozstvi,'ZmenaMnozstvi','Druh_Odpadu','Evident_ZUJ_Cislo','Evident_TypSubjektu')
