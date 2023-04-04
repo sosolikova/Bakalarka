@@ -20,6 +20,8 @@ volby_druhOdpadu = []
 volby_funkce = []
 volby_sloupce = []
 volby_sloupce_univ = ['Evident_Kraj_Nazev','Evident_ORP_Nazev','Evident_ZUJ_Nazev','Indikator','Kod','ZmenaMnozstvi','Partner_Kraj_Nazev','Partner_ZUJ_Nazev','Druh_Odpadu','Rok']
+volby_seskupeni = []
+volby_seskupeni_univ = ['Druh_Odpadu','Indikator','Kod']
 
 # Seznamy pro evidenta
 volby_evident_kraj = []
@@ -84,6 +86,10 @@ def handle_druhOdpadu(selection):
 
 def handle_sloupce(selection):
     volby_sloupce.append(selection)
+    text_widget.insert('1.0', f"Sloupec: {selection}\n")
+
+def handle_seskupeni(selection):
+    volby_seskupeni.append(selection)
     text_widget.insert('1.0', f"Sloupec: {selection}\n")
 
 def handle_funkce(selection):
@@ -188,6 +194,7 @@ def vyber_evident_partner_kriteria():
         text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")        
 
 def grouping():
+    list_seskupeni = volby_seskupeni
     vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
 
     vysledek_evidentApartner = hn.vyber_subjektu(vysledek_evident,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
@@ -196,10 +203,13 @@ def grouping():
     if not volby_sloupce:
         vysledek = vysledek.loc[:,volby_sloupce_univ]
     else: vysledek = vysledek.loc[:,volby_sloupce]
+    if not list_seskupeni:
+        list_seskupeni = volby_seskupeni_univ
+    else: list_seskupeni = volby_seskupeni
     if not vysledek.empty:
         if 'ZmenaMnozstvi' in vysledek.columns:
             #grouping
-            vysledek = hn.group_data_by_columns(vysledek,'ZmenaMnozstvi','Druh_Odpadu','Rok','Kod','Evident_Kraj_Nazev')
+            vysledek = hn.group_data_by_columns_list(vysledek,'ZmenaMnozstvi',list_seskupeni)
             vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
             pocet_polozek = len(vysledek.index)
             text_widget.delete("1.0","end")
@@ -230,6 +240,7 @@ def vytisknout_volby():
     text_widget.insert("end",f"Vybraný výpočet: {volby_funkce}\n\n")
 
     text_widget.insert("end",f"Sloupce na výstup: {volby_sloupce}\n\n")
+    text_widget.insert("end",f"Seskupení podle sloupců: {volby_seskupeni}\n\n")
 
     text_widget.insert("end",f"Identifikátor: {volby_indikator}\n")
     text_widget.insert("end",f"Kód nakládání: {volby_kod}\n")
@@ -267,12 +278,14 @@ def vymazat_volby():
     partner_nazev_combo.current(0)
     partner_typSubjektu_combo.current(0)
 
+    volby_seskupeni.clear()
     volby_sloupce.clear()
     volby_funkce.clear()
     volby_indikator.clear()
     volby_kod.clear()
     volby_druhOdpadu.clear()
     volby_rok.clear()
+    seskupit_combo.current(0)
     sloupce_combo.current(0)
     funkce_combo.current(0)
     indikator_combo.current(0)
@@ -507,6 +520,15 @@ sloupce_combo = ttk.Combobox(right_frame, value=options)
 sloupce_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_sloupce(sloupce_combo.get()))
 sloupce_combo.current(0)
 sloupce_combo.grid(row=1, column=2,padx=20, pady=0)
+
+# Volba sloupečků podle kterých seskupovat
+seskupit_label= tk.Label(right_frame, text="Sloupce k seskupení")
+seskupit_label.grid(row=2, column=2, padx=20, pady=0)
+options = hn.u_list_column_names
+seskupit_combo = ttk.Combobox(right_frame, value=options)
+seskupit_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_seskupeni(seskupit_combo.get()))
+seskupit_combo.current(0)
+seskupit_combo.grid(row=3, column=2,padx=20, pady=0)
 
 
 # Seznam funkcí

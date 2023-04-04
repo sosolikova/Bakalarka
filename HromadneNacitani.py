@@ -168,6 +168,12 @@ def group_data_by_columns(data, func_column, *group_columns ):
     sorted_data = grouped_data.sort_values(by=func_column,ascending=False)
     return sorted_data
 
+'Grouping DataFrame podle listu s názvy sloupců'
+def group_data_by_columns_list(data, func_column, group_column_list ):
+    grouped_data = data.groupby(group_column_list)[func_column].sum().reset_index()
+    sorted_data = grouped_data.sort_values(by=func_column,ascending=False)
+    return sorted_data
+
 'APLIKACE slouceni podle sloupcu Evident, Evidnet_TypSubjektu, funkce bude na sloupci ZmenaMnozstvi'
 Zdrojovy_kody_mnozstvi_group = group_data_by_columns(Zdrojovy_kody_mnozstvi,'ZmenaMnozstvi','Druh_Odpadu','Evident_ZUJ_Cislo','Evident_TypSubjektu')
 Funkce.save_dataframe_to_csv(Zdrojovy_kody_mnozstvi_group,'Zdrojovy_kody_mnozstvi_group')
