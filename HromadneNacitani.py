@@ -23,6 +23,15 @@ dtypes_obyvatele = {
     'Nazev_Obce':     'string',
     'Pocet_Obyvatel':  'int'
 }
+dtypes_obyvatele2 ={
+    'Evident_ZUJ_Cislo':  'string',
+    'Evident_ZUJ_Nazev':  'string',
+    'Evident_ORP_Cislo':  'string',
+    'Evident_ORP_Nazev':  'string',
+    'Evident_Kraj_Cislo': 'string',
+    'Evident_Kraj_Nazev': 'string',
+    'Pocet_Obyvatel':     'int'
+}
 dtypes_odpady= {
     'Evident_ZUJ_Cislo':    'string',
     'Evident_ZUJ_Nazev':    'string',
@@ -81,8 +90,12 @@ print('______----Zdrojovy----______')
 Zdrojovy.info()
 
 Pocet_obyvatel = load_csv_type_conversion('Pocet_obyvatel_2021.csv',dtypes_obyvatele)
-print('_______--pocet obyvatel--___________')
+#print('_______--pocet obyvatel--___________')
 #print(Pocet_obyvatel)
+
+Pocet_obyvatel2 = load_csv_type_conversion('Pocet_Obyvatel2.csv',dtypes_obyvatele2)
+print('_______--pocet obyvatel2--___________')
+print(Pocet_obyvatel2)
 
 def checknull(df):
   check = df.isnull().sum()
@@ -289,8 +302,10 @@ u_list_partner_zuj_cislo = unique_list(Zdrojovy,'Partner_ZUJ_Cislo','')
 
 u_list_column_names = list(Zdrojovy_kody_mnozstvi.columns)
 
+#list_kraj_orp = 
 
-
+#list_orp_zuj
+'''
 indikator_select = Zdrojovy_kody_mnozstvi[Zdrojovy_kody_mnozstvi['Kod'] == 'XD1']
 print('_____indikator select __________')
 print(indikator_select)
