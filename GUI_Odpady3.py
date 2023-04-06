@@ -104,12 +104,22 @@ def funkce1():
     vysledek_evidentApartner = hn.vyber_subjektu(vysledek_evident,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
 
     vysledek = hn.vyber_kriterii(vysledek_evidentApartner,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
-    '''
-    vysledek=hn.summary_stat_parametr(vysledek,'Evident_ORP_Nazev',volby_evident_ORP,'ZmenaMnozstvi')
-    '''
-    vysledek=hn.summary_stat_parametr(vysledek,'Evident_ORP_Nazev',['Vsetín','Luhačovice'],'ZmenaMnozstvi')
-    text_widget.delete("1.0","end")
-    text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY DLE ORP\n {vysledek}\n")
+
+    if volby_evident_kraj:
+        vysledek=hn.summary_stat_parametr(vysledek,'Evident_ORP_Nazev',hn.list_kraj_orp[volby_evident_kraj],'ZmenaMnozstvi')
+
+        text_widget.delete("1.0","end")
+        text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY PRO ORP v kraji: {volby_evident_kraj}\n {vysledek}\n")
+    elif volby_evident_ORP:
+        vysledek=hn.summary_stat_parametr(vysledek,'Evident_ZUJ_Nazev',hn.list_orp_zuj[volby_evident_ORP],'ZmenaMnozstvi')
+
+        text_widget.delete("1.0","end")
+        text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY PRO ZUJ v ORP: {volby_evident_ORP}\n {vysledek}\n")
+    else:
+        text_widget.delete("1.0","end")
+        text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")  
+
+    
 
 
 

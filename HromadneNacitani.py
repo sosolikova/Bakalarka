@@ -234,6 +234,8 @@ def summary_stat_parametr(df,parametr,volba,column_summary):
     print(result)
     return result
 
+'''
+#Původní - fungovalo dobře
 def summary_stat_parametr(df,parametr,seznam,column_summary):
     if seznam == ["-all-"]:
         sort = df
@@ -246,6 +248,19 @@ def summary_stat_parametr(df,parametr,seznam,column_summary):
     print('Výsledek funkce summary_stat_parametr:')
     print(result)
     return result
+'''
+
+def summary_stat_parametr(df, parametr, seznam, column_summary):
+    sort = df[df[parametr].isin(seznam)]
+    result = sort.groupby(parametr)[column_summary].agg([np.mean, np.median, np.min, np.max])
+    result = result.applymap(lambda x: round(x))
+    locale.setlocale(locale.LC_ALL, '')
+    result = result.applymap(lambda x: locale.format_string('%d', x, grouping=True))
+    print('Výsledek funkce summary_stat_parametr:')
+    print(result)
+    return result
+
+
 
 def summary_stat(df,parametr,column_summary):
     result = df.groupby(parametr)[column_summary].agg([np.mean,np.median,np.min,np.max])
@@ -302,10 +317,15 @@ u_list_partner_zuj_cislo = unique_list(Zdrojovy,'Partner_ZUJ_Cislo','')
 
 u_list_column_names = list(Zdrojovy_kody_mnozstvi.columns)
 
-#list_kraj_orp = 
+def create_area_list(df,column_high,column_low):
+    list = df.groupby(column_high)[column_low].unique()
+    return list
+
+list_kraj_orp = create_area_list(Pocet_obyvatel2,'Evident_Kraj_Nazev','Evident_ORP_Nazev')
+list_orp_zuj = create_area_list(Pocet_obyvatel2,'Evident_ORP_Nazev','Evident_ZUJ_Nazev')
 
 #list_orp_zuj
-'''
+
 indikator_select = Zdrojovy_kody_mnozstvi[Zdrojovy_kody_mnozstvi['Kod'] == 'XD1']
 print('_____indikator select __________')
 print(indikator_select)
@@ -334,6 +354,7 @@ def vyber_subjektu(df, column1, volby1, column2, volby2, column3, volby3, column
         
     return vysledek
 '''
+
 #Funguje
 def vyber_subjektu(df, column1, volby1, column2, volby2, column3, volby3, column4, volby4) :
     if not (volby2 or volby3):
