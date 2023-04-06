@@ -5,6 +5,7 @@ import tkinter as tk
 from tkinter import filedialog
 from PIL import ImageTk, Image
 import matplotlib.pyplot as plt
+import numpy as np
 from pandas import options
 from ttkthemes import ThemedTk
 from ttkthemes import ThemedStyle
@@ -19,7 +20,7 @@ volby_rok = []
 volby_druhOdpadu = []
 volby_funkce = []
 volby_sloupce = []
-volby_sloupce_univ = ['Evident_Kraj_Nazev','Evident_ORP_Nazev','Evident_ZUJ_Nazev','Indikator','Kod','ZmenaMnozstvi','Partner_Kraj_Nazev','Partner_ZUJ_Nazev','Druh_Odpadu','Rok']
+volby_sloupce_univ = ['Evident_Kraj_Nazev','Evident_ORP_Nazev','Indikator','Kod','ZmenaMnozstvi','Pocet_Obyvatel','Partner_Kraj_Nazev','Partner_ORP_Nazev','Druh_Odpadu','Rok']
 volby_seskupeni = []
 volby_seskupeni_univ = ['Druh_Odpadu','Indikator','Kod']
 
@@ -98,9 +99,19 @@ def handle_funkce(selection):
     text_widget.insert('1.0', f"Vybraný výpočet: {selection}\n")
 
 def funkce1():
-    vysledek=hn.summary_stat_parametr(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'ZmenaMnozstvi')
+    vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)     
+  
+    vysledek_evidentApartner = hn.vyber_subjektu(vysledek_evident,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
+
+    vysledek = hn.vyber_kriterii(vysledek_evidentApartner,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
+    '''
+    vysledek=hn.summary_stat_parametr(vysledek,'Evident_ORP_Nazev',volby_evident_ORP,'ZmenaMnozstvi')
+    '''
+    vysledek=hn.summary_stat_parametr(vysledek,'Evident_ORP_Nazev',['Vsetín','Luhačovice'],'ZmenaMnozstvi')
     text_widget.delete("1.0","end")
-    text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY DLE KRAJŮ\n {vysledek}\n")
+    text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY DLE ORP\n {vysledek}\n")
+
+
 
 #Platný
 def vyber_dat_evident():
@@ -209,7 +220,7 @@ def grouping():
     if not vysledek.empty:
         if 'ZmenaMnozstvi' in vysledek.columns:
             #grouping
-            vysledek = hn.group_data_by_columns_list(vysledek,'ZmenaMnozstvi',list_seskupeni)
+            vysledek = hn.group_data_by_columns_list(vysledek,['ZmenaMnozstvi','Pocet_Obyvatel'],list_seskupeni)
             vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
             pocet_polozek = len(vysledek.index)
             text_widget.delete("1.0","end")
@@ -217,10 +228,6 @@ def grouping():
     else:
         text_widget.delete("1.0","end")
         text_widget.insert("1.0","Výběr nesplnil žádný záznam. \n")
-
-
-
-
 
 def perform_action():
     selected_func=funkce_combo.get()
@@ -305,21 +312,19 @@ def graph_it():
     vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
 
     vysledek_evidentApartner = hn.vyber_subjektu(vysledek_evident,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
-
+    
     vysledek = hn.vyber_kriterii(vysledek_evidentApartner,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
-    if not volby_sloupce:
-        vysledek = vysledek.loc[:,volby_sloupce_univ]
-    else: vysledek = vysledek.loc[:,volby_sloupce]
-    if not vysledek.empty:
-        if 'ZmenaMnozstvi' in vysledek.columns:
-            '''
-            vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))'''
-            fig,ax = plt.subplots()
-            ax.scatter(vysledek['ZmenaMnozstvi'],vysledek['ZmenaMnozstvi'],color="red",label="200111")
-            plt.show()
-    else:
-        text_widget.delete("1.0","end")
-        text_widget.insert("1.0","Výběr nesplnil žádný záznam, nelze zobrazit graf. \n")
+
+    fig,ax = plt.subplots()
+    colors = ['red', 'blue', 'green', 'orange'] #seznam barev pro scatter grafy
+    for i,odpad in enumerate(volby_druhOdpadu):
+        data = vysledek[vysledek['Druh_Odpadu'] == odpad]
+        ax.scatter(data['ZmenaMnozstvi'],data['Pocet_Obyvatel'],color=colors[i],label=odpad)
+    ax.legend()
+    ax.set_xlabel("Množství odpadu v kg")
+    ax.set_ylabel("Počet obyvatel")
+    plt.show()
+
         
 # Slovník, kde klíče jsou názvy funkcí a hodnoty jsou samotné funkce
 funkce_dict = {

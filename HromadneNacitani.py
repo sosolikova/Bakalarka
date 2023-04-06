@@ -225,7 +225,7 @@ def summary_stat_parametr(df,parametr,seznam,column_summary):
     if seznam == ["-all-"]:
         sort = df
     else:
-      sort = df[(df[parametr].isin(seznam))]
+        sort = df[(df[parametr].isin(seznam))]
     result = sort.groupby(parametr)[column_summary].agg([np.mean,np.median,np.min,np.max])
     result = result.applymap(lambda x: round(x))
     locale.setlocale(locale.LC_ALL, '')
@@ -241,6 +241,12 @@ def summary_stat(df,parametr,column_summary):
     result = result.applymap(lambda x: locale.format_string('%d', x, grouping=True))
     print(result)
     return result
+
+def summary_stat_new(df):
+    result = df.agg([np.mean, np.median, np.mod, np.min, np.max])
+    return result
+
+
 
 my_list=['Zlínský kraj','Jihomoravský kraj','Jihočeský kraj']
 print('Zkouška sortování')
