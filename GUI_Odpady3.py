@@ -185,17 +185,20 @@ def vyber_subjekt_kriteria():
 
     vysledek = hn.vyber_kriterii(vysledek_evidentApartner,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
     
-    data = vysledek['ZmenaMnozstvi']
-    pocet_hodnot = len(data)
+    vysledek['ZmenaMnozstvi']
+    pocet_hodnot = len(vysledek['ZmenaMnozstvi'])
     # Výpočet IQR metody
-    q1, q3 = np.percentile(data, [25, 75])
+    q1, q3 = np.percentile(vysledek['ZmenaMnozstvi'], [25, 75])
     iqr = q3 - q1
 
     # Určení odlehlých hodnot
     lower_bound = q1 - 1.5 * iqr
     upper_bound = q3 + 1.5 * iqr
     outliers = vysledek[(vysledek['ZmenaMnozstvi'] < lower_bound) | (vysledek['ZmenaMnozstvi'] > upper_bound)]
+    pocet_odlehlych_hodnot_lower=len(vysledek[(vysledek['ZmenaMnozstvi'] < lower_bound)])
+    pocet_odlehlych_hodnot_upper=len(vysledek[(vysledek['ZmenaMnozstvi'] > upper_bound)])
     pocet_odlehlych_hodnot = len(outliers)
+
 
     if not volby_sloupce:
         outliers = outliers.loc[:,volby_sloupce_univ]
@@ -208,7 +211,7 @@ def vyber_subjekt_kriteria():
 
     # Výsledky testu
     if len(outliers) > 0:
-        vysledek_testu_text = f"V datovém vzorku o {pocet_hodnot} hodnotách existuje {pocet_odlehlych_hodnot} odlehlých hodnot:\n\n{outliers.to_string(index=False, justify='right')}"
+        vysledek_testu_text = f"V datovém vzorku o {pocet_hodnot} hodnotách existuje {pocet_odlehlych_hodnot} odlehlých hodnot ({pocet_odlehlych_hodnot_lower}, {pocet_odlehlych_hodnot_upper}):\n\n{outliers.to_string(index=False, justify='right')}"
         print(outliers)
 
     else:
