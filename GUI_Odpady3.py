@@ -186,6 +186,7 @@ def vyber_subjekt_kriteria():
     vysledek = hn.vyber_kriterii(vysledek_evidentApartner,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
     
     data = vysledek['ZmenaMnozstvi']
+    pocet_hodnot = len(data)
     # Výpočet IQR metody
     q1, q3 = np.percentile(data, [25, 75])
     iqr = q3 - q1
@@ -193,17 +194,29 @@ def vyber_subjekt_kriteria():
     # Určení odlehlých hodnot
     lower_bound = q1 - 1.5 * iqr
     upper_bound = q3 + 1.5 * iqr
-    outliers = [x for x in data if x < lower_bound or x > upper_bound]
+    outliers = vysledek[(vysledek['ZmenaMnozstvi'] < lower_bound) | (vysledek['ZmenaMnozstvi'] > upper_bound)]
+    pocet_odlehlych_hodnot = len(outliers)
+
+    if not volby_sloupce:
+        outliers = outliers.loc[:,volby_sloupce_univ]
+    else: outliers = outliers.loc[:,volby_sloupce]
+    if not outliers.empty:
+        if 'ZmenaMnozstvi' in outliers.columns:
+            outliers['ZmenaMnozstvi'] = outliers['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+        if 'Pocet_Obyvatel' in outliers.columns:
+            outliers['Pocet_Obyvatel'] = outliers['Pocet_Obyvatel'].apply(lambda x: locale.format_string("%d", x, grouping=True))
 
     # Výsledky testu
     if len(outliers) > 0:
-        vysledek_testu = "Existuje odlehlá hodnota v datovém vzorku."
+        vysledek_testu_text = f"V datovém vzorku o {pocet_hodnot} hodnotách existuje {pocet_odlehlych_hodnot} odlehlých hodnot:\n\n{outliers.to_string(index=False, justify='right')}"
+        print(outliers)
+
     else:
-        vysledek_testu = "Odlehlá hodnota v datovém vzorku není zjištěna."
+        vysledek_testu_text = f"Odlehlé hodnoty v datovém vzorku o {pocet_hodnot} hodnotách nejsou zjištěny."
     
     text_widget.delete("1.0","end")
-    text_widget.insert(END, "\n\n DIXONŮV TEST PRO ODHALENÍ ODLEHLÝCH HODNOT: ) \n ")
-    text_widget.insert(END, vysledek_testu)
+    text_widget.insert(END, "DIXONŮV TEST PRO ODHALENÍ ODLEHLÝCH HODNOT:\n\n ")
+    text_widget.insert(END, vysledek_testu_text)
 
 
 # Sloučení podmínek výběru dle kritérií, výběr evidenta, výběr partnera
