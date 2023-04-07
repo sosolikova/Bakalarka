@@ -3,16 +3,21 @@ from tkinter import *
 from tkinter import ttk
 import tkinter as tk
 from tkinter import filedialog
+from tkinter import messagebox
 from PIL import ImageTk, Image
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 from pandas import options
 from ttkthemes import ThemedTk
 from ttkthemes import ThemedStyle
 import HromadneNacitani as hn
 import Funkce as fc
+import csv
 import locale
 locale.setlocale(locale.LC_ALL, '')
+
+#vysledek_excel = None
 
 volby_indikator = []
 volby_kod = []
@@ -99,6 +104,7 @@ def handle_funkce(selection):
     text_widget.insert('1.0', f"Vybraný výpočet: {selection}\n")
 
 def funkce1():
+    global vysledek_excel
     vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)     
   
     vysledek_evidentApartner = hn.vyber_subjektu(vysledek_evident,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
@@ -107,6 +113,8 @@ def funkce1():
 
     if volby_evident_kraj:
         vysledek=hn.summary_stat_parametr(vysledek,'Evident_ORP_Nazev',hn.list_kraj_orp[volby_evident_kraj],'ZmenaMnozstvi')
+
+        vysledek_excel = vysledek
 
         text_widget.delete("1.0","end")
         text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY PRO ORP v kraji: {volby_evident_kraj}\n {vysledek}\n")
@@ -119,8 +127,8 @@ def funkce1():
         text_widget.delete("1.0","end")
         text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")  
 
-    
-#Platný
+'''   
+#Platný (fungoval správně)
 def vyber_dat_evident():
     vysledek = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
     if not volby_sloupce:
@@ -135,10 +143,34 @@ def vyber_dat_evident():
     else:
         text_widget.delete("1.0","end")
         text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")        
+''' 
+#Zkouška pro ukládání do xlsx
+def vyber_dat_evident():
+    global vysledek_excel
+    vysledek = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
+    vysledek_excel = vysledek
+    if not volby_sloupce:
+        vysledek = vysledek.loc[:,volby_sloupce_univ]
+    else: vysledek = vysledek.loc[:,volby_sloupce]
+    if not vysledek.empty:
+        if 'ZmenaMnozstvi' in vysledek.columns:
+            vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+        pocet_polozek = len(vysledek.index)
+        text_widget.delete("1.0","end")
+        text_widget.insert("1.0",f"VÝPIS DAT EVIDENTA DLE VÝBĚRU MÍSTA({pocet_polozek} položek):\n\n {vysledek.to_string(index=False, justify='left')}\n")
+        
+    else:
+        text_widget.delete("1.0","end")
+        text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")
+
+
+
 
 # platný    
 def vyber_dat_partner():
+    global vysledek_excel
     vysledek = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
+    vysledek_excel = vysledek
     if not volby_sloupce:
         vysledek = vysledek.loc[:,volby_sloupce_univ]
     else: vysledek = vysledek.loc[:,volby_sloupce]
@@ -153,7 +185,9 @@ def vyber_dat_partner():
         text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")    
 #Platný
 def vyber_kriterii():
+    global vysledek_excel
     vysledek = hn.vyber_kriterii(hn.Zdrojovy_kody_mnozstvi,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
+    vysledek_excel = vysledek
     if not volby_sloupce:
         vysledek = vysledek.loc[:,volby_sloupce_univ]
     else: vysledek = vysledek.loc[:,volby_sloupce]
@@ -178,7 +212,8 @@ def vyber_kriterii_puvodni():
     text_widget.insert(END, f"\n\nVÝPIS DAT DLE VÝBĚRU KRITÉRIÍ ({pocet_polozek} položek):\n {vysledek.to_string(index=False, justify='left')}\n")
 
 # Přepsáno na test odlehlé hodnoty
-def vyber_subjekt_kriteria():
+def odlehle_hodnoty():
+    global vysledek_excel
     vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
 
     vysledek_evidentApartner = hn.vyber_subjektu(vysledek_evident,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
@@ -186,6 +221,7 @@ def vyber_subjekt_kriteria():
     vysledek = hn.vyber_kriterii(vysledek_evidentApartner,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
     
     vysledek['ZmenaMnozstvi']
+
     pocet_hodnot = len(vysledek['ZmenaMnozstvi'])
     # Výpočet IQR metody
     q1, q3 = np.percentile(vysledek['ZmenaMnozstvi'], [25, 75])
@@ -199,6 +235,7 @@ def vyber_subjekt_kriteria():
     pocet_odlehlych_hodnot_upper=len(vysledek[(vysledek['ZmenaMnozstvi'] > upper_bound)])
     pocet_odlehlych_hodnot = len(outliers)
 
+    vysledek_excel = outliers
 
     if not volby_sloupce:
         outliers = outliers.loc[:,volby_sloupce_univ]
@@ -225,11 +262,15 @@ def vyber_subjekt_kriteria():
 # Sloučení podmínek výběru dle kritérií, výběr evidenta, výběr partnera
 #Platný
 def vyber_evident_partner_kriteria():
+    global vysledek_excel
     vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
 
     vysledek_evidentApartner = hn.vyber_subjektu(vysledek_evident,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
 
     vysledek = hn.vyber_kriterii(vysledek_evidentApartner,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
+
+    vysledek_excel = vysledek
+
     if not volby_sloupce:
         vysledek = vysledek.loc[:,volby_sloupce_univ]
     else: vysledek = vysledek.loc[:,volby_sloupce]
@@ -239,11 +280,13 @@ def vyber_evident_partner_kriteria():
         pocet_polozek = len(vysledek.index)
         text_widget.delete("1.0","end")
         text_widget.insert("1.0",f"VÝPIS DAT DLE VÝBĚRU EVIDENTA, PARTNERA A KRITÉRIÍ ({pocet_polozek} položek):\n\n {vysledek.to_string(index=False, justify='right')}\n")
+        
     else:
         text_widget.delete("1.0","end")
         text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")        
 
 def grouping():
+    global vysledek_excel
     list_seskupeni = volby_seskupeni
     vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
 
@@ -260,6 +303,7 @@ def grouping():
         if 'ZmenaMnozstvi' in vysledek.columns:
             #grouping
             vysledek = hn.group_data_by_columns_list(vysledek,['ZmenaMnozstvi','Pocet_Obyvatel'],list_seskupeni)
+            vysledek_excel = vysledek
             vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
             pocet_polozek = len(vysledek.index)
             text_widget.delete("1.0","end")
@@ -364,14 +408,26 @@ def graph_it():
     ax.set_ylabel("Počet obyvatel")
     plt.show()
 
-        
+# Funkce pro uložení obsahu textového widgetu do CSV souboru
+def save_to_csv():
+    global vysledek_excel
+    if vysledek_excel is not None:
+        file_name = filedialog.asksaveasfilename(defaultextension='.xlsx')
+        if file_name:
+            vysledek_excel.to_excel(file_name, index=True, header=True)
+            messagebox.showinfo("Uloženo", "Data byla uložena do Excelu.")
+    else:
+        messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k uložení.")
+
+
+
 # Slovník, kde klíče jsou názvy funkcí a hodnoty jsou samotné funkce
 funkce_dict = {
     "Sumarizace": funkce1,
     "Výběr kritérií": vyber_kriterii,
     "Výběr dat evident": vyber_dat_evident,
     "Výběr dat partner": vyber_dat_partner,
-    "Výběr subjekt kritéria": vyber_subjekt_kriteria,
+    "Zjištění odlehlých hodnot": odlehle_hodnoty,
     "Výběr evident partner kritéria": vyber_evident_partner_kriteria,
     "Seskupení dat": grouping,
     "Graf scatter": graph_it,
@@ -554,8 +610,9 @@ rok_combo.grid(row=3, column=1,padx=20, pady=0)
 button1 = tk.Button(right_frame,text="Graf", command=graph_it)
 button1.grid(row=0, column=4, padx=20, pady=0)
 # Funkce
-button2 = tk.Button(right_frame,text="Tlačítko2", command=on_button_click)
+button2 = tk.Button(right_frame,text="Uložit do csv", command=save_to_csv)
 button2.grid(row=0, column=5, padx=20, pady=0)
+
 # Volba sloupečků pro zobrazení ve výstupu
 sloupce_label= tk.Label(right_frame, text="Volba sloupců na výstup")
 sloupce_label.grid(row=0, column=2, padx=20, pady=0)
@@ -578,7 +635,7 @@ seskupit_combo.grid(row=3, column=2,padx=20, pady=0)
 # Seznam funkcí
 funkce_label= tk.Label(right_frame, text="Funkce")
 funkce_label.grid(row=0, column=3, padx=20, pady=0)
-options = ['','Sumarizace','Výběr kritérií', 'Výběr dat evident','Výběr dat partner','Výběr subjekt kritéria','Výběr evident partner kritéria','Seskupení dat','Graf scatter']
+options = ['','Sumarizace','Výběr kritérií', 'Výběr dat evident','Výběr dat partner','Zjištění odlehlých hodnot','Výběr evident partner kritéria','Seskupení dat','Graf scatter']
 funkce_combo = ttk.Combobox(right_frame, value=options)
 funkce_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_funkce(funkce_combo.get()))
 funkce_combo.current(0)
