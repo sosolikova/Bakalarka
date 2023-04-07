@@ -120,9 +120,6 @@ def funkce1():
         text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")  
 
     
-
-
-
 #Platný
 def vyber_dat_evident():
     vysledek = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
@@ -180,17 +177,33 @@ def vyber_kriterii_puvodni():
     text_widget.insert("1.0","end")
     text_widget.insert(END, f"\n\nVÝPIS DAT DLE VÝBĚRU KRITÉRIÍ ({pocet_polozek} položek):\n {vysledek.to_string(index=False, justify='left')}\n")
 
-# Sloučení podmínek výběru dle kritérií, výběr evidenta, výběr partnera
+# Přepsáno na test odlehlé hodnoty
 def vyber_subjekt_kriteria():
-    vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev)
-    vysledek = hn.vyber_kriterii(vysledek_evident,'Rok',volby_rok,'Druh_Odpadu',volby_druhOdpadu,'Indikator',volby_indikator,'Kod',volby_kod)
-    vysledek = vysledek.loc[:,['Evident_Kraj_Nazev','Evident_ORP_Nazev','Evident_ZUJ_Nazev','Indikator','Kod','ZmenaMnozstvi','Druh_Odpadu','Rok']]
-    vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
-    vysledek=vysledek.sort_values(['Rok','Druh_Odpadu','Kod'])
-    pocet_polozek_evident = len(vysledek_evident.index)
-    pocet_polozek_kriteria = len(vysledek.index)
-    text_widget.insert("1.0","end")
-    text_widget.insert(END, f"\n\nVÝPIS DAT DLE VÝBĚRU KRITÉRIÍ (počet řádků: {pocet_polozek_kriteria}) \n {vysledek.to_string(index=False, justify='left')}\n")
+    vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
+
+    vysledek_evidentApartner = hn.vyber_subjektu(vysledek_evident,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
+
+    vysledek = hn.vyber_kriterii(vysledek_evidentApartner,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
+    
+    data = vysledek['ZmenaMnozstvi']
+    # Výpočet IQR metody
+    q1, q3 = np.percentile(data, [25, 75])
+    iqr = q3 - q1
+
+    # Určení odlehlých hodnot
+    lower_bound = q1 - 1.5 * iqr
+    upper_bound = q3 + 1.5 * iqr
+    outliers = [x for x in data if x < lower_bound or x > upper_bound]
+
+    # Výsledky testu
+    if len(outliers) > 0:
+        vysledek_testu = "Existuje odlehlá hodnota v datovém vzorku."
+    else:
+        vysledek_testu = "Odlehlá hodnota v datovém vzorku není zjištěna."
+    
+    text_widget.delete("1.0","end")
+    text_widget.insert(END, "\n\n DIXONŮV TEST PRO ODHALENÍ ODLEHLÝCH HODNOT: ) \n ")
+    text_widget.insert(END, vysledek_testu)
 
 
 # Sloučení podmínek výběru dle kritérií, výběr evidenta, výběr partnera
