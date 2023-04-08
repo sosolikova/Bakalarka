@@ -228,7 +228,7 @@
 547336;Třeboň;40994;HULMUZ;Třeboň;3114;Jihočeský kraj;CZ031;1;547336;Třeboň;40994;HULMUZ;Třeboň;3114;Jihočeský  kraj;CZ031;1;A00;Produkce;0,02
 547450;Výkleky;40996;HUPMEZ;Přerov;7109;Olomoucký kraj;CZ071;4;547450;Výkleky;40996;HUPMEZ;Přerov;7109;Olomoucký kraj;CZ071;4;A00;Produkce;1,06
 548031;Dlouhoňovice;41014;KALKUT;Žamberk;5315;Pardubický kraj;CZ053;4;548031;Dlouhoňovice;41014;KALKUT;Žamberk;5315;Pardubický kraj;CZ053;4;A00;Produkce;2,211
-548511;Pacov;41031;KANDET;Pacov;6109;Vysočina kraj;CZ063;4;548511;Pacov;41031;KANDET;Pacov;6109;Vysočina kraj;CZ063;4;A00;Produkce;12,978
+548511;Pacov;41031;KANDET;Pacov;6109;Kraj Vysočina;CZ063;4;548511;Pacov;41031;KANDET;Pacov;6109;Kraj Vysočina;CZ063;4;A00;Produkce;12,978
 549240;Písek;41041;KANTET;Písek;3108;Jihočeský kraj;CZ031;1;549240;Písek;41041;KANTET;Písek;3108;Jihočeský  kraj;CZ031;1;A00;Produkce;0,825
 549428;Hrejkovice;41045;KAMTAT;Milevsko;3107;Jihočeský kraj;CZ031;4;549428;Hrejkovice;41045;KAMTAT;Milevsko;3107;Jihočeský  kraj;CZ031;4;A00;Produkce;0,6525
 549444;Oldřichovice;41046;KAPTET;Otrokovice;7205;Zlínský kraj;CZ072;4;549444;Oldřichovice;41046;KAPTET;Otrokovice;7205;Zlínský kraj;CZ072;4;A00;Produkce;0,381
@@ -271,7 +271,7 @@
 554481;Cheb;41252;KIBNIB;Cheb;4102;Karlovarský kraj;CZ041;1;554481;Cheb;41252;KIBNIB;Cheb;4102;Karlovarský kraj;CZ041;1;A00;Produkce;24,95
 554740;Plesná;41268;KIVBOB;Cheb;4102;Karlovarský kraj;CZ041;4;554740;Plesná;41268;KIVBOB;Cheb;4102;Karlovarský kraj;CZ041;4;A00;Produkce;2,447
 554812;Skalná;41275;KIMFAB;Cheb;4102;Karlovarský kraj;CZ041;1;554812;Skalná;41275;KIMFAB;Cheb;4102;Karlovarský kraj;CZ041;1;A00;Produkce;0,22
-554871;Střítež;41280;KITLAB;Třebíč;6113;Vysočina kraj;CZ063;1;554871;Střítež;41280;KITLAB;Třebíč;6113;Vysočina kraj;CZ063;1;A00;Produkce;0,86
+554871;Střítež;41280;KITLAB;Třebíč;6113;Kraj Vysočina;CZ063;1;554871;Střítež;41280;KITLAB;Třebíč;6113;Kraj Vysočina;CZ063;1;A00;Produkce;0,86
 554898;Rostěnice-Zvonovice;41282;KIBLIB;Vyškov;6219;Jihomoravský kraj;CZ064;1;554898;Rostěnice-Zvonovice;41282;KIBLIB;Vyškov;6219;Jihomoravský kraj;CZ064;1;A00;Produkce;0,53
 554901;Křelov-Břuchotín;41283;KIFLOB;Olomouc;7107;Olomoucký kraj;CZ071;1;554901;Křelov-Břuchotín;41283;KIFLOB;Olomouc;7107;Olomoucký kraj;CZ071;1;A00;Produkce;13,26
 554961;Karlovy Vary;41288;KIVLOB;Karlovy Vary;4103;Karlovarský kraj;CZ041;1;554961;Karlovy Vary;41288;KIVLOB;Karlovy Vary;4103;Karlovarský kraj;CZ041;1;A00;Produkce;3,48
@@ -468,16 +468,16 @@
 568007;Chabařovice;41759;KIZNUS;Ústí nad Labem;4214;Ústecký kraj;CZ042;4;568007;Chabařovice;41759;KIZNUS;Ústí nad Labem;4214;Ústecký kraj;CZ042;4;A00;Produkce;13,074
 568015;Chlumec;41760;KITBAS;Ústí nad Labem;4214;Ústecký kraj;CZ042;4;568015;Chlumec;41760;KITBAS;Ústí nad Labem;4214;Ústecký kraj;CZ042;4;A00;Produkce;9,753
 568023;Chuderov;41761;KINBES;Ústí nad Labem;4214;Ústecký kraj;CZ042;4;568023;Chuderov;41761;KINBES;Ústí nad Labem;4214;Ústecký kraj;CZ042;4;A00;Produkce;0,449
-568414;Havlíčkův Brod;41782;KIBLIS;Havlíčkův Brod;6102;Vysočina kraj;CZ063;1;568414;Havlíčkův Brod;41782;KIBLIS;Havlíčkův Brod;6102;Vysočina kraj;CZ063;1;A00;Produkce;0,582
+568414;Havlíčkův Brod;41782;KIBLIS;Havlíčkův Brod;6102;Kraj Vysočina;CZ063;1;568414;Havlíčkův Brod;41782;KIBLIS;Havlíčkův Brod;6102;Kraj Vysočina;CZ063;1;A00;Produkce;0,582
 568546;Kunín;41790;KITMAS;Nový Jičín;8115;Moravskoslezský kraj;CZ080;4;568546;Kunín;41790;KITMAS;Nový Jičín;8115;Moravskoslezský kraj;CZ080;4;A00;Produkce;4,959
-568651;Habry;41794;KILMUS;Havlíčkův Brod;6102;Vysočina kraj;CZ063;4;568651;Habry;41794;KILMUS;Havlíčkův Brod;6102;Vysočina kraj;CZ063;4;A00;Produkce;1,527
-568694;Hněvkovice;41799;KIZMUS;Světlá nad Sázavou;6111;Vysočina kraj;CZ063;4;568694;Hněvkovice;41799;KIZMUS;Světlá nad Sázavou;6111;Vysočina kraj;CZ063;4;A00;Produkce;1,277
-568945;Krucemburk;41811;KONKEV;Chotěboř;6104;Vysočina kraj;CZ063;4;568945;Krucemburk;41811;KONKEV;Chotěboř;6104;Vysočina kraj;CZ063;4;A00;Produkce;3,1
-569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Vysočina kraj;CZ063;1;569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Vysočina kraj;CZ063;1;A00;Produkce;1,125
-569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Vysočina kraj;CZ063;4;569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Vysočina kraj;CZ063;4;A00;Produkce;12,744
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;A00;Produkce;577,2899942
+568651;Habry;41794;KILMUS;Havlíčkův Brod;6102;Kraj Vysočina;CZ063;4;568651;Habry;41794;KILMUS;Havlíčkův Brod;6102;Kraj Vysočina;CZ063;4;A00;Produkce;1,527
+568694;Hněvkovice;41799;KIZMUS;Světlá nad Sázavou;6111;Kraj Vysočina;CZ063;4;568694;Hněvkovice;41799;KIZMUS;Světlá nad Sázavou;6111;Kraj Vysočina;CZ063;4;A00;Produkce;1,277
+568945;Krucemburk;41811;KONKEV;Chotěboř;6104;Kraj Vysočina;CZ063;4;568945;Krucemburk;41811;KONKEV;Chotěboř;6104;Kraj Vysočina;CZ063;4;A00;Produkce;3,1
+569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Kraj Vysočina;CZ063;1;569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Kraj Vysočina;CZ063;1;A00;Produkce;1,125
+569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Kraj Vysočina;CZ063;4;569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Kraj Vysočina;CZ063;4;A00;Produkce;12,744
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;A00;Produkce;577,2899942
 570788;Bradlec;41882;KOBLIV;Mladá Boleslav;2115;Středočeský kraj;CZ020;4;570788;Bradlec;41882;KOBLIV;Mladá Boleslav;2115;Středočeský kraj;CZ020;4;A00;Produkce;0,144
-570869;Smidary;41886;KOPLEV;Nový Bydžov;5212;Královehradecký kraj;CZ052;1;570869;Smidary;41886;KOPLEV;Nový Bydžov;5212;Královehradecký kraj;CZ052;1;A00;Produkce;0,82
+570869;Smidary;41886;KOPLEV;Nový Bydžov;5212;Královéhradecký kraj;CZ052;1;570869;Smidary;41886;KOPLEV;Nový Bydžov;5212;Královéhradecký kraj;CZ052;1;A00;Produkce;0,82
 570923;Přepeře;41889;KOZLUV;Mladá Boleslav;2115;Středočeský kraj;CZ020;4;570923;Přepeře;41889;KOZLUV;Mladá Boleslav;2115;Středočeský kraj;CZ020;4;A00;Produkce;0,01
 571164;Chrudim;41894;KOLMUV;Chrudim;5304;Pardubický kraj;CZ053;1;571164;Chrudim;41894;KOLMUV;Chrudim;5304;Pardubický kraj;CZ053;1;A00;Produkce;0,197647059
 571164;Chrudim;41894;KOLMUV;Chrudim;5304;Pardubický kraj;CZ053;4;571164;Chrudim;41894;KOLMUV;Chrudim;5304;Pardubický kraj;CZ053;4;A00;Produkce;7,944
@@ -494,46 +494,46 @@
 572241;Skuteč;41936;KUPDEZ;Chrudim;5304;Pardubický kraj;CZ053;1;572241;Skuteč;41936;KUPDEZ;Chrudim;5304;Pardubický kraj;CZ053;1;A00;Produkce;0,88
 572241;Skuteč;41936;KUPDEZ;Chrudim;5304;Pardubický kraj;CZ053;4;572241;Skuteč;41936;KUPDEZ;Chrudim;5304;Pardubický kraj;CZ053;4;A00;Produkce;4,4
 572454;Vápenný Podol;41945;KUMTAZ;Chrudim;5304;Pardubický kraj;CZ053;4;572454;Vápenný Podol;41945;KUMTAZ;Chrudim;5304;Pardubický kraj;CZ053;4;A00;Produkce;2,56
-572659;Jičín;41950;KUTNAZ;Jičín;5207;Královehradecký kraj;CZ052;4;572659;Jičín;41950;KUTNAZ;Jičín;5207;Královehradecký kraj;CZ052;4;A00;Produkce;89,864
-572926;Hořice;41956;KUPNEZ;Hořice;5204;Královehradecký kraj;CZ052;4;572926;Hořice;41956;KUPNEZ;Hořice;5204;Královehradecký kraj;CZ052;4;A00;Produkce;27,508
-573060;Kopidlno;41959;KUZNUZ;Jičín;5207;Královehradecký kraj;CZ052;4;573060;Kopidlno;41959;KUZNUZ;Jičín;5207;Královehradecký kraj;CZ052;4;A00;Produkce;5,868
-573108;Libáň;41961;KUNBEZ;Jičín;5207;Královehradecký kraj;CZ052;4;573108;Libáň;41961;KUNBEZ;Jičín;5207;Královehradecký kraj;CZ052;4;A00;Produkce;0,74
-573116;Libošovice;41962;KUBBIZ;Jičín;5207;Královehradecký kraj;CZ052;4;573116;Libošovice;41962;KUBBIZ;Jičín;5207;Královehradecký kraj;CZ052;4;A00;Produkce;0,04
-573124;Libuň;41963;KUFBOZ;Jičín;5207;Královehradecký kraj;CZ052;4;573124;Libuň;41963;KUFBOZ;Jičín;5207;Královehradecký kraj;CZ052;4;A00;Produkce;2,284
-573248;Nová Paka;41967;KUSBIZ;Nová Paka;5210;Královehradecký kraj;CZ052;4;573248;Nová Paka;41967;KUSBIZ;Nová Paka;5210;Královehradecký kraj;CZ052;4;A00;Produkce;29,192
-573493;Sobotka;41972;KUBFIZ;Jičín;5207;Královehradecký kraj;CZ052;4;573493;Sobotka;41972;KUBFIZ;Jičín;5207;Královehradecký kraj;CZ052;4;A00;Produkce;46,15
-573701;Valdice;41977;KUSFIZ;Jičín;5207;Královehradecký kraj;CZ052;4;573701;Valdice;41977;KUSFIZ;Jičín;5207;Královehradecký kraj;CZ052;4;A00;Produkce;4,082
+572659;Jičín;41950;KUTNAZ;Jičín;5207;Královéhradecký kraj;CZ052;4;572659;Jičín;41950;KUTNAZ;Jičín;5207;Královéhradecký kraj;CZ052;4;A00;Produkce;89,864
+572926;Hořice;41956;KUPNEZ;Hořice;5204;Královéhradecký kraj;CZ052;4;572926;Hořice;41956;KUPNEZ;Hořice;5204;Královéhradecký kraj;CZ052;4;A00;Produkce;27,508
+573060;Kopidlno;41959;KUZNUZ;Jičín;5207;Královéhradecký kraj;CZ052;4;573060;Kopidlno;41959;KUZNUZ;Jičín;5207;Královéhradecký kraj;CZ052;4;A00;Produkce;5,868
+573108;Libáň;41961;KUNBEZ;Jičín;5207;Královéhradecký kraj;CZ052;4;573108;Libáň;41961;KUNBEZ;Jičín;5207;Královéhradecký kraj;CZ052;4;A00;Produkce;0,74
+573116;Libošovice;41962;KUBBIZ;Jičín;5207;Královéhradecký kraj;CZ052;4;573116;Libošovice;41962;KUBBIZ;Jičín;5207;Královéhradecký kraj;CZ052;4;A00;Produkce;0,04
+573124;Libuň;41963;KUFBOZ;Jičín;5207;Královéhradecký kraj;CZ052;4;573124;Libuň;41963;KUFBOZ;Jičín;5207;Královéhradecký kraj;CZ052;4;A00;Produkce;2,284
+573248;Nová Paka;41967;KUSBIZ;Nová Paka;5210;Královéhradecký kraj;CZ052;4;573248;Nová Paka;41967;KUSBIZ;Nová Paka;5210;Královéhradecký kraj;CZ052;4;A00;Produkce;29,192
+573493;Sobotka;41972;KUBFIZ;Jičín;5207;Královéhradecký kraj;CZ052;4;573493;Sobotka;41972;KUBFIZ;Jičín;5207;Královéhradecký kraj;CZ052;4;A00;Produkce;46,15
+573701;Valdice;41977;KUSFIZ;Jičín;5207;Královéhradecký kraj;CZ052;4;573701;Valdice;41977;KUSFIZ;Jičín;5207;Královéhradecký kraj;CZ052;4;A00;Produkce;4,082
 573817;Smrček;41979;KUZFUZ;Chrudim;5304;Pardubický kraj;CZ053;4;573817;Smrček;41979;KUZFUZ;Chrudim;5304;Pardubický kraj;CZ053;4;A00;Produkce;0,02
-573825;Železnice;41980;KUTLAZ;Jičín;5207;Královehradecký kraj;CZ052;4;573825;Železnice;41980;KUTLAZ;Jičín;5207;Královehradecký kraj;CZ052;4;A00;Produkce;2,052
-573922;Broumov;41982;KUBLIZ;Broumov;5201;Královehradecký kraj;CZ052;1;573922;Broumov;41982;KUBLIZ;Broumov;5201;Královehradecký kraj;CZ052;1;A00;Produkce;979,163
-573973;Česká Čermná;41985;KUMLAZ;Náchod;5209;Královehradecký kraj;CZ052;4;573973;Česká Čermná;41985;KUMLAZ;Náchod;5209;Královehradecký kraj;CZ052;4;A00;Produkce;1,62
-574015;Dolany;41988;KUVLOZ;Jaroměř;5206;Královehradecký kraj;CZ052;4;574015;Dolany;41988;KUVLOZ;Jaroměř;5206;Královehradecký kraj;CZ052;4;A00;Produkce;1,559
-574023;Dolní Radechová;41989;KUZLUZ;Náchod;5209;Královehradecký kraj;CZ052;4;574023;Dolní Radechová;41989;KUZLUZ;Náchod;5209;Královehradecký kraj;CZ052;4;A00;Produkce;2,55
-574121;Jaroměř;41993;KUFMOZ;Jaroměř;5206;Královehradecký kraj;CZ052;4;574121;Jaroměř;41993;KUFMOZ;Jaroměř;5206;Královehradecký kraj;CZ052;4;A00;Produkce;18,911
-574279;Nové Město nad Metují;42000;RATHAT;Nové Město nad Metují;5211;Královehradecký kraj;CZ052;4;574279;Nové Město nad Metují;42000;RATHAT;Nové Město nad Metují;5211;Královehradecký kraj;CZ052;4;A00;Produkce;31,889
-574406;Rychnovek;42009;RAZHUT;Jaroměř;5206;Královehradecký kraj;CZ052;4;574406;Rychnovek;42009;RAZHUT;Jaroměř;5206;Královehradecký kraj;CZ052;4;A00;Produkce;1,54
-574481;Studnice;42012;RABKIT;Náchod;5209;Královehradecký kraj;CZ052;4;574481;Studnice;42012;RABKIT;Náchod;5209;Královehradecký kraj;CZ052;4;A00;Produkce;1,372
+573825;Železnice;41980;KUTLAZ;Jičín;5207;Královéhradecký kraj;CZ052;4;573825;Železnice;41980;KUTLAZ;Jičín;5207;Královéhradecký kraj;CZ052;4;A00;Produkce;2,052
+573922;Broumov;41982;KUBLIZ;Broumov;5201;Královéhradecký kraj;CZ052;1;573922;Broumov;41982;KUBLIZ;Broumov;5201;Královéhradecký kraj;CZ052;1;A00;Produkce;979,163
+573973;Česká Čermná;41985;KUMLAZ;Náchod;5209;Královéhradecký kraj;CZ052;4;573973;Česká Čermná;41985;KUMLAZ;Náchod;5209;Královéhradecký kraj;CZ052;4;A00;Produkce;1,62
+574015;Dolany;41988;KUVLOZ;Jaroměř;5206;Královéhradecký kraj;CZ052;4;574015;Dolany;41988;KUVLOZ;Jaroměř;5206;Královéhradecký kraj;CZ052;4;A00;Produkce;1,559
+574023;Dolní Radechová;41989;KUZLUZ;Náchod;5209;Královéhradecký kraj;CZ052;4;574023;Dolní Radechová;41989;KUZLUZ;Náchod;5209;Královéhradecký kraj;CZ052;4;A00;Produkce;2,55
+574121;Jaroměř;41993;KUFMOZ;Jaroměř;5206;Královéhradecký kraj;CZ052;4;574121;Jaroměř;41993;KUFMOZ;Jaroměř;5206;Královéhradecký kraj;CZ052;4;A00;Produkce;18,911
+574279;Nové Město nad Metují;42000;RATHAT;Nové Město nad Metují;5211;Královéhradecký kraj;CZ052;4;574279;Nové Město nad Metují;42000;RATHAT;Nové Město nad Metují;5211;Královéhradecký kraj;CZ052;4;A00;Produkce;31,889
+574406;Rychnovek;42009;RAZHUT;Jaroměř;5206;Královéhradecký kraj;CZ052;4;574406;Rychnovek;42009;RAZHUT;Jaroměř;5206;Královéhradecký kraj;CZ052;4;A00;Produkce;1,54
+574481;Studnice;42012;RABKIT;Náchod;5209;Královéhradecký kraj;CZ052;4;574481;Studnice;42012;RABKIT;Náchod;5209;Královéhradecký kraj;CZ052;4;A00;Produkce;1,372
 574848;Býšť;42027;RASRIT;Holice;5303;Pardubický kraj;CZ053;4;574848;Býšť;42027;RASRIT;Holice;5303;Pardubický kraj;CZ053;4;A00;Produkce;2,049
 574953;Dříteč;42031;RANDET;Pardubice;5309;Pardubický kraj;CZ053;4;574953;Dříteč;42031;RANDET;Pardubice;5309;Pardubický kraj;CZ053;4;A00;Produkce;1,642
 574988;Holice;42032;RABDIT;Holice;5303;Pardubický kraj;CZ053;4;574988;Holice;42032;RABDIT;Holice;5303;Pardubický kraj;CZ053;4;A00;Produkce;21,68
 575577;Rokytno;42046;RAPTET;Pardubice;5309;Pardubický kraj;CZ053;4;575577;Rokytno;42046;RAPTET;Pardubice;5309;Pardubický kraj;CZ053;4;A00;Produkce;2,822
 575640;Sezemice;42050;RATNAT;Pardubice;5309;Pardubický kraj;CZ053;4;575640;Sezemice;42050;RATNAT;Pardubice;5309;Pardubický kraj;CZ053;4;A00;Produkce;4,026
-576069;Rychnov nad Kněžnou;42063;RAFBOT;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;1;576069;Rychnov nad Kněžnou;42063;RAFBOT;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;1;A00;Produkce;0,413
-576069;Rychnov nad Kněžnou;42063;RAFBOT;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;4;576069;Rychnov nad Kněžnou;42063;RAFBOT;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;4;A00;Produkce;21,062
-576204;Černíkovice;42074;RALFUT;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;4;576204;Černíkovice;42074;RALFUT;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;4;A00;Produkce;2,088
-576212;České Meziříčí;42075;RAMFAT;Dobruška;5202;Královehradecký kraj;CZ052;4;576212;České Meziříčí;42075;RAMFAT;Dobruška;5202;Královehradecký kraj;CZ052;4;A00;Produkce;3,942
-576263;Dobré;42078;RAVFOT;Dobruška;5202;Královehradecký kraj;CZ052;4;576263;Dobré;42078;RAVFOT;Dobruška;5202;Královehradecký kraj;CZ052;4;A00;Produkce;2,361
-576271;Dobruška;42079;RAZFUT;Dobruška;5202;Královehradecký kraj;CZ052;1;576271;Dobruška;42079;RAZFUT;Dobruška;5202;Královehradecký kraj;CZ052;1;A00;Produkce;2,62
-576271;Dobruška;42079;RAZFUT;Dobruška;5202;Královehradecký kraj;CZ052;4;576271;Dobruška;42079;RAZFUT;Dobruška;5202;Královehradecký kraj;CZ052;4;A00;Produkce;22,347
-576476;Lípa nad Orlicí;42090;RATMAT;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;4;576476;Lípa nad Orlicí;42090;RATMAT;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;4;A00;Produkce;3,64
-576573;Olešnice v Orlických horách;42094;RALMUT;Dobruška;5202;Královehradecký kraj;CZ052;4;576573;Olešnice v Orlických horách;42094;RALMUT;Dobruška;5202;Královehradecký kraj;CZ052;4;A00;Produkce;0,1591
-576590;Opočno;42096;RAPMET;Dobruška;5202;Královehradecký kraj;CZ052;4;576590;Opočno;42096;RAPMET;Dobruška;5202;Královehradecký kraj;CZ052;4;A00;Produkce;10,411
-576654;Podbřezí;42099;RAZMUT;Dobruška;5202;Královehradecký kraj;CZ052;4;576654;Podbřezí;42099;RAZMUT;Dobruška;5202;Královehradecký kraj;CZ052;4;A00;Produkce;1,783
-576662;Pohoří;42100;RETHAN;Dobruška;5202;Královehradecký kraj;CZ052;4;576662;Pohoří;42100;RETHAN;Dobruška;5202;Královehradecký kraj;CZ052;4;A00;Produkce;1,168
-576751;Semechnice;42104;RELHUN;Dobruška;5202;Královehradecký kraj;CZ052;4;576751;Semechnice;42104;RELHUN;Dobruška;5202;Královehradecký kraj;CZ052;4;A00;Produkce;1
-576808;Solnice;42107;RESHIN;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;4;576808;Solnice;42107;RESHIN;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;4;A00;Produkce;8,315
-576859;Týniště nad Orlicí;42111;RENKEN;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;4;576859;Týniště nad Orlicí;42111;RENKEN;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;4;A00;Produkce;29,31
-576891;Voděrady;42115;REMKAN;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;4;576891;Voděrady;42115;REMKAN;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;4;A00;Produkce;1,786
+576069;Rychnov nad Kněžnou;42063;RAFBOT;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;1;576069;Rychnov nad Kněžnou;42063;RAFBOT;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;1;A00;Produkce;0,413
+576069;Rychnov nad Kněžnou;42063;RAFBOT;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;4;576069;Rychnov nad Kněžnou;42063;RAFBOT;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;4;A00;Produkce;21,062
+576204;Černíkovice;42074;RALFUT;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;4;576204;Černíkovice;42074;RALFUT;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;4;A00;Produkce;2,088
+576212;České Meziříčí;42075;RAMFAT;Dobruška;5202;Královéhradecký kraj;CZ052;4;576212;České Meziříčí;42075;RAMFAT;Dobruška;5202;Královéhradecký kraj;CZ052;4;A00;Produkce;3,942
+576263;Dobré;42078;RAVFOT;Dobruška;5202;Královéhradecký kraj;CZ052;4;576263;Dobré;42078;RAVFOT;Dobruška;5202;Královéhradecký kraj;CZ052;4;A00;Produkce;2,361
+576271;Dobruška;42079;RAZFUT;Dobruška;5202;Královéhradecký kraj;CZ052;1;576271;Dobruška;42079;RAZFUT;Dobruška;5202;Královéhradecký kraj;CZ052;1;A00;Produkce;2,62
+576271;Dobruška;42079;RAZFUT;Dobruška;5202;Královéhradecký kraj;CZ052;4;576271;Dobruška;42079;RAZFUT;Dobruška;5202;Královéhradecký kraj;CZ052;4;A00;Produkce;22,347
+576476;Lípa nad Orlicí;42090;RATMAT;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;4;576476;Lípa nad Orlicí;42090;RATMAT;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;4;A00;Produkce;3,64
+576573;Olešnice v Orlických horách;42094;RALMUT;Dobruška;5202;Královéhradecký kraj;CZ052;4;576573;Olešnice v Orlických horách;42094;RALMUT;Dobruška;5202;Královéhradecký kraj;CZ052;4;A00;Produkce;0,1591
+576590;Opočno;42096;RAPMET;Dobruška;5202;Královéhradecký kraj;CZ052;4;576590;Opočno;42096;RAPMET;Dobruška;5202;Královéhradecký kraj;CZ052;4;A00;Produkce;10,411
+576654;Podbřezí;42099;RAZMUT;Dobruška;5202;Královéhradecký kraj;CZ052;4;576654;Podbřezí;42099;RAZMUT;Dobruška;5202;Královéhradecký kraj;CZ052;4;A00;Produkce;1,783
+576662;Pohoří;42100;RETHAN;Dobruška;5202;Královéhradecký kraj;CZ052;4;576662;Pohoří;42100;RETHAN;Dobruška;5202;Královéhradecký kraj;CZ052;4;A00;Produkce;1,168
+576751;Semechnice;42104;RELHUN;Dobruška;5202;Královéhradecký kraj;CZ052;4;576751;Semechnice;42104;RELHUN;Dobruška;5202;Královéhradecký kraj;CZ052;4;A00;Produkce;1
+576808;Solnice;42107;RESHIN;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;4;576808;Solnice;42107;RESHIN;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;4;A00;Produkce;8,315
+576859;Týniště nad Orlicí;42111;RENKEN;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;4;576859;Týniště nad Orlicí;42111;RENKEN;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;4;A00;Produkce;29,31
+576891;Voděrady;42115;REMKAN;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;4;576891;Voděrady;42115;REMKAN;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;4;A00;Produkce;1,786
 576964;Semily;42120;RETRAN;Semily;5107;Liberecký kraj;CZ051;4;576964;Semily;42120;RETRAN;Semily;5107;Liberecký kraj;CZ051;4;A00;Produkce;35,674
 577120;Horní Branná;42124;RELRUN;Jilemnice;5104;Liberecký kraj;CZ051;4;577120;Horní Branná;42124;RELRUN;Jilemnice;5104;Liberecký kraj;CZ051;4;A00;Produkce;5,864
 577154;Chuchelna;42125;REMRAN;Semily;5107;Liberecký kraj;CZ051;4;577154;Chuchelna;42125;REMRAN;Semily;5107;Liberecký kraj;CZ051;4;A00;Produkce;3,214
@@ -550,8 +550,8 @@
 578495;Čímice;42181;RENLEN;Sušice;3214;Plzeňský kraj;CZ032;4;578495;Čímice;42181;RENLEN;Sušice;3214;Plzeňský kraj;CZ032;4;A00;Produkce;0,01
 578533;Nezamyslice;42183;REFLON;Sušice;3214;Plzeňský kraj;CZ032;4;578533;Nezamyslice;42183;REFLON;Sušice;3214;Plzeňský kraj;CZ032;4;A00;Produkce;0,21
 578681;Rozhraní;42190;RETMAN;Svitavy;5312;Pardubický kraj;CZ053;4;578681;Rozhraní;42190;RETMAN;Svitavy;5312;Pardubický kraj;CZ053;4;A00;Produkce;0,04
-579025;Trutnov;42199;REZMUN;Trutnov;5214;Královehradecký kraj;CZ052;1;579025;Trutnov;42199;REZMUN;Trutnov;5214;Královehradecký kraj;CZ052;1;A00;Produkce;17,993
-579858;Vrchlabí;42230;RITDAB;Vrchlabí;5215;Královehradecký kraj;CZ052;4;579858;Vrchlabí;42230;RITDAB;Vrchlabí;5215;Královehradecký kraj;CZ052;4;A00;Produkce;47,878
+579025;Trutnov;42199;REZMUN;Trutnov;5214;Královéhradecký kraj;CZ052;1;579025;Trutnov;42199;REZMUN;Trutnov;5214;Královéhradecký kraj;CZ052;1;A00;Produkce;17,993
+579858;Vrchlabí;42230;RITDAB;Vrchlabí;5215;Královéhradecký kraj;CZ052;4;579858;Vrchlabí;42230;RITDAB;Vrchlabí;5215;Královéhradecký kraj;CZ052;4;A00;Produkce;47,878
 579891;Ústí nad Orlicí;42233;RIFDOB;Ústí nad Orlicí;5313;Pardubický kraj;CZ053;1;579891;Ústí nad Orlicí;42233;RIFDOB;Ústí nad Orlicí;5313;Pardubický kraj;CZ053;1;A00;Produkce;0,515
 579971;Bystřec;42237;RISDIB;Žamberk;5315;Pardubický kraj;CZ053;4;579971;Bystřec;42237;RISDIB;Žamberk;5315;Pardubický kraj;CZ053;4;A00;Produkce;2,783
 580031;Česká Třebová;42239;RIZDUB;Česká Třebová;5301;Pardubický kraj;CZ053;4;580031;Česká Třebová;42239;RIZDUB;Česká Třebová;5301;Pardubický kraj;CZ053;4;A00;Produkce;2,132
@@ -616,7 +616,7 @@
 586528;Rohatec;42507;RASHIM;Hodonín;6206;Jihomoravský kraj;CZ064;4;586528;Rohatec;42507;RASHIM;Hodonín;6206;Jihomoravský kraj;CZ064;4;A00;Produkce;13,104
 586552;Sobůlky;42508;RAVHOM;Kyjov;6210;Jihomoravský kraj;CZ064;4;586552;Sobůlky;42508;RAVHOM;Kyjov;6210;Jihomoravský kraj;CZ064;4;A00;Produkce;2,83
 586706;Vacenovice;42519;RAZKUM;Kyjov;6210;Jihomoravský kraj;CZ064;4;586706;Vacenovice;42519;RAZKUM;Kyjov;6210;Jihomoravský kraj;CZ064;4;A00;Produkce;3,473
-586846;Jihlava;42524;RALRUM;Jihlava;6105;Vysočina kraj;CZ063;1;586846;Jihlava;42524;RALRUM;Jihlava;6105;Vysočina kraj;CZ063;1;A00;Produkce;0,711
+586846;Jihlava;42524;RALRUM;Jihlava;6105;Kraj Vysočina;CZ063;1;586846;Jihlava;42524;RALRUM;Jihlava;6105;Kraj Vysočina;CZ063;1;A00;Produkce;0,711
 588296;Kroměříž;42593;RAFMOM;Kroměříž;7203;Zlínský kraj;CZ072;1;588296;Kroměříž;42593;RAFMOM;Kroměříž;7203;Zlínský kraj;CZ072;1;A00;Produkce;0,29214224
 588458;Holešov;42600;RETHAP;Holešov;7202;Zlínský kraj;CZ072;1;588458;Holešov;42600;RETHAP;Holešov;7202;Zlínský kraj;CZ072;1;A00;Produkce;0,048776426
 588458;Holešov;42600;RETHAP;Holešov;7202;Zlínský kraj;CZ072;4;588458;Holešov;42600;RETHAP;Holešov;7202;Zlínský kraj;CZ072;4;A00;Produkce;58,966
@@ -634,7 +634,7 @@
 589764;Nezamyslice;42667;RESBIP;Prostějov;7108;Olomoucký kraj;CZ071;1;589764;Nezamyslice;42667;RESBIP;Prostějov;7108;Olomoucký kraj;CZ071;1;A00;Produkce;0,051
 589772;Niva;42669;REZBUP;Prostějov;7108;Olomoucký kraj;CZ071;4;589772;Niva;42669;REZBUP;Prostějov;7108;Olomoucký kraj;CZ071;4;A00;Produkce;0,07
 589926;Protivanov;42674;RELFUP;Prostějov;7108;Olomoucký kraj;CZ071;4;589926;Protivanov;42674;RELFUP;Prostějov;7108;Olomoucký kraj;CZ071;4;A00;Produkce;8,28
-591181;Moravské Budějovice;42741;RINTES;Moravské Budějovice;6106;Vysočina kraj;CZ063;4;591181;Moravské Budějovice;42741;RINTES;Moravské Budějovice;6106;Vysočina kraj;CZ063;4;A00;Produkce;4,311
+591181;Moravské Budějovice;42741;RINTES;Moravské Budějovice;6106;Kraj Vysočina;CZ063;4;591181;Moravské Budějovice;42741;RINTES;Moravské Budějovice;6106;Kraj Vysočina;CZ063;4;A00;Produkce;4,311
 592005;Uherské Hradiště;42783;RIFLOS;Uherské Hradiště;7207;Zlínský kraj;CZ072;1;592005;Uherské Hradiště;42783;RIFLOS;Uherské Hradiště;7207;Zlínský kraj;CZ072;1;A00;Produkce;0,95
 592005;Uherské Hradiště;42783;RIFLOS;Uherské Hradiště;7207;Zlínský kraj;CZ072;4;592005;Uherské Hradiště;42783;RIFLOS;Uherské Hradiště;7207;Zlínský kraj;CZ072;4;A00;Produkce;2,725
 592030;Bílovice;42786;RIPLES;Uherské Hradiště;7207;Zlínský kraj;CZ072;4;592030;Bílovice;42786;RIPLES;Uherské Hradiště;7207;Zlínský kraj;CZ072;4;A00;Produkce;0,755
@@ -668,10 +668,10 @@
 594768;Skalice;42937;RUSDIZ;Moravský Krumlov;6212;Jihomoravský kraj;CZ064;4;594768;Skalice;42937;RUSDIZ;Moravský Krumlov;6212;Jihomoravský kraj;CZ064;4;A00;Produkce;0,468
 594903;Šumice;42948;RUVTOZ;Pohořelice;6213;Jihomoravský kraj;CZ064;4;594903;Šumice;42948;RUVTOZ;Pohořelice;6213;Jihomoravský kraj;CZ064;4;A00;Produkce;1,876
 595047;Vedrovice;42956;RUPNEZ;Moravský Krumlov;6212;Jihomoravský kraj;CZ064;4;595047;Vedrovice;42956;RUPNEZ;Moravský Krumlov;6212;Jihomoravský kraj;CZ064;4;A00;Produkce;5,828
-595209;Žďár nad Sázavou;42965;RUMBAZ;Žďár nad Sázavou;6115;Vysočina kraj;CZ063;1;595209;Žďár nad Sázavou;42965;RUMBAZ;Žďár nad Sázavou;6115;Vysočina kraj;CZ063;1;A00;Produkce;6,936
-595951;Křoví;42989;RUZLUZ;Velké Meziříčí;6114;Vysočina kraj;CZ063;4;595951;Křoví;42989;RUZLUZ;Velké Meziříčí;6114;Vysočina kraj;CZ063;4;A00;Produkce;1,919
-596230;Nové Město na Moravě;43002;DABHIT;Nové Město na Moravě;6108;Vysočina kraj;CZ063;4;596230;Nové Město na Moravě;43002;DABHIT;Nové Město na Moravě;6108;Vysočina kraj;CZ063;4;A00;Produkce;33,239
-596361;Ostrov nad Oslavou;43009;DAZHUT;Žďár nad Sázavou;6115;Vysočina kraj;CZ063;4;596361;Ostrov nad Oslavou;43009;DAZHUT;Žďár nad Sázavou;6115;Vysočina kraj;CZ063;4;A00;Produkce;1,366
+595209;Žďár nad Sázavou;42965;RUMBAZ;Žďár nad Sázavou;6115;Kraj Vysočina;CZ063;1;595209;Žďár nad Sázavou;42965;RUMBAZ;Žďár nad Sázavou;6115;Kraj Vysočina;CZ063;1;A00;Produkce;6,936
+595951;Křoví;42989;RUZLUZ;Velké Meziříčí;6114;Kraj Vysočina;CZ063;4;595951;Křoví;42989;RUZLUZ;Velké Meziříčí;6114;Kraj Vysočina;CZ063;4;A00;Produkce;1,919
+596230;Nové Město na Moravě;43002;DABHIT;Nové Město na Moravě;6108;Kraj Vysočina;CZ063;4;596230;Nové Město na Moravě;43002;DABHIT;Nové Město na Moravě;6108;Kraj Vysočina;CZ063;4;A00;Produkce;33,239
+596361;Ostrov nad Oslavou;43009;DAZHUT;Žďár nad Sázavou;6115;Kraj Vysočina;CZ063;4;596361;Ostrov nad Oslavou;43009;DAZHUT;Žďár nad Sázavou;6115;Kraj Vysočina;CZ063;4;A00;Produkce;1,366
 597317;Dvorce;43038;DAVDOT;Bruntál;8103;Moravskoslezský kraj;CZ080;4;597317;Dvorce;43038;DAVDOT;Bruntál;8103;Moravskoslezský kraj;CZ080;4;A00;Produkce;2,742
 597635;Město Albrechtice;43048;DAVTOT;Krnov;8114;Moravskoslezský kraj;CZ080;4;597635;Město Albrechtice;43048;DAVTOT;Krnov;8114;Moravskoslezský kraj;CZ080;4;A00;Produkce;23,44
 598003;Frýdek-Místek;43059;DAZNUT;Frýdek-Místek;8106;Moravskoslezský kraj;CZ080;1;598003;Frýdek-Místek;43059;DAZNUT;Frýdek-Místek;8106;Moravskoslezský kraj;CZ080;1;A00;Produkce;0,532
@@ -737,7 +737,7 @@
 598917;Karviná;43093;DAFMOT;Karviná;8111;Moravskoslezský kraj;CZ080;1;598917;Karviná;43093;DAFMOT;Karviná;8111;Moravskoslezský kraj;CZ080;1;A00;Produkce;1,48
 561495;Doksy;41502;KABHIM;Česká Lípa;5101;Liberecký kraj;CZ051;1;561495;Doksy;41502;KABHIM;Česká Lípa;5101;Liberecký kraj;CZ051;1;A00;Produkce;1,81
 563731;Nová Ves nad Nisou;41580;KATLAM;Jablonec nad Nisou;5103;Liberecký kraj;CZ051;4;563731;Nová Ves nad Nisou;41580;KATLAM;Jablonec nad Nisou;5103;Liberecký kraj;CZ051;4;A00;Produkce;0,8265
-579378;Jívka;42214;RILKUB;Trutnov;5214;Královehradecký kraj;CZ052;1;579378;Jívka;42214;RILKUB;Trutnov;5214;Královehradecký kraj;CZ052;1;A00;Produkce;5,38
+579378;Jívka;42214;RILKUB;Trutnov;5214;Královéhradecký kraj;CZ052;1;579378;Jívka;42214;RILKUB;Trutnov;5214;Královéhradecký kraj;CZ052;1;A00;Produkce;5,38
 559504;Trnová;41426;KUPREL;Nýřany;3208;Plzeňský kraj;CZ032;1;559504;Trnová;41426;KUPREL;Nýřany;3208;Plzeňský kraj;CZ032;1;A00;Produkce;4,27
 544345;Proseč pod Ještědem;40837;HOSDIV;Liberec;5105;Liberecký kraj;CZ051;4;544345;Proseč pod Ještědem;40837;HOSDIV;Liberec;5105;Liberecký kraj;CZ051;4;A00;Produkce;0,1
 540013;Březnice;40692;HEBMIP;Příbram;2120;Středočeský kraj;CZ020;1;540013;Březnice;40692;HEBMIP;Příbram;2120;Středočeský kraj;CZ020;1;A00;Produkce;0,69
@@ -752,18 +752,18 @@
 567639;Krupka;41748;KIVTOS;Teplice;4213;Ústecký kraj;CZ042;4;567639;Krupka;41748;KIVTOS;Teplice;4213;Ústecký kraj;CZ042;4;A00;Produkce;10,206
 568309;Tisá;41773;KIFFOS;Ústí nad Labem;4214;Ústecký kraj;CZ042;1;568309;Tisá;41773;KIFFOS;Ústí nad Labem;4214;Ústecký kraj;CZ042;1;A00;Produkce;0,26
 505145;Březová nad Svitavou;40034;HALDUT;Svitavy;5312;Pardubický kraj;CZ053;1;505145;Březová nad Svitavou;40034;HALDUT;Svitavy;5312;Pardubický kraj;CZ053;1;A00;Produkce;0,32
-570109;Chlumec nad Cidlinou;41860;KOTBAV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;570109;Chlumec nad Cidlinou;41860;KOTBAV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;A00;Produkce;0,2
-570427;Myštěves;41873;KOFFOV;Nový Bydžov;5212;Královehradecký kraj;CZ052;1;570427;Myštěves;41873;KOFFOV;Nový Bydžov;5212;Královehradecký kraj;CZ052;1;A00;Produkce;0,2
-570451;Nechanice;41875;KOMFAV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;570451;Nechanice;41875;KOMFAV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;A00;Produkce;0,98
+570109;Chlumec nad Cidlinou;41860;KOTBAV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;570109;Chlumec nad Cidlinou;41860;KOTBAV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;A00;Produkce;0,2
+570427;Myštěves;41873;KOFFOV;Nový Bydžov;5212;Královéhradecký kraj;CZ052;1;570427;Myštěves;41873;KOFFOV;Nový Bydžov;5212;Královéhradecký kraj;CZ052;1;A00;Produkce;0,2
+570451;Nechanice;41875;KOMFAV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;570451;Nechanice;41875;KOMFAV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;A00;Produkce;0,98
 572268;Slatiňany;41938;KUVDOZ;Chrudim;5304;Pardubický kraj;CZ053;1;572268;Slatiňany;41938;KUVDOZ;Chrudim;5304;Pardubický kraj;CZ053;1;A00;Produkce;0,48
 578193;Jevíčko;42162;REBBIN;Moravská Třebová;5308;Pardubický kraj;CZ053;1;578193;Jevíčko;42162;REBBIN;Moravská Třebová;5308;Pardubický kraj;CZ053;1;A00;Produkce;2,4
-579041;Batňovice;42200;RITHAB;Trutnov;5214;Královehradecký kraj;CZ052;1;579041;Batňovice;42200;RITHAB;Trutnov;5214;Královehradecký kraj;CZ052;1;A00;Produkce;1,08
+579041;Batňovice;42200;RITHAB;Trutnov;5214;Královéhradecký kraj;CZ052;1;579041;Batňovice;42200;RITHAB;Trutnov;5214;Královéhradecký kraj;CZ052;1;A00;Produkce;1,08
 582310;Sebranice;42331;RONDEF;Boskovice;6202;Jihomoravský kraj;CZ064;1;582310;Sebranice;42331;RONDEF;Boskovice;6202;Jihomoravský kraj;CZ064;1;A00;Produkce;0,18
 586170;Hovorany;42495;RUMMAL;Kyjov;6210;Jihomoravský kraj;CZ064;1;586170;Hovorany;42495;RUMMAL;Kyjov;6210;Jihomoravský kraj;CZ064;1;A00;Produkce;0,03
 586374;Mikulčice;42500;RATHAM;Hodonín;6206;Jihomoravský kraj;CZ064;4;586374;Mikulčice;42500;RATHAM;Hodonín;6206;Jihomoravský kraj;CZ064;4;A00;Produkce;7,68
 588491;Hulín;42603;REFHOP;Kroměříž;7203;Zlínský kraj;CZ072;1;588491;Hulín;42603;REFHOP;Kroměříž;7203;Zlínský kraj;CZ072;1;A00;Produkce;8,95
 589730;Mostkovice;42663;REFBOP;Prostějov;7108;Olomoucký kraj;CZ071;1;589730;Mostkovice;42663;REFBOP;Prostějov;7108;Olomoucký kraj;CZ071;1;A00;Produkce;0,2
-596825;Strážek;43022;DABRIT;Bystřice nad Pernštejnem;6101;Vysočina kraj;CZ063;1;596825;Strážek;43022;DABRIT;Bystřice nad Pernštejnem;6101;Vysočina kraj;CZ063;1;A00;Produkce;0,04
+596825;Strážek;43022;DABRIT;Bystřice nad Pernštejnem;6101;Kraj Vysočina;CZ063;1;596825;Strážek;43022;DABRIT;Bystřice nad Pernštejnem;6101;Kraj Vysočina;CZ063;1;A00;Produkce;0,04
 554804;Ústí nad Labem;41273;KIFFOB;Ústí nad Labem;4214;Ústecký kraj;CZ042;1;554804;Ústí nad Labem;41273;KIFFOB;Ústí nad Labem;4214;Ústecký kraj;CZ042;1;BN30;Produkce;0,354
 531189;Hořovice;40216;HIPKEB;Hořovice;2108;Středočeský kraj;CZ020;1;531189;Hořovice;40216;HIPKEB;Hořovice;2108;Středočeský kraj;CZ020;1;BN30;Produkce;0,01
 535419;Mladá Boleslav;40474;HULFUL;Mladá Boleslav;2115;Středočeský kraj;CZ020;1;535419;Mladá Boleslav;40474;HULFUL;Mladá Boleslav;2115;Středočeský kraj;CZ020;1;BN30;Produkce;16,13
@@ -782,13 +782,13 @@
 564249;Chrást;41614;KELKUP;Příbram;2120;Středočeský kraj;CZ020;1;564249;Chrást;41614;KELKUP;Příbram;2120;Středočeský kraj;CZ020;1;BN30;Produkce;0,07
 566438;Lubenec;41702;KIBHIS;Podbořany;4210;Ústecký kraj;CZ042;4;566438;Lubenec;41702;KIBHIS;Podbořany;4210;Ústecký kraj;CZ042;4;BN30;Produkce;0,424
 567515;Duchcov;41742;KIBTIS;Teplice;4213;Ústecký kraj;CZ042;1;567515;Duchcov;41742;KIBTIS;Teplice;4213;Ústecký kraj;CZ042;1;BN30;Produkce;6,095
-568414;Havlíčkův Brod;41782;KIBLIS;Havlíčkův Brod;6102;Vysočina kraj;CZ063;1;568414;Havlíčkův Brod;41782;KIBLIS;Havlíčkův Brod;6102;Vysočina kraj;CZ063;1;BN30;Produkce;2,61
+568414;Havlíčkův Brod;41782;KIBLIS;Havlíčkův Brod;6102;Kraj Vysočina;CZ063;1;568414;Havlíčkův Brod;41782;KIBLIS;Havlíčkův Brod;6102;Kraj Vysočina;CZ063;1;BN30;Produkce;2,61
 574988;Holice;42032;RABDIT;Holice;5303;Pardubický kraj;CZ053;1;574988;Holice;42032;RABDIT;Holice;5303;Pardubický kraj;CZ053;1;BN30;Produkce;0,22
 574996;Horní Jelení;42034;RALDUT;Holice;5303;Pardubický kraj;CZ053;4;574996;Horní Jelení;42034;RALDUT;Holice;5303;Pardubický kraj;CZ053;4;BN30;Produkce;1,6
-576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;1;576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;1;BN30;Produkce;0,114
+576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;1;576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;1;BN30;Produkce;0,114
 578347;Litomyšl;42170;RETFAN;Litomyšl;5307;Pardubický kraj;CZ053;1;578347;Litomyšl;42170;RETFAN;Litomyšl;5307;Pardubický kraj;CZ053;1;BN30;Produkce;0,23
 578762;Slatina;42194;RELMUN;Moravská Třebová;5308;Pardubický kraj;CZ053;1;578762;Slatina;42194;RELMUN;Moravská Třebová;5308;Pardubický kraj;CZ053;1;BN30;Produkce;0,38
-579637;Rtyně v Podkrkonoší;42224;RILRUB;Trutnov;5214;Královehradecký kraj;CZ052;1;579637;Rtyně v Podkrkonoší;42224;RILRUB;Trutnov;5214;Královehradecký kraj;CZ052;1;BN30;Produkce;0,35
+579637;Rtyně v Podkrkonoší;42224;RILRUB;Trutnov;5214;Královéhradecký kraj;CZ052;1;579637;Rtyně v Podkrkonoší;42224;RILRUB;Trutnov;5214;Královéhradecký kraj;CZ052;1;BN30;Produkce;0,35
 585068;Zlín;42453;RUFNOL;Zlín;7213;Zlínský kraj;CZ072;1;585068;Zlín;42453;RUFNOL;Zlín;7213;Zlínský kraj;CZ072;1;BN30;Produkce;8,215
 588458;Holešov;42600;RETHAP;Holešov;7202;Zlínský kraj;CZ072;1;588458;Holešov;42600;RETHAP;Holešov;7202;Zlínský kraj;CZ072;1;BN30;Produkce;0,000223574
 592005;Uherské Hradiště;42783;RIFLOS;Uherské Hradiště;7207;Zlínský kraj;CZ072;1;592005;Uherské Hradiště;42783;RIFLOS;Uherské Hradiště;7207;Zlínský kraj;CZ072;1;BN30;Produkce;0,05
@@ -841,22 +841,22 @@
 566985;Žatec;41721;KINRES;Žatec;4216;Ústecký kraj;CZ042;1;566985;Žatec;41721;KINRES;Žatec;4216;Ústecký kraj;CZ042;1;C00;Vyskladnění;0,22
 567256;Litvínov;41731;KINDES;Litvínov;4206;Ústecký kraj;CZ042;1;567256;Litvínov;41731;KINDES;Litvínov;4206;Ústecký kraj;CZ042;1;C00;Vyskladnění;1,15
 567515;Duchcov;41742;KIBTIS;Teplice;4213;Ústecký kraj;CZ042;1;567515;Duchcov;41742;KIBTIS;Teplice;4213;Ústecký kraj;CZ042;1;C00;Vyskladnění;290,049
-569321;Přibyslav;41829;KOZRUV;Havlíčkův Brod;6102;Vysočina kraj;CZ063;4;569321;Přibyslav;41829;KOZRUV;Havlíčkův Brod;6102;Vysočina kraj;CZ063;4;C00;Vyskladnění;2,94
+569321;Přibyslav;41829;KOZRUV;Havlíčkův Brod;6102;Kraj Vysočina;CZ063;4;569321;Přibyslav;41829;KOZRUV;Havlíčkův Brod;6102;Kraj Vysočina;CZ063;4;C00;Vyskladnění;2,94
 569771;Suchonice;41848;KOVTOV;Olomouc;7107;Olomoucký kraj;CZ071;1;569771;Suchonice;41848;KOVTOV;Olomouc;7107;Olomoucký kraj;CZ071;1;C00;Vyskladnění;95,2177
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;C00;Vyskladnění;0,093005809
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;C00;Vyskladnění;0,093005809
 571164;Chrudim;41894;KOLMUV;Chrudim;5304;Pardubický kraj;CZ053;1;571164;Chrudim;41894;KOLMUV;Chrudim;5304;Pardubický kraj;CZ053;1;C00;Vyskladnění;0,138352941
 571393;Hlinsko;41907;KUSHIZ;Hlinsko;5302;Pardubický kraj;CZ053;1;571393;Hlinsko;41907;KUSHIZ;Hlinsko;5302;Pardubický kraj;CZ053;1;C00;Vyskladnění;0,782
 572241;Skuteč;41936;KUPDEZ;Chrudim;5304;Pardubický kraj;CZ053;1;572241;Skuteč;41936;KUPDEZ;Chrudim;5304;Pardubický kraj;CZ053;1;C00;Vyskladnění;0,04
-573248;Nová Paka;41967;KUSBIZ;Nová Paka;5210;Královehradecký kraj;CZ052;1;573248;Nová Paka;41967;KUSBIZ;Nová Paka;5210;Královehradecký kraj;CZ052;1;C00;Vyskladnění;4,68
+573248;Nová Paka;41967;KUSBIZ;Nová Paka;5210;Královéhradecký kraj;CZ052;1;573248;Nová Paka;41967;KUSBIZ;Nová Paka;5210;Královéhradecký kraj;CZ052;1;C00;Vyskladnění;4,68
 574988;Holice;42032;RABDIT;Holice;5303;Pardubický kraj;CZ053;1;574988;Holice;42032;RABDIT;Holice;5303;Pardubický kraj;CZ053;1;C00;Vyskladnění;1,09
 574996;Horní Jelení;42034;RALDUT;Holice;5303;Pardubický kraj;CZ053;4;574996;Horní Jelení;42034;RALDUT;Holice;5303;Pardubický kraj;CZ053;4;C00;Vyskladnění;0,08
-576069;Rychnov nad Kněžnou;42063;RAFBOT;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;1;576069;Rychnov nad Kněžnou;42063;RAFBOT;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;1;C00;Vyskladnění;0,02
-576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;1;576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;1;C00;Vyskladnění;0,181
-576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;4;576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;4;C00;Vyskladnění;1,439
+576069;Rychnov nad Kněžnou;42063;RAFBOT;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;1;576069;Rychnov nad Kněžnou;42063;RAFBOT;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;1;C00;Vyskladnění;0,02
+576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;1;576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;1;C00;Vyskladnění;0,181
+576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;4;576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;4;C00;Vyskladnění;1,439
 577308;Lomnice nad Popelkou;42130;RETDAN;Semily;5107;Liberecký kraj;CZ051;1;577308;Lomnice nad Popelkou;42130;RETDAN;Semily;5107;Liberecký kraj;CZ051;1;C00;Vyskladnění;1,011
 578444;Moravská Třebová;42176;REPFEN;Moravská Třebová;5308;Pardubický kraj;CZ053;1;578444;Moravská Třebová;42176;REPFEN;Moravská Třebová;5308;Pardubický kraj;CZ053;1;C00;Vyskladnění;3,82E-05
-579203;Dvůr Králové nad Labem;42207;RISHIB;Dvůr Králové nad Labem;5203;Královehradecký kraj;CZ052;1;579203;Dvůr Králové nad Labem;42207;RISHIB;Dvůr Králové nad Labem;5203;Královehradecký kraj;CZ052;1;C00;Vyskladnění;0,57
-579858;Vrchlabí;42230;RITDAB;Vrchlabí;5215;Královehradecký kraj;CZ052;1;579858;Vrchlabí;42230;RITDAB;Vrchlabí;5215;Královehradecký kraj;CZ052;1;C00;Vyskladnění;0,004
+579203;Dvůr Králové nad Labem;42207;RISHIB;Dvůr Králové nad Labem;5203;Královéhradecký kraj;CZ052;1;579203;Dvůr Králové nad Labem;42207;RISHIB;Dvůr Králové nad Labem;5203;Královéhradecký kraj;CZ052;1;C00;Vyskladnění;0,57
+579858;Vrchlabí;42230;RITDAB;Vrchlabí;5215;Královéhradecký kraj;CZ052;1;579858;Vrchlabí;42230;RITDAB;Vrchlabí;5215;Královéhradecký kraj;CZ052;1;C00;Vyskladnění;0,004
 580481;Králíky;42261;RINBEB;Králíky;5305;Pardubický kraj;CZ053;1;580481;Králíky;42261;RINBEB;Králíky;5305;Pardubický kraj;CZ053;1;C00;Vyskladnění;15,149
 581259;Žamberk;42292;RIBMIB;Žamberk;5315;Pardubický kraj;CZ053;1;581259;Žamberk;42292;RIBMIB;Žamberk;5315;Pardubický kraj;CZ053;1;C00;Vyskladnění;0,054
 581682;Jedovnice;42308;ROVHOF;Blansko;6201;Jihomoravský kraj;CZ064;4;581682;Jedovnice;42308;ROVHOF;Blansko;6201;Jihomoravský kraj;CZ064;4;C00;Vyskladnění;0,249
@@ -869,13 +869,13 @@
 584789;Perná;42441;RUNTEL;Mikulov;6211;Jihomoravský kraj;CZ064;1;584789;Perná;42441;RUNTEL;Mikulov;6211;Jihomoravský kraj;CZ064;1;C00;Vyskladnění;0,06
 585068;Zlín;42453;RUFNOL;Zlín;7213;Zlínský kraj;CZ072;1;585068;Zlín;42453;RUFNOL;Zlín;7213;Zlínský kraj;CZ072;1;C00;Vyskladnění;0,815
 586021;Hodonín;42489;RUZLUL;Hodonín;6206;Jihomoravský kraj;CZ064;1;586021;Hodonín;42489;RUZLUL;Hodonín;6206;Jihomoravský kraj;CZ064;1;C00;Vyskladnění;0,085
-586846;Jihlava;42524;RALRUM;Jihlava;6105;Vysočina kraj;CZ063;1;586846;Jihlava;42524;RALRUM;Jihlava;6105;Vysočina kraj;CZ063;1;C00;Vyskladnění;0,34
+586846;Jihlava;42524;RALRUM;Jihlava;6105;Kraj Vysočina;CZ063;1;586846;Jihlava;42524;RALRUM;Jihlava;6105;Kraj Vysočina;CZ063;1;C00;Vyskladnění;0,34
 588296;Kroměříž;42593;RAFMOM;Kroměříž;7203;Zlínský kraj;CZ072;1;588296;Kroměříž;42593;RAFMOM;Kroměříž;7203;Zlínský kraj;CZ072;1;C00;Vyskladnění;0,00985776
 592005;Uherské Hradiště;42783;RIFLOS;Uherské Hradiště;7207;Zlínský kraj;CZ072;1;592005;Uherské Hradiště;42783;RIFLOS;Uherské Hradiště;7207;Zlínský kraj;CZ072;1;C00;Vyskladnění;2,712
 592943;Bučovice;42838;ROVDOV;Bučovice;6205;Jihomoravský kraj;CZ064;1;592943;Bučovice;42838;ROVDOV;Bučovice;6205;Jihomoravský kraj;CZ064;1;C00;Vyskladnění;0,307055215
 594067;Hodonice;42897;ROSMIV;Znojmo;6220;Jihomoravský kraj;CZ064;4;594067;Hodonice;42897;ROSMIV;Znojmo;6220;Jihomoravský kraj;CZ064;4;C00;Vyskladnění;0,103
-595209;Žďár nad Sázavou;42965;RUMBAZ;Žďár nad Sázavou;6115;Vysočina kraj;CZ063;1;595209;Žďár nad Sázavou;42965;RUMBAZ;Žďár nad Sázavou;6115;Vysočina kraj;CZ063;1;C00;Vyskladnění;0,665
-595578;Fryšava pod Žákovou horou;42978;RUVFOZ;Nové Město na Moravě;6108;Vysočina kraj;CZ063;1;595578;Fryšava pod Žákovou horou;42978;RUVFOZ;Nové Město na Moravě;6108;Vysočina kraj;CZ063;1;C00;Vyskladnění;0,207
+595209;Žďár nad Sázavou;42965;RUMBAZ;Žďár nad Sázavou;6115;Kraj Vysočina;CZ063;1;595209;Žďár nad Sázavou;42965;RUMBAZ;Žďár nad Sázavou;6115;Kraj Vysočina;CZ063;1;C00;Vyskladnění;0,665
+595578;Fryšava pod Žákovou horou;42978;RUVFOZ;Nové Město na Moravě;6108;Kraj Vysočina;CZ063;1;595578;Fryšava pod Žákovou horou;42978;RUVFOZ;Nové Město na Moravě;6108;Kraj Vysočina;CZ063;1;C00;Vyskladnění;0,207
 599701;Odry;43123;DEFRON;Odry;8116;Moravskoslezský kraj;CZ080;1;599701;Odry;43123;DEFRON;Odry;8116;Moravskoslezský kraj;CZ080;1;C00;Vyskladnění;0,101
 554782;Praha;41269;KIZBUB;Praha;1000;Hlavní město Praha;CZ010;1;554782;Praha;41269;KIZBUB;Praha;1000;Hlavní město Praha;CZ010;1;BN6;Import;0,47
 546593;Nová Ves;40960;HUTBAZ;Liberec;5105;Liberecký kraj;CZ051;1;546593;Nová Ves;40960;HUTBAZ;Liberec;5105;Liberecký kraj;CZ051;1;BN6;Import;70,9575
@@ -925,21 +925,21 @@
 564711;Čížkovice;41639;KEZDUP;Lovosice;4208;Ústecký kraj;CZ042;1;564711;Čížkovice;41639;KEZDUP;Lovosice;4208;Ústecký kraj;CZ042;1;XD1;Skládkování;30,54
 566934;Vroutek;41718;KIVKOS;Podbořany;4210;Ústecký kraj;CZ042;1;566934;Vroutek;41718;KIVKOS;Podbořany;4210;Ústecký kraj;CZ042;1;XD1;Skládkování;13,06
 567710;Modlany;41751;KINNES;Teplice;4213;Ústecký kraj;CZ042;1;567710;Modlany;41751;KINNES;Teplice;4213;Ústecký kraj;CZ042;1;XD1;Skládkování;40,48
-570303;Lodín;41867;KOSBIV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;570303;Lodín;41867;KOSBIV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;XD1;Skládkování;2,68
+570303;Lodín;41867;KOSBIV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;570303;Lodín;41867;KOSBIV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;XD1;Skládkování;2,68
 571393;Hlinsko;41907;KUSHIZ;Hlinsko;5302;Pardubický kraj;CZ053;1;571393;Hlinsko;41907;KUSHIZ;Hlinsko;5302;Pardubický kraj;CZ053;1;XD1;Skládkování;28
 571911;Nasavrky;41926;KUPREZ;Chrudim;5304;Pardubický kraj;CZ053;1;571911;Nasavrky;41926;KUPREZ;Chrudim;5304;Pardubický kraj;CZ053;1;XD1;Skládkování;13,2
 576026;Zdechovice;42061;RANBET;Přelouč;5311;Pardubický kraj;CZ053;1;576026;Zdechovice;42061;RANBET;Přelouč;5311;Pardubický kraj;CZ053;1;XD1;Skládkování;14,9
 577235;Košťálov;42128;REVRON;Semily;5107;Liberecký kraj;CZ051;1;577235;Košťálov;42128;REVRON;Semily;5107;Liberecký kraj;CZ051;1;XD1;Skládkování;14,281
 578762;Slatina;42194;RELMUN;Moravská Třebová;5308;Pardubický kraj;CZ053;1;578762;Slatina;42194;RELMUN;Moravská Třebová;5308;Pardubický kraj;CZ053;1;XD1;Skládkování;28,518
-579025;Trutnov;42199;REZMUN;Trutnov;5214;Královehradecký kraj;CZ052;1;579025;Trutnov;42199;REZMUN;Trutnov;5214;Královehradecký kraj;CZ052;1;XD1;Skládkování;957,323
-579637;Rtyně v Podkrkonoší;42224;RILRUB;Trutnov;5214;Královehradecký kraj;CZ052;1;579637;Rtyně v Podkrkonoší;42224;RILRUB;Trutnov;5214;Královehradecký kraj;CZ052;1;XD1;Skládkování;1,43
+579025;Trutnov;42199;REZMUN;Trutnov;5214;Královéhradecký kraj;CZ052;1;579025;Trutnov;42199;REZMUN;Trutnov;5214;Královéhradecký kraj;CZ052;1;XD1;Skládkování;957,323
+579637;Rtyně v Podkrkonoší;42224;RILRUB;Trutnov;5214;Královéhradecký kraj;CZ052;1;579637;Rtyně v Podkrkonoší;42224;RILRUB;Trutnov;5214;Královéhradecký kraj;CZ052;1;XD1;Skládkování;1,43
 580058;České Libchavy;42242;RIBTIB;Ústí nad Orlicí;5313;Pardubický kraj;CZ053;1;580058;České Libchavy;42242;RIBTIB;Ústí nad Orlicí;5313;Pardubický kraj;CZ053;1;XD1;Skládkování;2,183
 581071;Třebovice;42283;RIFLOB;Česká Třebová;5301;Pardubický kraj;CZ053;1;581071;Třebovice;42283;RIFLOB;Česká Třebová;5301;Pardubický kraj;CZ053;1;XD1;Skládkování;7,92
 586412;Mutěnice;42502;RABHIM;Hodonín;6206;Jihomoravský kraj;CZ064;1;586412;Mutěnice;42502;RABHIM;Hodonín;6206;Jihomoravský kraj;CZ064;1;XD1;Skládkování;7,71
 586668;Těmice;42516;RAPKEM;Kyjov;6210;Jihomoravský kraj;CZ064;1;586668;Těmice;42516;RAPKEM;Kyjov;6210;Jihomoravský kraj;CZ064;1;XD1;Skládkování;1,88
 589195;Zdounky;42631;RENDEP;Kroměříž;7203;Zlínský kraj;CZ072;1;589195;Zdounky;42631;RENDEP;Kroměříž;7203;Zlínský kraj;CZ072;1;XD1;Skládkování;33,37
 589756;Němčice nad Hanou;42665;REMBAP;Prostějov;7108;Olomoucký kraj;CZ071;1;589756;Němčice nad Hanou;42665;REMBAP;Prostějov;7108;Olomoucký kraj;CZ071;1;XD1;Skládkování;305,295
-576077;Albrechtice nad Orlicí;42065;RAMBAT;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;1;576077;Albrechtice nad Orlicí;42065;RAMBAT;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;1;XD4;Jiné uložení;10,61
+576077;Albrechtice nad Orlicí;42065;RAMBAT;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;1;576077;Albrechtice nad Orlicí;42065;RAMBAT;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;1;XD4;Jiné uložení;10,61
 583898;Sokolnice;42401;RUNHEL;Šlapanice;6216;Jihomoravský kraj;CZ064;1;583898;Sokolnice;42401;RUNHEL;Šlapanice;6216;Jihomoravský kraj;CZ064;1;XD4;Jiné uložení;0,04
 529303;Benešov;40166;HEPBEN;Benešov;2101;Středočeský kraj;CZ020;1;529303;Benešov;40166;HEPBEN;Benešov;2101;Středočeský kraj;CZ020;1;XD10;Spalování;0,12
 534951;Kralupy nad Vltavou;40436;HUPDEL;Kralupy nad Vltavou;2111;Středočeský kraj;CZ020;1;534951;Kralupy nad Vltavou;40436;HUPDEL;Kralupy nad Vltavou;2111;Středočeský kraj;CZ020;1;XD10;Spalování;5,459
@@ -948,11 +948,11 @@
 550787;Strakonice;41107;KESHIN;Strakonice;3111;Jihočeský kraj;CZ031;1;550787;Strakonice;41107;KESHIN;Strakonice;3111;Jihočeský  kraj;CZ031;1;XD10;Spalování;0,211
 553697;Trmice;41222;KIBRIB;Ústí nad Labem;4214;Ústecký kraj;CZ042;1;553697;Trmice;41222;KIBRIB;Ústí nad Labem;4214;Ústecký kraj;CZ042;1;XD10;Spalování;1,088
 585068;Zlín;42453;RUFNOL;Zlín;7213;Zlínský kraj;CZ072;1;585068;Zlín;42453;RUFNOL;Zlín;7213;Zlínský kraj;CZ072;1;XD10;Spalování;4,80252
-586846;Jihlava;42524;RALRUM;Jihlava;6105;Vysočina kraj;CZ063;1;586846;Jihlava;42524;RALRUM;Jihlava;6105;Vysočina kraj;CZ063;1;XD10;Spalování;0,391
+586846;Jihlava;42524;RALRUM;Jihlava;6105;Kraj Vysočina;CZ063;1;586846;Jihlava;42524;RALRUM;Jihlava;6105;Kraj Vysočina;CZ063;1;XD10;Spalování;0,391
 589250;Prostějov;42636;REPDEP;Prostějov;7108;Olomoucký kraj;CZ071;1;589250;Prostějov;42636;REPDEP;Prostějov;7108;Olomoucký kraj;CZ071;1;XD10;Spalování;0,014
-596230;Nové Město na Moravě;43002;DABHIT;Nové Město na Moravě;6108;Vysočina kraj;CZ063;1;596230;Nové Město na Moravě;43002;DABHIT;Nové Město na Moravě;6108;Vysočina kraj;CZ063;1;XD10;Spalování;0,04
+596230;Nové Město na Moravě;43002;DABHIT;Nové Město na Moravě;6108;Kraj Vysočina;CZ063;1;596230;Nové Město na Moravě;43002;DABHIT;Nové Město na Moravě;6108;Kraj Vysočina;CZ063;1;XD10;Spalování;0,04
 563889;Liberec;41592;KABMIM;Liberec;5105;Liberecký kraj;CZ051;1;563889;Liberec;41592;KABMIM;Liberec;5105;Liberecký kraj;CZ051;1;XD13;Zpracování ostatní;2,04
-576271;Dobruška;42079;RAZFUT;Dobruška;5202;Královehradecký kraj;CZ052;1;576271;Dobruška;42079;RAZFUT;Dobruška;5202;Královehradecký kraj;CZ052;1;XD13;Zpracování ostatní;2,62
+576271;Dobruška;42079;RAZFUT;Dobruška;5202;Královéhradecký kraj;CZ052;1;576271;Dobruška;42079;RAZFUT;Dobruška;5202;Královéhradecký kraj;CZ052;1;XD13;Zpracování ostatní;2,62
 554782;Praha;41269;KIZBUB;Praha;1000;Hlavní město Praha;CZ010;1;554782;Praha;41269;KIZBUB;Praha;1000;Hlavní město Praha;CZ010;1;XR1;Energeticky;54
 539813;Velké Přílepy;40681;HENLEP;Černošice;2105;Středočeský kraj;CZ020;1;539813;Velké Přílepy;40681;HENLEP;Černošice;2105;Středočeský kraj;CZ020;1;XR1;Energeticky;66,54
 554821;Ostrava;41277;KISFIB;Ostrava;8119;Moravskoslezský kraj;CZ080;1;554821;Ostrava;41277;KISFIB;Ostrava;8119;Moravskoslezský kraj;CZ080;1;XR1;Energeticky;2,13
@@ -969,7 +969,7 @@
 581372;Boskovice;42300;ROTHAF;Boskovice;6202;Jihomoravský kraj;CZ064;1;581372;Boskovice;42300;ROTHAF;Boskovice;6202;Jihomoravský kraj;CZ064;1;XR3;Materiálově;41,43189826
 555771;Klatovy;41316;KOPKEF;Klatovy;3205;Plzeňský kraj;CZ032;1;555771;Klatovy;41316;KOPKEF;Klatovy;3205;Plzeňský kraj;CZ032;1;XR5;Materiálově;7,475
 567515;Duchcov;41742;KIBTIS;Teplice;4213;Ústecký kraj;CZ042;1;567515;Duchcov;41742;KIBTIS;Teplice;4213;Ústecký kraj;CZ042;1;XR5;Materiálově;3080,357371
-576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;1;576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;1;XR5;Materiálově;0,069
+576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;1;576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;1;XR5;Materiálově;0,069
 578487;Opatov;42179;REZFUN;Svitavy;5312;Pardubický kraj;CZ053;1;578487;Opatov;42179;REZFUN;Svitavy;5312;Pardubický kraj;CZ053;1;XR5;Materiálově;1602,744
 554782;Praha;41269;KIZBUB;Praha;1000;Hlavní město Praha;CZ010;1;554782;Praha;41269;KIZBUB;Praha;1000;Hlavní město Praha;CZ010;1;XR12;Materiálově;2
 534676;Mělník;40422;HUBRIL;Mělník;2114;Středočeský kraj;CZ020;1;534676;Mělník;40422;HUBRIL;Mělník;2114;Středočeský kraj;CZ020;1;XR12;Materiálově;4,493
@@ -1052,16 +1052,16 @@
 567027;Most;41723;KIFROS;Most;4209;Ústecký kraj;CZ042;1;567027;Most;41723;KIFROS;Most;4209;Ústecký kraj;CZ042;1;XN5;Naskladnění;0,018
 567256;Litvínov;41731;KINDES;Litvínov;4206;Ústecký kraj;CZ042;1;567256;Litvínov;41731;KINDES;Litvínov;4206;Ústecký kraj;CZ042;1;XN5;Naskladnění;0,59
 567515;Duchcov;41742;KIBTIS;Teplice;4213;Ústecký kraj;CZ042;1;567515;Duchcov;41742;KIBTIS;Teplice;4213;Ústecký kraj;CZ042;1;XN5;Naskladnění;163,9516292
-568414;Havlíčkův Brod;41782;KIBLIS;Havlíčkův Brod;6102;Vysočina kraj;CZ063;1;568414;Havlíčkův Brod;41782;KIBLIS;Havlíčkův Brod;6102;Vysočina kraj;CZ063;1;XN5;Naskladnění;3,192
-569321;Přibyslav;41829;KOZRUV;Havlíčkův Brod;6102;Vysočina kraj;CZ063;4;569321;Přibyslav;41829;KOZRUV;Havlíčkův Brod;6102;Vysočina kraj;CZ063;4;XN5;Naskladnění;2,94
+568414;Havlíčkův Brod;41782;KIBLIS;Havlíčkův Brod;6102;Kraj Vysočina;CZ063;1;568414;Havlíčkův Brod;41782;KIBLIS;Havlíčkův Brod;6102;Kraj Vysočina;CZ063;1;XN5;Naskladnění;3,192
+569321;Přibyslav;41829;KOZRUV;Havlíčkův Brod;6102;Kraj Vysočina;CZ063;4;569321;Přibyslav;41829;KOZRUV;Havlíčkův Brod;6102;Kraj Vysočina;CZ063;4;XN5;Naskladnění;2,94
 569771;Suchonice;41848;KOVTOV;Olomouc;7107;Olomoucký kraj;CZ071;1;569771;Suchonice;41848;KOVTOV;Olomouc;7107;Olomoucký kraj;CZ071;1;XN5;Naskladnění;95,2977
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;XN5;Naskladnění;0,369
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;XN5;Naskladnění;0,369
 574988;Holice;42032;RABDIT;Holice;5303;Pardubický kraj;CZ053;1;574988;Holice;42032;RABDIT;Holice;5303;Pardubický kraj;CZ053;1;XN5;Naskladnění;0,73
-576476;Lípa nad Orlicí;42090;RATMAT;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;1;576476;Lípa nad Orlicí;42090;RATMAT;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;1;XN5;Naskladnění;1,26
-576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;1;576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;1;XN5;Naskladnění;0,226
+576476;Lípa nad Orlicí;42090;RATMAT;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;1;576476;Lípa nad Orlicí;42090;RATMAT;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;1;XN5;Naskladnění;1,26
+576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;1;576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;1;XN5;Naskladnění;0,226
 578444;Moravská Třebová;42176;REPFEN;Moravská Třebová;5308;Pardubický kraj;CZ053;1;578444;Moravská Třebová;42176;REPFEN;Moravská Třebová;5308;Pardubický kraj;CZ053;1;XN5;Naskladnění;0,0096
-579203;Dvůr Králové nad Labem;42207;RISHIB;Dvůr Králové nad Labem;5203;Královehradecký kraj;CZ052;1;579203;Dvůr Králové nad Labem;42207;RISHIB;Dvůr Králové nad Labem;5203;Královehradecký kraj;CZ052;1;XN5;Naskladnění;0,57
-579858;Vrchlabí;42230;RITDAB;Vrchlabí;5215;Královehradecký kraj;CZ052;1;579858;Vrchlabí;42230;RITDAB;Vrchlabí;5215;Královehradecký kraj;CZ052;1;XN5;Naskladnění;0,004
+579203;Dvůr Králové nad Labem;42207;RISHIB;Dvůr Králové nad Labem;5203;Královéhradecký kraj;CZ052;1;579203;Dvůr Králové nad Labem;42207;RISHIB;Dvůr Králové nad Labem;5203;Královéhradecký kraj;CZ052;1;XN5;Naskladnění;0,57
+579858;Vrchlabí;42230;RITDAB;Vrchlabí;5215;Královéhradecký kraj;CZ052;1;579858;Vrchlabí;42230;RITDAB;Vrchlabí;5215;Královéhradecký kraj;CZ052;1;XN5;Naskladnění;0,004
 580121;Dolní Dobrouč;42247;RISTIB;Ústí nad Orlicí;5313;Pardubický kraj;CZ053;1;580121;Dolní Dobrouč;42247;RISTIB;Ústí nad Orlicí;5313;Pardubický kraj;CZ053;1;XN5;Naskladnění;0,515
 580481;Králíky;42261;RINBEB;Králíky;5305;Pardubický kraj;CZ053;1;580481;Králíky;42261;RINBEB;Králíky;5305;Pardubický kraj;CZ053;1;XN5;Naskladnění;15,149
 581186;Vysoké Mýto;42288;RIVLOB;Vysoké Mýto;5314;Pardubický kraj;CZ053;1;581186;Vysoké Mýto;42288;RIVLOB;Vysoké Mýto;5314;Pardubický kraj;CZ053;1;XN5;Naskladnění;0,03
@@ -1073,21 +1073,21 @@
 584649;Mikulov;42436;RUPDEL;Mikulov;6211;Jihomoravský kraj;CZ064;1;584649;Mikulov;42436;RUPDEL;Mikulov;6211;Jihomoravský kraj;CZ064;1;XN5;Naskladnění;7,38116
 585068;Zlín;42453;RUFNOL;Zlín;7213;Zlínský kraj;CZ072;1;585068;Zlín;42453;RUFNOL;Zlín;7213;Zlínský kraj;CZ072;1;XN5;Naskladnění;0,6
 585599;Otrokovice;42472;RUBFIL;Otrokovice;7205;Zlínský kraj;CZ072;1;585599;Otrokovice;42472;RUBFIL;Otrokovice;7205;Zlínský kraj;CZ072;1;XN5;Naskladnění;0,051
-586846;Jihlava;42524;RALRUM;Jihlava;6105;Vysočina kraj;CZ063;1;586846;Jihlava;42524;RALRUM;Jihlava;6105;Vysočina kraj;CZ063;1;XN5;Naskladnění;0,05
+586846;Jihlava;42524;RALRUM;Jihlava;6105;Kraj Vysočina;CZ063;1;586846;Jihlava;42524;RALRUM;Jihlava;6105;Kraj Vysočina;CZ063;1;XN5;Naskladnění;0,05
 589926;Protivanov;42674;RELFUP;Prostějov;7108;Olomoucký kraj;CZ071;1;589926;Protivanov;42674;RELFUP;Prostějov;7108;Olomoucký kraj;CZ071;1;XN5;Naskladnění;0,01
 592005;Uherské Hradiště;42783;RIFLOS;Uherské Hradiště;7207;Zlínský kraj;CZ072;1;592005;Uherské Hradiště;42783;RIFLOS;Uherské Hradiště;7207;Zlínský kraj;CZ072;1;XN5;Naskladnění;2,427
 592889;Vyškov;42832;ROBDIV;Vyškov;6219;Jihomoravský kraj;CZ064;1;592889;Vyškov;42832;ROBDIV;Vyškov;6219;Jihomoravský kraj;CZ064;1;XN5;Naskladnění;0,036
 594067;Hodonice;42897;ROSMIV;Znojmo;6220;Jihomoravský kraj;CZ064;4;594067;Hodonice;42897;ROSMIV;Znojmo;6220;Jihomoravský kraj;CZ064;4;XN5;Naskladnění;0,583
-595209;Žďár nad Sázavou;42965;RUMBAZ;Žďár nad Sázavou;6115;Vysočina kraj;CZ063;1;595209;Žďár nad Sázavou;42965;RUMBAZ;Žďár nad Sázavou;6115;Vysočina kraj;CZ063;1;XN5;Naskladnění;0,501
-595578;Fryšava pod Žákovou horou;42978;RUVFOZ;Nové Město na Moravě;6108;Vysočina kraj;CZ063;1;595578;Fryšava pod Žákovou horou;42978;RUVFOZ;Nové Město na Moravě;6108;Vysočina kraj;CZ063;1;XN5;Naskladnění;0,207
+595209;Žďár nad Sázavou;42965;RUMBAZ;Žďár nad Sázavou;6115;Kraj Vysočina;CZ063;1;595209;Žďár nad Sázavou;42965;RUMBAZ;Žďár nad Sázavou;6115;Kraj Vysočina;CZ063;1;XN5;Naskladnění;0,501
+595578;Fryšava pod Žákovou horou;42978;RUVFOZ;Nové Město na Moravě;6108;Kraj Vysočina;CZ063;1;595578;Fryšava pod Žákovou horou;42978;RUVFOZ;Nové Město na Moravě;6108;Kraj Vysočina;CZ063;1;XN5;Naskladnění;0,207
 599701;Odry;43123;DEFRON;Odry;8116;Moravskoslezský kraj;CZ080;1;599701;Odry;43123;DEFRON;Odry;8116;Moravskoslezský kraj;CZ080;1;XN5;Naskladnění;0,104
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;XN7;Export;12545,09136
 564494;Višňová;41628;KEVROP;Frýdlant;5102;Liberecký kraj;CZ051;1;564494;Višňová;41628;KEVROP;Frýdlant;5102;Liberecký kraj;CZ051;1;XN7;Export;1428,959984
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;XN13;Materiálově;2,457
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;XN13;Materiálově;2,457
 544256;České Budějovice;40830;HOTDAV;České Budějovice;3102;Jihočeský kraj;CZ031;1;544256;České Budějovice;40830;HOTDAV;České Budějovice;3102;Jihočeský  kraj;CZ031;1;XN53;Zpracování ostatní;0,0025
 544281;Borovany;40834;HOLDUV;Trhové Sviny;3113;Jihočeský kraj;CZ031;1;544281;Borovany;40834;HOLDUV;Trhové Sviny;3113;Jihočeský  kraj;CZ031;1;XN53;Zpracování ostatní;0,068
 545058;Valašské Meziříčí;40883;HOFLOV;Valašské Meziříčí;7210;Zlínský kraj;CZ072;1;545058;Valašské Meziříčí;40883;HOFLOV;Valašské Meziříčí;7210;Zlínský kraj;CZ072;1;XN53;Zpracování ostatní;0,005
-576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;4;576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;4;XN53;Zpracování ostatní;0,277
+576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;4;576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;4;XN53;Zpracování ostatní;0,277
 584444;Drnholec;42428;RUVROL;Mikulov;6211;Jihomoravský kraj;CZ064;1;584444;Drnholec;42428;RUVROL;Mikulov;6211;Jihomoravský kraj;CZ064;1;XN53;Zpracování ostatní;5,6592
 539643;Řevnice;40673;HEFFOP;Černošice;2105;Středočeský kraj;CZ020;4;539643;Řevnice;40673;HEFFOP;Černošice;2105;Středočeský kraj;CZ020;4;XN53;Zpracování ostatní;0,31
 567221;Korozluky;41730;KITDAS;Most;4209;Ústecký kraj;CZ042;1;567221;Korozluky;41730;KITDAS;Most;4209;Ústecký kraj;CZ042;1;XN53;Zpracování ostatní;0,00155
@@ -1420,8 +1420,8 @@
 554782;Praha;41269;KIZBUB;Praha;1000;Hlavní město Praha;CZ010;1;554944;Mrsklesy;41285;KIMLAB;Praha;1000;Hlavní město Praha;CZ010;1;Předání;Předání;308,58
 547450;Výkleky;40996;HUPMEZ;Přerov;7109;Olomoucký kraj;CZ071;4;581372;Boskovice;42300;ROTHAF;Přerov;7109;Olomoucký kraj;CZ071;1;Předání;Předání;1,06
 548031;Dlouhoňovice;41014;KALKUT;Žamberk;5315;Pardubický kraj;CZ053;4;544477;Stráž nad Nisou;40846;HOPTEV;Žamberk;5315;Pardubický kraj;CZ053;1;Předání;Předání;2,211
-548511;Pacov;41031;KANDET;Pacov;6109;Vysočina kraj;CZ063;1;544477;Stráž nad Nisou;40846;HOPTEV;Pacov;6109;Vysočina kraj;CZ063;1;Předání;Předání;12,978
-548511;Pacov;41031;KANDET;Pacov;6109;Vysočina kraj;CZ063;4;548511;Pacov;41031;KANDET;Pacov;6109;Vysočina kraj;CZ063;1;Předání;Předání;12,978
+548511;Pacov;41031;KANDET;Pacov;6109;Kraj Vysočina;CZ063;1;544477;Stráž nad Nisou;40846;HOPTEV;Pacov;6109;Kraj Vysočina;CZ063;1;Předání;Předání;12,978
+548511;Pacov;41031;KANDET;Pacov;6109;Kraj Vysočina;CZ063;4;548511;Pacov;41031;KANDET;Pacov;6109;Kraj Vysočina;CZ063;1;Předání;Předání;12,978
 549428;Hrejkovice;41045;KAMTAT;Milevsko;3107;Jihočeský kraj;CZ031;4;539911;Příbram;40687;HESLIP;Milevsko;3107;Jihočeský  kraj;CZ031;1;Předání;Předání;0,6525
 549444;Oldřichovice;41046;KAPTET;Otrokovice;7205;Zlínský kraj;CZ072;4;585599;Otrokovice;42472;RUBFIL;Otrokovice;7205;Zlínský kraj;CZ072;1;Předání;Předání;0,381
 549592;Mirovice;41052;KABNIT;Písek;3108;Jihočeský kraj;CZ031;4;539911;Příbram;40687;HESLIP;Písek;3108;Jihočeský  kraj;CZ031;1;Předání;Předání;8,617708
@@ -1471,7 +1471,7 @@
 554481;Cheb;41252;KIBNIB;Cheb;4102;Karlovarský kraj;CZ041;1;537969;Otovice;40583;HAFLOM;Cheb;4102;Karlovarský kraj;CZ041;1;Předání;Předání;24,95
 554740;Plesná;41268;KIVBOB;Cheb;4102;Karlovarský kraj;CZ041;4;581372;Boskovice;42300;ROTHAF;Cheb;4102;Karlovarský kraj;CZ041;1;Předání;Předání;2,447
 554812;Skalná;41275;KIMFAB;Cheb;4102;Karlovarský kraj;CZ041;1;569810;Hradec Králové;41851;KONNEV;Cheb;4102;Karlovarský kraj;CZ041;1;Předání;Předání;0,22
-554871;Střítež;41280;KITLAB;Třebíč;6113;Vysočina kraj;CZ063;1;569810;Hradec Králové;41851;KONNEV;Třebíč;6113;Vysočina kraj;CZ063;1;Předání;Předání;0,86
+554871;Střítež;41280;KITLAB;Třebíč;6113;Kraj Vysočina;CZ063;1;569810;Hradec Králové;41851;KONNEV;Třebíč;6113;Kraj Vysočina;CZ063;1;Předání;Předání;0,86
 554898;Rostěnice-Zvonovice;41282;KIBLIB;Vyškov;6219;Jihomoravský kraj;CZ064;1;550795;Podbřežice;41109;KEZHUN;Vyškov;6219;Jihomoravský kraj;CZ064;1;Předání;Předání;0,53
 554901;Křelov-Břuchotín;41283;KIFLOB;Olomouc;7107;Olomoucký kraj;CZ071;1;554782;Praha;41269;KIZBUB;Olomouc;7107;Olomoucký kraj;CZ071;1;Předání;Předání;13,26
 554961;Karlovy Vary;41288;KIVLOB;Karlovy Vary;4103;Karlovarský kraj;CZ041;1;560014;Mýto;41451;KUNNEL;Karlovy Vary;4103;Karlovarský kraj;CZ041;1;Předání;Předání;3,48
@@ -1742,34 +1742,34 @@
 568007;Chabařovice;41759;KIZNUS;Ústí nad Labem;4214;Ústecký kraj;CZ042;4;544477;Stráž nad Nisou;40846;HOPTEV;Ústí nad Labem;4214;Ústecký kraj;CZ042;1;Předání;Předání;13,074
 568015;Chlumec;41760;KITBAS;Ústí nad Labem;4214;Ústecký kraj;CZ042;4;567515;Duchcov;41742;KIBTIS;Ústí nad Labem;4214;Ústecký kraj;CZ042;1;Předání;Předání;9,753
 568023;Chuderov;41761;KINBES;Ústí nad Labem;4214;Ústecký kraj;CZ042;4;554804;Ústí nad Labem;41273;KIFFOB;Ústí nad Labem;4214;Ústecký kraj;CZ042;1;Předání;Předání;0,449
-568414;Havlíčkův Brod;41782;KIBLIS;Havlíčkův Brod;6102;Vysočina kraj;CZ063;1;568414;Havlíčkův Brod;41782;KIBLIS;Havlíčkův Brod;6102;Vysočina kraj;CZ063;1;Předání;Předání;3,192
+568414;Havlíčkův Brod;41782;KIBLIS;Havlíčkův Brod;6102;Kraj Vysočina;CZ063;1;568414;Havlíčkův Brod;41782;KIBLIS;Havlíčkův Brod;6102;Kraj Vysočina;CZ063;1;Předání;Předání;3,192
 568546;Kunín;41790;KITMAS;Nový Jičín;8115;Moravskoslezský kraj;CZ080;4;544477;Stráž nad Nisou;40846;HOPTEV;Nový Jičín;8115;Moravskoslezský kraj;CZ080;1;Předání;Předání;4,959
-568651;Habry;41794;KILMUS;Havlíčkův Brod;6102;Vysočina kraj;CZ063;4;544477;Stráž nad Nisou;40846;HOPTEV;Havlíčkův Brod;6102;Vysočina kraj;CZ063;1;Předání;Předání;1,527
-568694;Hněvkovice;41799;KIZMUS;Světlá nad Sázavou;6111;Vysočina kraj;CZ063;4;544477;Stráž nad Nisou;40846;HOPTEV;Světlá nad Sázavou;6111;Vysočina kraj;CZ063;1;Předání;Předání;1,277
-568945;Krucemburk;41811;KONKEV;Chotěboř;6104;Vysočina kraj;CZ063;4;595209;Žďár nad Sázavou;42965;RUMBAZ;Chotěboř;6104;Vysočina kraj;CZ063;1;Předání;Předání;3,1
-569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Vysočina kraj;CZ063;1;569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Vysočina kraj;CZ063;1;Předání;Předání;1,125
-569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Vysočina kraj;CZ063;1;586846;Jihlava;42524;RALRUM;Světlá nad Sázavou;6111;Vysočina kraj;CZ063;1;Předání;Předání;2,21
-569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Vysočina kraj;CZ063;4;544477;Stráž nad Nisou;40846;HOPTEV;Světlá nad Sázavou;6111;Vysočina kraj;CZ063;1;Předání;Předání;11,659
-569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Vysočina kraj;CZ063;4;569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Vysočina kraj;CZ063;1;Předání;Předání;1,085
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;505188;Šternberk;40036;HAPDET;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Předání;Předání;2,216
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;507016;Hlučín;40055;HAMNAT;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Předání;Předání;3,651
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;508128;Markvartovice;40069;HAZBUT;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Předání;Předání;37,22
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;512923;Chlebičov;40098;HAVMOT;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Předání;Předání;1,242
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;539023;Třebeň;40642;HEBTIP;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Předání;Předání;0,22
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;541656;Rakovník;40785;HIMLAS;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Předání;Předání;88,399
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;544281;Borovany;40834;HOLDUV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Předání;Předání;4,386
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;582786;Brno;42355;ROMNAF;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Předání;Předání;22,6
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;554944;Mrsklesy;41285;KIMLAB;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Předání;Předání;0,34
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;555134;Pardubice;41291;KINMEB;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Předání;Předání;0,537
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;555428;Ostrov;41306;KOPHEF;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Předání;Předání;587,137
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;563889;Liberec;41592;KABMIM;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Předání;Předání;1,88
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;560383;Chodov;41462;KUBBIL;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Předání;Předání;0,2
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;563501;Vysoká Pec;41568;KAVBOM;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Předání;Předání;1,4
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;567710;Modlany;41751;KINNES;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Předání;Předání;1,42
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Předání;Předání;4,764
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;577308;Lomnice nad Popelkou;42130;RETDAN;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Předání;Předání;0,243
+568651;Habry;41794;KILMUS;Havlíčkův Brod;6102;Kraj Vysočina;CZ063;4;544477;Stráž nad Nisou;40846;HOPTEV;Havlíčkův Brod;6102;Kraj Vysočina;CZ063;1;Předání;Předání;1,527
+568694;Hněvkovice;41799;KIZMUS;Světlá nad Sázavou;6111;Kraj Vysočina;CZ063;4;544477;Stráž nad Nisou;40846;HOPTEV;Světlá nad Sázavou;6111;Kraj Vysočina;CZ063;1;Předání;Předání;1,277
+568945;Krucemburk;41811;KONKEV;Chotěboř;6104;Kraj Vysočina;CZ063;4;595209;Žďár nad Sázavou;42965;RUMBAZ;Chotěboř;6104;Kraj Vysočina;CZ063;1;Předání;Předání;3,1
+569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Kraj Vysočina;CZ063;1;569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Kraj Vysočina;CZ063;1;Předání;Předání;1,125
+569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Kraj Vysočina;CZ063;1;586846;Jihlava;42524;RALRUM;Světlá nad Sázavou;6111;Kraj Vysočina;CZ063;1;Předání;Předání;2,21
+569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Kraj Vysočina;CZ063;4;544477;Stráž nad Nisou;40846;HOPTEV;Světlá nad Sázavou;6111;Kraj Vysočina;CZ063;1;Předání;Předání;11,659
+569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Kraj Vysočina;CZ063;4;569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Kraj Vysočina;CZ063;1;Předání;Předání;1,085
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;505188;Šternberk;40036;HAPDET;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Předání;Předání;2,216
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;507016;Hlučín;40055;HAMNAT;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Předání;Předání;3,651
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;508128;Markvartovice;40069;HAZBUT;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Předání;Předání;37,22
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;512923;Chlebičov;40098;HAVMOT;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Předání;Předání;1,242
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;539023;Třebeň;40642;HEBTIP;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Předání;Předání;0,22
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;541656;Rakovník;40785;HIMLAS;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Předání;Předání;88,399
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;544281;Borovany;40834;HOLDUV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Předání;Předání;4,386
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;582786;Brno;42355;ROMNAF;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Předání;Předání;22,6
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;554944;Mrsklesy;41285;KIMLAB;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Předání;Předání;0,34
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;555134;Pardubice;41291;KINMEB;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Předání;Předání;0,537
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;555428;Ostrov;41306;KOPHEF;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Předání;Předání;587,137
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;563889;Liberec;41592;KABMIM;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Předání;Předání;1,88
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;560383;Chodov;41462;KUBBIL;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Předání;Předání;0,2
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;563501;Vysoká Pec;41568;KAVBOM;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Předání;Předání;1,4
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;567710;Modlany;41751;KINNES;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Předání;Předání;1,42
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Předání;Předání;4,764
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;577308;Lomnice nad Popelkou;42130;RETDAN;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Předání;Předání;0,243
 570788;Bradlec;41882;KOBLIV;Mladá Boleslav;2115;Středočeský kraj;CZ020;4;581372;Boskovice;42300;ROTHAF;Mladá Boleslav;2115;Středočeský kraj;CZ020;1;Předání;Předání;0,144
-570869;Smidary;41886;KOPLEV;Nový Bydžov;5212;Královehradecký kraj;CZ052;1;554782;Praha;41269;KIZBUB;Nový Bydžov;5212;Královehradecký kraj;CZ052;1;Předání;Předání;0,82
+570869;Smidary;41886;KOPLEV;Nový Bydžov;5212;Královéhradecký kraj;CZ052;1;554782;Praha;41269;KIZBUB;Nový Bydžov;5212;Královéhradecký kraj;CZ052;1;Předání;Předání;0,82
 570923;Přepeře;41889;KOZLUV;Mladá Boleslav;2115;Středočeský kraj;CZ020;4;563510;Jablonec nad Nisou;41570;KATFAM;Mladá Boleslav;2115;Středočeský kraj;CZ020;1;Předání;Předání;0,01
 571164;Chrudim;41894;KOLMUV;Chrudim;5304;Pardubický kraj;CZ053;1;571911;Nasavrky;41926;KUPREZ;Chrudim;5304;Pardubický kraj;CZ053;1;Předání;Předání;8,28
 571164;Chrudim;41894;KOLMUV;Chrudim;5304;Pardubický kraj;CZ053;4;571164;Chrudim;41894;KOLMUV;Chrudim;5304;Pardubický kraj;CZ053;1;Předání;Předání;7,944
@@ -1789,27 +1789,27 @@
 572241;Skuteč;41936;KUPDEZ;Chrudim;5304;Pardubický kraj;CZ053;1;571911;Nasavrky;41926;KUPREZ;Chrudim;5304;Pardubický kraj;CZ053;1;Předání;Předání;4,44
 572241;Skuteč;41936;KUPDEZ;Chrudim;5304;Pardubický kraj;CZ053;4;572241;Skuteč;41936;KUPDEZ;Chrudim;5304;Pardubický kraj;CZ053;1;Předání;Předání;4,4
 572454;Vápenný Podol;41945;KUMTAZ;Chrudim;5304;Pardubický kraj;CZ053;4;572071;Prachovice;41930;KUTDAZ;Chrudim;5304;Pardubický kraj;CZ053;1;Předání;Předání;2,56
-572659;Jičín;41950;KUTNAZ;Jičín;5207;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Jičín;5207;Královehradecký kraj;CZ052;1;Předání;Předání;89,864
-572926;Hořice;41956;KUPNEZ;Hořice;5204;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Hořice;5204;Královehradecký kraj;CZ052;1;Předání;Předání;27,508
-573060;Kopidlno;41959;KUZNUZ;Jičín;5207;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Jičín;5207;Královehradecký kraj;CZ052;1;Předání;Předání;5,868
-573108;Libáň;41961;KUNBEZ;Jičín;5207;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Jičín;5207;Královehradecký kraj;CZ052;1;Předání;Předání;0,74
-573116;Libošovice;41962;KUBBIZ;Jičín;5207;Královehradecký kraj;CZ052;4;563510;Jablonec nad Nisou;41570;KATFAM;Jičín;5207;Královehradecký kraj;CZ052;1;Předání;Předání;0,04
-573124;Libuň;41963;KUFBOZ;Jičín;5207;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Jičín;5207;Královehradecký kraj;CZ052;1;Předání;Předání;2,284
-573248;Nová Paka;41967;KUSBIZ;Nová Paka;5210;Královehradecký kraj;CZ052;1;577235;Košťálov;42128;REVRON;Nová Paka;5210;Královehradecký kraj;CZ052;1;Předání;Předání;4,72
-573248;Nová Paka;41967;KUSBIZ;Nová Paka;5210;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Nová Paka;5210;Královehradecký kraj;CZ052;1;Předání;Předání;29,192
-573493;Sobotka;41972;KUBFIZ;Jičín;5207;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Jičín;5207;Královehradecký kraj;CZ052;1;Předání;Předání;46,15
-573701;Valdice;41977;KUSFIZ;Jičín;5207;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Jičín;5207;Královehradecký kraj;CZ052;1;Předání;Předání;4,082
+572659;Jičín;41950;KUTNAZ;Jičín;5207;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Jičín;5207;Královéhradecký kraj;CZ052;1;Předání;Předání;89,864
+572926;Hořice;41956;KUPNEZ;Hořice;5204;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Hořice;5204;Královéhradecký kraj;CZ052;1;Předání;Předání;27,508
+573060;Kopidlno;41959;KUZNUZ;Jičín;5207;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Jičín;5207;Královéhradecký kraj;CZ052;1;Předání;Předání;5,868
+573108;Libáň;41961;KUNBEZ;Jičín;5207;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Jičín;5207;Královéhradecký kraj;CZ052;1;Předání;Předání;0,74
+573116;Libošovice;41962;KUBBIZ;Jičín;5207;Královéhradecký kraj;CZ052;4;563510;Jablonec nad Nisou;41570;KATFAM;Jičín;5207;Královéhradecký kraj;CZ052;1;Předání;Předání;0,04
+573124;Libuň;41963;KUFBOZ;Jičín;5207;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Jičín;5207;Královéhradecký kraj;CZ052;1;Předání;Předání;2,284
+573248;Nová Paka;41967;KUSBIZ;Nová Paka;5210;Královéhradecký kraj;CZ052;1;577235;Košťálov;42128;REVRON;Nová Paka;5210;Královéhradecký kraj;CZ052;1;Předání;Předání;4,72
+573248;Nová Paka;41967;KUSBIZ;Nová Paka;5210;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Nová Paka;5210;Královéhradecký kraj;CZ052;1;Předání;Předání;29,192
+573493;Sobotka;41972;KUBFIZ;Jičín;5207;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Jičín;5207;Královéhradecký kraj;CZ052;1;Předání;Předání;46,15
+573701;Valdice;41977;KUSFIZ;Jičín;5207;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Jičín;5207;Královéhradecký kraj;CZ052;1;Předání;Předání;4,082
 573817;Smrček;41979;KUZFUZ;Chrudim;5304;Pardubický kraj;CZ053;4;571393;Hlinsko;41907;KUSHIZ;Chrudim;5304;Pardubický kraj;CZ053;1;Předání;Předání;0,02
-573825;Železnice;41980;KUTLAZ;Jičín;5207;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Jičín;5207;Královehradecký kraj;CZ052;1;Předání;Předání;2,052
-573922;Broumov;41982;KUBLIZ;Broumov;5201;Královehradecký kraj;CZ052;1;554782;Praha;41269;KIZBUB;Broumov;5201;Královehradecký kraj;CZ052;1;Předání;Předání;37,82
-573922;Broumov;41982;KUBLIZ;Broumov;5201;Královehradecký kraj;CZ052;1;579025;Trutnov;42199;REZMUN;Broumov;5201;Královehradecký kraj;CZ052;1;Předání;Předání;950,86
-573973;Česká Čermná;41985;KUMLAZ;Náchod;5209;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Náchod;5209;Královehradecký kraj;CZ052;1;Předání;Předání;1,62
-574015;Dolany;41988;KUVLOZ;Jaroměř;5206;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Jaroměř;5206;Královehradecký kraj;CZ052;1;Předání;Předání;1,559
-574023;Dolní Radechová;41989;KUZLUZ;Náchod;5209;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Náchod;5209;Královehradecký kraj;CZ052;1;Předání;Předání;2,55
-574121;Jaroměř;41993;KUFMOZ;Jaroměř;5206;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Jaroměř;5206;Královehradecký kraj;CZ052;1;Předání;Předání;18,911
-574279;Nové Město nad Metují;42000;RATHAT;Nové Město nad Metují;5211;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Nové Město nad Metují;5211;Královehradecký kraj;CZ052;1;Předání;Předání;31,889
-574406;Rychnovek;42009;RAZHUT;Jaroměř;5206;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Jaroměř;5206;Královehradecký kraj;CZ052;1;Předání;Předání;1,54
-574481;Studnice;42012;RABKIT;Náchod;5209;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Náchod;5209;Královehradecký kraj;CZ052;1;Předání;Předání;1,372
+573825;Železnice;41980;KUTLAZ;Jičín;5207;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Jičín;5207;Královéhradecký kraj;CZ052;1;Předání;Předání;2,052
+573922;Broumov;41982;KUBLIZ;Broumov;5201;Královéhradecký kraj;CZ052;1;554782;Praha;41269;KIZBUB;Broumov;5201;Královéhradecký kraj;CZ052;1;Předání;Předání;37,82
+573922;Broumov;41982;KUBLIZ;Broumov;5201;Královéhradecký kraj;CZ052;1;579025;Trutnov;42199;REZMUN;Broumov;5201;Královéhradecký kraj;CZ052;1;Předání;Předání;950,86
+573973;Česká Čermná;41985;KUMLAZ;Náchod;5209;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Náchod;5209;Královéhradecký kraj;CZ052;1;Předání;Předání;1,62
+574015;Dolany;41988;KUVLOZ;Jaroměř;5206;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Jaroměř;5206;Královéhradecký kraj;CZ052;1;Předání;Předání;1,559
+574023;Dolní Radechová;41989;KUZLUZ;Náchod;5209;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Náchod;5209;Královéhradecký kraj;CZ052;1;Předání;Předání;2,55
+574121;Jaroměř;41993;KUFMOZ;Jaroměř;5206;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Jaroměř;5206;Královéhradecký kraj;CZ052;1;Předání;Předání;18,911
+574279;Nové Město nad Metují;42000;RATHAT;Nové Město nad Metují;5211;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Nové Město nad Metují;5211;Královéhradecký kraj;CZ052;1;Předání;Předání;31,889
+574406;Rychnovek;42009;RAZHUT;Jaroměř;5206;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Jaroměř;5206;Královéhradecký kraj;CZ052;1;Předání;Předání;1,54
+574481;Studnice;42012;RABKIT;Náchod;5209;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Náchod;5209;Královéhradecký kraj;CZ052;1;Předání;Předání;1,372
 574848;Býšť;42027;RASRIT;Holice;5303;Pardubický kraj;CZ053;4;544477;Stráž nad Nisou;40846;HOPTEV;Holice;5303;Pardubický kraj;CZ053;1;Předání;Předání;2,049
 574848;Býšť;42027;RASRIT;Holice;5303;Pardubický kraj;CZ053;4;574848;Býšť;42027;RASRIT;Holice;5303;Pardubický kraj;CZ053;4;Předání;Předání;2,049
 574953;Dříteč;42031;RANDET;Pardubice;5309;Pardubický kraj;CZ053;4;569810;Hradec Králové;41851;KONNEV;Pardubice;5309;Pardubický kraj;CZ053;1;Předání;Předání;1,642
@@ -1819,26 +1819,26 @@
 574996;Horní Jelení;42034;RALDUT;Holice;5303;Pardubický kraj;CZ053;4;544477;Stráž nad Nisou;40846;HOPTEV;Holice;5303;Pardubický kraj;CZ053;1;Předání;Předání;1,68
 575577;Rokytno;42046;RAPTET;Pardubice;5309;Pardubický kraj;CZ053;4;544477;Stráž nad Nisou;40846;HOPTEV;Pardubice;5309;Pardubický kraj;CZ053;1;Předání;Předání;2,822
 575640;Sezemice;42050;RATNAT;Pardubice;5309;Pardubický kraj;CZ053;4;544477;Stráž nad Nisou;40846;HOPTEV;Pardubice;5309;Pardubický kraj;CZ053;1;Předání;Předání;4,026
-576069;Rychnov nad Kněžnou;42063;RAFBOT;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;1;576069;Rychnov nad Kněžnou;42063;RAFBOT;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;1;Předání;Předání;0,413
-576069;Rychnov nad Kněžnou;42063;RAFBOT;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;1;580058;České Libchavy;42242;RIBTIB;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;1;Předání;Předání;0,433
-576069;Rychnov nad Kněžnou;42063;RAFBOT;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;1;Předání;Předání;21,062
-576077;Albrechtice nad Orlicí;42065;RAMBAT;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;1;569810;Hradec Králové;41851;KONNEV;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;1;Předání;Předání;11,65
-576204;Černíkovice;42074;RALFUT;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;1;Předání;Předání;2,088
-576212;České Meziříčí;42075;RAMFAT;Dobruška;5202;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Dobruška;5202;Královehradecký kraj;CZ052;1;Předání;Předání;3,942
-576263;Dobré;42078;RAVFOT;Dobruška;5202;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Dobruška;5202;Královehradecký kraj;CZ052;1;Předání;Předání;2,361
-576271;Dobruška;42079;RAZFUT;Dobruška;5202;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Dobruška;5202;Královehradecký kraj;CZ052;1;Předání;Předání;22,347
-576476;Lípa nad Orlicí;42090;RATMAT;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;1;572071;Prachovice;41930;KUTDAZ;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;1;Předání;Předání;31,69
-576476;Lípa nad Orlicí;42090;RATMAT;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;4;576476;Lípa nad Orlicí;42090;RATMAT;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;1;Předání;Předání;3,64
-576573;Olešnice v Orlických horách;42094;RALMUT;Dobruška;5202;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Dobruška;5202;Královehradecký kraj;CZ052;1;Předání;Předání;0,1591
-576590;Opočno;42096;RAPMET;Dobruška;5202;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Dobruška;5202;Královehradecký kraj;CZ052;1;Předání;Předání;10,411
-576654;Podbřezí;42099;RAZMUT;Dobruška;5202;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Dobruška;5202;Královehradecký kraj;CZ052;1;Předání;Předání;1,783
-576662;Pohoří;42100;RETHAN;Dobruška;5202;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Dobruška;5202;Královehradecký kraj;CZ052;1;Předání;Předání;1,168
-576751;Semechnice;42104;RELHUN;Dobruška;5202;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Dobruška;5202;Královehradecký kraj;CZ052;1;Předání;Předání;1
-576808;Solnice;42107;RESHIN;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;1;Předání;Předání;8,315
-576859;Týniště nad Orlicí;42111;RENKEN;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;1;576476;Lípa nad Orlicí;42090;RATMAT;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;1;Předání;Předání;29,31
-576859;Týniště nad Orlicí;42111;RENKEN;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;4;576859;Týniště nad Orlicí;42111;RENKEN;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;1;Předání;Předání;29,31
-576891;Voděrady;42115;REMKAN;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;1;Předání;Předání;1,786
-576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;1;Předání;Předání;1,162
+576069;Rychnov nad Kněžnou;42063;RAFBOT;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;1;576069;Rychnov nad Kněžnou;42063;RAFBOT;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;1;Předání;Předání;0,413
+576069;Rychnov nad Kněžnou;42063;RAFBOT;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;1;580058;České Libchavy;42242;RIBTIB;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;1;Předání;Předání;0,433
+576069;Rychnov nad Kněžnou;42063;RAFBOT;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;1;Předání;Předání;21,062
+576077;Albrechtice nad Orlicí;42065;RAMBAT;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;1;569810;Hradec Králové;41851;KONNEV;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;1;Předání;Předání;11,65
+576204;Černíkovice;42074;RALFUT;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;1;Předání;Předání;2,088
+576212;České Meziříčí;42075;RAMFAT;Dobruška;5202;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Dobruška;5202;Královéhradecký kraj;CZ052;1;Předání;Předání;3,942
+576263;Dobré;42078;RAVFOT;Dobruška;5202;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Dobruška;5202;Královéhradecký kraj;CZ052;1;Předání;Předání;2,361
+576271;Dobruška;42079;RAZFUT;Dobruška;5202;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Dobruška;5202;Královéhradecký kraj;CZ052;1;Předání;Předání;22,347
+576476;Lípa nad Orlicí;42090;RATMAT;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;1;572071;Prachovice;41930;KUTDAZ;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;1;Předání;Předání;31,69
+576476;Lípa nad Orlicí;42090;RATMAT;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;4;576476;Lípa nad Orlicí;42090;RATMAT;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;1;Předání;Předání;3,64
+576573;Olešnice v Orlických horách;42094;RALMUT;Dobruška;5202;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Dobruška;5202;Královéhradecký kraj;CZ052;1;Předání;Předání;0,1591
+576590;Opočno;42096;RAPMET;Dobruška;5202;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Dobruška;5202;Královéhradecký kraj;CZ052;1;Předání;Předání;10,411
+576654;Podbřezí;42099;RAZMUT;Dobruška;5202;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Dobruška;5202;Královéhradecký kraj;CZ052;1;Předání;Předání;1,783
+576662;Pohoří;42100;RETHAN;Dobruška;5202;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Dobruška;5202;Královéhradecký kraj;CZ052;1;Předání;Předání;1,168
+576751;Semechnice;42104;RELHUN;Dobruška;5202;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Dobruška;5202;Královéhradecký kraj;CZ052;1;Předání;Předání;1
+576808;Solnice;42107;RESHIN;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;1;Předání;Předání;8,315
+576859;Týniště nad Orlicí;42111;RENKEN;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;1;576476;Lípa nad Orlicí;42090;RATMAT;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;1;Předání;Předání;29,31
+576859;Týniště nad Orlicí;42111;RENKEN;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;4;576859;Týniště nad Orlicí;42111;RENKEN;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;1;Předání;Předání;29,31
+576891;Voděrady;42115;REMKAN;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;1;Předání;Předání;1,786
+576921;Záměl;42116;REPKEN;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;1;Předání;Předání;1,162
 576964;Semily;42120;RETRAN;Semily;5107;Liberecký kraj;CZ051;4;544477;Stráž nad Nisou;40846;HOPTEV;Semily;5107;Liberecký kraj;CZ051;1;Předání;Předání;35,674
 577120;Horní Branná;42124;RELRUN;Jilemnice;5104;Liberecký kraj;CZ051;4;544477;Stráž nad Nisou;40846;HOPTEV;Jilemnice;5104;Liberecký kraj;CZ051;1;Předání;Předání;5,864
 577154;Chuchelna;42125;REMRAN;Semily;5107;Liberecký kraj;CZ051;4;544477;Stráž nad Nisou;40846;HOPTEV;Semily;5107;Liberecký kraj;CZ051;1;Předání;Předání;3,214
@@ -1858,8 +1858,8 @@
 578495;Čímice;42181;RENLEN;Sušice;3214;Plzeňský kraj;CZ032;4;557153;Sušice;41359;KOZNUF;Sušice;3214;Plzeňský kraj;CZ032;1;Předání;Předání;0,01
 578533;Nezamyslice;42183;REFLON;Sušice;3214;Plzeňský kraj;CZ032;4;557153;Sušice;41359;KOZNUF;Sušice;3214;Plzeňský kraj;CZ032;1;Předání;Předání;0,21
 578681;Rozhraní;42190;RETMAN;Svitavy;5312;Pardubický kraj;CZ053;4;581917;Letovice;42316;ROPKEF;Svitavy;5312;Pardubický kraj;CZ053;1;Předání;Předání;0,04
-579025;Trutnov;42199;REZMUN;Trutnov;5214;Královehradecký kraj;CZ052;1;577308;Lomnice nad Popelkou;42130;RETDAN;Trutnov;5214;Královehradecký kraj;CZ052;1;Předání;Předání;11,53
-579858;Vrchlabí;42230;RITDAB;Vrchlabí;5215;Královehradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Vrchlabí;5215;Královehradecký kraj;CZ052;1;Předání;Předání;47,878
+579025;Trutnov;42199;REZMUN;Trutnov;5214;Královéhradecký kraj;CZ052;1;577308;Lomnice nad Popelkou;42130;RETDAN;Trutnov;5214;Královéhradecký kraj;CZ052;1;Předání;Předání;11,53
+579858;Vrchlabí;42230;RITDAB;Vrchlabí;5215;Královéhradecký kraj;CZ052;4;544477;Stráž nad Nisou;40846;HOPTEV;Vrchlabí;5215;Královéhradecký kraj;CZ052;1;Předání;Předání;47,878
 579971;Bystřec;42237;RISDIB;Žamberk;5315;Pardubický kraj;CZ053;4;544477;Stráž nad Nisou;40846;HOPTEV;Žamberk;5315;Pardubický kraj;CZ053;1;Předání;Předání;2,783
 580031;Česká Třebová;42239;RIZDUB;Česká Třebová;5301;Pardubický kraj;CZ053;1;544477;Stráž nad Nisou;40846;HOPTEV;Česká Třebová;5301;Pardubický kraj;CZ053;1;Předání;Předání;2,132
 580031;Česká Třebová;42239;RIZDUB;Česká Třebová;5301;Pardubický kraj;CZ053;4;580031;Česká Třebová;42239;RIZDUB;Česká Třebová;5301;Pardubický kraj;CZ053;1;Předání;Předání;2,132
@@ -1941,9 +1941,9 @@
 586528;Rohatec;42507;RASHIM;Hodonín;6206;Jihomoravský kraj;CZ064;4;544477;Stráž nad Nisou;40846;HOPTEV;Hodonín;6206;Jihomoravský kraj;CZ064;1;Předání;Předání;13,104
 586552;Sobůlky;42508;RAVHOM;Kyjov;6210;Jihomoravský kraj;CZ064;4;544477;Stráž nad Nisou;40846;HOPTEV;Kyjov;6210;Jihomoravský kraj;CZ064;1;Předání;Předání;2,83
 586706;Vacenovice;42519;RAZKUM;Kyjov;6210;Jihomoravský kraj;CZ064;4;544477;Stráž nad Nisou;40846;HOPTEV;Kyjov;6210;Jihomoravský kraj;CZ064;1;Předání;Předání;3,473
-586846;Jihlava;42524;RALRUM;Jihlava;6105;Vysočina kraj;CZ063;1;569810;Hradec Králové;41851;KONNEV;Jihlava;6105;Vysočina kraj;CZ063;1;Předání;Předání;0,32
-586846;Jihlava;42524;RALRUM;Jihlava;6105;Vysočina kraj;CZ063;1;572071;Prachovice;41930;KUTDAZ;Jihlava;6105;Vysočina kraj;CZ063;1;Předání;Předání;2,5
-586846;Jihlava;42524;RALRUM;Jihlava;6105;Vysočina kraj;CZ063;1;586846;Jihlava;42524;RALRUM;Jihlava;6105;Vysočina kraj;CZ063;1;Předání;Předání;0,391
+586846;Jihlava;42524;RALRUM;Jihlava;6105;Kraj Vysočina;CZ063;1;569810;Hradec Králové;41851;KONNEV;Jihlava;6105;Kraj Vysočina;CZ063;1;Předání;Předání;0,32
+586846;Jihlava;42524;RALRUM;Jihlava;6105;Kraj Vysočina;CZ063;1;572071;Prachovice;41930;KUTDAZ;Jihlava;6105;Kraj Vysočina;CZ063;1;Předání;Předání;2,5
+586846;Jihlava;42524;RALRUM;Jihlava;6105;Kraj Vysočina;CZ063;1;586846;Jihlava;42524;RALRUM;Jihlava;6105;Kraj Vysočina;CZ063;1;Předání;Předání;0,391
 588296;Kroměříž;42593;RAFMOM;Kroměříž;7203;Zlínský kraj;CZ072;1;589195;Zdounky;42631;RENDEP;Kroměříž;7203;Zlínský kraj;CZ072;1;Předání;Předání;0,3
 588296;Kroměříž;42593;RAFMOM;Kroměříž;7203;Zlínský kraj;CZ072;1;589250;Prostějov;42636;REPDEP;Kroměříž;7203;Zlínský kraj;CZ072;1;Předání;Předání;0,002
 588458;Holešov;42600;RETHAP;Holešov;7202;Zlínský kraj;CZ072;1;513733;Hradčany;40122;HEBRIN;Holešov;7202;Zlínský kraj;CZ072;1;Předání;Předání;1,94
@@ -1969,8 +1969,8 @@
 589772;Niva;42669;REZBUP;Prostějov;7108;Olomoucký kraj;CZ071;4;589926;Protivanov;42674;RELFUP;Prostějov;7108;Olomoucký kraj;CZ071;1;Předání;Předání;0,07
 589926;Protivanov;42674;RELFUP;Prostějov;7108;Olomoucký kraj;CZ071;1;581372;Boskovice;42300;ROTHAF;Prostějov;7108;Olomoucký kraj;CZ071;1;Předání;Předání;9,05
 589926;Protivanov;42674;RELFUP;Prostějov;7108;Olomoucký kraj;CZ071;4;589926;Protivanov;42674;RELFUP;Prostějov;7108;Olomoucký kraj;CZ071;1;Předání;Předání;8,28
-591181;Moravské Budějovice;42741;RINTES;Moravské Budějovice;6106;Vysočina kraj;CZ063;1;581372;Boskovice;42300;ROTHAF;Moravské Budějovice;6106;Vysočina kraj;CZ063;1;Předání;Předání;4,311
-591181;Moravské Budějovice;42741;RINTES;Moravské Budějovice;6106;Vysočina kraj;CZ063;4;591181;Moravské Budějovice;42741;RINTES;Moravské Budějovice;6106;Vysočina kraj;CZ063;1;Předání;Předání;4,311
+591181;Moravské Budějovice;42741;RINTES;Moravské Budějovice;6106;Kraj Vysočina;CZ063;1;581372;Boskovice;42300;ROTHAF;Moravské Budějovice;6106;Kraj Vysočina;CZ063;1;Předání;Předání;4,311
+591181;Moravské Budějovice;42741;RINTES;Moravské Budějovice;6106;Kraj Vysočina;CZ063;4;591181;Moravské Budějovice;42741;RINTES;Moravské Budějovice;6106;Kraj Vysočina;CZ063;1;Předání;Předání;4,311
 592005;Uherské Hradiště;42783;RIFLOS;Uherské Hradiště;7207;Zlínský kraj;CZ072;1;550752;Staré Město;41104;KELHUN;Uherské Hradiště;7207;Zlínský kraj;CZ072;1;Předání;Předání;0,259
 592005;Uherské Hradiště;42783;RIFLOS;Uherské Hradiště;7207;Zlínský kraj;CZ072;1;581372;Boskovice;42300;ROTHAF;Uherské Hradiště;7207;Zlínský kraj;CZ072;1;Předání;Předání;4,965
 592005;Uherské Hradiště;42783;RIFLOS;Uherské Hradiště;7207;Zlínský kraj;CZ072;1;585599;Otrokovice;42472;RUBFIL;Uherské Hradiště;7207;Zlínský kraj;CZ072;1;Předání;Předání;0,06
@@ -2012,11 +2012,11 @@
 595047;Vedrovice;42956;RUPNEZ;Moravský Krumlov;6212;Jihomoravský kraj;CZ064;4;582786;Brno;42355;ROMNAF;Moravský Krumlov;6212;Jihomoravský kraj;CZ064;1;Předání;Předání;3
 595047;Vedrovice;42956;RUPNEZ;Moravský Krumlov;6212;Jihomoravský kraj;CZ064;4;581372;Boskovice;42300;ROTHAF;Moravský Krumlov;6212;Jihomoravský kraj;CZ064;1;Předání;Předání;2,828
 595047;Vedrovice;42956;RUPNEZ;Moravský Krumlov;6212;Jihomoravský kraj;CZ064;4;595047;Vedrovice;42956;RUPNEZ;Moravský Krumlov;6212;Jihomoravský kraj;CZ064;4;Předání;Předání;3
-595209;Žďár nad Sázavou;42965;RUMBAZ;Žďár nad Sázavou;6115;Vysočina kraj;CZ063;1;572071;Prachovice;41930;KUTDAZ;Žďár nad Sázavou;6115;Vysočina kraj;CZ063;1;Předání;Předání;10,2
-595411;Bystřice nad Pernštejnem;42973;RUFFOZ;Bystřice nad Pernštejnem;6101;Vysočina kraj;CZ063;1;596230;Nové Město na Moravě;43002;DABHIT;Bystřice nad Pernštejnem;6101;Vysočina kraj;CZ063;1;Předání;Předání;0,04
-595951;Křoví;42989;RUZLUZ;Velké Meziříčí;6114;Vysočina kraj;CZ063;4;544477;Stráž nad Nisou;40846;HOPTEV;Velké Meziříčí;6114;Vysočina kraj;CZ063;1;Předání;Předání;1,919
-596230;Nové Město na Moravě;43002;DABHIT;Nové Město na Moravě;6108;Vysočina kraj;CZ063;4;544477;Stráž nad Nisou;40846;HOPTEV;Nové Město na Moravě;6108;Vysočina kraj;CZ063;1;Předání;Předání;33,239
-596361;Ostrov nad Oslavou;43009;DAZHUT;Žďár nad Sázavou;6115;Vysočina kraj;CZ063;4;544477;Stráž nad Nisou;40846;HOPTEV;Žďár nad Sázavou;6115;Vysočina kraj;CZ063;1;Předání;Předání;1,366
+595209;Žďár nad Sázavou;42965;RUMBAZ;Žďár nad Sázavou;6115;Kraj Vysočina;CZ063;1;572071;Prachovice;41930;KUTDAZ;Žďár nad Sázavou;6115;Kraj Vysočina;CZ063;1;Předání;Předání;10,2
+595411;Bystřice nad Pernštejnem;42973;RUFFOZ;Bystřice nad Pernštejnem;6101;Kraj Vysočina;CZ063;1;596230;Nové Město na Moravě;43002;DABHIT;Bystřice nad Pernštejnem;6101;Kraj Vysočina;CZ063;1;Předání;Předání;0,04
+595951;Křoví;42989;RUZLUZ;Velké Meziříčí;6114;Kraj Vysočina;CZ063;4;544477;Stráž nad Nisou;40846;HOPTEV;Velké Meziříčí;6114;Kraj Vysočina;CZ063;1;Předání;Předání;1,919
+596230;Nové Město na Moravě;43002;DABHIT;Nové Město na Moravě;6108;Kraj Vysočina;CZ063;4;544477;Stráž nad Nisou;40846;HOPTEV;Nové Město na Moravě;6108;Kraj Vysočina;CZ063;1;Předání;Předání;33,239
+596361;Ostrov nad Oslavou;43009;DAZHUT;Žďár nad Sázavou;6115;Kraj Vysočina;CZ063;4;544477;Stráž nad Nisou;40846;HOPTEV;Žďár nad Sázavou;6115;Kraj Vysočina;CZ063;1;Předání;Předání;1,366
 597317;Dvorce;43038;DAVDOT;Bruntál;8103;Moravskoslezský kraj;CZ080;4;581372;Boskovice;42300;ROTHAF;Bruntál;8103;Moravskoslezský kraj;CZ080;1;Předání;Předání;2,742
 597635;Město Albrechtice;43048;DAVTOT;Krnov;8114;Moravskoslezský kraj;CZ080;4;507113;Holasovice;40057;HASNIT;Krnov;8114;Moravskoslezský kraj;CZ080;1;Předání;Předání;23,44
 598003;Frýdek-Místek;43059;DAZNUT;Frýdek-Místek;8106;Moravskoslezský kraj;CZ080;1;569810;Hradec Králové;41851;KONNEV;Frýdek-Místek;8106;Moravskoslezský kraj;CZ080;1;Předání;Předání;0,532
@@ -2027,7 +2027,7 @@
 599701;Odry;43123;DEFRON;Odry;8116;Moravskoslezský kraj;CZ080;1;581372;Boskovice;42300;ROTHAF;Odry;8116;Moravskoslezský kraj;CZ080;1;Předání;Předání;0,817
 599701;Odry;43123;DEFRON;Odry;8116;Moravskoslezský kraj;CZ080;4;599701;Odry;43123;DEFRON;Odry;8116;Moravskoslezský kraj;CZ080;1;Předání;Předání;0,82
 599999;Trojanovice;43135;DEMDAN;Frenštát pod Radhoštěm;8105;Moravskoslezský kraj;CZ080;4;581372;Boskovice;42300;ROTHAF;Frenštát pod Radhoštěm;8105;Moravskoslezský kraj;CZ080;1;Předání;Předání;9,171
-576859;Týniště nad Orlicí;42111;RENKEN;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;1;554782;Praha;41269;KIZBUB;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;1;Předání;Předání;2,78E-17
+576859;Týniště nad Orlicí;42111;RENKEN;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;1;554782;Praha;41269;KIZBUB;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;1;Předání;Předání;2,78E-17
 558389;Stod;41390;KOTMAF;Stod;3212;Plzeňský kraj;CZ032;1;554782;Praha;41269;KIZBUB;Stod;3212;Plzeňský kraj;CZ032;1;Předání;Předání;0,54
 539295;Chrášťany;40664;HELBUP;Černošice;2105;Středočeský kraj;CZ020;1;554782;Praha;41269;KIZBUB;Černošice;2105;Středočeský kraj;CZ020;1;Předání;Předání;0,88
 582786;Brno;42355;ROMNAF;Brno;6203;Jihomoravský kraj;CZ064;1;554782;Praha;41269;KIZBUB;Brno;6203;Jihomoravský kraj;CZ064;1;Předání;Předání;5,797
@@ -2049,7 +2049,7 @@
 537004;Nymburk;40535;HAMDAM;Nymburk;2118;Středočeský kraj;CZ020;1;535451;Benátky nad Jizerou;40479;HUZFUL;Nymburk;2118;Středočeský kraj;CZ020;1;Předání;Předání;5,8
 544256;České Budějovice;40830;HOTDAV;České Budějovice;3102;Jihočeský kraj;CZ031;1;535753;Hůry;40492;HUBMIL;České Budějovice;3102;Jihočeský  kraj;CZ031;1;Předání;Předání;0,03
 531723;Rudná;40245;HIMTAB;Černošice;2105;Středočeský kraj;CZ020;1;539244;Hostivice;40660;HETBAP;Černošice;2105;Středočeský kraj;CZ020;1;Předání;Předání;0,025
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;539244;Hostivice;40660;HETBAP;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Předání;Předání;0,053
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;539244;Hostivice;40660;HETBAP;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Předání;Předání;0,053
 513504;Dlouhá Lhota;40116;HEPKEN;Příbram;2120;Středočeský kraj;CZ020;4;539911;Příbram;40687;HESLIP;Příbram;2120;Středočeský kraj;CZ020;1;Předání;Předání;2,033043
 531740;Skuhrov;40247;HISTIB;Beroun;2102;Středočeský kraj;CZ020;4;539911;Příbram;40687;HESLIP;Beroun;2102;Středočeský kraj;CZ020;1;Předání;Předání;4,466915
 534269;Nesvačily;40392;HOBMIF;Beroun;2102;Středočeský kraj;CZ020;4;539911;Příbram;40687;HESLIP;Beroun;2102;Středočeský kraj;CZ020;1;Předání;Předání;0,743558
@@ -2070,7 +2070,7 @@
 545554;Kájov;40916;HUPKEZ;Český Krumlov;3103;Jihočeský kraj;CZ031;4;544256;České Budějovice;40830;HOTDAV;Český Krumlov;3103;Jihočeský  kraj;CZ031;1;Předání;Předání;5,0452
 550965;Číčenice;41114;KELKUN;Vodňany;3117;Jihočeský kraj;CZ031;4;544256;České Budějovice;40830;HOTDAV;Vodňany;3117;Jihočeský  kraj;CZ031;1;Předání;Předání;1,8823
 562688;Klec;41544;KALTUM;Třeboň;3114;Jihočeský kraj;CZ031;4;544256;České Budějovice;40830;HOTDAV;Třeboň;3114;Jihočeský  kraj;CZ031;1;Předání;Předání;0,9389
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;544256;České Budějovice;40830;HOTDAV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Předání;Předání;0,2
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;544256;České Budějovice;40830;HOTDAV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Předání;Předání;0,2
 558249;Přeštice;41386;KOPLEF;Přeštice;3210;Plzeňský kraj;CZ032;1;554791;Plzeň;41271;KINFEB;Přeštice;3210;Plzeňský kraj;CZ032;1;Předání;Předání;12,11
 554782;Praha;41269;KIZBUB;Praha;1000;Hlavní město Praha;CZ010;1;554821;Ostrava;41277;KISFIB;Praha;1000;Hlavní město Praha;CZ010;1;Předání;Předání;0,03
 507181;Pržno;40058;HAVNOT;Frýdlant nad Ostravicí;8107;Moravskoslezský kraj;CZ080;1;554821;Ostrava;41277;KISFIB;Frýdlant nad Ostravicí;8107;Moravskoslezský kraj;CZ080;1;Předání;Předání;0,14
@@ -2112,7 +2112,7 @@
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;563889;Liberec;41592;KABMIM;Liberec;5105;Liberecký kraj;CZ051;1;Předání;Předání;2,4
 561495;Doksy;41502;KABHIM;Česká Lípa;5101;Liberecký kraj;CZ051;1;563889;Liberec;41592;KABMIM;Česká Lípa;5101;Liberecký kraj;CZ051;1;Předání;Předání;1,81
 563731;Nová Ves nad Nisou;41580;KATLAM;Jablonec nad Nisou;5103;Liberecký kraj;CZ051;4;563889;Liberec;41592;KABMIM;Jablonec nad Nisou;5103;Liberecký kraj;CZ051;1;Předání;Předání;0,8265
-579378;Jívka;42214;RILKUB;Trutnov;5214;Královehradecký kraj;CZ052;1;563889;Liberec;41592;KABMIM;Trutnov;5214;Královehradecký kraj;CZ052;1;Předání;Předání;5,38
+579378;Jívka;42214;RILKUB;Trutnov;5214;Královéhradecký kraj;CZ052;1;563889;Liberec;41592;KABMIM;Trutnov;5214;Královéhradecký kraj;CZ052;1;Předání;Předání;5,38
 550787;Strakonice;41107;KESHIN;Strakonice;3111;Jihočeský kraj;CZ031;1;557153;Sušice;41359;KOZNUF;Strakonice;3111;Jihočeský  kraj;CZ031;1;Předání;Předání;7,51
 550850;Blatná;41112;KEBKIN;Blatná;3101;Jihočeský kraj;CZ031;1;557153;Sušice;41359;KOZNUF;Blatná;3101;Jihočeský  kraj;CZ031;1;Předání;Předání;1,52
 554120;Pocinovice;41244;KILTUB;Domažlice;3202;Plzeňský kraj;CZ032;4;557153;Sušice;41359;KOZNUF;Domažlice;3202;Plzeňský kraj;CZ032;1;Předání;Předání;0,8
@@ -2142,14 +2142,14 @@
 567442;Teplice;41736;KIPDES;Teplice;4213;Ústecký kraj;CZ042;1;567710;Modlany;41751;KINNES;Teplice;4213;Ústecký kraj;CZ042;1;Předání;Předání;34,28
 568309;Tisá;41773;KIFFOS;Ústí nad Labem;4214;Ústecký kraj;CZ042;1;554804;Ústí nad Labem;41273;KIFFOB;Ústí nad Labem;4214;Ústecký kraj;CZ042;1;Předání;Předání;0,26
 505145;Březová nad Svitavou;40034;HALDUT;Svitavy;5312;Pardubický kraj;CZ053;1;570303;Lodín;41867;KOSBIV;Svitavy;5312;Pardubický kraj;CZ053;1;Předání;Předání;0,32
-570109;Chlumec nad Cidlinou;41860;KOTBAV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;570303;Lodín;41867;KOSBIV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Předání;Předání;0,2
-570427;Myštěves;41873;KOFFOV;Nový Bydžov;5212;Královehradecký kraj;CZ052;1;570303;Lodín;41867;KOSBIV;Nový Bydžov;5212;Královehradecký kraj;CZ052;1;Předání;Předání;0,2
-570451;Nechanice;41875;KOMFAV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;570303;Lodín;41867;KOSBIV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Předání;Předání;0,98
+570109;Chlumec nad Cidlinou;41860;KOTBAV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;570303;Lodín;41867;KOSBIV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Předání;Předání;0,2
+570427;Myštěves;41873;KOFFOV;Nový Bydžov;5212;Královéhradecký kraj;CZ052;1;570303;Lodín;41867;KOSBIV;Nový Bydžov;5212;Královéhradecký kraj;CZ052;1;Předání;Předání;0,2
+570451;Nechanice;41875;KOMFAV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;570303;Lodín;41867;KOSBIV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Předání;Předání;0,98
 572268;Slatiňany;41938;KUVDOZ;Chrudim;5304;Pardubický kraj;CZ053;1;571911;Nasavrky;41926;KUPREZ;Chrudim;5304;Pardubický kraj;CZ053;1;Předání;Předání;0,48
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;572071;Prachovice;41930;KUTDAZ;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Předání;Předání;0,3
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;572071;Prachovice;41930;KUTDAZ;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Předání;Předání;0,3
 582786;Brno;42355;ROMNAF;Brno;6203;Jihomoravský kraj;CZ064;1;578762;Slatina;42194;RELMUN;Brno;6203;Jihomoravský kraj;CZ064;1;Předání;Předání;7,158
 578193;Jevíčko;42162;REBBIN;Moravská Třebová;5308;Pardubický kraj;CZ053;1;578762;Slatina;42194;RELMUN;Moravská Třebová;5308;Pardubický kraj;CZ053;1;Předání;Předání;2,4
-579041;Batňovice;42200;RITHAB;Trutnov;5214;Královehradecký kraj;CZ052;1;579637;Rtyně v Podkrkonoší;42224;RILRUB;Trutnov;5214;Královehradecký kraj;CZ052;1;Předání;Předání;1,08
+579041;Batňovice;42200;RITHAB;Trutnov;5214;Královéhradecký kraj;CZ052;1;579637;Rtyně v Podkrkonoší;42224;RILRUB;Trutnov;5214;Královéhradecký kraj;CZ052;1;Předání;Předání;1,08
 579891;Ústí nad Orlicí;42233;RIFDOB;Ústí nad Orlicí;5313;Pardubický kraj;CZ053;1;580121;Dolní Dobrouč;42247;RISTIB;Ústí nad Orlicí;5313;Pardubický kraj;CZ053;1;Předání;Předání;0,515
 582786;Brno;42355;ROMNAF;Brno;6203;Jihomoravský kraj;CZ064;1;581283;Blansko;42295;RIMMAB;Brno;6203;Jihomoravský kraj;CZ064;1;Předání;Předání;0,183
 582310;Sebranice;42331;RONDEF;Boskovice;6202;Jihomoravský kraj;CZ064;1;581917;Letovice;42316;ROPKEF;Boskovice;6202;Jihomoravský kraj;CZ064;1;Předání;Předání;0,18
@@ -2162,7 +2162,7 @@
 589730;Mostkovice;42663;REFBOP;Prostějov;7108;Olomoucký kraj;CZ071;1;589250;Prostějov;42636;REPDEP;Prostějov;7108;Olomoucký kraj;CZ071;1;Předání;Předání;0,2
 589632;Kostelec na Hané;42656;REPNEP;Prostějov;7108;Olomoucký kraj;CZ071;4;589632;Kostelec na Hané;42656;REPNEP;Prostějov;7108;Olomoucký kraj;CZ071;1;Předání;Předání;6,46
 592919;Bošovice;42835;ROMDAV;Slavkov u Brna;6215;Jihomoravský kraj;CZ064;4;592919;Bošovice;42835;ROMDAV;Slavkov u Brna;6215;Jihomoravský kraj;CZ064;1;Předání;Předání;3,28
-596825;Strážek;43022;DABRIT;Bystřice nad Pernštejnem;6101;Vysočina kraj;CZ063;1;595411;Bystřice nad Pernštejnem;42973;RUFFOZ;Bystřice nad Pernštejnem;6101;Vysočina kraj;CZ063;1;Předání;Předání;0,04
+596825;Strážek;43022;DABRIT;Bystřice nad Pernštejnem;6101;Kraj Vysočina;CZ063;1;595411;Bystřice nad Pernštejnem;42973;RUFFOZ;Bystřice nad Pernštejnem;6101;Kraj Vysočina;CZ063;1;Předání;Předání;0,04
 554782;Praha;41269;KIZBUB;Praha;1000;Hlavní město Praha;CZ010;1;554782;Praha;41269;KIZBUB;Praha;1000;Hlavní město Praha;CZ010;1;Převzetí;Převzetí;22,203
 540765;Mníšek pod Brdy;40734;HILDUS;Černošice;2105;Středočeský kraj;CZ020;1;554782;Praha;41269;KIZBUB;Černošice;2105;Středočeský kraj;CZ020;1;Převzetí;Převzetí;0,693
 553417;Želeč;41207;KISHIB;Tábor;3112;Jihočeský kraj;CZ031;1;554782;Praha;41269;KIZBUB;Tábor;3112;Jihočeský  kraj;CZ031;1;Převzetí;Převzetí;0,909
@@ -2185,7 +2185,7 @@
 500496;Olomouc;40006;HAPHET;Olomouc;7107;Olomoucký kraj;CZ071;1;500496;Olomouc;40006;HAPHET;Olomouc;7107;Olomoucký kraj;CZ071;1;Převzetí;Převzetí;1,24
 540862;Rapotín;40740;HITTAS;Šumperk;7111;Olomoucký kraj;CZ071;1;500496;Olomouc;40006;HAPHET;Šumperk;7111;Olomoucký kraj;CZ071;1;Převzetí;Převzetí;1,75
 554782;Praha;41269;KIZBUB;Praha;1000;Hlavní město Praha;CZ010;1;500496;Olomouc;40006;HAPHET;Praha;1000;Hlavní město Praha;CZ010;1;Převzetí;Převzetí;293,69
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;500496;Olomouc;40006;HAPHET;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;2,556
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;500496;Olomouc;40006;HAPHET;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;2,556
 567027;Most;41723;KIFROS;Most;4209;Ústecký kraj;CZ042;1;554804;Ústí nad Labem;41273;KIFFOB;Most;4209;Ústecký kraj;CZ042;1;Převzetí;Převzetí;0,011
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;504785;Paseka;40030;HATDAT;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;3,166
 554944;Mrsklesy;41285;KIMLAB;Olomouc;7107;Olomoucký kraj;CZ071;1;505188;Šternberk;40036;HAPDET;Olomouc;7107;Olomoucký kraj;CZ071;1;Převzetí;Převzetí;3,45
@@ -2329,7 +2329,7 @@
 554782;Praha;41269;KIZBUB;Praha;1000;Hlavní město Praha;CZ010;1;537454;Lysá nad Labem;40553;HAFNOM;Praha;1000;Hlavní město Praha;CZ010;1;Převzetí;Převzetí;1,76
 535451;Benátky nad Jizerou;40479;HUZFUL;Mladá Boleslav;2115;Středočeský kraj;CZ020;1;537454;Lysá nad Labem;40553;HAFNOM;Mladá Boleslav;2115;Středočeský kraj;CZ020;1;Převzetí;Převzetí;70,48
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;537721;Přerov nad Labem;40570;HATFAM;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;1,599
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;537926;Jenišov;40581;HANLEM;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;0,2
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;537926;Jenišov;40581;HANLEM;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;0,2
 560294;Březová;41456;KUPNEL;Sokolov;4107;Karlovarský kraj;CZ041;1;537969;Otovice;40583;HAFLOM;Sokolov;4107;Karlovarský kraj;CZ041;1;Převzetí;Převzetí;29,24
 567515;Duchcov;41742;KIBTIS;Teplice;4213;Ústecký kraj;CZ042;1;538094;Brandýs nad Labem;40591;HANMEM;Teplice;4213;Ústecký kraj;CZ042;4;Převzetí;Převzetí;88,875
 567515;Duchcov;41742;KIBTIS;Teplice;4213;Ústecký kraj;CZ042;1;538132;Čelákovice;40593;HAFMOM;Teplice;4213;Ústecký kraj;CZ042;4;Převzetí;Převzetí;56,57
@@ -2348,7 +2348,7 @@
 560294;Březová;41456;KUPNEL;Sokolov;4107;Karlovarský kraj;CZ041;1;539023;Třebeň;40642;HEBTIP;Sokolov;4107;Karlovarský kraj;CZ041;1;Převzetí;Převzetí;0,6
 567515;Duchcov;41742;KIBTIS;Teplice;4213;Ústecký kraj;CZ042;1;539058;Zdiby;40645;HEMTAP;Teplice;4213;Ústecký kraj;CZ042;4;Převzetí;Převzetí;9,672
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;539163;Davle;40653;HEFNOP;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;4,614
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;539171;Dobrovíz;40654;HELNUP;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;88,399
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;539171;Dobrovíz;40654;HELNUP;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;88,399
 532053;Kladno;40261;HINBEB;Kladno;2109;Středočeský kraj;CZ020;1;539244;Hostivice;40660;HETBAP;Kladno;2109;Středočeský kraj;CZ020;1;Převzetí;Převzetí;0,132
 554782;Praha;41269;KIZBUB;Praha;1000;Hlavní město Praha;CZ010;1;539244;Hostivice;40660;HETBAP;Praha;1000;Hlavní město Praha;CZ010;1;Převzetí;Převzetí;0,361
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;539309;Chýně;40665;HEMBAP;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;5,747
@@ -2405,7 +2405,7 @@
 554782;Praha;41269;KIZBUB;Praha;1000;Hlavní město Praha;CZ010;1;544256;České Budějovice;40830;HOTDAV;Praha;1000;Hlavní město Praha;CZ010;1;Převzetí;Převzetí;1,84
 550787;Strakonice;41107;KESHIN;Strakonice;3111;Jihočeský kraj;CZ031;1;544256;České Budějovice;40830;HOTDAV;Strakonice;3111;Jihočeský  kraj;CZ031;1;Převzetí;Převzetí;0,081
 553018;Roudná;41188;KEVLON;Soběslav;3110;Jihočeský kraj;CZ031;1;544256;České Budějovice;40830;HOTDAV;Soběslav;3110;Jihočeský  kraj;CZ031;1;Převzetí;Převzetí;217,92
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;544256;České Budějovice;40830;HOTDAV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;4,386
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;544256;České Budějovice;40830;HOTDAV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;4,386
 544256;České Budějovice;40830;HOTDAV;České Budějovice;3102;Jihočeský kraj;CZ031;1;544256;České Budějovice;40830;HOTDAV;České Budějovice;3102;Jihočeský  kraj;CZ031;4;Převzetí;Převzetí;409,0373
 554782;Praha;41269;KIZBUB;Praha;1000;Hlavní město Praha;CZ010;1;544353;Heřmanice;40838;HOVDOV;Praha;1000;Hlavní město Praha;CZ010;4;Převzetí;Převzetí;1,5657
 544388;Dolní Bukovsko;40841;HONTEV;Týn nad Vltavou;3115;Jihočeský kraj;CZ031;4;544388;Dolní Bukovsko;40841;HONTEV;Týn nad Vltavou;3115;Jihočeský  kraj;CZ031;4;Převzetí;Převzetí;10,02
@@ -2454,7 +2454,7 @@
 551953;Vodňany;41135;KEMDAN;Vodňany;3117;Jihočeský kraj;CZ031;1;545881;Jindřichův Hradec;40934;HULDUZ;Vodňany;3117;Jihočeský  kraj;CZ031;1;Převzetí;Převzetí;0,015
 561703;Člunek;41508;KAVHOM;Jindřichův Hradec;3105;Jihočeský kraj;CZ031;1;545881;Jindřichův Hradec;40934;HULDUZ;Jindřichův Hradec;3105;Jihočeský  kraj;CZ031;1;Převzetí;Převzetí;33,84
 545881;Jindřichův Hradec;40934;HULDUZ;Jindřichův Hradec;3105;Jihočeský kraj;CZ031;1;545881;Jindřichův Hradec;40934;HULDUZ;Jindřichův Hradec;3105;Jihočeský  kraj;CZ031;4;Převzetí;Převzetí;34,035
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;554821;Ostrava;41277;KISFIB;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;40,339
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;554821;Ostrava;41277;KISFIB;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;40,339
 563510;Jablonec nad Nisou;41570;KATFAM;Jablonec nad Nisou;5103;Liberecký kraj;CZ051;1;545953;Paceřice;40938;HUVDOZ;Jablonec nad Nisou;5103;Liberecký kraj;CZ051;4;Převzetí;Převzetí;0,58
 554782;Praha;41269;KIZBUB;Praha;1000;Hlavní město Praha;CZ010;1;554791;Plzeň;41271;KINFEB;Praha;1000;Hlavní město Praha;CZ010;1;Převzetí;Převzetí;3,977
 557676;Dobřany;41371;KONFEF;Stod;3212;Plzeňský kraj;CZ032;1;554791;Plzeň;41271;KINFEB;Stod;3212;Plzeňský kraj;CZ032;1;Převzetí;Převzetí;12,11
@@ -2481,7 +2481,7 @@
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;554782;Praha;41269;KIZBUB;Liberec;5105;Liberecký kraj;CZ051;1;Převzetí;Převzetí;62,5797
 544779;Lišov;40864;HOLBUV;České Budějovice;3102;Jihočeský kraj;CZ031;1;554782;Praha;41269;KIZBUB;České Budějovice;3102;Jihočeský  kraj;CZ031;1;Převzetí;Převzetí;1,9
 564028;Frýdlant;41600;KETHAP;Frýdlant;5102;Liberecký kraj;CZ051;1;554782;Praha;41269;KIZBUB;Frýdlant;5102;Liberecký kraj;CZ051;1;Převzetí;Převzetí;62,4043
-570303;Lodín;41867;KOSBIV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;554782;Praha;41269;KIZBUB;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;0,98
+570303;Lodín;41867;KOSBIV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;554782;Praha;41269;KIZBUB;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;0,98
 547221;Stráž nad Nežárkou;40988;HUVLOZ;Jindřichův Hradec;3105;Jihočeský kraj;CZ031;1;547336;Třeboň;40994;HULMUZ;Jindřichův Hradec;3105;Jihočeský  kraj;CZ031;1;Převzetí;Převzetí;0,03
 547336;Třeboň;40994;HULMUZ;Třeboň;3114;Jihočeský kraj;CZ031;1;547336;Třeboň;40994;HULMUZ;Třeboň;3114;Jihočeský  kraj;CZ031;1;Převzetí;Převzetí;0,03
 532576;Libušín;40286;HIPLEB;Kladno;2109;Středočeský kraj;CZ020;1;554782;Praha;41269;KIZBUB;Kladno;2109;Středočeský kraj;CZ020;1;Převzetí;Převzetí;0,388
@@ -2489,13 +2489,13 @@
 581372;Boskovice;42300;ROTHAF;Boskovice;6202;Jihomoravský kraj;CZ064;1;547450;Výkleky;40996;HUPMEZ;Boskovice;6202;Jihomoravský kraj;CZ064;4;Převzetí;Převzetí;1,06
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;548031;Dlouhoňovice;41014;KALKUT;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;2,211
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;548511;Pacov;41031;KANDET;Liberec;5105;Liberecký kraj;CZ051;1;Převzetí;Převzetí;12,978
-548511;Pacov;41031;KANDET;Pacov;6109;Vysočina kraj;CZ063;1;548511;Pacov;41031;KANDET;Pacov;6109;Vysočina kraj;CZ063;4;Převzetí;Převzetí;12,978
+548511;Pacov;41031;KANDET;Pacov;6109;Kraj Vysočina;CZ063;1;548511;Pacov;41031;KANDET;Pacov;6109;Kraj Vysočina;CZ063;4;Převzetí;Převzetí;12,978
 539911;Příbram;40687;HESLIP;Příbram;2120;Středočeský kraj;CZ020;1;549428;Hrejkovice;41045;KAMTAT;Příbram;2120;Středočeský kraj;CZ020;4;Převzetí;Převzetí;0,6525
 585599;Otrokovice;42472;RUBFIL;Otrokovice;7205;Zlínský kraj;CZ072;1;549444;Oldřichovice;41046;KAPTET;Otrokovice;7205;Zlínský kraj;CZ072;4;Převzetí;Převzetí;0,381
 539911;Příbram;40687;HESLIP;Příbram;2120;Středočeský kraj;CZ020;1;549592;Mirovice;41052;KABNIT;Příbram;2120;Středočeský kraj;CZ020;4;Převzetí;Převzetí;8,617708
 539911;Příbram;40687;HESLIP;Příbram;2120;Středočeský kraj;CZ020;1;549614;Myslín;41053;KAFNOT;Příbram;2120;Středočeský kraj;CZ020;4;Převzetí;Převzetí;0,685263
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;550647;Vimperk;41099;KAZMUT;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;9,644
-573922;Broumov;41982;KUBLIZ;Broumov;5201;Královehradecký kraj;CZ052;1;550728;Zdíkov;41101;KENHEN;Broumov;5201;Královehradecký kraj;CZ052;4;Převzetí;Převzetí;3,6
+573922;Broumov;41982;KUBLIZ;Broumov;5201;Královéhradecký kraj;CZ052;1;550728;Zdíkov;41101;KENHEN;Broumov;5201;Královéhradecký kraj;CZ052;4;Převzetí;Převzetí;3,6
 585599;Otrokovice;42472;RUBFIL;Otrokovice;7205;Zlínský kraj;CZ072;1;550744;Kunovice;41102;KEBHIN;Otrokovice;7205;Zlínský kraj;CZ072;1;Převzetí;Převzetí;0,219
 592005;Uherské Hradiště;42783;RIFLOS;Uherské Hradiště;7207;Zlínský kraj;CZ072;1;550744;Kunovice;41102;KEBHIN;Uherské Hradiště;7207;Zlínský kraj;CZ072;4;Převzetí;Převzetí;8,287
 569771;Suchonice;41848;KOVTOV;Olomouc;7107;Olomoucký kraj;CZ071;1;550752;Staré Město;41104;KELHUN;Olomouc;7107;Olomoucký kraj;CZ071;1;Převzetí;Převzetí;0,08
@@ -2512,7 +2512,7 @@
 513733;Hradčany;40122;HEBRIN;Přerov;7109;Olomoucký kraj;CZ071;1;582786;Brno;42355;ROMNAF;Přerov;7109;Olomoucký kraj;CZ071;1;Převzetí;Převzetí;0,42
 589756;Němčice nad Hanou;42665;REMBAP;Prostějov;7108;Olomoucký kraj;CZ071;1;582786;Brno;42355;ROMNAF;Prostějov;7108;Olomoucký kraj;CZ071;1;Převzetí;Převzetí;5,42
 539911;Příbram;40687;HESLIP;Příbram;2120;Středočeský kraj;CZ020;1;551350;Lnáře;41118;KEVKON;Příbram;2120;Středočeský kraj;CZ020;4;Převzetí;Převzetí;1,520381
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;582786;Brno;42355;ROMNAF;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;0,04
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;582786;Brno;42355;ROMNAF;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;0,04
 556254;Horažďovice;41328;KOVROF;Horažďovice;3203;Plzeňský kraj;CZ032;1;551791;Střelské Hoštice;41130;KETDAN;Horažďovice;3203;Plzeňský kraj;CZ032;4;Převzetí;Převzetí;0,628
 557153;Sušice;41359;KOZNUF;Sušice;3214;Plzeňský kraj;CZ032;1;551791;Střelské Hoštice;41130;KETDAN;Sušice;3214;Plzeňský kraj;CZ032;4;Převzetí;Převzetí;1,33
 551953;Vodňany;41135;KEMDAN;Vodňany;3117;Jihočeský kraj;CZ031;1;551953;Vodňany;41135;KEMDAN;Vodňany;3117;Jihočeský  kraj;CZ031;1;Převzetí;Převzetí;0,345
@@ -2538,18 +2538,18 @@
 540862;Rapotín;40740;HITTAS;Šumperk;7111;Olomoucký kraj;CZ071;1;554821;Ostrava;41277;KISFIB;Šumperk;7111;Olomoucký kraj;CZ071;1;Převzetí;Převzetí;1,887
 537969;Otovice;40583;HAFLOM;Karlovy Vary;4103;Karlovarský kraj;CZ041;1;554481;Cheb;41252;KIBNIB;Karlovy Vary;4103;Karlovarský kraj;CZ041;1;Převzetí;Převzetí;24,95
 581372;Boskovice;42300;ROTHAF;Boskovice;6202;Jihomoravský kraj;CZ064;1;554740;Plesná;41268;KIVBOB;Boskovice;6202;Jihomoravský kraj;CZ064;4;Převzetí;Převzetí;2,447
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;554812;Skalná;41275;KIMFAB;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;0,22
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;554871;Střítež;41280;KITLAB;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;0,86
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;554812;Skalná;41275;KIMFAB;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;0,22
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;554871;Střítež;41280;KITLAB;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;0,86
 550795;Podbřežice;41109;KEZHUN;Vyškov;6219;Jihomoravský kraj;CZ064;1;554898;Rostěnice-Zvonovice;41282;KIBLIB;Vyškov;6219;Jihomoravský kraj;CZ064;1;Převzetí;Převzetí;0,53
 554782;Praha;41269;KIZBUB;Praha;1000;Hlavní město Praha;CZ010;1;554901;Křelov-Břuchotín;41283;KIFLOB;Praha;1000;Hlavní město Praha;CZ010;1;Převzetí;Převzetí;13,26
 560014;Mýto;41451;KUNNEL;Rokycany;3211;Plzeňský kraj;CZ032;1;554961;Karlovy Vary;41288;KIVLOB;Rokycany;3211;Plzeňský kraj;CZ032;1;Převzetí;Převzetí;3,48
 567515;Duchcov;41742;KIBTIS;Teplice;4213;Ústecký kraj;CZ042;1;554961;Karlovy Vary;41288;KIVLOB;Teplice;4213;Ústecký kraj;CZ042;4;Převzetí;Převzetí;214,252
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;555045;Božičany;41290;KITMAB;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;1,252
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;555134;Pardubice;41291;KINMEB;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;1,346
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;555134;Pardubice;41291;KINMEB;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;1,346
 555134;Pardubice;41291;KINMEB;Pardubice;5309;Pardubický kraj;CZ053;1;555134;Pardubice;41291;KINMEB;Pardubice;5309;Pardubický kraj;CZ053;1;Převzetí;Převzetí;0,607
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;555215;Jáchymov;41295;KIMMAB;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;5,003
 581071;Třebovice;42283;RIFLOB;Česká Třebová;5301;Pardubický kraj;CZ053;1;555240;Semanín;41298;KIVMOB;Česká Třebová;5301;Pardubický kraj;CZ053;4;Převzetí;Převzetí;0,28
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;505927;Opava;40047;HASTIT;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;0,352
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;505927;Opava;40047;HASTIT;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;0,352
 560383;Chodov;41462;KUBBIL;Sokolov;4107;Karlovarský kraj;CZ041;1;555428;Ostrov;41306;KOPHEF;Sokolov;4107;Karlovarský kraj;CZ041;1;Převzetí;Převzetí;0,536
 555428;Ostrov;41306;KOPHEF;Ostrov;4106;Karlovarský kraj;CZ041;1;555428;Ostrov;41306;KOPHEF;Ostrov;4106;Karlovarský kraj;CZ041;4;Převzetí;Převzetí;0,009
 567515;Duchcov;41742;KIBTIS;Teplice;4213;Ústecký kraj;CZ042;1;555428;Ostrov;41306;KOPHEF;Teplice;4213;Ústecký kraj;CZ042;4;Převzetí;Převzetí;66,211
@@ -2562,7 +2562,7 @@
 558940;Chotíkov;41406;KUPHEL;Nýřany;3208;Plzeňský kraj;CZ032;1;555771;Klatovy;41316;KOPKEF;Nýřany;3208;Plzeňský kraj;CZ032;1;Převzetí;Převzetí;24,8
 560014;Mýto;41451;KUNNEL;Rokycany;3211;Plzeňský kraj;CZ032;1;555771;Klatovy;41316;KOPKEF;Rokycany;3211;Plzeňský kraj;CZ032;1;Převzetí;Převzetí;0,1
 567256;Litvínov;41731;KINDES;Litvínov;4206;Ústecký kraj;CZ042;1;555771;Klatovy;41316;KOPKEF;Litvínov;4206;Ústecký kraj;CZ042;1;Převzetí;Převzetí;162,92
-573922;Broumov;41982;KUBLIZ;Broumov;5201;Královehradecký kraj;CZ052;1;555771;Klatovy;41316;KOPKEF;Broumov;5201;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;5,917
+573922;Broumov;41982;KUBLIZ;Broumov;5201;Královéhradecký kraj;CZ052;1;555771;Klatovy;41316;KOPKEF;Broumov;5201;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;5,917
 555771;Klatovy;41316;KOPKEF;Klatovy;3205;Plzeňský kraj;CZ032;1;555771;Klatovy;41316;KOPKEF;Klatovy;3205;Plzeňský kraj;CZ032;4;Převzetí;Převzetí;79,695
 557153;Sušice;41359;KOZNUF;Sušice;3214;Plzeňský kraj;CZ032;1;555771;Klatovy;41316;KOPKEF;Sušice;3214;Plzeňský kraj;CZ032;4;Převzetí;Převzetí;6,385
 557153;Sušice;41359;KOZNUF;Sušice;3214;Plzeňský kraj;CZ032;1;555797;Běšiny;41318;KOVKOF;Sušice;3214;Plzeňský kraj;CZ032;4;Převzetí;Převzetí;3,346
@@ -2593,7 +2593,7 @@
 555771;Klatovy;41316;KOPKEF;Klatovy;3205;Plzeňský kraj;CZ032;1;556831;Nýrsko;41340;KOTTAF;Klatovy;3205;Plzeňský kraj;CZ032;4;Převzetí;Převzetí;4,2
 554782;Praha;41269;KIZBUB;Praha;1000;Hlavní město Praha;CZ010;1;563889;Liberec;41592;KABMIM;Praha;1000;Hlavní město Praha;CZ010;1;Převzetí;Převzetí;30,9417
 563889;Liberec;41592;KABMIM;Liberec;5105;Liberecký kraj;CZ051;1;563889;Liberec;41592;KABMIM;Liberec;5105;Liberecký kraj;CZ051;1;Převzetí;Převzetí;25,89
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;563889;Liberec;41592;KABMIM;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;2,123
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;563889;Liberec;41592;KABMIM;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;2,123
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;563889;Liberec;41592;KABMIM;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;293,325
 557153;Sušice;41359;KOZNUF;Sušice;3214;Plzeňský kraj;CZ032;1;556921;Petrovice u Sušice;41342;KOBTIF;Sušice;3214;Plzeňský kraj;CZ032;4;Převzetí;Převzetí;2,61
 555771;Klatovy;41316;KOPKEF;Klatovy;3205;Plzeňský kraj;CZ032;1;556955;Plánice;41343;KOFTOF;Klatovy;3205;Plzeňský kraj;CZ032;1;Převzetí;Převzetí;3,33
@@ -2695,7 +2695,7 @@
 549827;Ražice;41062;KABBIT;Písek;3108;Jihočeský kraj;CZ031;1;563307;Drhovice;41566;KAPBEM;Písek;3108;Jihočeský  kraj;CZ031;1;Převzetí;Převzetí;36,83
 563889;Liberec;41592;KABMIM;Liberec;5105;Liberecký kraj;CZ051;1;563510;Jablonec nad Nisou;41570;KATFAM;Liberec;5105;Liberecký kraj;CZ051;1;Převzetí;Převzetí;4,91
 563510;Jablonec nad Nisou;41570;KATFAM;Jablonec nad Nisou;5103;Liberecký kraj;CZ051;1;563510;Jablonec nad Nisou;41570;KATFAM;Jablonec nad Nisou;5103;Liberecký kraj;CZ051;1;Převzetí;Převzetí;5,85
-573248;Nová Paka;41967;KUSBIZ;Nová Paka;5210;Královehradecký kraj;CZ052;1;563510;Jablonec nad Nisou;41570;KATFAM;Nová Paka;5210;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;0,04
+573248;Nová Paka;41967;KUSBIZ;Nová Paka;5210;Královéhradecký kraj;CZ052;1;563510;Jablonec nad Nisou;41570;KATFAM;Nová Paka;5210;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;0,04
 577235;Košťálov;42128;REVRON;Semily;5107;Liberecký kraj;CZ051;1;563510;Jablonec nad Nisou;41570;KATFAM;Semily;5107;Liberecký kraj;CZ051;1;Převzetí;Převzetí;8,32
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;563552;Desná;41572;KABFIM;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;6,193
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;563668;Kořenov;41576;KAPFEM;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;4,415
@@ -2779,7 +2779,7 @@
 567515;Duchcov;41742;KIBTIS;Teplice;4213;Ústecký kraj;CZ042;1;566616;Podbořany;41709;KIZHUS;Teplice;4213;Ústecký kraj;CZ042;4;Převzetí;Převzetí;6,379
 557153;Sušice;41359;KOZNUF;Sušice;3214;Plzeňský kraj;CZ032;1;566683;Dražovice;41712;KIBKIS;Sušice;3214;Plzeňský kraj;CZ032;4;Převzetí;Převzetí;0,76
 567027;Most;41723;KIFROS;Most;4209;Ústecký kraj;CZ042;1;567027;Most;41723;KIFROS;Most;4209;Ústecký kraj;CZ042;1;Převzetí;Převzetí;0,007
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;567027;Most;41723;KIFROS;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;1,4
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;567027;Most;41723;KIFROS;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;1,4
 567515;Duchcov;41742;KIBTIS;Teplice;4213;Ústecký kraj;CZ042;1;567027;Most;41723;KIFROS;Teplice;4213;Ústecký kraj;CZ042;4;Převzetí;Převzetí;100,746
 567256;Litvínov;41731;KINDES;Litvínov;4206;Ústecký kraj;CZ042;1;567043;Bečov;41725;KIMRAS;Litvínov;4206;Ústecký kraj;CZ042;1;Převzetí;Převzetí;3,22
 567256;Litvínov;41731;KINDES;Litvínov;4206;Ústecký kraj;CZ042;1;567141;Havraň;41727;KISRIS;Litvínov;4206;Ústecký kraj;CZ042;1;Převzetí;Převzetí;1,1
@@ -2788,7 +2788,7 @@
 567515;Duchcov;41742;KIBTIS;Teplice;4213;Ústecký kraj;CZ042;1;567256;Litvínov;41731;KINDES;Teplice;4213;Ústecký kraj;CZ042;4;Převzetí;Převzetí;3,92
 567515;Duchcov;41742;KIBTIS;Teplice;4213;Ústecký kraj;CZ042;1;567264;Lom;41733;KIFDOS;Teplice;4213;Ústecký kraj;CZ042;4;Převzetí;Převzetí;4,659
 567515;Duchcov;41742;KIBTIS;Teplice;4213;Ústecký kraj;CZ042;1;567311;Meziboří;41735;KIMDAS;Teplice;4213;Ústecký kraj;CZ042;4;Převzetí;Převzetí;10,025
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;567442;Teplice;41736;KIPDES;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;1,42
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;567442;Teplice;41736;KIPDES;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;1,42
 567515;Duchcov;41742;KIBTIS;Teplice;4213;Ústecký kraj;CZ042;1;567442;Teplice;41736;KIPDES;Teplice;4213;Ústecký kraj;CZ042;4;Převzetí;Převzetí;111,994
 581372;Boskovice;42300;ROTHAF;Boskovice;6202;Jihomoravský kraj;CZ064;1;567485;Bžany;41740;KITTAS;Boskovice;6202;Jihomoravský kraj;CZ064;4;Převzetí;Převzetí;0,581
 567515;Duchcov;41742;KIBTIS;Teplice;4213;Ústecký kraj;CZ042;1;567507;Dubí;41741;KINTES;Teplice;4213;Ústecký kraj;CZ042;4;Převzetí;Převzetí;15,104
@@ -2810,15 +2810,15 @@
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;568007;Chabařovice;41759;KIZNUS;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;13,074
 567515;Duchcov;41742;KIBTIS;Teplice;4213;Ústecký kraj;CZ042;1;568015;Chlumec;41760;KITBAS;Teplice;4213;Ústecký kraj;CZ042;4;Převzetí;Převzetí;9,753
 554804;Ústí nad Labem;41273;KIFFOB;Ústí nad Labem;4214;Ústecký kraj;CZ042;1;568023;Chuderov;41761;KINBES;Ústí nad Labem;4214;Ústecký kraj;CZ042;4;Převzetí;Převzetí;0,449
-568414;Havlíčkův Brod;41782;KIBLIS;Havlíčkův Brod;6102;Vysočina kraj;CZ063;1;568414;Havlíčkův Brod;41782;KIBLIS;Havlíčkův Brod;6102;Vysočina kraj;CZ063;1;Převzetí;Převzetí;3,192
+568414;Havlíčkův Brod;41782;KIBLIS;Havlíčkův Brod;6102;Kraj Vysočina;CZ063;1;568414;Havlíčkův Brod;41782;KIBLIS;Havlíčkův Brod;6102;Kraj Vysočina;CZ063;1;Převzetí;Převzetí;3,192
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;568546;Kunín;41790;KITMAS;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;4,959
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;568651;Habry;41794;KILMUS;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;1,527
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;568694;Hněvkovice;41799;KIZMUS;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;1,277
-595209;Žďár nad Sázavou;42965;RUMBAZ;Žďár nad Sázavou;6115;Vysočina kraj;CZ063;1;568945;Krucemburk;41811;KONKEV;Žďár nad Sázavou;6115;Vysočina kraj;CZ063;4;Převzetí;Převzetí;3,1
-569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Vysočina kraj;CZ063;1;569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Vysočina kraj;CZ063;1;Převzetí;Převzetí;1,125
-586846;Jihlava;42524;RALRUM;Jihlava;6105;Vysočina kraj;CZ063;1;569569;Světlá nad Sázavou;41839;KOZDUV;Jihlava;6105;Vysočina kraj;CZ063;1;Převzetí;Převzetí;2,21
+595209;Žďár nad Sázavou;42965;RUMBAZ;Žďár nad Sázavou;6115;Kraj Vysočina;CZ063;1;568945;Krucemburk;41811;KONKEV;Žďár nad Sázavou;6115;Kraj Vysočina;CZ063;4;Převzetí;Převzetí;3,1
+569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Kraj Vysočina;CZ063;1;569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Kraj Vysočina;CZ063;1;Převzetí;Převzetí;1,125
+586846;Jihlava;42524;RALRUM;Jihlava;6105;Kraj Vysočina;CZ063;1;569569;Světlá nad Sázavou;41839;KOZDUV;Jihlava;6105;Kraj Vysočina;CZ063;1;Převzetí;Převzetí;2,21
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;569569;Světlá nad Sázavou;41839;KOZDUV;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;11,659
-569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Vysočina kraj;CZ063;1;569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Vysočina kraj;CZ063;4;Převzetí;Převzetí;1,085
+569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Kraj Vysočina;CZ063;1;569569;Světlá nad Sázavou;41839;KOZDUV;Světlá nad Sázavou;6111;Kraj Vysočina;CZ063;4;Převzetí;Převzetí;1,085
 505188;Šternberk;40036;HAPDET;Šternberk;7110;Olomoucký kraj;CZ071;1;569810;Hradec Králové;41851;KONNEV;Šternberk;7110;Olomoucký kraj;CZ071;1;Převzetí;Převzetí;2,216
 507016;Hlučín;40055;HAMNAT;Hlučín;8109;Moravskoslezský kraj;CZ080;1;569810;Hradec Králové;41851;KONNEV;Hlučín;8109;Moravskoslezský kraj;CZ080;1;Převzetí;Převzetí;3,651
 508128;Markvartovice;40069;HAZBUT;Hlučín;8109;Moravskoslezský kraj;CZ080;1;569810;Hradec Králové;41851;KONNEV;Hlučín;8109;Moravskoslezský kraj;CZ080;1;Převzetí;Převzetí;37,22
@@ -2834,7 +2834,7 @@
 560383;Chodov;41462;KUBBIL;Sokolov;4107;Karlovarský kraj;CZ041;1;569810;Hradec Králové;41851;KONNEV;Sokolov;4107;Karlovarský kraj;CZ041;1;Převzetí;Převzetí;0,2
 563501;Vysoká Pec;41568;KAVBOM;Chomutov;4203;Ústecký kraj;CZ042;1;569810;Hradec Králové;41851;KONNEV;Chomutov;4203;Ústecký kraj;CZ042;1;Převzetí;Převzetí;1,4
 567710;Modlany;41751;KINNES;Teplice;4213;Ústecký kraj;CZ042;1;569810;Hradec Králové;41851;KONNEV;Teplice;4213;Ústecký kraj;CZ042;1;Převzetí;Převzetí;1,42
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;4,764
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;4,764
 577308;Lomnice nad Popelkou;42130;RETDAN;Semily;5107;Liberecký kraj;CZ051;1;569810;Hradec Králové;41851;KONNEV;Semily;5107;Liberecký kraj;CZ051;1;Převzetí;Převzetí;0,243
 581372;Boskovice;42300;ROTHAF;Boskovice;6202;Jihomoravský kraj;CZ064;1;570788;Bradlec;41882;KOBLIV;Boskovice;6202;Jihomoravský kraj;CZ064;4;Převzetí;Převzetí;0,144
 554782;Praha;41269;KIZBUB;Praha;1000;Hlavní město Praha;CZ010;1;570869;Smidary;41886;KOPLEV;Praha;1000;Hlavní město Praha;CZ010;1;Převzetí;Převzetí;0,82
@@ -2870,7 +2870,7 @@
 571393;Hlinsko;41907;KUSHIZ;Hlinsko;5302;Pardubický kraj;CZ053;1;573817;Smrček;41979;KUZFUZ;Hlinsko;5302;Pardubický kraj;CZ053;4;Převzetí;Převzetí;0,02
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;573825;Železnice;41980;KUTLAZ;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;2,052
 554782;Praha;41269;KIZBUB;Praha;1000;Hlavní město Praha;CZ010;1;573922;Broumov;41982;KUBLIZ;Praha;1000;Hlavní město Praha;CZ010;1;Převzetí;Převzetí;37,82
-579025;Trutnov;42199;REZMUN;Trutnov;5214;Královehradecký kraj;CZ052;1;573922;Broumov;41982;KUBLIZ;Trutnov;5214;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;950,86
+579025;Trutnov;42199;REZMUN;Trutnov;5214;Královéhradecký kraj;CZ052;1;573922;Broumov;41982;KUBLIZ;Trutnov;5214;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;950,86
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;573973;Česká Čermná;41985;KUMLAZ;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;1,62
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;574015;Dolany;41988;KUVLOZ;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;1,559
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;574023;Dolní Radechová;41989;KUZLUZ;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;2,55
@@ -2880,31 +2880,31 @@
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;574481;Studnice;42012;RABKIT;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;1,372
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;574848;Býšť;42027;RASRIT;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;2,049
 574848;Býšť;42027;RASRIT;Holice;5303;Pardubický kraj;CZ053;4;574848;Býšť;42027;RASRIT;Holice;5303;Pardubický kraj;CZ053;4;Převzetí;Převzetí;2,049
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;574953;Dříteč;42031;RANDET;Hradec Králové;5205;Královehradecký kraj;CZ052;4;Převzetí;Převzetí;1,642
-576077;Albrechtice nad Orlicí;42065;RAMBAT;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;1;574988;Holice;42032;RABDIT;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;11,13
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;574953;Dříteč;42031;RANDET;Hradec Králové;5205;Královéhradecký kraj;CZ052;4;Převzetí;Převzetí;1,642
+576077;Albrechtice nad Orlicí;42065;RAMBAT;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;1;574988;Holice;42032;RABDIT;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;11,13
 574988;Holice;42032;RABDIT;Holice;5303;Pardubický kraj;CZ053;1;574988;Holice;42032;RABDIT;Holice;5303;Pardubický kraj;CZ053;4;Převzetí;Převzetí;10,55
-576077;Albrechtice nad Orlicí;42065;RAMBAT;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;1;574988;Holice;42032;RABDIT;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;4;Převzetí;Převzetí;11,13
+576077;Albrechtice nad Orlicí;42065;RAMBAT;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;1;574988;Holice;42032;RABDIT;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;4;Převzetí;Převzetí;11,13
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;574996;Horní Jelení;42034;RALDUT;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;1,68
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;575577;Rokytno;42046;RAPTET;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;2,822
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;575640;Sezemice;42050;RATNAT;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;4,026
-576069;Rychnov nad Kněžnou;42063;RAFBOT;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;1;576069;Rychnov nad Kněžnou;42063;RAFBOT;Rychnov nad Kněžnou;5213;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;0,413
+576069;Rychnov nad Kněžnou;42063;RAFBOT;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;1;576069;Rychnov nad Kněžnou;42063;RAFBOT;Rychnov nad Kněžnou;5213;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;0,413
 580058;České Libchavy;42242;RIBTIB;Ústí nad Orlicí;5313;Pardubický kraj;CZ053;1;576069;Rychnov nad Kněžnou;42063;RAFBOT;Ústí nad Orlicí;5313;Pardubický kraj;CZ053;1;Převzetí;Převzetí;0,433
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;576069;Rychnov nad Kněžnou;42063;RAFBOT;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;21,062
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;576077;Albrechtice nad Orlicí;42065;RAMBAT;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;11,65
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;576077;Albrechtice nad Orlicí;42065;RAMBAT;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;11,65
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;576204;Černíkovice;42074;RALFUT;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;2,088
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;576212;České Meziříčí;42075;RAMFAT;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;3,942
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;576263;Dobré;42078;RAVFOT;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;2,361
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;576271;Dobruška;42079;RAZFUT;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;22,347
 572071;Prachovice;41930;KUTDAZ;Chrudim;5304;Pardubický kraj;CZ053;1;576476;Lípa nad Orlicí;42090;RATMAT;Chrudim;5304;Pardubický kraj;CZ053;1;Převzetí;Převzetí;31,69
-576476;Lípa nad Orlicí;42090;RATMAT;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;1;576476;Lípa nad Orlicí;42090;RATMAT;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;4;Převzetí;Převzetí;3,64
+576476;Lípa nad Orlicí;42090;RATMAT;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;1;576476;Lípa nad Orlicí;42090;RATMAT;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;4;Převzetí;Převzetí;3,64
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;576573;Olešnice v Orlických horách;42094;RALMUT;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;0,1591
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;576590;Opočno;42096;RAPMET;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;10,411
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;576654;Podbřezí;42099;RAZMUT;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;1,783
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;576662;Pohoří;42100;RETHAN;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;1,168
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;576751;Semechnice;42104;RELHUN;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;1
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;576808;Solnice;42107;RESHIN;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;8,315
-576476;Lípa nad Orlicí;42090;RATMAT;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;1;576859;Týniště nad Orlicí;42111;RENKEN;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;29,31
-576859;Týniště nad Orlicí;42111;RENKEN;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;1;576859;Týniště nad Orlicí;42111;RENKEN;Kostelec nad Orlicí;5208;Královehradecký kraj;CZ052;4;Převzetí;Převzetí;29,31
+576476;Lípa nad Orlicí;42090;RATMAT;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;1;576859;Týniště nad Orlicí;42111;RENKEN;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;29,31
+576859;Týniště nad Orlicí;42111;RENKEN;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;1;576859;Týniště nad Orlicí;42111;RENKEN;Kostelec nad Orlicí;5208;Královéhradecký kraj;CZ052;4;Převzetí;Převzetí;29,31
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;576891;Voděrady;42115;REMKAN;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;1,786
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;576921;Záměl;42116;REPKEN;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;1,162
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;576964;Semily;42120;RETRAN;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;35,674
@@ -2993,7 +2993,7 @@
 554782;Praha;41269;KIZBUB;Praha;1000;Hlavní město Praha;CZ010;1;584801;Pohořelice;42442;RUBTIL;Praha;1000;Hlavní město Praha;CZ010;1;Převzetí;Převzetí;0,7
 582786;Brno;42355;ROMNAF;Brno;6203;Jihomoravský kraj;CZ064;1;584801;Pohořelice;42442;RUBTIL;Brno;6203;Jihomoravský kraj;CZ064;1;Převzetí;Převzetí;20,6
 581372;Boskovice;42300;ROTHAF;Boskovice;6202;Jihomoravský kraj;CZ064;1;584819;Popice;42444;RULTUL;Boskovice;6202;Jihomoravský kraj;CZ064;4;Převzetí;Převzetí;2,307
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;585017;Velké Pavlovice;42450;RUTNAL;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;21,302
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;585017;Velké Pavlovice;42450;RUTNAL;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;21,302
 581372;Boskovice;42300;ROTHAF;Boskovice;6202;Jihomoravský kraj;CZ064;1;585068;Zlín;42453;RUFNOL;Boskovice;6202;Jihomoravský kraj;CZ064;1;Převzetí;Převzetí;5,385
 585599;Otrokovice;42472;RUBFIL;Otrokovice;7205;Zlínský kraj;CZ072;1;585068;Zlín;42453;RUFNOL;Otrokovice;7205;Zlínský kraj;CZ072;1;Převzetí;Převzetí;14,37
 585068;Zlín;42453;RUFNOL;Zlín;7213;Zlínský kraj;CZ072;1;585068;Zlín;42453;RUFNOL;Zlín;7213;Zlínský kraj;CZ072;4;Převzetí;Převzetí;13,94652
@@ -3009,9 +3009,9 @@
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;586528;Rohatec;42507;RASHIM;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;13,104
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;586552;Sobůlky;42508;RAVHOM;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;2,83
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;586706;Vacenovice;42519;RAZKUM;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;3,473
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;586846;Jihlava;42524;RALRUM;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;0,32
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;586846;Jihlava;42524;RALRUM;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;0,32
 572071;Prachovice;41930;KUTDAZ;Chrudim;5304;Pardubický kraj;CZ053;1;586846;Jihlava;42524;RALRUM;Chrudim;5304;Pardubický kraj;CZ053;1;Převzetí;Převzetí;2,5
-586846;Jihlava;42524;RALRUM;Jihlava;6105;Vysočina kraj;CZ063;1;586846;Jihlava;42524;RALRUM;Jihlava;6105;Vysočina kraj;CZ063;1;Převzetí;Převzetí;0,391
+586846;Jihlava;42524;RALRUM;Jihlava;6105;Kraj Vysočina;CZ063;1;586846;Jihlava;42524;RALRUM;Jihlava;6105;Kraj Vysočina;CZ063;1;Převzetí;Převzetí;0,391
 589195;Zdounky;42631;RENDEP;Kroměříž;7203;Zlínský kraj;CZ072;1;588296;Kroměříž;42593;RAFMOM;Kroměříž;7203;Zlínský kraj;CZ072;1;Převzetí;Převzetí;0,3
 589250;Prostějov;42636;REPDEP;Prostějov;7108;Olomoucký kraj;CZ071;1;588296;Kroměříž;42593;RAFMOM;Prostějov;7108;Olomoucký kraj;CZ071;1;Převzetí;Převzetí;0,002
 513733;Hradčany;40122;HEBRIN;Přerov;7109;Olomoucký kraj;CZ071;1;588458;Holešov;42600;RETHAP;Přerov;7109;Olomoucký kraj;CZ071;1;Převzetí;Převzetí;1,94
@@ -3038,7 +3038,7 @@
 581372;Boskovice;42300;ROTHAF;Boskovice;6202;Jihomoravský kraj;CZ064;1;589926;Protivanov;42674;RELFUP;Boskovice;6202;Jihomoravský kraj;CZ064;1;Převzetí;Převzetí;9,05
 589926;Protivanov;42674;RELFUP;Prostějov;7108;Olomoucký kraj;CZ071;1;589926;Protivanov;42674;RELFUP;Prostějov;7108;Olomoucký kraj;CZ071;4;Převzetí;Převzetí;8,28
 581372;Boskovice;42300;ROTHAF;Boskovice;6202;Jihomoravský kraj;CZ064;1;591181;Moravské Budějovice;42741;RINTES;Boskovice;6202;Jihomoravský kraj;CZ064;1;Převzetí;Převzetí;4,311
-591181;Moravské Budějovice;42741;RINTES;Moravské Budějovice;6106;Vysočina kraj;CZ063;1;591181;Moravské Budějovice;42741;RINTES;Moravské Budějovice;6106;Vysočina kraj;CZ063;4;Převzetí;Převzetí;4,311
+591181;Moravské Budějovice;42741;RINTES;Moravské Budějovice;6106;Kraj Vysočina;CZ063;1;591181;Moravské Budějovice;42741;RINTES;Moravské Budějovice;6106;Kraj Vysočina;CZ063;4;Převzetí;Převzetí;4,311
 550752;Staré Město;41104;KELHUN;Uherské Hradiště;7207;Zlínský kraj;CZ072;1;592005;Uherské Hradiště;42783;RIFLOS;Uherské Hradiště;7207;Zlínský kraj;CZ072;1;Převzetí;Převzetí;0,259
 581372;Boskovice;42300;ROTHAF;Boskovice;6202;Jihomoravský kraj;CZ064;1;592005;Uherské Hradiště;42783;RIFLOS;Boskovice;6202;Jihomoravský kraj;CZ064;1;Převzetí;Převzetí;4,965
 585599;Otrokovice;42472;RUBFIL;Otrokovice;7205;Zlínský kraj;CZ072;1;592005;Uherské Hradiště;42783;RIFLOS;Otrokovice;7205;Zlínský kraj;CZ072;1;Převzetí;Převzetí;0,06
@@ -3081,13 +3081,13 @@
 581372;Boskovice;42300;ROTHAF;Boskovice;6202;Jihomoravský kraj;CZ064;1;595047;Vedrovice;42956;RUPNEZ;Boskovice;6202;Jihomoravský kraj;CZ064;4;Převzetí;Převzetí;2,828
 595047;Vedrovice;42956;RUPNEZ;Moravský Krumlov;6212;Jihomoravský kraj;CZ064;4;595047;Vedrovice;42956;RUPNEZ;Moravský Krumlov;6212;Jihomoravský kraj;CZ064;4;Převzetí;Převzetí;3
 572071;Prachovice;41930;KUTDAZ;Chrudim;5304;Pardubický kraj;CZ053;1;595209;Žďár nad Sázavou;42965;RUMBAZ;Chrudim;5304;Pardubický kraj;CZ053;1;Převzetí;Převzetí;10,2
-596230;Nové Město na Moravě;43002;DABHIT;Nové Město na Moravě;6108;Vysočina kraj;CZ063;1;595411;Bystřice nad Pernštejnem;42973;RUFFOZ;Nové Město na Moravě;6108;Vysočina kraj;CZ063;1;Převzetí;Převzetí;0,04
+596230;Nové Město na Moravě;43002;DABHIT;Nové Město na Moravě;6108;Kraj Vysočina;CZ063;1;595411;Bystřice nad Pernštejnem;42973;RUFFOZ;Nové Město na Moravě;6108;Kraj Vysočina;CZ063;1;Převzetí;Převzetí;0,04
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;595951;Křoví;42989;RUZLUZ;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;1,919
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;596230;Nové Město na Moravě;43002;DABHIT;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;33,239
 544477;Stráž nad Nisou;40846;HOPTEV;Liberec;5105;Liberecký kraj;CZ051;1;596361;Ostrov nad Oslavou;43009;DAZHUT;Liberec;5105;Liberecký kraj;CZ051;4;Převzetí;Převzetí;1,366
 581372;Boskovice;42300;ROTHAF;Boskovice;6202;Jihomoravský kraj;CZ064;1;597317;Dvorce;43038;DAVDOT;Boskovice;6202;Jihomoravský kraj;CZ064;4;Převzetí;Převzetí;2,742
 507113;Holasovice;40057;HASNIT;Opava;8117;Moravskoslezský kraj;CZ080;1;597635;Město Albrechtice;43048;DAVTOT;Opava;8117;Moravskoslezský kraj;CZ080;4;Převzetí;Převzetí;23,44
-569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;598003;Frýdek-Místek;43059;DAZNUT;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;0,532
+569810;Hradec Králové;41851;KONNEV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;598003;Frýdek-Místek;43059;DAZNUT;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;0,532
 539911;Příbram;40687;HESLIP;Příbram;2120;Středočeský kraj;CZ020;1;598381;Dubenec;43070;DATFAT;Příbram;2120;Středočeský kraj;CZ020;4;Převzetí;Převzetí;0,879256
 539911;Příbram;40687;HESLIP;Příbram;2120;Středočeský kraj;CZ020;1;598411;Lhota u Příbramě;43073;DAFFOT;Příbram;2120;Středočeský kraj;CZ020;4;Převzetí;Převzetí;1,356598
 544256;České Budějovice;40830;HOTDAV;České Budějovice;3102;Jihočeský kraj;CZ031;1;598615;Modrá Hůrka;43080;DATLAT;České Budějovice;3102;Jihočeský  kraj;CZ031;4;Převzetí;Převzetí;0,5221
@@ -3209,15 +3209,15 @@
 567515;Duchcov;41742;KIBTIS;Teplice;4213;Ústecký kraj;CZ042;1;567639;Krupka;41748;KIVTOS;Teplice;4213;Ústecký kraj;CZ042;4;Převzetí;Převzetí;10,206
 567710;Modlany;41751;KINNES;Teplice;4213;Ústecký kraj;CZ042;1;567442;Teplice;41736;KIPDES;Teplice;4213;Ústecký kraj;CZ042;1;Převzetí;Převzetí;34,28
 554804;Ústí nad Labem;41273;KIFFOB;Ústí nad Labem;4214;Ústecký kraj;CZ042;1;568309;Tisá;41773;KIFFOS;Ústí nad Labem;4214;Ústecký kraj;CZ042;1;Převzetí;Převzetí;0,26
-570303;Lodín;41867;KOSBIV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;505145;Březová nad Svitavou;40034;HALDUT;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;0,32
-570303;Lodín;41867;KOSBIV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;570109;Chlumec nad Cidlinou;41860;KOTBAV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;0,2
-570303;Lodín;41867;KOSBIV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;570427;Myštěves;41873;KOFFOV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;0,2
-570303;Lodín;41867;KOSBIV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;570451;Nechanice;41875;KOMFAV;Hradec Králové;5205;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;0,98
+570303;Lodín;41867;KOSBIV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;505145;Březová nad Svitavou;40034;HALDUT;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;0,32
+570303;Lodín;41867;KOSBIV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;570109;Chlumec nad Cidlinou;41860;KOTBAV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;0,2
+570303;Lodín;41867;KOSBIV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;570427;Myštěves;41873;KOFFOV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;0,2
+570303;Lodín;41867;KOSBIV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;570451;Nechanice;41875;KOMFAV;Hradec Králové;5205;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;0,98
 571911;Nasavrky;41926;KUPREZ;Chrudim;5304;Pardubický kraj;CZ053;1;572268;Slatiňany;41938;KUVDOZ;Chrudim;5304;Pardubický kraj;CZ053;1;Převzetí;Převzetí;0,48
 572071;Prachovice;41930;KUTDAZ;Chrudim;5304;Pardubický kraj;CZ053;1;569810;Hradec Králové;41851;KONNEV;Chrudim;5304;Pardubický kraj;CZ053;1;Převzetí;Převzetí;0,3
 578762;Slatina;42194;RELMUN;Moravská Třebová;5308;Pardubický kraj;CZ053;1;582786;Brno;42355;ROMNAF;Moravská Třebová;5308;Pardubický kraj;CZ053;1;Převzetí;Převzetí;7,158
 578762;Slatina;42194;RELMUN;Moravská Třebová;5308;Pardubický kraj;CZ053;1;578193;Jevíčko;42162;REBBIN;Moravská Třebová;5308;Pardubický kraj;CZ053;1;Převzetí;Převzetí;2,4
-579637;Rtyně v Podkrkonoší;42224;RILRUB;Trutnov;5214;Královehradecký kraj;CZ052;1;579041;Batňovice;42200;RITHAB;Trutnov;5214;Královehradecký kraj;CZ052;1;Převzetí;Převzetí;1,08
+579637;Rtyně v Podkrkonoší;42224;RILRUB;Trutnov;5214;Královéhradecký kraj;CZ052;1;579041;Batňovice;42200;RITHAB;Trutnov;5214;Královéhradecký kraj;CZ052;1;Převzetí;Převzetí;1,08
 580121;Dolní Dobrouč;42247;RISTIB;Ústí nad Orlicí;5313;Pardubický kraj;CZ053;1;579891;Ústí nad Orlicí;42233;RIFDOB;Ústí nad Orlicí;5313;Pardubický kraj;CZ053;1;Převzetí;Převzetí;0,515
 581283;Blansko;42295;RIMMAB;Blansko;6201;Jihomoravský kraj;CZ064;1;582786;Brno;42355;ROMNAF;Blansko;6201;Jihomoravský kraj;CZ064;1;Převzetí;Převzetí;0,183
 581917;Letovice;42316;ROPKEF;Boskovice;6202;Jihomoravský kraj;CZ064;1;582310;Sebranice;42331;RONDEF;Boskovice;6202;Jihomoravský kraj;CZ064;1;Převzetí;Převzetí;0,18
@@ -3230,4 +3230,4 @@
 589250;Prostějov;42636;REPDEP;Prostějov;7108;Olomoucký kraj;CZ071;1;589730;Mostkovice;42663;REFBOP;Prostějov;7108;Olomoucký kraj;CZ071;1;Převzetí;Převzetí;0,2
 589632;Kostelec na Hané;42656;REPNEP;Prostějov;7108;Olomoucký kraj;CZ071;1;589632;Kostelec na Hané;42656;REPNEP;Prostějov;7108;Olomoucký kraj;CZ071;4;Převzetí;Převzetí;6,46
 592919;Bošovice;42835;ROMDAV;Slavkov u Brna;6215;Jihomoravský kraj;CZ064;1;592919;Bošovice;42835;ROMDAV;Slavkov u Brna;6215;Jihomoravský kraj;CZ064;4;Převzetí;Převzetí;3,28
-595411;Bystřice nad Pernštejnem;42973;RUFFOZ;Bystřice nad Pernštejnem;6101;Vysočina kraj;CZ063;1;596825;Strážek;43022;DABRIT;Bystřice nad Pernštejnem;6101;Vysočina kraj;CZ063;1;Převzetí;Převzetí;0,04
+595411;Bystřice nad Pernštejnem;42973;RUFFOZ;Bystřice nad Pernštejnem;6101;Kraj Vysočina;CZ063;1;596825;Strážek;43022;DABRIT;Bystřice nad Pernštejnem;6101;Kraj Vysočina;CZ063;1;Převzetí;Převzetí;0,04
