@@ -146,14 +146,13 @@ def show_map():
         q3 = mapa_data['ZmenaMnozstvi'].quantile(0.85)
         iqr = q3 - q1
         lower_bound = q1 - 1.5 * iqr
-        upper_bound = q3 + 1.5 * iqr
+        upper_bound = q3 + 1.5 * iqr      
+        outliers = mapa_data[(mapa_data['ZmenaMnozstvi'] < lower_bound) | (mapa_data['ZmenaMnozstvi'] > upper_bound)]
+        pocet_odlehlych_hodnot = len(outliers)
         upper_bound = round(upper_bound,-3)
 
-        # Vypsání načtených dat
-        print('_________nactene data__________-')
-        print(gdf_merged)
-
-        cmap = plt.cm.get_cmap('YlGnBu')
+        cmap = plt.cm.get_cmap('viridis')
+        cmap = cmap.reversed()
         cmap.set_over('black')
         cmap.set_under('white')
         fig, ax = plt.subplots()
@@ -167,13 +166,54 @@ def show_map():
                         linewidth=0.5,
                         alpha=0.8,
                         norm=plt.Normalize(1, vmax=upper_bound))
+        
+        if pocet_odlehlych_hodnot > 0:
+            formatted_upper_bound = '{:,.0f}'.format(upper_bound).replace(',', ' ')
+            # Přidání textu s hodnotou vmax
+            ax.annotate('Černě jsou zvýrazněny\n odlehlé hodnoty nad {} kg'.format(formatted_upper_bound), xy=(0.95, 0.1), xycoords='axes fraction', ha='right', va='center')
+        
+        def create_title_from_list(my_list):
+            title = ""
+            for item in my_list:
+                title = title + str(item) + ", "
+            title = title[:-2]  # odstranění posledních dvou znaků
+            return title
 
-        formatted_upper_bound = '{:,.0f}'.format(upper_bound).replace(',', ' ')
-        # Přidání textu s hodnotou vmax
-        ax.annotate('Černě jsou zvýrazněny\n odlehlé hodnoty nad {} kg'.format(formatted_upper_bound), xy=(0.95, 0.1), xycoords='axes fraction', ha='right', va='center')
 
+        if volby_evident_kraj:
+            text = create_title_from_list(volby_evident_kraj)
+            evident_kraj = f' EVIDENT KRAJ: {text}, '
+        else: evident_kraj= ''
+        if volby_evident_ORP:
+            text = create_title_from_list(volby_evident_ORP)
+            evident_ORP = f' EVIDENT ORP: {text}, '
+        else: evident_ORP= ''
+        if volby_partner_kraj:
+            text = create_title_from_list(volby_partner_kraj)
+            partner_kraj = f' PARTNER KRAJ: {text}, '
+        else: partner_kraj= ''
+        if volby_partner_ORP:
+            text = create_title_from_list(volby_partner_ORP)
+            partner_ORP = f' PARTNER ORP: {text}, '
+        else: partner_ORP= ''
+        if volby_druhOdpadu:
+            text = create_title_from_list(volby_druhOdpadu)
+            odpad = f' ODPAD: {text}, '
+        else: odpad= ''
+        if volby_indikator:
+            text = create_title_from_list(volby_indikator)
+            identifikator = f' IDENTIFIKÁTOR: {text} '
+        else: identifikator = ''
+        if volby_kod:
+            text = create_title_from_list(volby_kod)
+            nakladani = f' ZPŮSOB NAKLÁDÁNÍ: {text} '
+        else: nakladani = ''
+        if volby_rok:
+          text = create_title_from_list(volby_rok)
+          obdobi = f' OBDOBÍ: {text} '
+        else: obdobi = ''
 
-        plt.title('Odpad dle ORP')
+        plt.title(f'{evident_kraj}{evident_ORP}{partner_kraj}{partner_ORP}{odpad}{identifikator}{nakladani}{obdobi}')
         plt.show()
     else:
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení v mapě.")
