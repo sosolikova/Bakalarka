@@ -3,6 +3,8 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 import numpy as np
 import HromadneNacitani as hn
+import mplcursors
+import GUI_Odpady3
 
 # ziskani df s vyfiltrovanými údaji pro Indikator 'Produkce' a použita funkce sum za jednotlivé kraje
 indikator_map_orp = hn.Zdrojovy_kody_mnozstvi[(hn.Zdrojovy_kody_mnozstvi['Indikator'] == 'Produkce') & (hn.Zdrojovy_kody_mnozstvi['Druh_Odpadu'] == '200111')]
@@ -27,6 +29,7 @@ q3 = gdf_merged['ZmenaMnozstvi'].quantile(0.85)
 iqr = q3 - q1
 lower_bound = q1 - 1.5 * iqr
 upper_bound = q3 + 1.5 * iqr
+upper_bound = round(upper_bound,-3)
 
 # Vypsání načtených dat
 print('_________nactene data__________-')
@@ -36,6 +39,7 @@ cmap = plt.cm.get_cmap('GnBu')
 cmap.set_over('black')
 cmap.set_under('white')
 fig, ax = plt.subplots()
+
 # použití metody plot() pro zobrazení mapy s barvami krajů podle hodnot ze sloupce 'ZmenaMnozstvi' v novém datovém rámci gdf_merged
 gdf_merged.plot(column = 'ZmenaMnozstvi',
                 cmap = cmap,
@@ -45,8 +49,6 @@ gdf_merged.plot(column = 'ZmenaMnozstvi',
                 linewidth=0.5,
                 alpha=0.8,
                 norm=plt.Normalize(1, vmax=upper_bound))
-
-
 
 formatted_upper_bound = '{:,.0f}'.format(upper_bound).replace(',', ' ')
 # Přidání textu s hodnotou vmax
