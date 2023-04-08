@@ -24,15 +24,17 @@ gdf_merged = gdf_kraje.merge(kraje_produkce, left_on='NAZEV', right_on='Evident_
 # Vypsání načtených dat
 print('_________nactene data__________-')
 print(gdf_merged)
+'''
 leg_kwds={'title': 'ZmenaMnozstvi', 
           'loc': 'upper left',
           'bbox_to_anchor': (1,1.03),
           'ncol':1}
+          '''
 # Použití metody plot() pro zobrazení mapy s barvami krajů podle hodnot ze sloupce 'ZmenaMnozstvi' v novém datovém rámci gdf_merged.
-gdf_merged.plot(column = 'NAZEV',
+gdf_merged.plot(column = 'ZmenaMnozstvi',
                cmap = 'Accent',
-               legend = True,
-               legend_kwds = leg_kwds)
+               legend = True)
+               #legend_kwds = leg_kwds)
 plt.title('Odpad dle krajů')
 #gdf_orp.plot(column = 'NAZEV',legend = False)
 #gdf_obce.plot(column = 'NAZEV',legend = False)
