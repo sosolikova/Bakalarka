@@ -39,6 +39,7 @@ cmap.set_over('black')
 cmap.set_under('white')
 fig, ax = plt.subplots()
 
+
 # použití metody plot() pro zobrazení mapy s barvami krajů podle hodnot ze sloupce 'ZmenaMnozstvi' v novém datovém rámci gdf_merged
 gdf_merged.plot(column = 'ZmenaMnozstvi',
                 cmap = cmap,

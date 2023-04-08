@@ -11,6 +11,9 @@ import pandas as pd
 from pandas import options
 from ttkthemes import ThemedTk
 from ttkthemes import ThemedStyle
+import json
+import geopandas as gpd
+import matplotlib.pyplot as plt
 import HromadneNacitani as hn
 import Funkce as fc
 import csv
@@ -104,14 +107,60 @@ def handle_funkce(selection):
     text_widget.insert('1.0', f"Vybraný výpočet: {selection}\n")
 
 def show_map():
-    global vysledek_excel
-    if vysledek_excel is not None:
-        file_name = filedialog.asksaveasfilename(defaultextension='.xlsx')
-        if file_name:
-            vysledek_excel.to_excel(file_name, index=True, header=True)
-            messagebox.showinfo("Uloženo", "Data byla uložena do Excelu.")
+    global vysledek_mapa
+    if vysledek_mapa is not None:
+        # ziskani df s vyfiltrovanými údaji pro Indikator 'Produkce' a použita funkce sum za jednotlivé kraje
+
+        mapa_data = hn.group_data_by_columns(vysledek_mapa,'ZmenaMnozstvi','Evident_ORP_Nazev','Indikator')
+        mapa_data['ZmenaMnozstvi'] = mapa_data['ZmenaMnozstvi'].abs()
+
+        # Načtení souboru
+        gdf_kraje = gpd.read_file('kraje-simple.json', encoding='utf-8')
+        gdf_orp = gpd.read_file('orp-simple.json', encoding='utf-8')
+        gdf_obce = gpd.read_file('obce-simple.json', encoding='utf-8')
+
+        #Sloučení df kraje_produkce s geometrickým df podle názvu kraje
+        gdf_merged = gdf_orp.merge(mapa_data, left_on='NAZEV', right_on='Evident_ORP_Nazev',how='left')
+
+        # nahrazení chybějících hodnot v datovém rámci gdf_merged
+        gdf_merged['ZmenaMnozstvi'] = gdf_merged['ZmenaMnozstvi'].fillna(value=0)
+
+        # určení kvantilů
+        q1 = mapa_data['ZmenaMnozstvi'].quantile(0.15)
+        q3 = mapa_data['ZmenaMnozstvi'].quantile(0.85)
+        iqr = q3 - q1
+        lower_bound = q1 - 1.5 * iqr
+        upper_bound = q3 + 1.5 * iqr
+        upper_bound = round(upper_bound,-3)
+
+        # Vypsání načtených dat
+        print('_________nactene data__________-')
+        print(gdf_merged)
+
+        cmap = plt.cm.get_cmap('GnBu')
+        cmap.set_over('black')
+        cmap.set_under('white')
+        fig, ax = plt.subplots()
+
+        # použití metody plot() pro zobrazení mapy s barvami krajů podle hodnot ze sloupce 'ZmenaMnozstvi' v novém datovém rámci gdf_merged
+        gdf_merged.plot(column = 'ZmenaMnozstvi',
+                        cmap = cmap,
+                        ax=ax,
+                        legend = True,
+                        edgecolor='black',
+                        linewidth=0.5,
+                        alpha=0.8,
+                        norm=plt.Normalize(1, vmax=upper_bound))
+
+        formatted_upper_bound = '{:,.0f}'.format(upper_bound).replace(',', ' ')
+        # Přidání textu s hodnotou vmax
+        ax.annotate('Černě jsou zvýrazněny\n odlehlé hodnoty nad {} kg'.format(formatted_upper_bound), xy=(0.95, 0.1), xycoords='axes fraction', ha='right', va='center')
+
+
+        plt.title('Odpad dle ORP')
+        plt.show()
     else:
-        messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k uložení.")
+        messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení v mapě.")
 
 def funkce1():
     global vysledek_excel
@@ -273,6 +322,7 @@ def odlehle_hodnoty():
 #Platný
 def vyber_evident_partner_kriteria():
     global vysledek_excel
+    global vysledek_mapa
     vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
 
     vysledek_evidentApartner = hn.vyber_subjektu(vysledek_evident,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
@@ -280,7 +330,7 @@ def vyber_evident_partner_kriteria():
     vysledek = hn.vyber_kriterii(vysledek_evidentApartner,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
 
     vysledek_excel = vysledek
-
+    vysledek_mapa = vysledek
     if not volby_sloupce:
         vysledek = vysledek.loc[:,volby_sloupce_univ]
     else: vysledek = vysledek.loc[:,volby_sloupce]
