@@ -103,6 +103,16 @@ def handle_funkce(selection):
     #text_widget.delete('1.0','end')
     text_widget.insert('1.0', f"Vybraný výpočet: {selection}\n")
 
+def show_map():
+    global vysledek_excel
+    if vysledek_excel is not None:
+        file_name = filedialog.asksaveasfilename(defaultextension='.xlsx')
+        if file_name:
+            vysledek_excel.to_excel(file_name, index=True, header=True)
+            messagebox.showinfo("Uloženo", "Data byla uložena do Excelu.")
+    else:
+        messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k uložení.")
+
 def funkce1():
     global vysledek_excel
     vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)     
@@ -612,6 +622,9 @@ button1.grid(row=0, column=4, padx=20, pady=0)
 # Funkce
 button2 = tk.Button(right_frame,text="Uložit do csv", command=save_to_csv)
 button2.grid(row=0, column=5, padx=20, pady=0)
+# Funkce
+mapa = tk.Button(right_frame,text="Zobrazit mapu", command=show_map)
+mapa.grid(row=3, column=5, padx=20, pady=0)
 
 # Volba sloupečků pro zobrazení ve výstupu
 sloupce_label= tk.Label(right_frame, text="Volba sloupců na výstup")

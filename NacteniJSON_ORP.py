@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import HromadneNacitani as hn
 import mplcursors
-import GUI_Odpady3
 
 # ziskani df s vyfiltrovanými údaji pro Indikator 'Produkce' a použita funkce sum za jednotlivé kraje
 indikator_map_orp = hn.Zdrojovy_kody_mnozstvi[(hn.Zdrojovy_kody_mnozstvi['Indikator'] == 'Produkce') & (hn.Zdrojovy_kody_mnozstvi['Druh_Odpadu'] == '200111')]
