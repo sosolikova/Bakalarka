@@ -5,7 +5,7 @@ import numpy as np
 import HromadneNacitani as hn
 
 # ziskani df s vyfiltrovanými údaji pro Indikator 'Produkce' a použita funkce sum za jednotlivé kraje
-indikator_map_orp = hn.Zdrojovy_kody_mnozstvi[(hn.Zdrojovy_kody_mnozstvi['Indikator'] == 'Produkce') & (hn.Zdrojovy_kody_mnozstvi['Druh_Odpadu'] == '200110')]
+indikator_map_orp = hn.Zdrojovy_kody_mnozstvi[(hn.Zdrojovy_kody_mnozstvi['Indikator'] == 'Produkce') & (hn.Zdrojovy_kody_mnozstvi['Druh_Odpadu'] == '200111')]
 orp_produkce = hn.group_data_by_columns(indikator_map_orp,'ZmenaMnozstvi','Evident_ORP_Nazev','Indikator')
 print('___----indikator-map - orp_produkce ___________')
 print(orp_produkce.head)
@@ -22,8 +22,8 @@ gdf_merged = gdf_orp.merge(orp_produkce, left_on='NAZEV', right_on='Evident_ORP_
 gdf_merged['ZmenaMnozstvi'] = gdf_merged['ZmenaMnozstvi'].fillna(value=0)
 
 # určení kvantilů
-q1 = gdf_merged['ZmenaMnozstvi'].quantile(0.25)
-q3 = gdf_merged['ZmenaMnozstvi'].quantile(0.75)
+q1 = gdf_merged['ZmenaMnozstvi'].quantile(0.15)
+q3 = gdf_merged['ZmenaMnozstvi'].quantile(0.85)
 iqr = q3 - q1
 lower_bound = q1 - 1.5 * iqr
 upper_bound = q3 + 1.5 * iqr
@@ -51,8 +51,6 @@ gdf_merged.plot(column = 'ZmenaMnozstvi',
 formatted_upper_bound = '{:,.0f}'.format(upper_bound).replace(',', ' ')
 # Přidání textu s hodnotou vmax
 ax.annotate('Černě jsou zvýrazněny\n odlehlé hodnoty nad {} kg'.format(formatted_upper_bound), xy=(0.95, 0.1), xycoords='axes fraction', ha='right', va='center')
-
-
 
 
 plt.title('Odpad dle ORP')
