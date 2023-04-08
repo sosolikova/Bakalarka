@@ -110,31 +110,33 @@ def handle_funkce(selection):
 def show_map():
     global vysledek_mapa
     if vysledek_mapa is not None:
-        # ziskani df s vyfiltrovanými údaji pro Indikator 'Produkce' a použita funkce sum za jednotlivé kraje
+        # Načtení souboru
+        gdf_kraje = gpd.read_file('kraje-simple.json', encoding='utf-8')
+        gdf_orp = gpd.read_file('orp-simple.json', encoding='utf-8')
+        gdf_obce = gpd.read_file('obce-simple.json', encoding='utf-8')
+
         if subjekt_radiobut_value.get() == '1':
             subjekt = 'Evident'
         elif subjekt_radiobut_value.get() == '2':
             subjekt = 'Partner'
 
         if uzemi_radiobut_value.get() == '1':
-            uzemi = 'kraj'
+            uzemi = 'Kraj'
+            mapa = gdf_kraje
         elif uzemi_radiobut_value.get() == '2':
             uzemi = 'ORP'
+            mapa = gdf_orp
         elif uzemi_radiobut_value.get() == '3':
             uzemi = 'ZUJ'
+            mapa = gdf_obce
 
         nazev_sloupce = f'{subjekt}_{uzemi}_Nazev'
             
-        mapa_data = hn.group_data_by_columns(vysledek_mapa,'ZmenaMnozstvi','Evident_ORP_Nazev','Indikator')
+        mapa_data = hn.group_data_by_columns(vysledek_mapa,'ZmenaMnozstvi',nazev_sloupce,'Indikator')
         mapa_data['ZmenaMnozstvi'] = mapa_data['ZmenaMnozstvi'].abs()
 
-        # Načtení souboru
-        gdf_kraje = gpd.read_file('kraje-simple.json', encoding='utf-8')
-        gdf_orp = gpd.read_file('orp-simple.json', encoding='utf-8')
-        gdf_obce = gpd.read_file('obce-simple.json', encoding='utf-8')
-
         #Sloučení df kraje_produkce s geometrickým df podle názvu kraje
-        gdf_merged = gdf_orp.merge(mapa_data, left_on='NAZEV', right_on='Evident_ORP_Nazev',how='left')
+        gdf_merged = mapa.merge(mapa_data, left_on='NAZEV', right_on=nazev_sloupce,how='left')
 
         # nahrazení chybějících hodnot v datovém rámci gdf_merged
         gdf_merged['ZmenaMnozstvi'] = gdf_merged['ZmenaMnozstvi'].fillna(value=0)
@@ -151,7 +153,7 @@ def show_map():
         print('_________nactene data__________-')
         print(gdf_merged)
 
-        cmap = plt.cm.get_cmap('GnBu')
+        cmap = plt.cm.get_cmap('YlGnBu')
         cmap.set_over('black')
         cmap.set_under('white')
         fig, ax = plt.subplots()
@@ -698,16 +700,16 @@ uzemi_radiobut_value = tkinter.StringVar()
 uzemi_radiobut_value.set('1')
 
 # Vytvoření radiobuttons
-evident_radiobut = tkinter.Radiobutton(root, text="Mapa evidentů", variable=subjekt_radiobut_value, value="1")
+evident_radiobut = tkinter.Radiobutton(right_frame, text="Mapa evidentů", variable=subjekt_radiobut_value, value="1")
 evident_radiobut.grid(row=2, column=6, padx=20, pady=0)
-partner_radiobut = tkinter.Radiobutton(root, text="Mapa partnerů", variable=subjekt_radiobut_value, value="2")
+partner_radiobut = tkinter.Radiobutton(right_frame, text="Mapa partnerů", variable=subjekt_radiobut_value, value="2")
 partner_radiobut.grid(row=3, column=6, padx=20, pady=0)
 
-kraj_radiobut = tkinter.Radiobutton(root, text="Úroveň krajů", variable=uzemi_radiobut_value, value="1")
+kraj_radiobut = tkinter.Radiobutton(right_frame, text="Úroveň krajů", variable=uzemi_radiobut_value, value="1")
 kraj_radiobut.grid(row=2, column=7, padx=20, pady=0)
-ORP_radiobut = tkinter.Radiobutton(root, text="Úroveň ORP", variable=uzemi_radiobut_value, value="2")
+ORP_radiobut = tkinter.Radiobutton(right_frame, text="Úroveň ORP", variable=uzemi_radiobut_value, value="2")
 ORP_radiobut.grid(row=3, column=7, padx=20, pady=0)
-ZUJ_radiobut = tkinter.Radiobutton(root, text="Úroveň ZÚJ", variable=uzemi_radiobut_value, value="3")
+ZUJ_radiobut = tkinter.Radiobutton(right_frame, text="Úroveň ZÚJ", variable=uzemi_radiobut_value, value="3")
 ZUJ_radiobut.grid(row=4, column=7, padx=20, pady=0)
 
 # Volba sloupečků pro zobrazení ve výstupu
