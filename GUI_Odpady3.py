@@ -123,20 +123,23 @@ def show_map():
         if uzemi_radiobut_value.get() == '1':
             uzemi = 'Kraj'
             mapa = gdf_kraje
+            json_column = 'NUTS3_KOD'
         elif uzemi_radiobut_value.get() == '2':
             uzemi = 'ORP'
             mapa = gdf_orp
+            json_column = 'SPR_OB_KOD'
         elif uzemi_radiobut_value.get() == '3':
             uzemi = 'ZUJ'
+            json_column = 'KOD'
             mapa = gdf_obce
 
-        nazev_sloupce = f'{subjekt}_{uzemi}_Nazev'
+        nazev_sloupce = f'{subjekt}_{uzemi}_Cislo'
             
         mapa_data = hn.group_data_by_columns(vysledek_mapa,'ZmenaMnozstvi',nazev_sloupce,'Indikator')
         mapa_data['ZmenaMnozstvi'] = mapa_data['ZmenaMnozstvi'].abs()
 
         #Sloučení df kraje_produkce s geometrickým df podle názvu kraje
-        gdf_merged = mapa.merge(mapa_data, left_on='NAZEV', right_on=nazev_sloupce,how='left')
+        gdf_merged = mapa.merge(mapa_data, left_on=json_column, right_on=nazev_sloupce,how='left')
 
         # nahrazení chybějících hodnot v datovém rámci gdf_merged
         gdf_merged['ZmenaMnozstvi'] = gdf_merged['ZmenaMnozstvi'].fillna(value=0)
