@@ -178,7 +178,7 @@ def show_map():
             
         # Přidání textu s hodnotou vmax
         formatted_upper_bound = '{:,.0f}'.format(upper_bound).replace(',', ' ')
-        ax.annotate(f'{text_bila_mista}\n{text_odlehle_hodnoty}'.format(formatted_upper_bound), xy=(0.95, 0.1), xycoords='axes fraction', ha='right', va='center')
+        ax.annotate(f'{text_odlehle_hodnoty}\n{text_bila_mista}'.format(formatted_upper_bound), xy=(0.95, 0.1), xycoords='axes fraction', ha='right', va='center')
         
         def create_title_from_list(my_list):
             title = ""
