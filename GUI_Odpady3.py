@@ -166,11 +166,16 @@ def show_map():
                         linewidth=0.5,
                         alpha=0.8,
                         norm=plt.Normalize(1, vmax=upper_bound))
-        
+        if len(gdf_merged[gdf_merged['ZmenaMnozstvi'] == 0]) > 0:
+            text_bila_mista = 'Bílá místa znázorňují ZÚJ, které neevidovali tento typ odpadu. '
+        else: text_bila_mista = ''
         if pocet_odlehlych_hodnot > 0:
-            formatted_upper_bound = '{:,.0f}'.format(upper_bound).replace(',', ' ')
-            # Přidání textu s hodnotou vmax
-            ax.annotate('Černě jsou zvýrazněny\n odlehlé hodnoty nad {} kg'.format(formatted_upper_bound), xy=(0.95, 0.1), xycoords='axes fraction', ha='right', va='center')
+            text_odlehle_hodnoty = 'Černě jsou zvýrazněny\n odlehlé hodnoty nad {} kg'
+        else: text_odlehle_hodnoty = ''
+            
+        # Přidání textu s hodnotou vmax
+        formatted_upper_bound = '{:,.0f}'.format(upper_bound).replace(',', ' ')
+        ax.annotate(f'{text_bila_mista}\n{text_odlehle_hodnoty}'.format(formatted_upper_bound), xy=(0.95, 0.1), xycoords='axes fraction', ha='right', va='center')
         
         def create_title_from_list(my_list):
             title = ""
@@ -179,41 +184,50 @@ def show_map():
             title = title[:-2]  # odstranění posledních dvou znaků
             return title
 
-
+        if subjekt_radiobut_value.get() == '1':
+            subjekt_text = 'Nakládání s odpady z pohledu: evidentů, '
+        elif subjekt_radiobut_value.get() == '2':
+            subjekt_text = 'Nakládání s odpady z pohledu: partnerů, '
+        if uzemi_radiobut_value.get() == '1':
+            uzemi_text = 'shrnutí na úrovni: krajů '
+        elif uzemi_radiobut_value.get() == '2':
+            uzemi_text = 'shrnutí na úrovni: ORP '
+        elif uzemi_radiobut_value.get() == '3':
+            uzemi_text = 'shrnutí na úrovni: ZÚJ '
         if volby_evident_kraj:
             text = create_title_from_list(volby_evident_kraj)
-            evident_kraj = f' EVIDENT KRAJ: {text}, '
+            evident_kraj = f' evident kraj: {text}, '
         else: evident_kraj= ''
         if volby_evident_ORP:
             text = create_title_from_list(volby_evident_ORP)
-            evident_ORP = f' EVIDENT ORP: {text}, '
+            evident_ORP = f' evident ORP: {text}, '
         else: evident_ORP= ''
         if volby_partner_kraj:
             text = create_title_from_list(volby_partner_kraj)
-            partner_kraj = f' PARTNER KRAJ: {text}, '
+            partner_kraj = f' partner kraj: {text}, '
         else: partner_kraj= ''
         if volby_partner_ORP:
             text = create_title_from_list(volby_partner_ORP)
-            partner_ORP = f' PARTNER ORP: {text}, '
+            partner_ORP = f' partner ORP: {text}, '
         else: partner_ORP= ''
         if volby_druhOdpadu:
             text = create_title_from_list(volby_druhOdpadu)
-            odpad = f' ODPAD: {text}, '
+            odpad = f' Druh odpadu: {text}, '
         else: odpad= ''
         if volby_indikator:
             text = create_title_from_list(volby_indikator)
-            identifikator = f' IDENTIFIKÁTOR: {text} '
+            identifikator = f' Identifikátor: {text} '
         else: identifikator = ''
         if volby_kod:
             text = create_title_from_list(volby_kod)
-            nakladani = f' ZPŮSOB NAKLÁDÁNÍ: {text} '
+            nakladani = f' Kód způsobu nakládání: {text} '
         else: nakladani = ''
         if volby_rok:
           text = create_title_from_list(volby_rok)
-          obdobi = f' OBDOBÍ: {text} '
+          obdobi = f' Období: {text} '
         else: obdobi = ''
 
-        plt.title(f'{evident_kraj}{evident_ORP}{partner_kraj}{partner_ORP}{odpad}{identifikator}{nakladani}{obdobi}')
+        plt.title(f'{subjekt_text}{uzemi_text}\n{evident_kraj}{evident_ORP}{partner_kraj}{partner_ORP}\n{odpad}{identifikator}\n{nakladani}{obdobi}')
         plt.show()
     else:
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení v mapě.")
