@@ -7,7 +7,7 @@ import mplcursors
 
 # ziskani df s vyfiltrovanými údaji pro Indikator 'Produkce' a použita funkce sum za jednotlivé kraje
 indikator_map_orp = hn.Zdrojovy_kody_mnozstvi[(hn.Zdrojovy_kody_mnozstvi['Indikator'] == 'Produkce') & (hn.Zdrojovy_kody_mnozstvi['Druh_Odpadu'] == '200111')]
-orp_produkce = hn.group_data_by_columns(indikator_map_orp,'ZmenaMnozstvi','Evident_ORP_Nazev','Indikator')
+orp_produkce = hn.group_data_by_columns(indikator_map_orp,'ZmenaMnozstvi','Evident_ZUJ_Cislo','Indikator')
 print('___----indikator-map - orp_produkce ___________')
 print(orp_produkce.head)
 
