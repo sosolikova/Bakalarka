@@ -121,19 +121,19 @@ def show_map():
             subjekt = 'Partner'
 
         if uzemi_radiobut_value.get() == '1':
-            uzemi = 'Kraj'
+            uzemi = 'Kraj_Cislo'
             mapa = gdf_kraje
             json_column = 'NUTS3_KOD'
         elif uzemi_radiobut_value.get() == '2':
-            uzemi = 'ORP'
+            uzemi = 'ORP_Nazev'
             mapa = gdf_orp
-            json_column = 'SPR_OB_KOD'
+            json_column = 'NAZEV'
         elif uzemi_radiobut_value.get() == '3':
-            uzemi = 'ZUJ'
+            uzemi = 'ZUJ_Cislo'
             json_column = 'KOD'
             mapa = gdf_obce
 
-        nazev_sloupce = f'{subjekt}_{uzemi}_Cislo'
+        nazev_sloupce = f'{subjekt}_{uzemi}'
             
         mapa_data = hn.group_data_by_columns(vysledek_mapa,'ZmenaMnozstvi',nazev_sloupce,'Indikator')
         mapa_data['ZmenaMnozstvi'] = mapa_data['ZmenaMnozstvi'].abs()
