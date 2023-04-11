@@ -17,7 +17,7 @@ gdf_orp = gpd.read_file('orp-simple.json', encoding='utf-8')
 gdf_obce = gpd.read_file('obce-simple.json', encoding='utf-8')
 
 #Sloučení df kraje_produkce s geometrickým df podle názvu kraje
-gdf_merged = gdf_orp.merge(orp_produkce, left_on='NAZEV', right_on='Evident_ORP_Nazev',how='left')
+gdf_merged = gdf_obce.merge(orp_produkce, left_on='KOD', right_on='Evident_ZUJ_Cislo',how='left')
 
 # nahrazení chybějících hodnot v datovém rámci gdf_merged
 gdf_merged['ZmenaMnozstvi'] = gdf_merged['ZmenaMnozstvi'].fillna(value=0)
