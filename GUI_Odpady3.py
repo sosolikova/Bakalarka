@@ -170,12 +170,20 @@ def show_map():
                         alpha=0.8,
                         norm=plt.Normalize(1, vmax=upper_bound))
         if len(gdf_merged[gdf_merged['ZmenaMnozstvi'] == 0]) > 0:
-            text_bila_mista = 'Bílá místa znázorňují ZÚJ, které neevidovali tento typ odpadu. '
+            text_bila_mista = 'Bílá místa znázorňují území, která neevidovala tento druh odpadu. '
         else: text_bila_mista = ''
         if pocet_odlehlych_hodnot > 0:
             text_odlehle_hodnoty = 'Černě jsou zvýrazněny\n odlehlé hodnoty nad {} kg'
         else: text_odlehle_hodnoty = ''
-            
+        for index, row in gdf_merged.iterrows():
+          plt.annotate(text=row['NAZEV'], 
+                  xy=row['geometry'].centroid.coords[0], 
+                  horizontalalignment='center',
+                  color='black',
+                  fontsize=5)
+
+
+
         # Přidání textu s hodnotou vmax
         formatted_upper_bound = '{:,.0f}'.format(upper_bound).replace(',', ' ')
         ax.annotate(f'{text_odlehle_hodnoty}\n{text_bila_mista}'.format(formatted_upper_bound), xy=(0.95, 0.1), xycoords='axes fraction', ha='right', va='center')
