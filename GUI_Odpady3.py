@@ -105,8 +105,8 @@ def handle_funkce(selection):
     text_widget.insert('1.0', f"Vybraný výpočet: {selection}\n")
 
 def show_map():
-    global vysledek_mapa
-    if vysledek_mapa is not None:
+    global vyber_dat_vysledek
+    if vyber_dat_vysledek is not None:
         # Načtení souboru
         gdf_kraje = gpd.read_file('kraje-simple.json', encoding='utf-8')
         gdf_orp = gpd.read_file('orp-simple.json', encoding='utf-8')
@@ -132,7 +132,7 @@ def show_map():
 
         nazev_sloupce = f'{subjekt}_{uzemi}'
             
-        mapa_data = hn.seskupeni_dat_po_sloupcich(vysledek_mapa,'ZmenaMnozstvi',nazev_sloupce,'Indikator')
+        mapa_data = hn.seskupeni_dat_po_sloupcich(vyber_dat_vysledek,'ZmenaMnozstvi',nazev_sloupce,'Indikator')
         mapa_data['ZmenaMnozstvi'] = mapa_data['ZmenaMnozstvi'].abs()
 
         #Sloučení df kraje_produkce s geometrickým df podle názvu kraje
@@ -242,27 +242,26 @@ def show_map():
 
 def sumarizace():
     global vysledek_excel
-    vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_Kody_Mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)     
-  
-    vysledek_evidentApartner = hn.vyber_subjektu(vysledek_evident,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
+    global vyber_dat_vysledek
+    if vyber_dat_vysledek is not None:
+        vysledek = vyber_dat_vysledek
+        if volby_evident_kraj:
+            vysledek=hn.summary_stat_parametr(vysledek,'Evident_ORP_Nazev',hn.list_kraj_orp[volby_evident_kraj],'ZmenaMnozstvi')
 
-    vysledek = hn.vyber_kriterii(vysledek_evidentApartner,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
+            vysledek_excel = vysledek
 
-    if volby_evident_kraj:
-        vysledek=hn.summary_stat_parametr(vysledek,'Evident_ORP_Nazev',hn.list_kraj_orp[volby_evident_kraj],'ZmenaMnozstvi')
+            text_widget.delete("1.0","end")
+            text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY PRO ORP v kraji: {volby_evident_kraj}\n {vysledek}\n")
+        elif volby_evident_ORP:
+            vysledek=hn.summary_stat_parametr(vysledek,'Evident_ZUJ_Nazev',hn.list_orp_zuj[volby_evident_ORP],'ZmenaMnozstvi')
 
-        vysledek_excel = vysledek
-
-        text_widget.delete("1.0","end")
-        text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY PRO ORP v kraji: {volby_evident_kraj}\n {vysledek}\n")
-    elif volby_evident_ORP:
-        vysledek=hn.summary_stat_parametr(vysledek,'Evident_ZUJ_Nazev',hn.list_orp_zuj[volby_evident_ORP],'ZmenaMnozstvi')
-
-        text_widget.delete("1.0","end")
-        text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY PRO ZUJ v ORP: {volby_evident_ORP}\n {vysledek}\n")
+            text_widget.delete("1.0","end")
+            text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY PRO ZUJ v ORP: {volby_evident_ORP}\n {vysledek}\n")
+        else:
+            text_widget.delete("1.0","end")
+            text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")  
     else:
-        text_widget.delete("1.0","end")
-        text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")  
+        messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení.")
 
 
 #Zkouška pro ukládání do xlsx
@@ -323,59 +322,56 @@ def vyber_kriterii():
         text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")  
     
 
-# Přepsáno na test odlehlé hodnoty
+# Test odlehlé hodnoty
 def odlehle_hodnoty():
     global vysledek_excel
-    vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_Kody_Mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
-
-    vysledek_evidentApartner = hn.vyber_subjektu(vysledek_evident,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
-
-    vysledek = hn.vyber_kriterii(vysledek_evidentApartner,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
+    global vyber_dat_vysledek
+    if vyber_dat_vysledek is not None:
+        vysledek = vyber_dat_vysledek
     
-    vysledek['ZmenaMnozstvi']
+        pocet_hodnot = len(vysledek['ZmenaMnozstvi'])
+        # Výpočet IQR metody
+        q1, q3 = np.percentile(vysledek['ZmenaMnozstvi'], [25, 75])
+        iqr = q3 - q1
 
-    pocet_hodnot = len(vysledek['ZmenaMnozstvi'])
-    # Výpočet IQR metody
-    q1, q3 = np.percentile(vysledek['ZmenaMnozstvi'], [25, 75])
-    iqr = q3 - q1
+        # Určení odlehlých hodnot
+        lower_bound = q1 - 1.5 * iqr
+        upper_bound = q3 + 1.5 * iqr
+        outliers = vysledek[(vysledek['ZmenaMnozstvi'] < lower_bound) | (vysledek['ZmenaMnozstvi'] > upper_bound)]
+        pocet_odlehlych_hodnot_lower=len(vysledek[(vysledek['ZmenaMnozstvi'] < lower_bound)])
+        pocet_odlehlych_hodnot_upper=len(vysledek[(vysledek['ZmenaMnozstvi'] > upper_bound)])
+        pocet_odlehlych_hodnot = len(outliers)
 
-    # Určení odlehlých hodnot
-    lower_bound = q1 - 1.5 * iqr
-    upper_bound = q3 + 1.5 * iqr
-    outliers = vysledek[(vysledek['ZmenaMnozstvi'] < lower_bound) | (vysledek['ZmenaMnozstvi'] > upper_bound)]
-    pocet_odlehlych_hodnot_lower=len(vysledek[(vysledek['ZmenaMnozstvi'] < lower_bound)])
-    pocet_odlehlych_hodnot_upper=len(vysledek[(vysledek['ZmenaMnozstvi'] > upper_bound)])
-    pocet_odlehlych_hodnot = len(outliers)
+        vysledek_excel = outliers
 
-    vysledek_excel = outliers
+        if not volby_sloupce:
+            outliers = outliers.loc[:,volby_sloupce_univ]
+        else: outliers = outliers.loc[:,volby_sloupce]
+        if not outliers.empty:
+            if 'ZmenaMnozstvi' in outliers.columns:
+                outliers['ZmenaMnozstvi'] = outliers['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+            if 'Pocet_Obyvatel' in outliers.columns:
+                outliers['Pocet_Obyvatel'] = outliers['Pocet_Obyvatel'].apply(lambda x: locale.format_string("%d", x, grouping=True))
 
-    if not volby_sloupce:
-        outliers = outliers.loc[:,volby_sloupce_univ]
-    else: outliers = outliers.loc[:,volby_sloupce]
-    if not outliers.empty:
-        if 'ZmenaMnozstvi' in outliers.columns:
-            outliers['ZmenaMnozstvi'] = outliers['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
-        if 'Pocet_Obyvatel' in outliers.columns:
-            outliers['Pocet_Obyvatel'] = outliers['Pocet_Obyvatel'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+        # Výsledky testu
+        if len(outliers) > 0:
+            vysledek_testu_text = f"V datovém vzorku o {pocet_hodnot} hodnotách existuje {pocet_odlehlych_hodnot} odlehlých hodnot ({pocet_odlehlych_hodnot_lower}, {pocet_odlehlych_hodnot_upper}):\n\n{outliers.to_string(index=False, justify='right')}"
+            print(outliers)
 
-    # Výsledky testu
-    if len(outliers) > 0:
-        vysledek_testu_text = f"V datovém vzorku o {pocet_hodnot} hodnotách existuje {pocet_odlehlych_hodnot} odlehlých hodnot ({pocet_odlehlych_hodnot_lower}, {pocet_odlehlych_hodnot_upper}):\n\n{outliers.to_string(index=False, justify='right')}"
-        print(outliers)
-
+        else:
+            vysledek_testu_text = f"Odlehlé hodnoty v datovém vzorku o {pocet_hodnot} hodnotách nejsou zjištěny."
+        
+        text_widget.delete("1.0","end")
+        text_widget.insert(END, "DIXONŮV TEST PRO ODHALENÍ ODLEHLÝCH HODNOT:\n\n ")
+        text_widget.insert(END, vysledek_testu_text)
     else:
-        vysledek_testu_text = f"Odlehlé hodnoty v datovém vzorku o {pocet_hodnot} hodnotách nejsou zjištěny."
-    
-    text_widget.delete("1.0","end")
-    text_widget.insert(END, "DIXONŮV TEST PRO ODHALENÍ ODLEHLÝCH HODNOT:\n\n ")
-    text_widget.insert(END, vysledek_testu_text)
-
+        messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení.")
 
 # Sloučení podmínek výběru dle kritérií, výběr evidenta, výběr partnera
 #Platný
 def vyber_evident_partner_kriteria():
     global vysledek_excel
-    global vysledek_mapa
+    global vyber_dat_vysledek
     vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_Kody_Mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
 
     vysledek_evidentApartner = hn.vyber_subjektu(vysledek_evident,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
@@ -383,7 +379,7 @@ def vyber_evident_partner_kriteria():
     vysledek = hn.vyber_kriterii(vysledek_evidentApartner,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
 
     vysledek_excel = vysledek
-    vysledek_mapa = vysledek
+    vyber_dat_vysledek = vysledek
     if not volby_sloupce:
         vysledek = vysledek.loc[:,volby_sloupce_univ]
     else: vysledek = vysledek.loc[:,volby_sloupce]
@@ -400,31 +396,33 @@ def vyber_evident_partner_kriteria():
 
 def grouping():
     global vysledek_excel
-    list_seskupeni = volby_seskupeni
-    vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_Kody_Mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
+    global vyber_dat_vysledek
+    if vyber_dat_vysledek is not None:
+        vysledek = vyber_dat_vysledek
+        list_seskupeni = volby_seskupeni
 
-    vysledek_evidentApartner = hn.vyber_subjektu(vysledek_evident,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
-
-    vysledek = hn.vyber_kriterii(vysledek_evidentApartner,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
-    if not volby_sloupce:
-        vysledek = vysledek.loc[:,volby_sloupce_univ]
-    else: vysledek = vysledek.loc[:,volby_sloupce]
-    if not list_seskupeni:
-        list_seskupeni = volby_seskupeni_univ
-    else: list_seskupeni = volby_seskupeni
-    if not vysledek.empty:
-        if 'ZmenaMnozstvi' in vysledek.columns:
-            #grouping
-            vysledek = hn.seskupeni_dat_seznam_sloupcu(vysledek,['ZmenaMnozstvi','Pocet_Obyvatel'],list_seskupeni)
-            vysledek_excel = vysledek
-            vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
-            pocet_polozek = len(vysledek.index)
+        if not volby_sloupce:
+            vysledek = vysledek.loc[:,volby_sloupce_univ]
+        else: vysledek = vysledek.loc[:,volby_sloupce]
+        if not list_seskupeni:
+            list_seskupeni = volby_seskupeni_univ
+        else: list_seskupeni = volby_seskupeni
+        if not vysledek.empty:
+            if 'ZmenaMnozstvi' in vysledek.columns:
+                #grouping
+                vysledek = hn.seskupeni_dat_seznam_sloupcu(vysledek,['ZmenaMnozstvi','Pocet_Obyvatel'],list_seskupeni)
+                vysledek_excel = vysledek
+                vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+                pocet_polozek = len(vysledek.index)
+                text_widget.delete("1.0","end")
+                text_widget.insert("1.0",f"SESKUPENÍ DAT DLE 'ZmenaMnozstvi' ({pocet_polozek} položek):\n\n {vysledek.to_string(index=False, justify='right')}\n")
+        else:
             text_widget.delete("1.0","end")
-            text_widget.insert("1.0",f"SESKUPENÍ DAT DLE 'ZmenaMnozstvi' ({pocet_polozek} položek):\n\n {vysledek.to_string(index=False, justify='right')}\n")
+            text_widget.insert("1.0","Výběr nesplnil žádný záznam. \n")
     else:
-        text_widget.delete("1.0","end")
-        text_widget.insert("1.0","Výběr nesplnil žádný záznam. \n")
+        messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení.")
 
+        
 def perform_action():
     selected_func=funkce_combo.get()
     text_widget.delete('1.0','end')
@@ -571,7 +569,7 @@ bg = PhotoImage(file="green_forest.png")
 bg_label = Label(root,image=bg)
 bg_label.place (x=0, y=0, relwidth=1, relheight=1)
 
-# Vvytvoření frame
+# Vytvoření frame
 
 left_frame = Frame(root)
 left_frame.pack(side=LEFT,padx=20, pady=20)
