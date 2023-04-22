@@ -765,11 +765,11 @@ button1 = tk.Button(right_frame,text="Graf", command=graph_it)
 button1.grid(row=0, column=4, padx=20, pady=0)
 '''
 # Funkce
-saveXlsx_button = tk.Button(right_frame,text="Uložit do xlsx", command=save_to_xlsx)
-saveXlsx_button.grid(row=0, column=5, padx=20, pady=0)
+saveXlsx_button = tk.Button(right_frame,text="Uložit do xlsx", command=save_to_xlsx, width=15)
+saveXlsx_button.grid(row=1, column=4, padx=20, pady=0)
 # Funkce
 mapa = tk.Button(right_frame,text="Zobrazit mapu", command=show_map)
-mapa.grid(row=3, column=5, padx=20, pady=0)
+mapa.grid(row=1, column=6, padx=20, pady=0)
 
 # Proměnné pro radiobutton
 subjekt_radiobut_value = tkinter.StringVar()
@@ -780,9 +780,9 @@ uzemi_radiobut_value.set('1')
 
 # Vytvoření radiobuttons
 evident_radiobut = tkinter.Radiobutton(right_frame, text="Mapa evidentů", variable=subjekt_radiobut_value, value="1")
-evident_radiobut.grid(row=2, column=6, padx=20, pady=0)
+evident_radiobut.grid(row=3, column=6, padx=20, pady=0)
 partner_radiobut = tkinter.Radiobutton(right_frame, text="Mapa partnerů", variable=subjekt_radiobut_value, value="2")
-partner_radiobut.grid(row=3, column=6, padx=20, pady=0)
+partner_radiobut.grid(row=4, column=6, padx=20, pady=0)
 
 kraj_radiobut = tkinter.Radiobutton(right_frame, text="Úroveň krajů", variable=uzemi_radiobut_value, value="1")
 kraj_radiobut.grid(row=2, column=7, padx=20, pady=0)
@@ -795,7 +795,7 @@ ZUJ_radiobut.grid(row=4, column=7, padx=20, pady=0)
 sloupce_label= tk.Label(right_frame, text="Volba sloupců na výstup")
 sloupce_label.grid(row=0, column=2, padx=20, pady=0)
 options = hn.u_list_column_names
-sloupce_combo = ttk.Combobox(right_frame, value=options)
+sloupce_combo = ttk.Combobox(right_frame, value=options, width = 25)
 sloupce_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_sloupce(sloupce_combo.get()))
 sloupce_combo.current(0)
 sloupce_combo.grid(row=1, column=2,padx=20, pady=0)
@@ -804,7 +804,7 @@ sloupce_combo.grid(row=1, column=2,padx=20, pady=0)
 seskupit_label= tk.Label(right_frame, text="Sloupce k seskupení")
 seskupit_label.grid(row=2, column=2, padx=20, pady=0)
 options = hn.u_list_column_names
-seskupit_combo = ttk.Combobox(right_frame, value=options)
+seskupit_combo = ttk.Combobox(right_frame, value=options, width = 25)
 seskupit_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_seskupeni(seskupit_combo.get()))
 seskupit_combo.current(0)
 seskupit_combo.grid(row=3, column=2,padx=20, pady=0)
@@ -812,21 +812,21 @@ seskupit_combo.grid(row=3, column=2,padx=20, pady=0)
 
 # Talčítko pro výběr dat. Zavolá se funkce evident_partner_kriteria
 vyber_dat_stisknuto = False
-vyber_dat_button=tk.Button(right_frame, text="Výběr dat",command=vyber_dat, width=20)
+vyber_dat_button=tk.Button(right_frame, text="Výběr dat",command=vyber_dat, width=25)
 vyber_dat_button.grid(row=1, column=3, padx=20,pady=0)
 
 # Seznam funkcí
 funkce_label= tk.Label(right_frame, text="Funkce")
 funkce_label.grid(row=2, column=3, padx=20, pady=0)
 options = ['','Sumarizace','Výběr kritérií', 'Výběr dat evident','Výběr dat partner','Zjištění odlehlých hodnot','Výběr evident partner kritéria','Seskupení dat','Graf scatter']
-funkce_combo = ttk.Combobox(right_frame, value=options, state="disabled")
+funkce_combo = ttk.Combobox(right_frame, value=options, state="disabled", width=25)
 funkce_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_funkce(funkce_combo.get()))
 funkce_combo.current(0)
 funkce_combo.grid(row=3, column=3,padx=20, pady=0)
 
 # Talčítko pro spuštění funkce
-funkce_button=tk.Button(right_frame, text="Spuštění funkce", command=perform_action, width=20)
-funkce_button.grid(row=4, column=3, padx=20,pady=0)
+funkce_button=tk.Button(right_frame, text="Spuštění funkce", command=perform_action, width=15)
+funkce_button.grid(row=3, column=4, padx=20,pady=0)
 
 
 
