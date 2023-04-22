@@ -468,6 +468,11 @@ def aktivovat_vyber():
     global vyber_dat_stisknuto
     vyber_dat_stisknuto = True
     funkce_combo.configure(state='readonly')
+    saveXlsx_button.configure(state='normal')
+    mapa_button.configure(state='normal')
+    funkce_button.configure(state='normal')
+    
+
 
 def vyber_dat():
     aktivovat_vyber()
@@ -532,7 +537,12 @@ def vymazat_volby():
     kod_combo.current(0)
     druhOdpadu_combo.current(0)
     rok_combo.current(0)
+
     funkce_combo.configure(state="disabled")
+    saveXlsx_button.configure(state='disabled')
+    mapa_button.configure(state='disabled')
+    funkce_button.configure(state='disabled')
+
 
     
 
@@ -561,7 +571,7 @@ def graph_it():
     ax.set_ylabel("Počet obyvatel")
     plt.show()
 
-# Funkce pro uložení obsahu textového widgetu do CSV souboru
+# Funkce pro uložení obsahu textového widgetu do xlsx souboru
 def save_to_xlsx():
     global vysledek_excel
     if vysledek_excel is not None:
@@ -587,8 +597,6 @@ funkce_dict = {
     "Graf scatter": graph_it,
     
 }       
-
-
 
 root = Tk()
 root.title('Data o odpadech')
@@ -765,11 +773,11 @@ button1 = tk.Button(right_frame,text="Graf", command=graph_it)
 button1.grid(row=0, column=4, padx=20, pady=0)
 '''
 # Funkce
-saveXlsx_button = tk.Button(right_frame,text="Uložit do xlsx", command=save_to_xlsx, width=15)
+saveXlsx_button = tk.Button(right_frame,text="Uložit do xlsx",state="disabled", command=save_to_xlsx, width=15)
 saveXlsx_button.grid(row=1, column=4, padx=20, pady=0)
 # Funkce
-mapa = tk.Button(right_frame,text="Zobrazit mapu", command=show_map)
-mapa.grid(row=1, column=6, padx=20, pady=0)
+mapa_button = tk.Button(right_frame,text="Zobrazit mapu", state="disabled",command=show_map)
+mapa_button.grid(row=1, column=6, padx=20, pady=0)
 
 # Proměnné pro radiobutton
 subjekt_radiobut_value = tkinter.StringVar()
@@ -825,7 +833,7 @@ funkce_combo.current(0)
 funkce_combo.grid(row=3, column=3,padx=20, pady=0)
 
 # Talčítko pro spuštění funkce
-funkce_button=tk.Button(right_frame, text="Spuštění funkce", command=perform_action, width=15)
+funkce_button=tk.Button(right_frame, text="Spuštění funkce", state="disabled", command=perform_action, width=15)
 funkce_button.grid(row=3, column=4, padx=20,pady=0)
 
 
