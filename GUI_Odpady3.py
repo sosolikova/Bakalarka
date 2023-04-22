@@ -462,7 +462,16 @@ def perform_action():
     if selected_func in funkce_dict:
         funkce_dict[selected_func]()
     else:
-        text_widget.insert("end","Chybná volba funkce")
+        text_widget.insert("end","Nejprve vyberte data a poté vyberte funkci ze seznamu.")
+
+def aktivovat_vyber():
+    global vyber_dat_stisknuto
+    vyber_dat_stisknuto = True
+    funkce_combo.configure(state='readonly')
+
+def vyber_dat():
+    aktivovat_vyber()
+    vyber_evident_partner_kriteria()
 
 def vytisknout_volby():
     """Tato funkce se spustí po stisknutí tlačítka Uložit volby"""
@@ -523,6 +532,9 @@ def vymazat_volby():
     kod_combo.current(0)
     druhOdpadu_combo.current(0)
     rok_combo.current(0)
+    funkce_combo.configure(state="disabled")
+
+    
 
 def on_button_click():
     vysledek=hn.summary_stat_parametr(hn.Zdrojovy_Kody_Mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'ZmenaMnozstvi')
@@ -550,7 +562,7 @@ def graph_it():
     plt.show()
 
 # Funkce pro uložení obsahu textového widgetu do CSV souboru
-def save_to_csv():
+def save_to_xlsx():
     global vysledek_excel
     if vysledek_excel is not None:
         file_name = filedialog.asksaveasfilename(defaultextension='.xlsx')
@@ -559,6 +571,7 @@ def save_to_csv():
             messagebox.showinfo("Uloženo", "Data byla uložena do Excelu.")
     else:
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k uložení.")
+
 
 
 
@@ -711,7 +724,7 @@ partner_typSubjektu_combo.pack()
 
 # RIGHT frame (parametry)
 
-# Identifikátor
+# Indikátor
 indikator_label = tk.Label(right_frame, text="Indikátor")
 indikator_label.grid(row=0, column=0)
 options = hn.u_list_indikator
@@ -746,13 +759,14 @@ rok_combo.grid(row=3, column=1,padx=20, pady=0)
 
 
 
-
+'''
 # Funkce
 button1 = tk.Button(right_frame,text="Graf", command=graph_it)
 button1.grid(row=0, column=4, padx=20, pady=0)
+'''
 # Funkce
-button2 = tk.Button(right_frame,text="Uložit do csv", command=save_to_csv)
-button2.grid(row=0, column=5, padx=20, pady=0)
+saveXlsx_button = tk.Button(right_frame,text="Uložit do xlsx", command=save_to_xlsx)
+saveXlsx_button.grid(row=0, column=5, padx=20, pady=0)
 # Funkce
 mapa = tk.Button(right_frame,text="Zobrazit mapu", command=show_map)
 mapa.grid(row=3, column=5, padx=20, pady=0)
@@ -796,18 +810,24 @@ seskupit_combo.current(0)
 seskupit_combo.grid(row=3, column=2,padx=20, pady=0)
 
 
+# Talčítko pro výběr dat. Zavolá se funkce evident_partner_kriteria
+vyber_dat_stisknuto = False
+vyber_dat_button=tk.Button(right_frame, text="Výběr dat",command=vyber_dat, width=20)
+vyber_dat_button.grid(row=1, column=3, padx=20,pady=0)
+
 # Seznam funkcí
 funkce_label= tk.Label(right_frame, text="Funkce")
-funkce_label.grid(row=0, column=3, padx=20, pady=0)
+funkce_label.grid(row=2, column=3, padx=20, pady=0)
 options = ['','Sumarizace','Výběr kritérií', 'Výběr dat evident','Výběr dat partner','Zjištění odlehlých hodnot','Výběr evident partner kritéria','Seskupení dat','Graf scatter']
-funkce_combo = ttk.Combobox(right_frame, value=options)
+funkce_combo = ttk.Combobox(right_frame, value=options, state="disabled")
 funkce_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_funkce(funkce_combo.get()))
 funkce_combo.current(0)
-funkce_combo.grid(row=1, column=3,padx=20, pady=0)
+funkce_combo.grid(row=3, column=3,padx=20, pady=0)
 
 # Talčítko pro spuštění funkce
-funkce_button=tk.Button(right_frame, text="Spuštění funkce", command=perform_action)
-funkce_button.grid(row=3, column=3, padx=20,pady=0)
+funkce_button=tk.Button(right_frame, text="Spuštění funkce", command=perform_action, width=20)
+funkce_button.grid(row=4, column=3, padx=20,pady=0)
+
 
 
 # Vytvoření Text Widget a Scroollbar
