@@ -394,7 +394,7 @@ def vyber_evident_partner_kriteria():
         text_widget.delete("1.0","end")
         text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")        
 
-def grouping():
+def seskupeni_dat():
     global vysledek_excel
     global vyber_dat_vysledek
     if vyber_dat_vysledek is not None:
@@ -422,15 +422,14 @@ def grouping():
     else:
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení.")
 
-        
-def perform_action():
-    selected_func=funkce_combo.get()
+
+def vykonat_funkci():
+    vybrana_funkce=funkce_combo.get()
     text_widget.delete('1.0','end')
-    text_widget.insert("end",f"Vybrána funkce: {selected_func.upper()}\n")
-    # tady umístit kód pro spuštění vybrané funkce
-        # kontrolujeme, zda klíč existuje ve slovníku a voláme příslušnou funkci
-    if selected_func in funkce_dict:
-        funkce_dict[selected_func]()
+    text_widget.insert("end",f"Vybrána funkce: {vybrana_funkce.upper()}\n")
+
+    if vybrana_funkce in funkce_dict:
+        funkce_dict[vybrana_funkce]()
     else:
         text_widget.insert("end","Nejprve vyberte data a poté vyberte funkci ze seznamu.")
 
@@ -555,7 +554,7 @@ funkce_dict = {
     "Výběr dat partner": vyber_dat_partner,
     "Zjištění odlehlých hodnot": odlehle_hodnoty,
     "Výběr evident partner kritéria": vyber_evident_partner_kriteria,
-    "Seskupení dat": grouping,
+    "Seskupení dat": seskupeni_dat,
     "Graf scatter": graph_it,
     
 }       
@@ -795,7 +794,7 @@ funkce_combo.current(0)
 funkce_combo.grid(row=3, column=3,padx=20, pady=0)
 
 # Talčítko pro spuštění funkce
-funkce_button=tk.Button(right_frame, text="Spuštění funkce", state="disabled", command=perform_action, width=15)
+funkce_button=tk.Button(right_frame, text="Spuštění funkce", state="disabled", command=vykonat_funkci, width=15)
 funkce_button.grid(row=3, column=4, padx=20,pady=0)
 
 
