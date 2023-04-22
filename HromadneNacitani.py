@@ -341,37 +341,6 @@ def create_area_list(df,column_high,column_low):
 list_kraj_orp = create_area_list(LexikonObci,'Evident_Kraj_Nazev','Evident_ORP_Nazev')
 list_orp_zuj = create_area_list(LexikonObci,'Evident_ORP_Nazev','Evident_ZUJ_Nazev')
 
-#list_orp_zuj
-'''
-indikator_select = Zdrojovy_Kody_Mnozstvi[Zdrojovy_Kody_Mnozstvi['Kod'] == 'XD1']
-print('_____indikator select __________')
-print(indikator_select)
-indikator_select['ZmenaMnozstvi'].hist(bins=30)
-plt.show()
-'''
-'''
-def vyber_subjektu(df,column1,volby1,column2,volby2,column3,volby3,column4,volby4):
-    vysledek = df[((df[column1].isin(volby1)) | (df[column2].isin(volby2)) | (df[column3].isin(volby3)))&(df[column4].isin(volby4))]
-    return vysledek
-'''
-'''
-def vyber_subjektu(df, column1, volby1, column2, volby2, column3, volby3, column4, volby4) :
-    print(volby1)
-    print(volby4)
-    if (volby1 == [] or volby1 == ['-all-']) and (volby4 == [] or volby4 == ['-all-']):
-        print('kraje vse, typy vse')
-        if (volby2 == [] or volby2 == ['-all-']) and (volby3 == [] or volby3 == ['-all-']): vysledek = df
-        else:
-          vysledek = df[( (df[column2].isin(volby2)) | (df[column3].isin(volby3)))]
-    elif (volby1 == [] or volby1 == ['-all-']):
-        print('kraj vse, typ vyber')
-        vysledek = df[((df[column2].isin(volby2)) | (df[column3].isin(volby3)))&(df[column4].isin(volby4))]
-    else:
-        vysledek = df[((df[column1].isin(volby1)) | (df[column2].isin(volby2)) | (df[column3].isin(volby3)))&(df[column4].isin(volby4))]
-        print('kraje vyber, typ vyber')
-        
-    return vysledek
-'''
 
 #Funguje
 def vyber_subjektu(df, column1, volby1, column2, volby2, column3, volby3, column4, volby4) :
@@ -411,31 +380,3 @@ def vyber_kriterii(df, column1, volby1, column2, volby2, column3, volby3, column
     vysledek = df[((df[column1].isin(volby1)) | (df[column2].isin(volby2))) & (df[column3].isin(volby3)) & (df[column4].isin(volby4))]
         
     return vysledek
-
-
-
-'''
-def vyber_kriterii(df,column1,volby1,column2,volby2,column3,volby3,column4,volby4):
-    try:
-        if "-all-" in volby1:
-            volby1 = unique_list(df,column1)
-    except TypeError:
-        pass
-    try:
-        if "-all-" in volby2:
-            volby2 = unique_list(df,column2)
-    except TypeError:
-        pass
-    try:
-        if "-all-" in volby3:
-            volby3 = unique_list(df,column3)
-    except TypeError:
-        pass
-    try:
-      if "-all-" in volby4:
-            volby4 = unique_list(df,column4)
-    except TypeError:
-        pass
-    vysledek=df[(df[column1].isin(volby1)) & (df[column2].isin(volby2)) & ((df[column3].isin(volby3)) | (df[column4].isin(volby4)))]
-    return vysledek
-'''

@@ -531,7 +531,7 @@ def on_button_click():
 
 
     
-
+ 
 def graph_it():
     vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_Kody_Mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
 
@@ -539,7 +539,7 @@ def graph_it():
     
     vysledek = hn.vyber_kriterii(vysledek_evidentApartner,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
 
-    fig,ax = plt.subplots()
+    fig,ax = plt.subplots()  
     colors = ['red', 'blue', 'green', 'orange'] #seznam barev pro scatter grafy
     for i,odpad in enumerate(volby_druhOdpadu):
         data = vysledek[vysledek['Druh_Odpadu'] == odpad]
