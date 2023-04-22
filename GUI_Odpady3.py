@@ -21,8 +21,6 @@ import csv
 import locale
 locale.setlocale(locale.LC_ALL, '')
 
-#vysledek_excel = None
-
 volby_indikator = []
 volby_kod = []
 volby_rok = []
@@ -104,7 +102,6 @@ def handle_seskupeni(selection):
 
 def handle_funkce(selection):
     volby_funkce.append(selection)
-    #text_widget.delete('1.0','end')
     text_widget.insert('1.0', f"Vybraný výpočet: {selection}\n")
 
 def show_map():
@@ -243,7 +240,7 @@ def show_map():
     else:
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení v mapě.")
 
-def funkce1():
+def sumarizace():
     global vysledek_excel
     vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_Kody_Mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)     
   
@@ -267,23 +264,7 @@ def funkce1():
         text_widget.delete("1.0","end")
         text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")  
 
-'''   
-#Platný (fungoval správně)
-def vyber_dat_evident():
-    vysledek = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
-    if not volby_sloupce:
-        vysledek = vysledek.loc[:,volby_sloupce_univ]
-    else: vysledek = vysledek.loc[:,volby_sloupce]
-    if not vysledek.empty:
-        if 'ZmenaMnozstvi' in vysledek.columns:
-            vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
-        pocet_polozek = len(vysledek.index)
-        text_widget.delete("1.0","end")
-        text_widget.insert("1.0",f"VÝPIS DAT EVIDENTA DLE VÝBĚRU MÍSTA({pocet_polozek} položek):\n\n {vysledek.to_string(index=False, justify='left')}\n")
-    else:
-        text_widget.delete("1.0","end")
-        text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")        
-''' 
+
 #Zkouška pro ukládání do xlsx
 def vyber_dat_evident():
     global vysledek_excel
@@ -341,15 +322,6 @@ def vyber_kriterii():
         text_widget.delete("1.0","end")
         text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")  
     
-#původní
-def vyber_kriterii_puvodni():
-    vysledek = hn.vyber_kriterii(hn.Zdrojovy_Kody_Mnozstvi,'Rok',volby_rok,'Druh_Odpadu',volby_druhOdpadu,'Indikator',volby_indikator,'Kod',volby_kod)
-    vysledek = vysledek.loc[:,['Evident_Kraj_Nazev','Evident_ORP_Nazev','Evident_ZUJ_Nazev','Indikator','Kod','ZmenaMnozstvi','Druh_Odpadu','Rok']]
-    vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
-    vysledek=vysledek.sort_values(['Rok','Druh_Odpadu','Kod'])
-    pocet_polozek = len(vysledek.index)
-    text_widget.insert("1.0","end")
-    text_widget.insert(END, f"\n\nVÝPIS DAT DLE VÝBĚRU KRITÉRIÍ ({pocet_polozek} položek):\n {vysledek.to_string(index=False, justify='left')}\n")
 
 # Přepsáno na test odlehlé hodnoty
 def odlehle_hodnoty():
@@ -545,14 +517,6 @@ def vymazat_volby():
 
 
     
-
-def on_button_click():
-    vysledek=hn.summary_stat_parametr(hn.Zdrojovy_Kody_Mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'ZmenaMnozstvi')
-    text_widget.delete("1.0","end")
-    text_widget.insert("1.0",vysledek)
-
-
-    
  
 def graph_it():
     vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_Kody_Mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
@@ -587,7 +551,7 @@ def save_to_xlsx():
 
 # Slovník, kde klíče jsou názvy funkcí a hodnoty jsou samotné funkce
 funkce_dict = {
-    "Sumarizace": funkce1,
+    "Sumarizace": sumarizace,
     "Výběr kritérií": vyber_kriterii,
     "Výběr dat evident": vyber_dat_evident,
     "Výběr dat partner": vyber_dat_partner,
