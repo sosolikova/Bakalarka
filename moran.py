@@ -4,8 +4,8 @@ from scipy.spatial.distance import pdist, squareform
 import HromadneNacitani as hn
 
 # ziskani df s vyfiltrovanými údaji pro Indikator 'Produkce' a použita funkce sum za jednotlivé kraje
-indikator_map_zuj = hn.Zdrojovy_kody_mnozstvi[(hn.Zdrojovy_kody_mnozstvi['Indikator'] == 'Produkce') & (hn.Zdrojovy_kody_mnozstvi['Druh_Odpadu'] == '200111')]
-zuj_produkce = hn.group_data_by_columns(indikator_map_zuj,'ZmenaMnozstvi','Evident_ZUJ_Cislo','Indikator')
+indikator_map_zuj = hn.Zdrojovy_Kody_Mnozstvi[(hn.Zdrojovy_Kody_Mnozstvi['Indikator'] == 'Produkce') & (hn.Zdrojovy_Kody_Mnozstvi['Druh_Odpadu'] == '200111')]
+zuj_produkce = hn.seskupeni_dat_po_sloupcich(indikator_map_zuj,'ZmenaMnozstvi','Evident_ZUJ_Cislo','Indikator')
 
 print('nacteni odpadu')
 # otevření souboru s geografickými daty o obcích

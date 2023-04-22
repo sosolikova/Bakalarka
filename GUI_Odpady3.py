@@ -135,7 +135,7 @@ def show_map():
 
         nazev_sloupce = f'{subjekt}_{uzemi}'
             
-        mapa_data = hn.group_data_by_columns(vysledek_mapa,'ZmenaMnozstvi',nazev_sloupce,'Indikator')
+        mapa_data = hn.seskupeni_dat_po_sloupcich(vysledek_mapa,'ZmenaMnozstvi',nazev_sloupce,'Indikator')
         mapa_data['ZmenaMnozstvi'] = mapa_data['ZmenaMnozstvi'].abs()
 
         #Sloučení df kraje_produkce s geometrickým df podle názvu kraje
@@ -175,14 +175,14 @@ def show_map():
         if pocet_odlehlych_hodnot > 0:
             text_odlehle_hodnoty = 'Černě jsou zvýrazněny\n odlehlé hodnoty nad {} kg'
         else: text_odlehle_hodnoty = ''
-        for index, row in gdf_merged.iterrows():
-          plt.annotate(text=row['NAZEV'], 
-                  xy=row['geometry'].centroid.coords[0], 
-                  horizontalalignment='center',
-                  color='black',
-                  fontsize=5)
-
-
+        # popisky názvů míst nezobrazovat na úrovni ZÚJ
+        if uzemi_radiobut_value.get() != '3':
+            for index, row in gdf_merged.iterrows():
+              plt.annotate(text=row['NAZEV'], 
+                      xy=row['geometry'].centroid.coords[0], 
+                      horizontalalignment='center',
+                      color='black',
+                      fontsize=5)
 
         # Přidání textu s hodnotou vmax
         formatted_upper_bound = '{:,.0f}'.format(upper_bound).replace(',', ' ')
@@ -245,7 +245,7 @@ def show_map():
 
 def funkce1():
     global vysledek_excel
-    vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)     
+    vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_Kody_Mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)     
   
     vysledek_evidentApartner = hn.vyber_subjektu(vysledek_evident,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
 
@@ -287,7 +287,7 @@ def vyber_dat_evident():
 #Zkouška pro ukládání do xlsx
 def vyber_dat_evident():
     global vysledek_excel
-    vysledek = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
+    vysledek = hn.vyber_subjektu(hn.Zdrojovy_Kody_Mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
     vysledek_excel = vysledek
     if not volby_sloupce:
         vysledek = vysledek.loc[:,volby_sloupce_univ]
@@ -309,7 +309,7 @@ def vyber_dat_evident():
 # platný    
 def vyber_dat_partner():
     global vysledek_excel
-    vysledek = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
+    vysledek = hn.vyber_subjektu(hn.Zdrojovy_Kody_Mnozstvi,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
     vysledek_excel = vysledek
     if not volby_sloupce:
         vysledek = vysledek.loc[:,volby_sloupce_univ]
@@ -326,7 +326,7 @@ def vyber_dat_partner():
 #Platný
 def vyber_kriterii():
     global vysledek_excel
-    vysledek = hn.vyber_kriterii(hn.Zdrojovy_kody_mnozstvi,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
+    vysledek = hn.vyber_kriterii(hn.Zdrojovy_Kody_Mnozstvi,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
     vysledek_excel = vysledek
     if not volby_sloupce:
         vysledek = vysledek.loc[:,volby_sloupce_univ]
@@ -343,7 +343,7 @@ def vyber_kriterii():
     
 #původní
 def vyber_kriterii_puvodni():
-    vysledek = hn.vyber_kriterii(hn.Zdrojovy_kody_mnozstvi,'Rok',volby_rok,'Druh_Odpadu',volby_druhOdpadu,'Indikator',volby_indikator,'Kod',volby_kod)
+    vysledek = hn.vyber_kriterii(hn.Zdrojovy_Kody_Mnozstvi,'Rok',volby_rok,'Druh_Odpadu',volby_druhOdpadu,'Indikator',volby_indikator,'Kod',volby_kod)
     vysledek = vysledek.loc[:,['Evident_Kraj_Nazev','Evident_ORP_Nazev','Evident_ZUJ_Nazev','Indikator','Kod','ZmenaMnozstvi','Druh_Odpadu','Rok']]
     vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
     vysledek=vysledek.sort_values(['Rok','Druh_Odpadu','Kod'])
@@ -354,7 +354,7 @@ def vyber_kriterii_puvodni():
 # Přepsáno na test odlehlé hodnoty
 def odlehle_hodnoty():
     global vysledek_excel
-    vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
+    vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_Kody_Mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
 
     vysledek_evidentApartner = hn.vyber_subjektu(vysledek_evident,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
 
@@ -404,7 +404,7 @@ def odlehle_hodnoty():
 def vyber_evident_partner_kriteria():
     global vysledek_excel
     global vysledek_mapa
-    vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
+    vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_Kody_Mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
 
     vysledek_evidentApartner = hn.vyber_subjektu(vysledek_evident,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
 
@@ -429,7 +429,7 @@ def vyber_evident_partner_kriteria():
 def grouping():
     global vysledek_excel
     list_seskupeni = volby_seskupeni
-    vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
+    vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_Kody_Mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
 
     vysledek_evidentApartner = hn.vyber_subjektu(vysledek_evident,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
 
@@ -443,7 +443,7 @@ def grouping():
     if not vysledek.empty:
         if 'ZmenaMnozstvi' in vysledek.columns:
             #grouping
-            vysledek = hn.group_data_by_columns_list(vysledek,['ZmenaMnozstvi','Pocet_Obyvatel'],list_seskupeni)
+            vysledek = hn.seskupeni_dat_seznam_sloupcu(vysledek,['ZmenaMnozstvi','Pocet_Obyvatel'],list_seskupeni)
             vysledek_excel = vysledek
             vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
             pocet_polozek = len(vysledek.index)
@@ -525,7 +525,7 @@ def vymazat_volby():
     rok_combo.current(0)
 
 def on_button_click():
-    vysledek=hn.summary_stat_parametr(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'ZmenaMnozstvi')
+    vysledek=hn.summary_stat_parametr(hn.Zdrojovy_Kody_Mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'ZmenaMnozstvi')
     text_widget.delete("1.0","end")
     text_widget.insert("1.0",vysledek)
 
@@ -533,7 +533,7 @@ def on_button_click():
     
 
 def graph_it():
-    vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_kody_mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
+    vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_Kody_Mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
 
     vysledek_evidentApartner = hn.vyber_subjektu(vysledek_evident,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
     

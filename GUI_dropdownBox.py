@@ -105,7 +105,7 @@ def on_button_click():
         funkce1()
 
 def funkce1():
-    vysledek = hn.summary_stat_parametr(hn.Zdrojovy_kody_mnozstvi,'Indikator',indikator_combo.get(),'ZmenaMnozstvi')
+    vysledek = hn.summary_stat_parametr(hn.Zdrojovy_Kody_Mnozstvi,'Indikator',indikator_combo.get(),'ZmenaMnozstvi')
     text_widget.delete("1.0","end")
     text_widget.insert("1.0", vysledek)
   
@@ -115,12 +115,12 @@ def funkce2():
     text_widget.insert("1.0", vysledek)
     
 def funkce3():
-    vysledek = hn.summary_stat(hn.Zdrojovy_kody_mnozstvi,'Indikator','ZmenaMnozstvi')
+    vysledek = hn.summary_stat(hn.Zdrojovy_Kody_Mnozstvi,'Indikator','ZmenaMnozstvi')
     text_widget.delete("1.0","end")
     text_widget.insert("1.0", vysledek)
 
 def graph():
-    indikator_select = hn.Zdrojovy_kody_mnozstvi[hn.Zdrojovy_kody_mnozstvi['Indikator'] == indikator_combo.get()]
+    indikator_select = hn.Zdrojovy_Kody_Mnozstvi[hn.Zdrojovy_Kody_Mnozstvi['Indikator'] == indikator_combo.get()]
     indikator_select['ZmenaMnozstvi'].hist(bins=30)
     plt.show()
 

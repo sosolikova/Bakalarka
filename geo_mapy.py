@@ -9,8 +9,8 @@ import Funkce
 import plotly.express as px
 
 # ziskani df s vyfiltrovanými údaji pro Indikator 'Produkce' a použita funkce sum za jednotlivé kraje
-indikator_map_kraje = hn.Zdrojovy_kody_mnozstvi[(hn.Zdrojovy_kody_mnozstvi['Indikator'] == 'Produkce') & (hn.Zdrojovy_kody_mnozstvi['Druh_Odpadu'] == '200111')]
-kraje_produkce = hn.group_data_by_columns(indikator_map_kraje,'ZmenaMnozstvi','Evident_Kraj_Nazev','Indikator')
+indikator_map_kraje = hn.Zdrojovy_Kody_Mnozstvi[(hn.Zdrojovy_Kody_Mnozstvi['Indikator'] == 'Produkce') & (hn.Zdrojovy_Kody_Mnozstvi['Druh_Odpadu'] == '200111')]
+kraje_produkce = hn.seskupeni_dat_po_sloupcich(indikator_map_kraje,'ZmenaMnozstvi','Evident_Kraj_Nazev','Indikator')
 print('___----indikator-map - kraje_produkce ___________')
 print(kraje_produkce.head)
 
@@ -24,8 +24,8 @@ print(orp_produkce.head)
 '''
 
 # obce
-indikator_map_obce = hn.Zdrojovy_kody_mnozstvi[(hn.Zdrojovy_kody_mnozstvi['Indikator'] == 'Produkce') & (hn.Zdrojovy_kody_mnozstvi['Druh_Odpadu'] == '200110')]
-obce_produkce = hn.group_data_by_columns(indikator_map_obce,'ZmenaMnozstvi','Evident_ZUJ_Nazev','Indikator')
+indikator_map_obce = hn.Zdrojovy_Kody_Mnozstvi[(hn.Zdrojovy_Kody_Mnozstvi['Indikator'] == 'Produkce') & (hn.Zdrojovy_Kody_Mnozstvi['Druh_Odpadu'] == '200110')]
+obce_produkce = hn.seskupeni_dat_po_sloupcich(indikator_map_obce,'ZmenaMnozstvi','Evident_ZUJ_Nazev','Indikator')
 print('___----indikator-map - obce_produkce ___________')
 print(obce_produkce.head)
 

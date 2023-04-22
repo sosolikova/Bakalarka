@@ -4,8 +4,8 @@ import plotly.express as px
 import HromadneNacitani as hn
 
 # nahrání dat
-indikator_map_kraje = hn.Zdrojovy_kody_mnozstvi[(hn.Zdrojovy_kody_mnozstvi['Indikator'] == 'Produkce') & (hn.Zdrojovy_kody_mnozstvi['Druh_Odpadu'] == '200111')]
-kraje_produkce = hn.group_data_by_columns(indikator_map_kraje,'ZmenaMnozstvi','Evident_Kraj_Nazev','Indikator')
+indikator_map_kraje = hn.Zdrojovy_Kody_Mnozstvi[(hn.Zdrojovy_Kody_Mnozstvi['Indikator'] == 'Produkce') & (hn.Zdrojovy_Kody_Mnozstvi['Druh_Odpadu'] == '200111')]
+kraje_produkce = hn.seskupeni_dat_po_sloupcich(indikator_map_kraje,'ZmenaMnozstvi','Evident_Kraj_Nazev','Indikator')
 
 # načtení geometrie pro kraje
 kraje_geojson = json.load(open('kraje-simple.json', 'r', encoding='utf-8'))

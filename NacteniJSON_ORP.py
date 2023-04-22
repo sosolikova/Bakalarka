@@ -6,8 +6,8 @@ import HromadneNacitani as hn
 import mplcursors
 
 # ziskani df s vyfiltrovanými údaji pro Indikator 'Produkce' a použita funkce sum za jednotlivé kraje
-indikator_map_orp = hn.Zdrojovy_kody_mnozstvi[(hn.Zdrojovy_kody_mnozstvi['Indikator'] == 'Produkce') & (hn.Zdrojovy_kody_mnozstvi['Druh_Odpadu'] == '200111')]
-orp_produkce = hn.group_data_by_columns(indikator_map_orp,'ZmenaMnozstvi','Evident_ZUJ_Cislo','Indikator')
+indikator_map_orp = hn.Zdrojovy_Kody_Mnozstvi[(hn.Zdrojovy_Kody_Mnozstvi['Indikator'] == 'Produkce') & (hn.Zdrojovy_Kody_Mnozstvi['Druh_Odpadu'] == '200111')]
+orp_produkce = hn.seskupeni_dat_po_sloupcich(indikator_map_orp,'ZmenaMnozstvi','Evident_ZUJ_Cislo','Indikator')
 print('___----indikator-map - orp_produkce ___________')
 print(orp_produkce.head)
 
