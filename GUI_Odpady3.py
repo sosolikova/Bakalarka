@@ -422,7 +422,23 @@ def seskupeni_dat():
     else:
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení.")
 
+def graf_bodovyDiagram():
+    global vyber_dat_vysledek
+    if vyber_dat_vysledek is not None:
+        vysledek = vyber_dat_vysledek
 
+        fig,ax = plt.subplots()  
+        colors = ['red', 'blue', 'green', 'orange', 'yellow'] #seznam barev pro scatter grafy
+        for i,odpad in enumerate(volby_druhOdpadu):
+            data = vysledek[vysledek['Druh_Odpadu'] == odpad]
+            ax.scatter(data['ZmenaMnozstvi'],data['Pocet_Obyvatel'],color=colors[i],label=odpad)
+        ax.legend()
+        ax.set_xlabel("Množství odpadu v kg")
+        ax.set_ylabel("Počet obyvatel")
+        plt.show()
+    else:
+            messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení.")
+            
 def vykonat_funkci():
     vybrana_funkce=funkce_combo.get()
     text_widget.delete('1.0','end')
@@ -441,8 +457,6 @@ def aktivovat_vyber():
     mapa_button.configure(state='normal')
     funkce_button.configure(state='normal')
     
-
-
 def vyber_dat():
     aktivovat_vyber()
     vyber_evident_partner_kriteria()
@@ -515,22 +529,7 @@ def vymazat_volby():
 
     
  
-def graph_it():
-    vysledek_evident = hn.vyber_subjektu(hn.Zdrojovy_Kody_Mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
 
-    vysledek_evidentApartner = hn.vyber_subjektu(vysledek_evident,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
-    
-    vysledek = hn.vyber_kriterii(vysledek_evidentApartner,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
-
-    fig,ax = plt.subplots()  
-    colors = ['red', 'blue', 'green', 'orange'] #seznam barev pro scatter grafy
-    for i,odpad in enumerate(volby_druhOdpadu):
-        data = vysledek[vysledek['Druh_Odpadu'] == odpad]
-        ax.scatter(data['ZmenaMnozstvi'],data['Pocet_Obyvatel'],color=colors[i],label=odpad)
-    ax.legend()
-    ax.set_xlabel("Množství odpadu v kg")
-    ax.set_ylabel("Počet obyvatel")
-    plt.show()
 
 # Funkce pro uložení obsahu textového widgetu do xlsx souboru
 def save_to_xlsx():
@@ -544,8 +543,6 @@ def save_to_xlsx():
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k uložení.")
 
 
-
-
 # Slovník, kde klíče jsou názvy funkcí a hodnoty jsou samotné funkce
 funkce_dict = {
     "Sumarizace": sumarizace,
@@ -555,7 +552,7 @@ funkce_dict = {
     "Zjištění odlehlých hodnot": odlehle_hodnoty,
     "Výběr evident partner kritéria": vyber_evident_partner_kriteria,
     "Seskupení dat": seskupeni_dat,
-    "Graf scatter": graph_it,
+    "Graf scatter": graf_bodovyDiagram,
     
 }       
 
