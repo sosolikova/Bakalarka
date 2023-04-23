@@ -263,65 +263,6 @@ def sumarizace():
     else:
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení.")
 
-
-#Zkouška pro ukládání do xlsx
-def vyber_dat_evident():
-    global vysledek_excel
-    vysledek = hn.vyber_subjektu(hn.Zdrojovy_Kody_Mnozstvi,'Evident_Kraj_Nazev',volby_evident_kraj,'Evident_ORP_Nazev',volby_evident_ORP,'Evident_ZUJ_Nazev',volby_evident_nazev,'Evident_TypSubjektu',volby_evident_typ)
-    vysledek_excel = vysledek
-    if not volby_sloupce:
-        vysledek = vysledek.loc[:,volby_sloupce_univ]
-    else: vysledek = vysledek.loc[:,volby_sloupce]
-    if not vysledek.empty:
-        if 'ZmenaMnozstvi' in vysledek.columns:
-            vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
-        pocet_polozek = len(vysledek.index)
-        text_widget.delete("1.0","end")
-        text_widget.insert("1.0",f"VÝPIS DAT EVIDENTA DLE VÝBĚRU MÍSTA({pocet_polozek} položek):\n\n {vysledek.to_string(index=False, justify='left')}\n")
-        
-    else:
-        text_widget.delete("1.0","end")
-        text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")
-
-
-
-
-# platný    
-def vyber_dat_partner():
-    global vysledek_excel
-    vysledek = hn.vyber_subjektu(hn.Zdrojovy_Kody_Mnozstvi,'Partner_Kraj_Nazev',volby_partner_kraj,'Partner_ORP_Nazev',volby_partner_ORP,'Partner_ZUJ_Nazev',volby_partner_nazev,'Partner_TypSubjektu',volby_partner_typ)
-    vysledek_excel = vysledek
-    if not volby_sloupce:
-        vysledek = vysledek.loc[:,volby_sloupce_univ]
-    else: vysledek = vysledek.loc[:,volby_sloupce]
-    if not vysledek.empty:
-        if 'ZmenaMnozstvi' in vysledek.columns:
-            vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
-        pocet_polozek = len(vysledek.index)
-        text_widget.insert("1.0","end")
-        text_widget.insert("1.0",f"VÝPIS DAT PARTNERA DLE VÝBĚRU MÍSTA({pocet_polozek} položek):\n\n {vysledek.to_string(index=False, justify='left')}\n")
-    else:
-        text_widget.delete("1.0","end")
-        text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")    
-#Platný
-def vyber_kriterii():
-    global vysledek_excel
-    vysledek = hn.vyber_kriterii(hn.Zdrojovy_Kody_Mnozstvi,'Indikator',volby_indikator,'Kod',volby_kod,'Druh_Odpadu',volby_druhOdpadu,'Rok',volby_rok)
-    vysledek_excel = vysledek
-    if not volby_sloupce:
-        vysledek = vysledek.loc[:,volby_sloupce_univ]
-    else: vysledek = vysledek.loc[:,volby_sloupce]
-    if not vysledek.empty:
-        if 'ZmenaMnozstvi' in vysledek.columns:
-            vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
-        pocet_polozek = len(vysledek.index)
-        text_widget.delete("1.0","end")
-        text_widget.insert("1.0",f"VÝPIS DAT DLE VÝBĚRU KRITÉRIÍ ({pocet_polozek} položek):\n {vysledek.to_string(index=False, justify='right')}\n")
-    else:
-        text_widget.delete("1.0","end")
-        text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")  
-    
-
 # Test odlehlé hodnoty
 def odlehle_hodnoty():
     global vysledek_excel
@@ -422,7 +363,7 @@ def seskupeni_dat():
     else:
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení.")
 
-def graf_bodovyDiagram():
+def graf_xyBodovy():
     global vyber_dat_vysledek
     if vyber_dat_vysledek is not None:
         vysledek = vyber_dat_vysledek
@@ -438,7 +379,7 @@ def graf_bodovyDiagram():
         plt.show()
     else:
             messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení.")
-            
+
 def vykonat_funkci():
     vybrana_funkce=funkce_combo.get()
     text_widget.delete('1.0','end')
@@ -527,9 +468,6 @@ def vymazat_volby():
     funkce_button.configure(state='disabled')
 
 
-    
- 
-
 
 # Funkce pro uložení obsahu textového widgetu do xlsx souboru
 def save_to_xlsx():
@@ -546,13 +484,9 @@ def save_to_xlsx():
 # Slovník, kde klíče jsou názvy funkcí a hodnoty jsou samotné funkce
 funkce_dict = {
     "Sumarizace": sumarizace,
-    "Výběr kritérií": vyber_kriterii,
-    "Výběr dat evident": vyber_dat_evident,
-    "Výběr dat partner": vyber_dat_partner,
     "Zjištění odlehlých hodnot": odlehle_hodnoty,
-    "Výběr evident partner kritéria": vyber_evident_partner_kriteria,
     "Seskupení dat": seskupeni_dat,
-    "Graf scatter": graf_bodovyDiagram,
+    "Graf scatter": graf_xyBodovy,
     
 }       
 
@@ -573,18 +507,8 @@ left_frame.pack(side=LEFT,padx=20, pady=20)
 right_frame = Frame(root)
 right_frame.pack(side=TOP, padx=20, pady=20)
 
-# Vytvoření prvků pro výběr parametrů
-'''
-parametry_frame = tk.LabelFrame(right_frame, text= "Výběr parametrů")
-parametry_frame.pack(side=tk.TOP, expand=True)
-'''
 
 # Vytvoření frame pro Evident a Partner
-'''
-funkcni_frame = tk.LabelFrame(left_frame, padx=40, pady=30)
-funkcni_frame.configure(borderwidth=0, highlightthickness=0)
-funkcni_frame.pack(side=tk.TOP, expand=True)
-'''
 funkcni_frame = tk.LabelFrame(left_frame, padx=10, pady=10)
 funkcni_frame.configure(borderwidth=0, highlightthickness=0)
 funkcni_frame.pack(side=tk.TOP, pady=(20, 0))
@@ -682,12 +606,6 @@ partner_typSubjektu_combo.pack()
 
 
 
-
-
-
-
-
-
 # RIGHT frame (parametry)
 
 # Indikátor
@@ -724,12 +642,42 @@ rok_combo.current(0)
 rok_combo.grid(row=3, column=1,padx=20, pady=0)
 
 
+# Volba sloupečků pro zobrazení ve výstupu
+sloupce_label= tk.Label(right_frame, text="Volba sloupců na výstup")
+sloupce_label.grid(row=0, column=2, padx=20, pady=0)
+options = hn.u_list_column_names
+sloupce_combo = ttk.Combobox(right_frame, value=options, width = 25)
+sloupce_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_sloupce(sloupce_combo.get()))
+sloupce_combo.current(0)
+sloupce_combo.grid(row=1, column=2,padx=20, pady=0)
 
-'''
-# Funkce
-button1 = tk.Button(right_frame,text="Graf", command=graph_it)
-button1.grid(row=0, column=4, padx=20, pady=0)
-'''
+# Volba sloupečků podle kterých seskupovat
+seskupit_label= tk.Label(right_frame, text="Sloupce k seskupení")
+seskupit_label.grid(row=2, column=2, padx=20, pady=0)
+options = hn.u_list_column_names
+seskupit_combo = ttk.Combobox(right_frame, value=options, width = 25)
+seskupit_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_seskupeni(seskupit_combo.get()))
+seskupit_combo.current(0)
+seskupit_combo.grid(row=3, column=2,padx=20, pady=0)
+
+# Talčítko pro výběr dat. Zavolá se funkce evident_partner_kriteria
+vyber_dat_stisknuto = False
+vyber_dat_button=tk.Button(right_frame, text="Výběr dat",command=vyber_dat, width=25, bg="#CCFFCC")
+vyber_dat_button.grid(row=1, column=3, padx=20,pady=0)
+
+# Seznam funkcí
+funkce_label= tk.Label(right_frame, text="Funkce")
+funkce_label.grid(row=2, column=3, padx=20, pady=0)
+options = ['','Sumarizace','Zjištění odlehlých hodnot', 'Seskupení dat','Bodový graf']
+funkce_combo = ttk.Combobox(right_frame, value=options, state="disabled", width=25)
+funkce_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_funkce(funkce_combo.get()))
+funkce_combo.current(0)
+funkce_combo.grid(row=3, column=3,padx=20, pady=0)
+
+# Talčítko pro spuštění funkce
+funkce_button=tk.Button(right_frame, text="Spuštění funkce", state="disabled", command=vykonat_funkci, width=15)
+funkce_button.grid(row=3, column=4, padx=20,pady=0)
+
 # Funkce
 saveXlsx_button = tk.Button(right_frame,text="Uložit do xlsx",state="disabled", command=save_to_xlsx, width=15)
 saveXlsx_button.grid(row=1, column=4, padx=20, pady=0)
@@ -757,42 +705,7 @@ ORP_radiobut.grid(row=3, column=7, padx=20, pady=0)
 ZUJ_radiobut = tkinter.Radiobutton(right_frame, text="Úroveň ZÚJ", variable=uzemi_radiobut_value, value="3")
 ZUJ_radiobut.grid(row=4, column=7, padx=20, pady=0)
 
-# Volba sloupečků pro zobrazení ve výstupu
-sloupce_label= tk.Label(right_frame, text="Volba sloupců na výstup")
-sloupce_label.grid(row=0, column=2, padx=20, pady=0)
-options = hn.u_list_column_names
-sloupce_combo = ttk.Combobox(right_frame, value=options, width = 25)
-sloupce_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_sloupce(sloupce_combo.get()))
-sloupce_combo.current(0)
-sloupce_combo.grid(row=1, column=2,padx=20, pady=0)
 
-# Volba sloupečků podle kterých seskupovat
-seskupit_label= tk.Label(right_frame, text="Sloupce k seskupení")
-seskupit_label.grid(row=2, column=2, padx=20, pady=0)
-options = hn.u_list_column_names
-seskupit_combo = ttk.Combobox(right_frame, value=options, width = 25)
-seskupit_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_seskupeni(seskupit_combo.get()))
-seskupit_combo.current(0)
-seskupit_combo.grid(row=3, column=2,padx=20, pady=0)
-
-
-# Talčítko pro výběr dat. Zavolá se funkce evident_partner_kriteria
-vyber_dat_stisknuto = False
-vyber_dat_button=tk.Button(right_frame, text="Výběr dat",command=vyber_dat, width=25)
-vyber_dat_button.grid(row=1, column=3, padx=20,pady=0)
-
-# Seznam funkcí
-funkce_label= tk.Label(right_frame, text="Funkce")
-funkce_label.grid(row=2, column=3, padx=20, pady=0)
-options = ['','Sumarizace','Výběr kritérií', 'Výběr dat evident','Výběr dat partner','Zjištění odlehlých hodnot','Výběr evident partner kritéria','Seskupení dat','Graf scatter']
-funkce_combo = ttk.Combobox(right_frame, value=options, state="disabled", width=25)
-funkce_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_funkce(funkce_combo.get()))
-funkce_combo.current(0)
-funkce_combo.grid(row=3, column=3,padx=20, pady=0)
-
-# Talčítko pro spuštění funkce
-funkce_button=tk.Button(right_frame, text="Spuštění funkce", state="disabled", command=vykonat_funkci, width=15)
-funkce_button.grid(row=3, column=4, padx=20,pady=0)
 
 
 
