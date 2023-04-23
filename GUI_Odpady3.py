@@ -27,7 +27,7 @@ volby_rok = []
 volby_druhOdpadu = []
 volby_funkce = []
 volby_sloupce = []
-volby_sloupce_univ = ['Evident_Kraj_Nazev','Evident_ORP_Nazev','Indikator','Kod','ZmenaMnozstvi','Pocet_Obyvatel','Partner_Kraj_Nazev','Partner_ORP_Nazev','Druh_Odpadu','Rok']
+volby_sloupce_univ = ['Evident_Kraj_Nazev','Evident_ORP_Nazev','Indikator','Kod','OdpadNaPocetObyv','ZmenaMnozstvi','Pocet_Obyvatel','Partner_Kraj_Nazev','Partner_ORP_Nazev','Druh_Odpadu','Rok']
 volby_seskupeni = []
 volby_seskupeni_univ = ['Druh_Odpadu','Indikator','Kod']
 
@@ -327,10 +327,13 @@ def vyber_evident_partner_kriteria():
     if not vysledek.empty:
         if 'ZmenaMnozstvi' in vysledek.columns:
             vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+        if 'Pocet_Obyvatel' in vysledek.columns:
+            vysledek['Pocet_Obyvatel'] = vysledek['Pocet_Obyvatel'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+        if 'OdpadNaPocetObyv' in vysledek.columns:
+            vysledek['OdpadNaPocetObyv'] = vysledek['OdpadNaPocetObyv'].apply(lambda x: locale.format_string("%.2f", x, grouping=True))
         pocet_polozek = len(vysledek.index)
         text_widget.delete("1.0","end")
-        text_widget.insert("1.0",f"VÝPIS DAT DLE VÝBĚRU EVIDENTA, PARTNERA A KRITÉRIÍ ({pocet_polozek} položek):\n\n {vysledek.to_string(index=False, justify='right')}\n")
-        
+        text_widget.insert("1.0",f"VÝPIS FILTROVANÝCH DAT DLE VÝBĚRU EVIDENTA, PARTNERA A KRITÉRIÍ ({pocet_polozek} položek):\n\n {vysledek.to_string(index=False, justify='right')}\n")
     else:
         text_widget.delete("1.0","end")
         text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")        
@@ -411,7 +414,7 @@ def vytisknout_volby():
     text_widget.insert("end",f"Sloupce na výstup: {volby_sloupce}\n\n")
     text_widget.insert("end",f"Seskupení podle sloupců: {volby_seskupeni}\n\n")
 
-    text_widget.insert("end",f"Identifikátor: {volby_indikator}\n")
+    text_widget.insert("end",f"Indikátor: {volby_indikator}\n")
     text_widget.insert("end",f"Kód nakládání: {volby_kod}\n")
     text_widget.insert("end",f"Druh odpadu: {volby_druhOdpadu}\n")
     text_widget.insert("end",f"Rok: {volby_rok}\n\n")
@@ -425,9 +428,8 @@ def vytisknout_volby():
     text_widget.insert("end",f"Partner ORP: {volby_partner_ORP}\n")
     text_widget.insert("end",f"Partner ZÚJ: {volby_partner_nazev}\n")
     text_widget.insert("end",f"Partner typ subjektu: {volby_partner_typ}\n\n")
-
+"""Tato funkce se spustí po stisknutí tlačítka Vymazat volby"""
 def vymazat_volby():
-    """Tato funkce se spustí po stisknutí tlačítka Vymazat volby"""
     text_widget.delete('1.0','end')
     volby_evident_kraj.clear()
     volby_evident_ORP.clear()
@@ -704,8 +706,6 @@ ORP_radiobut = tkinter.Radiobutton(right_frame, text="Úroveň ORP", variable=uz
 ORP_radiobut.grid(row=3, column=7, padx=20, pady=0)
 ZUJ_radiobut = tkinter.Radiobutton(right_frame, text="Úroveň ZÚJ", variable=uzemi_radiobut_value, value="3")
 ZUJ_radiobut.grid(row=4, column=7, padx=20, pady=0)
-
-
 
 
 
