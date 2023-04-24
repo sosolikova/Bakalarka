@@ -138,24 +138,32 @@ def show_map():
             json_column = 'KOD'
             mapa = gdf_obce
 
+        if sloupecHodnoty_radiobut_value.get() == '1':
+            hodnoty = 'OdpadNaPocetObyv'
+        elif sloupecHodnoty_radiobut_value.get() == '2':
+            hodnoty = 'Odpad_vKg'
+        elif sloupecHodnoty_radiobut_value.get() == '3':
+            hodnoty = 'Pocet_Obyvatel'
+
+
         nazev_sloupce = f'{subjekt}_{uzemi}'
             
-        mapa_data = hn.seskupeni_dat_po_sloupcich(vyber_dat_vysledek,'Odpad_vKg',nazev_sloupce,'Indikator')
-        mapa_data['Odpad_vKg'] = mapa_data['Odpad_vKg'].abs()
+        mapa_data = hn.seskupeni_dat_po_sloupcich(vyber_dat_vysledek,hodnoty,nazev_sloupce,'Indikator')
+        mapa_data[hodnoty] = mapa_data[hodnoty].abs()
 
         #Sloučení df kraje_produkce s geometrickým df podle názvu kraje
         gdf_merged = mapa.merge(mapa_data, left_on=json_column, right_on=nazev_sloupce,how='left')
 
         # nahrazení chybějících hodnot v datovém rámci gdf_merged
-        gdf_merged['Odpad_vKg'] = gdf_merged['Odpad_vKg'].fillna(value=0)
+        gdf_merged[hodnoty] = gdf_merged[hodnoty].fillna(value=0)
 
         # určení kvantilů
-        q1 = mapa_data['Odpad_vKg'].quantile(0.15)
-        q3 = mapa_data['Odpad_vKg'].quantile(0.85)
+        q1 = mapa_data[hodnoty].quantile(0.15)
+        q3 = mapa_data[hodnoty].quantile(0.85)
         iqr = q3 - q1
         lower_bound = q1 - 1.5 * iqr
         upper_bound = q3 + 1.5 * iqr      
-        outliers = mapa_data[(mapa_data['Odpad_vKg'] < lower_bound) | (mapa_data['Odpad_vKg'] > upper_bound)]
+        outliers = mapa_data[(mapa_data[hodnoty] < lower_bound) | (mapa_data[hodnoty] > upper_bound)]
         pocet_odlehlych_hodnot = len(outliers)
         upper_bound = round(upper_bound,-3)
 
@@ -165,8 +173,8 @@ def show_map():
         cmap.set_under('white')
         fig, ax = plt.subplots()
 
-        # použití metody plot() pro zobrazení mapy s barvami krajů podle hodnot ze sloupce 'Odpad_vKg' v novém datovém rámci gdf_merged
-        gdf_merged.plot(column = 'Odpad_vKg',
+        # použití metody plot() pro zobrazení mapy s barvami krajů podle hodnot ze sloupce dle uživatelské volby  v novém datovém rámci gdf_merged
+        gdf_merged.plot(column = hodnoty,
                         cmap = cmap,
                         ax=ax,
                         legend = True,
@@ -174,7 +182,7 @@ def show_map():
                         linewidth=0.5,
                         alpha=0.8,
                         norm=plt.Normalize(1, vmax=upper_bound))
-        if len(gdf_merged[gdf_merged['Odpad_vKg'] == 0]) > 0:
+        if len(gdf_merged[gdf_merged[hodnoty] == 0]) > 0:
             text_bila_mista = 'Bílá místa znázorňují území, která neevidovala tento druh odpadu. '
         else: text_bila_mista = ''
         if pocet_odlehlych_hodnot > 0:
@@ -199,7 +207,13 @@ def show_map():
                 title = title + str(item) + ", "
             title = title[:-2]  # odstranění posledních dvou znaků
             return title
-
+        
+        if sloupecHodnoty_radiobut_value.get() == '1':
+            hodnoty_text = 'Mapa zobrazuje hodnoty: kg na obyvatele '
+        elif sloupecHodnoty_radiobut_value.get() == '2':
+            hodnoty_text = 'Mapa zobrazuje hodnoty: odpad v kg '
+        elif sloupecHodnoty_radiobut_value.get() == '3':
+            hodnoty_text = 'Mapa zobrazuje hodnoty: počet obyvatel '
         if subjekt_radiobut_value.get() == '1':
             subjekt_text = 'Nakládání s odpady z pohledu: evidentů, '
         elif subjekt_radiobut_value.get() == '2':
@@ -232,7 +246,7 @@ def show_map():
         else: odpad= ''
         if volby_indikator:
             text = create_title_from_list(volby_indikator)
-            identifikator = f' Identifikátor: {text} '
+            identifikator = f' Indikátor: {text} '
         else: identifikator = ''
         if volby_kod:
             text = create_title_from_list(volby_kod)
@@ -243,7 +257,7 @@ def show_map():
           obdobi = f' Období: {text} '
         else: obdobi = ''
 
-        plt.title(f'{subjekt_text}{uzemi_text}\n{evident_kraj}{evident_ORP}{partner_kraj}{partner_ORP}\n{odpad}{identifikator}\n{nakladani}{obdobi}')
+        plt.title(f'{hodnoty_text}\n{subjekt_text}{uzemi_text}\n{evident_kraj}{evident_ORP}{partner_kraj}{partner_ORP}\n{odpad}{identifikator}{nakladani}{obdobi}')
         plt.show()
     else:
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení v mapě.")
