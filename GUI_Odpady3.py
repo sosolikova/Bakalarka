@@ -78,7 +78,7 @@ def handle_partner_typSubjektu(selection):
 
 def handle_indikator(selection):
     volby_indikator.append(selection)
-    text_widget.insert('1.0', f"Identifikátor: {selection}\n")
+    text_widget.insert('1.0', f"Indikátor: {selection}\n")
 
 def handle_kod(selection):
     volby_kod.append(selection)
@@ -103,6 +103,14 @@ def handle_seskupeni(selection):
 def handle_funkce(selection):
     volby_funkce.append(selection)
     text_widget.insert('1.0', f"Vybraný výpočet: {selection}\n")
+
+def format_column(df):
+    if 'ZmenaMnozstvi' in df.columns:
+        df['ZmenaMnozstvi'] = df['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+    if 'Pocet_Obyvatel' in df.columns:
+        df['Pocet_Obyvatel'] = df['Pocet_Obyvatel'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+    if 'OdpadNaPocetObyv' in df.columns:
+        df['OdpadNaPocetObyv'] = df['OdpadNaPocetObyv'].apply(lambda x: locale.format_string("%0.3f", x, grouping=True))
 
 def show_map():
     global vyber_dat_vysledek
@@ -289,10 +297,7 @@ def odlehle_hodnoty():
             outliers = outliers.loc[:,volby_sloupce_univ]
         else: outliers = outliers.loc[:,volby_sloupce]
         if not outliers.empty:
-            if 'ZmenaMnozstvi' in outliers.columns:
-                outliers['ZmenaMnozstvi'] = outliers['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
-            if 'Pocet_Obyvatel' in outliers.columns:
-                outliers['Pocet_Obyvatel'] = outliers['Pocet_Obyvatel'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+            format_column(outliers) 
 
         # Výsledky testu
         if len(outliers) > 0:
@@ -325,12 +330,8 @@ def vyber_evident_partner_kriteria():
         vysledek = vysledek.loc[:,volby_sloupce_univ]
     else: vysledek = vysledek.loc[:,volby_sloupce]
     if not vysledek.empty:
-        if 'ZmenaMnozstvi' in vysledek.columns:
-            vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
-        if 'Pocet_Obyvatel' in vysledek.columns:
-            vysledek['Pocet_Obyvatel'] = vysledek['Pocet_Obyvatel'].apply(lambda x: locale.format_string("%d", x, grouping=True))
-        if 'OdpadNaPocetObyv' in vysledek.columns:
-            vysledek['OdpadNaPocetObyv'] = vysledek['OdpadNaPocetObyv'].apply(lambda x: locale.format_string("%.2f", x, grouping=True))
+        format_column(vysledek)
+
         pocet_polozek = len(vysledek.index)
         text_widget.delete("1.0","end")
         text_widget.insert("1.0",f"VÝPIS FILTROVANÝCH DAT DLE VÝBĚRU EVIDENTA, PARTNERA A KRITÉRIÍ ({pocet_polozek} položek):\n\n {vysledek.to_string(index=False, justify='right')}\n")
@@ -356,7 +357,7 @@ def seskupeni_dat():
                 #grouping
                 vysledek = hn.seskupeni_dat_seznam_sloupcu(vysledek,['ZmenaMnozstvi','Pocet_Obyvatel'],list_seskupeni)
                 vysledek_excel = vysledek
-                vysledek['ZmenaMnozstvi'] = vysledek['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+                format_column(vysledek)
                 pocet_polozek = len(vysledek.index)
                 text_widget.delete("1.0","end")
                 text_widget.insert("1.0",f"SESKUPENÍ DAT DLE 'ZmenaMnozstvi' ({pocet_polozek} položek):\n\n {vysledek.to_string(index=False, justify='right')}\n")
@@ -370,9 +371,8 @@ def graf_xyBodovy():
     global vyber_dat_vysledek
     if vyber_dat_vysledek is not None:
         vysledek = vyber_dat_vysledek
-
         fig,ax = plt.subplots()  
-        colors = ['red', 'blue', 'green', 'orange', 'yellow'] #seznam barev pro scatter grafy
+        colors = ['red', 'blue', 'green', 'orange'] #seznam barev pro scatter grafy
         for i,odpad in enumerate(volby_druhOdpadu):
             data = vysledek[vysledek['Druh_Odpadu'] == odpad]
             ax.scatter(data['ZmenaMnozstvi'],data['Pocet_Obyvatel'],color=colors[i],label=odpad)
@@ -381,7 +381,7 @@ def graf_xyBodovy():
         ax.set_ylabel("Počet obyvatel")
         plt.show()
     else:
-            messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení.")
+        messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení.")
 
 def vykonat_funkci():
     vybrana_funkce=funkce_combo.get()
@@ -488,7 +488,7 @@ funkce_dict = {
     "Sumarizace": sumarizace,
     "Zjištění odlehlých hodnot": odlehle_hodnoty,
     "Seskupení dat": seskupeni_dat,
-    "Graf scatter": graf_xyBodovy,
+    "XY Bodový graf": graf_xyBodovy,
     
 }       
 
@@ -670,7 +670,7 @@ vyber_dat_button.grid(row=1, column=3, padx=20,pady=0)
 # Seznam funkcí
 funkce_label= tk.Label(right_frame, text="Funkce")
 funkce_label.grid(row=2, column=3, padx=20, pady=0)
-options = ['','Sumarizace','Zjištění odlehlých hodnot', 'Seskupení dat','Bodový graf']
+options = ['','Sumarizace','Zjištění odlehlých hodnot', 'Seskupení dat','XY Bodový graf']
 funkce_combo = ttk.Combobox(right_frame, value=options, state="disabled", width=25)
 funkce_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_funkce(funkce_combo.get()))
 funkce_combo.current(0)

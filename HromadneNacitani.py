@@ -356,7 +356,7 @@ def vyber_subjektu(df, column1, volby1, column2, volby2, column3, volby3, column
     else: volby4
 
     vysledek = df[((df[column1].isin(volby1)) | (df[column2].isin(volby2)) | (df[column3].isin(volby3)))&(df[column4].isin(volby4))]
-        
+    
     return vysledek
 
 #Výběr kritérií - nový
