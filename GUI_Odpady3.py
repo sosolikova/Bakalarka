@@ -699,23 +699,23 @@ sloupecHodnoty_radiobut_value.set('1')
 
 # Vytvoření radiobuttons
 evident_radiobut = tkinter.Radiobutton(right_frame, text="Mapa evidentů", variable=subjekt_radiobut_value, value="1")
-evident_radiobut.grid(row=3, column=6, padx=20, pady=0)
+evident_radiobut.grid(row=0, column=7, padx=20, pady=0, sticky="W")
 partner_radiobut = tkinter.Radiobutton(right_frame, text="Mapa partnerů", variable=subjekt_radiobut_value, value="2")
-partner_radiobut.grid(row=4, column=6, padx=20, pady=0)
+partner_radiobut.grid(row=1, column=7, padx=20, pady=0, sticky="W")
 
 kraj_radiobut = tkinter.Radiobutton(right_frame, text="Úroveň krajů", variable=uzemi_radiobut_value, value="1")
-kraj_radiobut.grid(row=2, column=7, padx=20, pady=0)
+kraj_radiobut.grid(row=3, column=7, padx=20, pady=0, sticky="W")
 ORP_radiobut = tkinter.Radiobutton(right_frame, text="Úroveň ORP", variable=uzemi_radiobut_value, value="2")
-ORP_radiobut.grid(row=3, column=7, padx=20, pady=0)
+ORP_radiobut.grid(row=4, column=7, padx=20, pady=0, sticky="W")
 ZUJ_radiobut = tkinter.Radiobutton(right_frame, text="Úroveň ZÚJ", variable=uzemi_radiobut_value, value="3")
-ZUJ_radiobut.grid(row=4, column=7, padx=20, pady=0)
+ZUJ_radiobut.grid(row=5, column=7, padx=20, pady=0, sticky="W")
 
 NaPocObyv_radiobut = tkinter.Radiobutton(right_frame, text="Kg na obyvatele", variable=sloupecHodnoty_radiobut_value, value="1")
-NaPocObyv_radiobut.grid(row=2, column=8, padx=20, pady=0)
+NaPocObyv_radiobut.grid(row=3, column=6, padx=20, pady=0, sticky="W")
 MnozstviKg_radiobut = tkinter.Radiobutton(right_frame, text="Mnozstvi v kg", variable=sloupecHodnoty_radiobut_value, value="2")
-MnozstviKg_radiobut.grid(row=3, column=8, padx=20, pady=0)
+MnozstviKg_radiobut.grid(row=4, column=6, padx=20, pady=0, sticky="W")
 PocObyv_radiobut = tkinter.Radiobutton(right_frame, text="Počet obyvatel", variable=sloupecHodnoty_radiobut_value, value="3")
-PocObyv_radiobut.grid(row=4, column=8, padx=20, pady=0)
+PocObyv_radiobut.grid(row=5, column=6, padx=20, pady=0, sticky="W")
 
 
 # Vytvoření Text Widget a Scroollbar
