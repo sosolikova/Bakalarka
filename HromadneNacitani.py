@@ -167,14 +167,14 @@ kontrola_sparovani(Zdrojovy_Kody,'Navyseni_Ubytek')
     
 'Vynásobení Množství * (-1 nebo +1) a převede na Kg vynásobením 1000'
 def vlozit_sloupec_prepocet_mnozstvi(df):
-    df.insert(loc=0,column='ZmenaMnozstvi',value=(df['Mnozstvi'] * df['Navyseni_Ubytek']) * 1000)
+    df.insert(loc=0,column='Odpad_vKg',value=(df['Mnozstvi'] * df['Navyseni_Ubytek']) * 1000)
     return df
 
 def vlozit_sloupec_prepocet_odpadNaPocetObyv(df):
-    df.insert(loc=0,column='OdpadNaPocetObyv',value=(df['ZmenaMnozstvi'] / df['Pocet_Obyvatel']))
+    df.insert(loc=0,column='OdpadNaPocetObyv',value=(df['Odpad_vKg'] / df['Pocet_Obyvatel']))
     return df
 
-'APLIKACE přidání sloupce ZmenaMnozstvi'
+'APLIKACE přidání sloupce Odpad_vKg'
 Zdrojovy_Kody_Mnozstvi=vlozit_sloupec_prepocet_mnozstvi(Zdrojovy_Kody)
 Zdrojovy_Kody_Mnozstvi=vlozit_sloupec_prepocet_odpadNaPocetObyv(Zdrojovy_Kody_Mnozstvi)
 
@@ -195,8 +195,8 @@ def seskupeni_dat_seznam_sloupcu(data, func_column, group_column_list ):
     return sorted_data
 
 
-'APLIKACE slouceni podle sloupcu Evident, Evidnet_TypSubjektu, funkce bude na sloupci ZmenaMnozstvi'
-Zdrojovy_Kody_Mnozstvi_Seskup = seskupeni_dat_po_sloupcich(Zdrojovy_Kody_Mnozstvi,'ZmenaMnozstvi','Druh_Odpadu','Evident_ZUJ_Cislo','Evident_TypSubjektu')
+'APLIKACE slouceni podle sloupcu Evident, Evidnet_TypSubjektu, funkce bude na sloupci Odpad_vKg'
+Zdrojovy_Kody_Mnozstvi_Seskup = seskupeni_dat_po_sloupcich(Zdrojovy_Kody_Mnozstvi,'Odpad_vKg','Druh_Odpadu','Evident_ZUJ_Cislo','Evident_TypSubjektu')
 Funkce.save_dataframe_to_csv(Zdrojovy_Kody_Mnozstvi_Seskup,'Zdrojovy_kody_mnozstvi_group')
 
 
@@ -222,14 +222,14 @@ def print_non_equal_rows(data, column, value):
     return non_equal_rows.index
 
 'APLIKACE kontrola, zda ZUJ vyjde bilance 0'
-Zdrojovy_kody_mnozstvi_group_nevyhov_0 = filter_sum_after_grouping(Zdrojovy_Kody_Mnozstvi_Seskup,'ZmenaMnozstvi')
+Zdrojovy_kody_mnozstvi_group_nevyhov_0 = filter_sum_after_grouping(Zdrojovy_Kody_Mnozstvi_Seskup,'Odpad_vKg')
 Funkce.save_dataframe_to_csv(Zdrojovy_kody_mnozstvi_group_nevyhov_0,'Zdrojovy_kody_mnozstvi_group_nevyhov_0')
 
-equal_rows, non_equal_rows = count_rows(Zdrojovy_Kody_Mnozstvi_Seskup, 'ZmenaMnozstvi', 0)
+equal_rows, non_equal_rows = count_rows(Zdrojovy_Kody_Mnozstvi_Seskup, 'Odpad_vKg', 0)
 print(f"Počet ZUJ, které mají roční zúčtování rovno nule: {equal_rows}")
 print(f"Počet ZUJ, které roční zúčtování nemají vyrovnané: {non_equal_rows}")
 
-print_non_equal_rows(Zdrojovy_Kody_Mnozstvi_Seskup,'ZmenaMnozstvi', 0)
+print_non_equal_rows(Zdrojovy_Kody_Mnozstvi_Seskup,'Odpad_vKg', 0)
 
 
 '_____________________'
@@ -300,9 +300,9 @@ def summary_stat_new(df):
 my_list=['Zlínský kraj','Jihomoravský kraj','Jihočeský kraj']
 print('Zkouška sortování')
 sortovani = Zdrojovy_Kody_Mnozstvi[Zdrojovy_Kody_Mnozstvi['Evident_Kraj_Nazev'].isin(my_list)]
-result = summary_stat(sortovani,'Evident_Kraj_Nazev','ZmenaMnozstvi')
+result = summary_stat(sortovani,'Evident_Kraj_Nazev','Odpad_vKg')
 
-summary_stat_parametr(Zdrojovy_Kody_Mnozstvi,'Evident_Kraj_Nazev',my_list,'ZmenaMnozstvi')
+summary_stat_parametr(Zdrojovy_Kody_Mnozstvi,'Evident_Kraj_Nazev',my_list,'Odpad_vKg')
 
 
 
@@ -356,7 +356,7 @@ def vyber_subjektu(df, column1, volby1, column2, volby2, column3, volby3, column
     else: volby4
 
     vysledek = df[((df[column1].isin(volby1)) | (df[column2].isin(volby2)) | (df[column3].isin(volby3)))&(df[column4].isin(volby4))]
-    
+
     return vysledek
 
 #Výběr kritérií - nový

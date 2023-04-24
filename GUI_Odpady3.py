@@ -27,7 +27,7 @@ volby_rok = []
 volby_druhOdpadu = []
 volby_funkce = []
 volby_sloupce = []
-volby_sloupce_univ = ['Evident_Kraj_Nazev','Evident_ORP_Nazev','Indikator','Kod','OdpadNaPocetObyv','ZmenaMnozstvi','Pocet_Obyvatel','Partner_Kraj_Nazev','Partner_ORP_Nazev','Druh_Odpadu','Rok']
+volby_sloupce_univ = ['Evident_Kraj_Nazev','Evident_ORP_Nazev','Indikator','Kod','OdpadNaPocetObyv','Odpad_vKg','Pocet_Obyvatel','Partner_Kraj_Nazev','Partner_ORP_Nazev','Druh_Odpadu','Rok']
 volby_seskupeni = []
 volby_seskupeni_univ = ['Druh_Odpadu','Indikator','Kod']
 
@@ -105,8 +105,8 @@ def handle_funkce(selection):
     text_widget.insert('1.0', f"Vybraný výpočet: {selection}\n")
 
 def format_column(df):
-    if 'ZmenaMnozstvi' in df.columns:
-        df['ZmenaMnozstvi'] = df['ZmenaMnozstvi'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+    if 'Odpad_vKg' in df.columns:
+        df['Odpad_vKg'] = df['Odpad_vKg'].apply(lambda x: locale.format_string("%d", x, grouping=True))
     if 'Pocet_Obyvatel' in df.columns:
         df['Pocet_Obyvatel'] = df['Pocet_Obyvatel'].apply(lambda x: locale.format_string("%d", x, grouping=True))
     if 'OdpadNaPocetObyv' in df.columns:
@@ -140,22 +140,22 @@ def show_map():
 
         nazev_sloupce = f'{subjekt}_{uzemi}'
             
-        mapa_data = hn.seskupeni_dat_po_sloupcich(vyber_dat_vysledek,'ZmenaMnozstvi',nazev_sloupce,'Indikator')
-        mapa_data['ZmenaMnozstvi'] = mapa_data['ZmenaMnozstvi'].abs()
+        mapa_data = hn.seskupeni_dat_po_sloupcich(vyber_dat_vysledek,'Odpad_vKg',nazev_sloupce,'Indikator')
+        mapa_data['Odpad_vKg'] = mapa_data['Odpad_vKg'].abs()
 
         #Sloučení df kraje_produkce s geometrickým df podle názvu kraje
         gdf_merged = mapa.merge(mapa_data, left_on=json_column, right_on=nazev_sloupce,how='left')
 
         # nahrazení chybějících hodnot v datovém rámci gdf_merged
-        gdf_merged['ZmenaMnozstvi'] = gdf_merged['ZmenaMnozstvi'].fillna(value=0)
+        gdf_merged['Odpad_vKg'] = gdf_merged['Odpad_vKg'].fillna(value=0)
 
         # určení kvantilů
-        q1 = mapa_data['ZmenaMnozstvi'].quantile(0.15)
-        q3 = mapa_data['ZmenaMnozstvi'].quantile(0.85)
+        q1 = mapa_data['Odpad_vKg'].quantile(0.15)
+        q3 = mapa_data['Odpad_vKg'].quantile(0.85)
         iqr = q3 - q1
         lower_bound = q1 - 1.5 * iqr
         upper_bound = q3 + 1.5 * iqr      
-        outliers = mapa_data[(mapa_data['ZmenaMnozstvi'] < lower_bound) | (mapa_data['ZmenaMnozstvi'] > upper_bound)]
+        outliers = mapa_data[(mapa_data['Odpad_vKg'] < lower_bound) | (mapa_data['Odpad_vKg'] > upper_bound)]
         pocet_odlehlych_hodnot = len(outliers)
         upper_bound = round(upper_bound,-3)
 
@@ -165,8 +165,8 @@ def show_map():
         cmap.set_under('white')
         fig, ax = plt.subplots()
 
-        # použití metody plot() pro zobrazení mapy s barvami krajů podle hodnot ze sloupce 'ZmenaMnozstvi' v novém datovém rámci gdf_merged
-        gdf_merged.plot(column = 'ZmenaMnozstvi',
+        # použití metody plot() pro zobrazení mapy s barvami krajů podle hodnot ze sloupce 'Odpad_vKg' v novém datovém rámci gdf_merged
+        gdf_merged.plot(column = 'Odpad_vKg',
                         cmap = cmap,
                         ax=ax,
                         legend = True,
@@ -174,7 +174,7 @@ def show_map():
                         linewidth=0.5,
                         alpha=0.8,
                         norm=plt.Normalize(1, vmax=upper_bound))
-        if len(gdf_merged[gdf_merged['ZmenaMnozstvi'] == 0]) > 0:
+        if len(gdf_merged[gdf_merged['Odpad_vKg'] == 0]) > 0:
             text_bila_mista = 'Bílá místa znázorňují území, která neevidovala tento druh odpadu. '
         else: text_bila_mista = ''
         if pocet_odlehlych_hodnot > 0:
@@ -254,14 +254,14 @@ def sumarizace():
     if vyber_dat_vysledek is not None:
         vysledek = vyber_dat_vysledek
         if volby_evident_kraj:
-            vysledek=hn.summary_stat_parametr(vysledek,'Evident_ORP_Nazev',hn.list_kraj_orp[volby_evident_kraj],'ZmenaMnozstvi')
+            vysledek=hn.summary_stat_parametr(vysledek,'Evident_ORP_Nazev',hn.list_kraj_orp[volby_evident_kraj],'Odpad_vKg')
 
             vysledek_excel = vysledek
 
             text_widget.delete("1.0","end")
             text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY PRO ORP v kraji: {volby_evident_kraj}\n {vysledek}\n")
         elif volby_evident_ORP:
-            vysledek=hn.summary_stat_parametr(vysledek,'Evident_ZUJ_Nazev',hn.list_orp_zuj[volby_evident_ORP],'ZmenaMnozstvi')
+            vysledek=hn.summary_stat_parametr(vysledek,'Evident_ZUJ_Nazev',hn.list_orp_zuj[volby_evident_ORP],'Odpad_vKg')
 
             text_widget.delete("1.0","end")
             text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY PRO ZUJ v ORP: {volby_evident_ORP}\n {vysledek}\n")
@@ -278,17 +278,17 @@ def odlehle_hodnoty():
     if vyber_dat_vysledek is not None:
         vysledek = vyber_dat_vysledek
     
-        pocet_hodnot = len(vysledek['ZmenaMnozstvi'])
+        pocet_hodnot = len(vysledek['Odpad_vKg'])
         # Výpočet IQR metody
-        q1, q3 = np.percentile(vysledek['ZmenaMnozstvi'], [25, 75])
+        q1, q3 = np.percentile(vysledek['Odpad_vKg'], [25, 75])
         iqr = q3 - q1
 
         # Určení odlehlých hodnot
         lower_bound = q1 - 1.5 * iqr
         upper_bound = q3 + 1.5 * iqr
-        outliers = vysledek[(vysledek['ZmenaMnozstvi'] < lower_bound) | (vysledek['ZmenaMnozstvi'] > upper_bound)]
-        pocet_odlehlych_hodnot_lower=len(vysledek[(vysledek['ZmenaMnozstvi'] < lower_bound)])
-        pocet_odlehlych_hodnot_upper=len(vysledek[(vysledek['ZmenaMnozstvi'] > upper_bound)])
+        outliers = vysledek[(vysledek['Odpad_vKg'] < lower_bound) | (vysledek['Odpad_vKg'] > upper_bound)]
+        pocet_odlehlych_hodnot_lower=len(vysledek[(vysledek['Odpad_vKg'] < lower_bound)])
+        pocet_odlehlych_hodnot_upper=len(vysledek[(vysledek['Odpad_vKg'] > upper_bound)])
         pocet_odlehlych_hodnot = len(outliers)
 
         vysledek_excel = outliers
@@ -353,14 +353,14 @@ def seskupeni_dat():
             list_seskupeni = volby_seskupeni_univ
         else: list_seskupeni = volby_seskupeni
         if not vysledek.empty:
-            if 'ZmenaMnozstvi' in vysledek.columns:
+            if 'Odpad_vKg' in vysledek.columns:
                 #grouping
-                vysledek = hn.seskupeni_dat_seznam_sloupcu(vysledek,['ZmenaMnozstvi','Pocet_Obyvatel'],list_seskupeni)
+                vysledek = hn.seskupeni_dat_seznam_sloupcu(vysledek,['Odpad_vKg','Pocet_Obyvatel'],list_seskupeni)
                 vysledek_excel = vysledek
                 format_column(vysledek)
                 pocet_polozek = len(vysledek.index)
                 text_widget.delete("1.0","end")
-                text_widget.insert("1.0",f"SESKUPENÍ DAT DLE 'ZmenaMnozstvi' ({pocet_polozek} položek):\n\n {vysledek.to_string(index=False, justify='right')}\n")
+                text_widget.insert("1.0",f"SESKUPENÍ DAT DLE 'Odpad_vKg' ({pocet_polozek} položek):\n\n {vysledek.to_string(index=False, justify='right')}\n")
         else:
             text_widget.delete("1.0","end")
             text_widget.insert("1.0","Výběr nesplnil žádný záznam. \n")
@@ -375,7 +375,7 @@ def graf_xyBodovy():
         colors = ['red', 'blue', 'green', 'orange'] #seznam barev pro scatter grafy
         for i,odpad in enumerate(volby_druhOdpadu):
             data = vysledek[vysledek['Druh_Odpadu'] == odpad]
-            ax.scatter(data['ZmenaMnozstvi'],data['Pocet_Obyvatel'],color=colors[i],label=odpad)
+            ax.scatter(data['Odpad_vKg'],data['Pocet_Obyvatel'],color=colors[i],label=odpad)
         ax.legend()
         ax.set_xlabel("Množství odpadu v kg")
         ax.set_ylabel("Počet obyvatel")
@@ -712,7 +712,7 @@ ZUJ_radiobut.grid(row=5, column=7, padx=20, pady=0, sticky="W")
 
 NaPocObyv_radiobut = tkinter.Radiobutton(right_frame, text="Kg na obyvatele", variable=sloupecHodnoty_radiobut_value, value="1")
 NaPocObyv_radiobut.grid(row=3, column=6, padx=20, pady=0, sticky="W")
-MnozstviKg_radiobut = tkinter.Radiobutton(right_frame, text="Mnozstvi v kg", variable=sloupecHodnoty_radiobut_value, value="2")
+MnozstviKg_radiobut = tkinter.Radiobutton(right_frame, text="Odpad_vKg", variable=sloupecHodnoty_radiobut_value, value="2")
 MnozstviKg_radiobut.grid(row=4, column=6, padx=20, pady=0, sticky="W")
 PocObyv_radiobut = tkinter.Radiobutton(right_frame, text="Počet obyvatel", variable=sloupecHodnoty_radiobut_value, value="3")
 PocObyv_radiobut.grid(row=5, column=6, padx=20, pady=0, sticky="W")
