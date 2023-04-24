@@ -694,6 +694,9 @@ subjekt_radiobut_value.set('1')
 uzemi_radiobut_value = tkinter.StringVar()
 uzemi_radiobut_value.set('1')
 
+sloupecHodnoty_radiobut_value = tkinter.StringVar()
+sloupecHodnoty_radiobut_value.set('1')
+
 # Vytvoření radiobuttons
 evident_radiobut = tkinter.Radiobutton(right_frame, text="Mapa evidentů", variable=subjekt_radiobut_value, value="1")
 evident_radiobut.grid(row=3, column=6, padx=20, pady=0)
@@ -707,6 +710,12 @@ ORP_radiobut.grid(row=3, column=7, padx=20, pady=0)
 ZUJ_radiobut = tkinter.Radiobutton(right_frame, text="Úroveň ZÚJ", variable=uzemi_radiobut_value, value="3")
 ZUJ_radiobut.grid(row=4, column=7, padx=20, pady=0)
 
+NaPocObyv_radiobut = tkinter.Radiobutton(right_frame, text="Kg na obyvatele", variable=sloupecHodnoty_radiobut_value, value="1")
+NaPocObyv_radiobut.grid(row=2, column=8, padx=20, pady=0)
+MnozstviKg_radiobut = tkinter.Radiobutton(right_frame, text="Mnozstvi v kg", variable=sloupecHodnoty_radiobut_value, value="2")
+MnozstviKg_radiobut.grid(row=3, column=8, padx=20, pady=0)
+PocObyv_radiobut = tkinter.Radiobutton(right_frame, text="Počet obyvatel", variable=sloupecHodnoty_radiobut_value, value="3")
+PocObyv_radiobut.grid(row=4, column=8, padx=20, pady=0)
 
 
 # Vytvoření Text Widget a Scroollbar
