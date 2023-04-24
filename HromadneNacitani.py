@@ -171,7 +171,7 @@ def vlozit_sloupec_prepocet_mnozstvi(df):
     return df
 
 def vlozit_sloupec_prepocet_odpadNaPocetObyv(df):
-    df.insert(loc=0,column='OdpadNaPocetObyv',value=(df['Odpad_vKg'] / df['Pocet_Obyvatel']))
+    df.insert(loc=0,column='OdpadNaObyv_g',value=(df['Odpad_vKg'] / df['Pocet_Obyvatel'])*1000)
     return df
 
 'APLIKACE přidání sloupce Odpad_vKg'

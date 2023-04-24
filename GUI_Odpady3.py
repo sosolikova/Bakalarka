@@ -27,7 +27,7 @@ volby_rok = []
 volby_druhOdpadu = []
 volby_funkce = []
 volby_sloupce = []
-volby_sloupce_univ = ['Evident_Kraj_Nazev','Evident_ORP_Nazev','Indikator','Kod','OdpadNaPocetObyv','Odpad_vKg','Pocet_Obyvatel','Partner_Kraj_Nazev','Partner_ORP_Nazev','Druh_Odpadu','Rok']
+volby_sloupce_univ = ['Evident_Kraj_Nazev','Evident_ORP_Nazev','Indikator','Kod','OdpadNaObyv_g','Odpad_vKg','Pocet_Obyvatel','Partner_Kraj_Nazev','Partner_ORP_Nazev','Druh_Odpadu','Rok']
 volby_seskupeni = []
 volby_seskupeni_univ = ['Druh_Odpadu','Indikator','Kod']
 
@@ -139,34 +139,55 @@ def show_map():
             mapa = gdf_obce
 
         if sloupecHodnoty_radiobut_value.get() == '1':
-            hodnoty = 'OdpadNaPocetObyv'
+            hodnoty = 'OdpadNaObyv_g'
         elif sloupecHodnoty_radiobut_value.get() == '2':
             hodnoty = 'Odpad_vKg'
-        elif sloupecHodnoty_radiobut_value.get() == '3':
-            hodnoty = 'Pocet_Obyvatel'
-
-
+        print("stisk tlačítka: ")
+        print(hodnoty)
         nazev_sloupce = f'{subjekt}_{uzemi}'
             
-        mapa_data = hn.seskupeni_dat_po_sloupcich(vyber_dat_vysledek,hodnoty,nazev_sloupce,'Indikator')
-        mapa_data[hodnoty] = mapa_data[hodnoty].abs()
-
+        odpad_data = hn.seskupeni_dat_po_sloupcich(vyber_dat_vysledek,'Odpad_vKg',nazev_sloupce)
+        odpad_data['Odpad_vKg'] = odpad_data['Odpad_vKg'].abs()
+        print(odpad_data)
+        pocetObyv_data = hn.seskupeni_dat_po_sloupcich(hn.LexikonObci,'Pocet_Obyvatel',nazev_sloupce)
+        print(pocetObyv_data)
+        # Sloučení df odpad_data a pocetObyv_data podle proměnné nazev_sloupce
+        mapa_data = pocetObyv_data.merge(odpad_data,left_on=nazev_sloupce, right_on = nazev_sloupce,how='left')
+        mapa_data['Odpad_vKg'] = mapa_data['Odpad_vKg'].fillna(value=0)
+        print(mapa_data)
+        # Výpočet odpad na obyvatele
+        mapa_data = hn.vlozit_sloupec_prepocet_odpadNaPocetObyv(mapa_data)
+        print(mapa_data)
         #Sloučení df kraje_produkce s geometrickým df podle názvu kraje
         gdf_merged = mapa.merge(mapa_data, left_on=json_column, right_on=nazev_sloupce,how='left')
-
+        gdf_merged.to_csv('gdf_merged.csv', index=False) # pak vymazat
+        print(gdf_merged)
         # nahrazení chybějících hodnot v datovém rámci gdf_merged
         gdf_merged[hodnoty] = gdf_merged[hodnoty].fillna(value=0)
+        gdf_merged = gdf_merged.sort_values(by=hodnoty, ascending=True)
 
+        gdf_merged.to_csv('gdf_merged.csv', index=False) # pak vymazat
+        
+        print("tisk gdf merged")
+        print(gdf_merged)
         # určení kvantilů
-        q1 = mapa_data[hodnoty].quantile(0.15)
-        q3 = mapa_data[hodnoty].quantile(0.85)
+        q1 = gdf_merged[hodnoty].quantile(0.15)
+        q3 = gdf_merged[hodnoty].quantile(0.85)
+        print(q1)
+        print(q3)
         iqr = q3 - q1
         lower_bound = q1 - 1.5 * iqr
         upper_bound = q3 + 1.5 * iqr      
-        outliers = mapa_data[(mapa_data[hodnoty] < lower_bound) | (mapa_data[hodnoty] > upper_bound)]
+        print("lower bound: ")
+        print(lower_bound)
+        print("upper bound: ")
+        print(upper_bound)
+        outliers = gdf_merged[(gdf_merged[hodnoty] < lower_bound) | (gdf_merged[hodnoty] > upper_bound)]
+        print("tisk outliers")
+        print(outliers)
         pocet_odlehlych_hodnot = len(outliers)
         upper_bound = round(upper_bound,-3)
-
+        #upper_bound = 10
         cmap = plt.cm.get_cmap('viridis')
         cmap = cmap.reversed()
         cmap.set_over('black')
@@ -181,7 +202,8 @@ def show_map():
                         edgecolor='black',
                         linewidth=0.5,
                         alpha=0.8,
-                        norm=plt.Normalize(1, vmax=upper_bound))
+                        norm=plt.Normalize(0.00001, vmax=upper_bound)
+                        )
         if len(gdf_merged[gdf_merged[hodnoty] == 0]) > 0:
             text_bila_mista = 'Bílá místa znázorňují území, která neevidovala tento druh odpadu. '
         else: text_bila_mista = ''
@@ -212,8 +234,6 @@ def show_map():
             hodnoty_text = 'Mapa zobrazuje hodnoty: kg na obyvatele '
         elif sloupecHodnoty_radiobut_value.get() == '2':
             hodnoty_text = 'Mapa zobrazuje hodnoty: odpad v kg '
-        elif sloupecHodnoty_radiobut_value.get() == '3':
-            hodnoty_text = 'Mapa zobrazuje hodnoty: počet obyvatel '
         if subjekt_radiobut_value.get() == '1':
             subjekt_text = 'Nakládání s odpady z pohledu: evidentů, '
         elif subjekt_radiobut_value.get() == '2':
@@ -728,8 +748,6 @@ NaPocObyv_radiobut = tkinter.Radiobutton(right_frame, text="Kg na obyvatele", va
 NaPocObyv_radiobut.grid(row=3, column=6, padx=20, pady=0, sticky="W")
 MnozstviKg_radiobut = tkinter.Radiobutton(right_frame, text="Odpad_vKg", variable=sloupecHodnoty_radiobut_value, value="2")
 MnozstviKg_radiobut.grid(row=4, column=6, padx=20, pady=0, sticky="W")
-PocObyv_radiobut = tkinter.Radiobutton(right_frame, text="Počet obyvatel", variable=sloupecHodnoty_radiobut_value, value="3")
-PocObyv_radiobut.grid(row=5, column=6, padx=20, pady=0, sticky="W")
 
 
 # Vytvoření Text Widget a Scroollbar
