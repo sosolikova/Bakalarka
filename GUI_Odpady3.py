@@ -6,6 +6,7 @@ from tkinter import filedialog
 from tkinter import messagebox
 import tkinter
 from PIL import ImageTk, Image
+from matplotlib import cm
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -159,38 +160,35 @@ def show_map():
         gdf_merged.to_csv('gdf_merged.csv', index=False) # pak vymazat
 
         # nahrazení chybějících hodnot v datovém rámci gdf_merged
-        gdf_merged[hodnoty] = gdf_merged[hodnoty].fillna(value=-1)
+        gdf_merged['OdpadNaObyv_g'] = gdf_merged['OdpadNaObyv_g'].fillna(value=0)
+        gdf_merged['Odpad_vKg'] = gdf_merged['Odpad_vKg'].fillna(value=0)
+
         # zaokrouhlení sloupce hodnoty ('OdpadNaObyvatele') na celá čísla nahoru
         gdf_merged['OdpadNaObyv_g'] = gdf_merged['OdpadNaObyv_g'].apply(np.ceil).astype(int)
         gdf_merged['Odpad_vKg'] = gdf_merged['Odpad_vKg'].apply(np.ceil).astype(int)
-
-        bezNul_data = bezNul_data.sort_values(by=hodnoty, ascending=True)
         
-        # určení kvantilů
-        q1 = bezNul_data[hodnoty].quantile(0.15)
-        q3 = bezNul_data[hodnoty].quantile(0.85)
-        print(q1)
-        print(q3)
-        iqr = q3 - q1
-        lower_bound = q1 - 1.5 * iqr
-        upper_bound = q3 + 1.5 * iqr      
+        bezNul_data = bezNul_data.sort_values(by=hodnoty, ascending=True)
+        gdf_merged_filtered = gdf_merged.loc[gdf_merged['Odpad_vKg'] > 0].sort_values(hodnoty)
 
-        outliers = bezNul_data[(bezNul_data[hodnoty] < lower_bound) | (bezNul_data[hodnoty] > upper_bound)]
+        spodni_hranice, horni_hranice = hn.zjisteni_hranic(gdf_merged_filtered,hodnoty)
+        
+        outliers = gdf_merged_filtered[(gdf_merged_filtered[hodnoty] < spodni_hranice) | (gdf_merged_filtered[hodnoty] > horni_hranice)]
 
         pocet_odlehlych_hodnot = len(outliers)
         if pocet_odlehlych_hodnot > 0:
-            upper_limit_scale = upper_bound = round(upper_bound,0)
+            upper_limit_scale = horni_hranice = round(horni_hranice,0)
         else:
-            upper_limit_scale = bezNul_data[hodnoty].max()
+            upper_limit_scale = gdf_merged_filtered[hodnoty].max()
 
-        cmap = plt.cm.get_cmap('viridis')
+
+        cmap = cm.get_cmap('viridis')
         cmap = cmap.reversed()
         cmap.set_over('black')
         cmap.set_under('white')
 
-        # nastavení rozsahu hodnot pro mapu
-        vmin = 0
-        vmax = upper_limit_scale
+        # nastavení rozsahu hodnot pro barevnou mapu
+        vmin = 1
+        vmax = upper_limit_scale  # nastavíme max hodnotu v hodnotách jako vrchol legendy
         norm = plt.Normalize(vmin=vmin, vmax=vmax)
 
         fig, ax = plt.subplots()
@@ -220,12 +218,14 @@ def show_map():
                       horizontalalignment='center',
                       color='black',
                       fontsize=5)
-              
+
+
         text_widget.delete("1.0","end")
         text_widget.insert(END, "Data pro vznik mapy:\n\n ")
         text_widget.insert(END, bezNul_data)
+        
         # Přidání textu s hodnotou vmax
-        formatted_upper_bound = '{:,.0f}'.format(upper_bound).replace(',', ' ')
+        formatted_upper_bound = '{:,.0f}'.format(horni_hranice).replace(',', ' ')
         ax.annotate(f'{text_odlehle_hodnoty}\n{text_bila_mista}'.format(formatted_upper_bound), xy=(0.95, 0.1), xycoords='axes fraction', ha='right', va='center')
         
         def create_title_from_list(my_list):

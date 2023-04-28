@@ -383,21 +383,19 @@ def vyber_kriterii(df, column1, volby1, column2, volby2, column3, volby3, column
 
 def odpadNaObyvatele_g(df_filtered,column_grouped,df_lexikon,column_lexikon):
     odpad = seskupeni_dat_po_sloupcich(df_filtered,'Odpad_vKg',column_grouped)
-    print("odpad")
-    print(odpad)
     odpad['Odpad_vKg'] = odpad['Odpad_vKg'].abs()
-    print("odpad abs")
-    print(odpad)
     obyvatele = seskupeni_dat_po_sloupcich(df_lexikon,'Pocet_Obyvatel',column_lexikon)
-    print("obyvatele")
-    print(obyvatele)
     odpad_obyvatele = obyvatele.merge(odpad,left_on=column_lexikon, right_on = column_grouped, how='left')
-    print("merged odpad_obyvatele")
-    print(odpad_obyvatele)
-    odpad_obyvatele['Odpad_vKg'] = odpad_obyvatele['Odpad_vKg'].fillna(value=-1)
-    print("odpad_obyvatele s nulama")
-    print(odpad_obyvatele)
+    odpad_obyvatele['Odpad_vKg'] = odpad_obyvatele['Odpad_vKg'].fillna(value=0)
     odpadNaObyv_g = vlozit_sloupec_prepocet_odpadNaPocetObyv(odpad_obyvatele)
     return odpadNaObyv_g
 
+def zjisteni_hranic(df, columns):
+    # určení kvantilů
+    q1 = df[columns].quantile(0.15)
+    q3 = df[columns].quantile(0.85)
+    iqr = q3 - q1
+    spodni_hranice = q1 - 1.5 * iqr
+    horni_hranice = q3 + 1.5 * iqr
+    return spodni_hranice, horni_hranice
 
