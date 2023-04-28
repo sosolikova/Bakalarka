@@ -119,7 +119,9 @@ def show_map():
         gdf_kraje = gpd.read_file('kraje-simple.json', encoding='utf-8')
         gdf_orp = gpd.read_file('orp-simple.json', encoding='utf-8')
         gdf_obce = gpd.read_file('obce-simple.json', encoding='utf-8')
-
+        gdf_kraje.to_csv('gdf_kraje.csv', index=False)
+        gdf_orp.to_csv('gdf_orp.csv', index=False)
+        gdf_obce.to_csv('gdf_obce.csv', index=False)
         if subjekt_radiobut_value.get() == '1':
             subjekt = 'Evident'
         elif subjekt_radiobut_value.get() == '2':
@@ -145,7 +147,8 @@ def show_map():
         print("stisk tlačítka: ")
         print(hodnoty)
         nazev_sloupce = f'{subjekt}_{uzemi}'
-            
+        nazev_sloupce_lexikon = uzemi
+        '''    
         odpad_data = hn.seskupeni_dat_po_sloupcich(vyber_dat_vysledek,'Odpad_vKg',nazev_sloupce)
         odpad_data['Odpad_vKg'] = odpad_data['Odpad_vKg'].abs()
         print(odpad_data)
@@ -158,21 +161,35 @@ def show_map():
         # Výpočet odpad na obyvatele
         mapa_data = hn.vlozit_sloupec_prepocet_odpadNaPocetObyv(mapa_data)
         print(mapa_data)
+        '''
+        mapa_data = hn.odpadNaObyvatele_g(vyber_dat_vysledek,nazev_sloupce,hn.LexikonObci,nazev_sloupce_lexikon)
+        print("výtisk po mé funkci")
+        print(mapa_data)
+        bezNul_data = mapa_data[mapa_data['Odpad_vKg'] > 0]
+        print("data frame bez nul")
+        print(bezNul_data)
+        # zaokrouhlení sloupce hodnoty ('OdpadNaObyvatele') na celá čísla nahoru
+        bezNul_data[hodnoty] = bezNul_data[hodnoty].apply(np.ceil).astype(int)
+        print("data frame bez nul zaokr")
+        print(bezNul_data)
         #Sloučení df kraje_produkce s geometrickým df podle názvu kraje
         gdf_merged = mapa.merge(mapa_data, left_on=json_column, right_on=nazev_sloupce,how='left')
         gdf_merged.to_csv('gdf_merged.csv', index=False) # pak vymazat
         print(gdf_merged)
         # nahrazení chybějících hodnot v datovém rámci gdf_merged
         gdf_merged[hodnoty] = gdf_merged[hodnoty].fillna(value=0)
-        gdf_merged = gdf_merged.sort_values(by=hodnoty, ascending=True)
+        # zaokrouhlení sloupce hodnoty ('OdpadNaObyvatele') na celá čísla nahoru
+        gdf_merged[hodnoty] = gdf_merged[hodnoty].apply(np.ceil).astype(int)
+
+        bezNul_data = bezNul_data.sort_values(by=hodnoty, ascending=True)
 
         gdf_merged.to_csv('gdf_merged.csv', index=False) # pak vymazat
         
         print("tisk gdf merged")
         print(gdf_merged)
         # určení kvantilů
-        q1 = gdf_merged[hodnoty].quantile(0.15)
-        q3 = gdf_merged[hodnoty].quantile(0.85)
+        q1 = bezNul_data[hodnoty].quantile(0.15)
+        q3 = bezNul_data[hodnoty].quantile(0.85)
         print(q1)
         print(q3)
         iqr = q3 - q1
@@ -182,7 +199,7 @@ def show_map():
         print(lower_bound)
         print("upper bound: ")
         print(upper_bound)
-        outliers = gdf_merged[(gdf_merged[hodnoty] < lower_bound) | (gdf_merged[hodnoty] > upper_bound)]
+        outliers = bezNul_data[(bezNul_data[hodnoty] < lower_bound) | (bezNul_data[hodnoty] > upper_bound)]
         print("tisk outliers")
         print(outliers)
         pocet_odlehlych_hodnot = len(outliers)
@@ -202,7 +219,7 @@ def show_map():
                         edgecolor='black',
                         linewidth=0.5,
                         alpha=0.8,
-                        norm=plt.Normalize(0.00001, vmax=upper_bound)
+                        norm=plt.Normalize(0.9, vmax=upper_bound)
                         )
         if len(gdf_merged[gdf_merged[hodnoty] == 0]) > 0:
             text_bila_mista = 'Bílá místa znázorňují území, která neevidovala tento druh odpadu. '
@@ -218,7 +235,10 @@ def show_map():
                       horizontalalignment='center',
                       color='black',
                       fontsize=5)
-
+              
+        text_widget.delete("1.0","end")
+        text_widget.insert(END, "Data pro vznik mapy:\n\n ")
+        text_widget.insert(END, bezNul_data)
         # Přidání textu s hodnotou vmax
         formatted_upper_bound = '{:,.0f}'.format(upper_bound).replace(',', ' ')
         ax.annotate(f'{text_odlehle_hodnoty}\n{text_bila_mista}'.format(formatted_upper_bound), xy=(0.95, 0.1), xycoords='axes fraction', ha='right', va='center')
@@ -231,7 +251,7 @@ def show_map():
             return title
         
         if sloupecHodnoty_radiobut_value.get() == '1':
-            hodnoty_text = 'Mapa zobrazuje hodnoty: kg na obyvatele '
+            hodnoty_text = 'Mapa zobrazuje hodnoty: v g na obyvatele '
         elif sloupecHodnoty_radiobut_value.get() == '2':
             hodnoty_text = 'Mapa zobrazuje hodnoty: odpad v kg '
         if subjekt_radiobut_value.get() == '1':

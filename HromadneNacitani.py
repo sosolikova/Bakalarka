@@ -24,12 +24,12 @@ dtypes_obyvatele = {
     'Pocet_Obyvatel':  'int'
 }
 dtypes_lexikonObci ={
-    'Evident_ZUJ_Cislo':  'string',
-    'Evident_ZUJ_Nazev':  'string',
-    'Evident_ORP_Cislo':  'string',
-    'Evident_ORP_Nazev':  'string',
-    'Evident_Kraj_Cislo': 'string',
-    'Evident_Kraj_Nazev': 'string',
+    'ZUJ_Cislo':  'string',
+    'ZUJ_Nazev':  'string',
+    'ORP_Cislo':  'string',
+    'ORP_Nazev':  'string',
+    'Kraj_Cislo': 'string',
+    'Kraj_Nazev': 'string',
     'Pocet_Obyvatel':     'int'
 }
 dtypes_odpady= {
@@ -338,8 +338,8 @@ def create_area_list(df,column_high,column_low):
     list = df.groupby(column_high)[column_low].unique()
     return list
 
-list_kraj_orp = create_area_list(LexikonObci,'Evident_Kraj_Nazev','Evident_ORP_Nazev')
-list_orp_zuj = create_area_list(LexikonObci,'Evident_ORP_Nazev','Evident_ZUJ_Nazev')
+list_kraj_orp = create_area_list(LexikonObci,'Kraj_Nazev','ORP_Nazev')
+list_orp_zuj = create_area_list(LexikonObci,'ORP_Nazev','ZUJ_Nazev')
 
 
 #Funguje
@@ -380,3 +380,24 @@ def vyber_kriterii(df, column1, volby1, column2, volby2, column3, volby3, column
     vysledek = df[((df[column1].isin(volby1)) | (df[column2].isin(volby2))) & (df[column3].isin(volby3)) & (df[column4].isin(volby4))]
         
     return vysledek
+
+def odpadNaObyvatele_g(df_filtered,column_grouped,df_lexikon,column_lexikon):
+    odpad = seskupeni_dat_po_sloupcich(df_filtered,'Odpad_vKg',column_grouped)
+    print("odpad")
+    print(odpad)
+    odpad['Odpad_vKg'] = odpad['Odpad_vKg'].abs()
+    print("odpad abs")
+    print(odpad)
+    obyvatele = seskupeni_dat_po_sloupcich(df_lexikon,'Pocet_Obyvatel',column_lexikon)
+    print("obyvatele")
+    print(obyvatele)
+    odpad_obyvatele = obyvatele.merge(odpad,left_on=column_lexikon, right_on = column_grouped, how='left')
+    print("merged odpad_obyvatele")
+    print(odpad_obyvatele)
+    odpad_obyvatele['Odpad_vKg'] = odpad_obyvatele['Odpad_vKg'].fillna(value=0)
+    print("odpad_obyvatele s nulama")
+    print(odpad_obyvatele)
+    odpadNaObyv_g = vlozit_sloupec_prepocet_odpadNaPocetObyv(odpad_obyvatele)
+    return odpadNaObyv_g
+
+
