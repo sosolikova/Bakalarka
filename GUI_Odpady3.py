@@ -142,49 +142,30 @@ def show_map():
             hodnoty = 'OdpadNaObyv_g'
         elif sloupecHodnoty_radiobut_value.get() == '2':
             hodnoty = 'Odpad_vKg'
-        print("stisk tlačítka: ")
-        print(hodnoty)
+
         nazev_sloupce = f'{subjekt}_{uzemi}'
         nazev_sloupce_lexikon = uzemi
-        '''    
-        odpad_data = hn.seskupeni_dat_po_sloupcich(vyber_dat_vysledek,'Odpad_vKg',nazev_sloupce)
-        odpad_data['Odpad_vKg'] = odpad_data['Odpad_vKg'].abs()
-        print(odpad_data)
-        pocetObyv_data = hn.seskupeni_dat_po_sloupcich(hn.LexikonObci,'Pocet_Obyvatel',nazev_sloupce)
-        print(pocetObyv_data)
-        # Sloučení df odpad_data a pocetObyv_data podle proměnné nazev_sloupce
-        mapa_data = pocetObyv_data.merge(odpad_data,left_on=nazev_sloupce, right_on = nazev_sloupce,how='left')
-        mapa_data['Odpad_vKg'] = mapa_data['Odpad_vKg'].fillna(value=0)
-        print(mapa_data)
-        # Výpočet odpad na obyvatele
-        mapa_data = hn.vlozit_sloupec_prepocet_odpadNaPocetObyv(mapa_data)
-        print(mapa_data)
-        '''
+
         mapa_data = hn.odpadNaObyvatele_g(vyber_dat_vysledek,nazev_sloupce,hn.LexikonObci,nazev_sloupce_lexikon)
-        print("výtisk po mé funkci")
-        print(mapa_data)
+
         bezNul_data = mapa_data[mapa_data['Odpad_vKg'] > 0]
-        print("data frame bez nul")
-        print(bezNul_data)
+
         # zaokrouhlení sloupce hodnoty ('OdpadNaObyvatele') na celá čísla nahoru
-        bezNul_data[hodnoty] = bezNul_data[hodnoty].apply(np.ceil).astype(int)
-        print("data frame bez nul zaokr")
-        print(bezNul_data)
+        bezNul_data['OdpadNaObyv_g'] = bezNul_data['OdpadNaObyv_g'].apply(np.ceil).astype(int)
+        bezNul_data['Odpad_vKg'] = bezNul_data['Odpad_vKg'].apply(np.ceil).astype(int)
+
         #Sloučení df kraje_produkce s geometrickým df podle názvu kraje
         gdf_merged = mapa.merge(mapa_data, left_on=json_column, right_on=nazev_sloupce,how='left')
         gdf_merged.to_csv('gdf_merged.csv', index=False) # pak vymazat
-        print(gdf_merged)
+
         # nahrazení chybějících hodnot v datovém rámci gdf_merged
         gdf_merged[hodnoty] = gdf_merged[hodnoty].fillna(value=-1)
         # zaokrouhlení sloupce hodnoty ('OdpadNaObyvatele') na celá čísla nahoru
-        gdf_merged[hodnoty] = gdf_merged[hodnoty].apply(np.ceil).astype(int)
+        gdf_merged['OdpadNaObyv_g'] = gdf_merged['OdpadNaObyv_g'].apply(np.ceil).astype(int)
+        gdf_merged['Odpad_vKg'] = gdf_merged['Odpad_vKg'].apply(np.ceil).astype(int)
 
         bezNul_data = bezNul_data.sort_values(by=hodnoty, ascending=True)
-
-        gdf_merged.to_csv('gdf_merged.csv', index=False) # pak vymazat
         
-        print("tisk gdf merged")
-        print(gdf_merged)
         # určení kvantilů
         q1 = bezNul_data[hodnoty].quantile(0.15)
         q3 = bezNul_data[hodnoty].quantile(0.85)
@@ -193,29 +174,23 @@ def show_map():
         iqr = q3 - q1
         lower_bound = q1 - 1.5 * iqr
         upper_bound = q3 + 1.5 * iqr      
-        print("lower bound: ")
-        print(lower_bound)
-        print("upper bound: ")
-        print(upper_bound)
+
         outliers = bezNul_data[(bezNul_data[hodnoty] < lower_bound) | (bezNul_data[hodnoty] > upper_bound)]
-        print("tisk outliers")
-        print(outliers)
+
         pocet_odlehlych_hodnot = len(outliers)
         if pocet_odlehlych_hodnot > 0:
             upper_limit_scale = upper_bound = round(upper_bound,0)
         else:
             upper_limit_scale = bezNul_data[hodnoty].max()
-        #upper_bound = 10
-        print("upper limit scale")
-        print(upper_limit_scale)
+
         cmap = plt.cm.get_cmap('viridis')
         cmap = cmap.reversed()
         cmap.set_over('black')
         cmap.set_under('white')
 
-        # nastavení rozsahu hodnot pro barevnou mapu
+        # nastavení rozsahu hodnot pro mapu
         vmin = 0
-        vmax = upper_limit_scale  # nastavíme max hodnotu v hodnotách jako vrchol legendy
+        vmax = upper_limit_scale
         norm = plt.Normalize(vmin=vmin, vmax=vmax)
 
         fig, ax = plt.subplots()
@@ -230,6 +205,7 @@ def show_map():
                         linewidth=0.5,
                         alpha=0.8,
                         )
+
         if len(gdf_merged[gdf_merged[hodnoty] == 0]) > 0:
             text_bila_mista = 'Bílá místa znázorňují území, která neevidovala tento druh odpadu. '
         else: text_bila_mista = ''
