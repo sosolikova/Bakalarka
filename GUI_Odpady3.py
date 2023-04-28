@@ -127,31 +127,38 @@ def show_map():
             subjekt = 'Partner'
 
         if uzemi_radiobut_value.get() == '1':
-            uzemi = 'Kraj_Cislo'
+            uzemi_cislo = 'Kraj_Cislo'
             mapa = gdf_kraje
             json_column = 'NUTS3_KOD'
+            uzemi_nazev = 'Kraj_Nazev'
+            nazev_souboru_unique = hn.unique_kraj
         elif uzemi_radiobut_value.get() == '2':
-            uzemi = 'ORP_Cislo'
+            uzemi_cislo = 'ORP_Cislo'
             mapa = gdf_orp
             json_column = 'ORP_Cislo'
+            uzemi_nazev = 'ORP_Nazev'
+            nazev_souboru_unique = hn.unique_orp
         elif uzemi_radiobut_value.get() == '3':
-            uzemi = 'ZUJ_Cislo'
+            uzemi_cislo = 'ZUJ_Cislo'
             json_column = 'KOD'
             mapa = gdf_obce
+            uzemi_nazev = 'ZUJ_Nazev'
+            nazev_souboru_unique = hn.LexikonObci
 
         if sloupecHodnoty_radiobut_value.get() == '1':
             hodnoty = 'OdpadNaObyv_g'
         elif sloupecHodnoty_radiobut_value.get() == '2':
             hodnoty = 'Odpad_vKg'
 
-        nazev_sloupce = f'{subjekt}_{uzemi}'
-        nazev_sloupce_lexikon = uzemi
+        nazev_sloupce = f'{subjekt}_{uzemi_cislo}'
+        nazev_sloupce_lexikon = uzemi_cislo
+        nazev_sloupce_unique_nazev = uzemi_nazev
 
         mapa_data = hn.odpadNaObyvatele_g(vyber_dat_vysledek,nazev_sloupce,hn.LexikonObci,nazev_sloupce_lexikon)
 
         bezNul_data = mapa_data[mapa_data['Odpad_vKg'] > 0]
         #bezNul_data = bezNul_data.merge(hn.unique_orp, left_on='ORP_Cislo',right_on='ORP_Cislo',how='left')
-        bezNul_data = pd.merge(bezNul_data, hn.unique_orp[['ORP_Cislo', 'ORP_Nazev']], on='ORP_Cislo', how='left')
+        bezNul_data = pd.merge(bezNul_data, nazev_souboru_unique[[nazev_sloupce_lexikon, nazev_sloupce_unique_nazev]], on=nazev_sloupce_lexikon, how='left')
         bezNul_data.to_csv('bezNul_data.csv', index=False) # pak vymazat
         # zaokrouhlení sloupce hodnoty ('OdpadNaObyvatele') na celá čísla nahoru
         bezNul_data['OdpadNaObyv_g'] = bezNul_data['OdpadNaObyv_g'].apply(np.ceil).astype(int)
