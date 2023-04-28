@@ -150,7 +150,9 @@ def show_map():
         mapa_data = hn.odpadNaObyvatele_g(vyber_dat_vysledek,nazev_sloupce,hn.LexikonObci,nazev_sloupce_lexikon)
 
         bezNul_data = mapa_data[mapa_data['Odpad_vKg'] > 0]
-
+        #bezNul_data = bezNul_data.merge(hn.unique_orp, left_on='ORP_Cislo',right_on='ORP_Cislo',how='left')
+        bezNul_data = pd.merge(bezNul_data, hn.unique_orp[['ORP_Cislo', 'ORP_Nazev']], on='ORP_Cislo', how='left')
+        bezNul_data.to_csv('bezNul_data.csv', index=False) # pak vymazat
         # zaokrouhlení sloupce hodnoty ('OdpadNaObyvatele') na celá čísla nahoru
         bezNul_data['OdpadNaObyv_g'] = bezNul_data['OdpadNaObyv_g'].apply(np.ceil).astype(int)
         bezNul_data['Odpad_vKg'] = bezNul_data['Odpad_vKg'].apply(np.ceil).astype(int)
@@ -222,6 +224,8 @@ def show_map():
 
         text_widget.delete("1.0","end")
         text_widget.insert(END, "Data pro vznik mapy:\n\n ")
+        #text_widget.insert(END, hn.unique_orp)
+        
         text_widget.insert(END, bezNul_data)
         
         # Přidání textu s hodnotou vmax

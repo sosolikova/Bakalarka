@@ -9,6 +9,18 @@ import geopandas as gpd
 dtypes_nakladani = {
     'Navyseni_Ubytek': 'int'
 }
+dtypes_unique_orp = {
+    'Kraj_Cislo':     'string',
+    'Kraj_Nazev':       'string',
+    'ORP_Cislo':     'string',
+    'ORP_Nazev':  'string',
+    'Pocet_obyvatel':  'int',
+}
+dtypes_unique_kraj = {
+    'Kraj_Cislo':     'string',
+    'Kraj_Nazev':       'string',
+    'Pocet_obyvatel':  'int',
+}
 dtypes_zuj = {
     'ZUJ_Kod': 'string',
     'ORP_Kod':  'string',
@@ -63,6 +75,7 @@ def load_csv_type_conversion(filename, dtypes):
     df = pd.read_csv(filename, delimiter=';', decimal=',',dtype = dtypes)
     return df
 
+
 def load_files_to_df(directory,extension,dtypes,column_name,column_year):
     files = [file for file in os.listdir(directory) if file.endswith(extension)]
 
@@ -82,6 +95,10 @@ def load_files_to_df(directory,extension,dtypes,column_name,column_year):
 
     return df
 
+unique_kraj = load_csv_type_conversion('Unique_kraj.csv',dtypes_unique_kraj)
+unique_orp = load_csv_type_conversion('Unique_ORP.csv', dtypes_unique_orp)
+
+print(unique_kraj)
 Zdrojovy = load_files_to_df('Data','.csv',dtypes_odpady,'Druh_Odpadu','Rok')
 print('________---sloucene soubory ----__________')
 print(Zdrojovy)

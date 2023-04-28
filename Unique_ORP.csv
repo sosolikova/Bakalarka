@@ -1,0 +1,207 @@
+﻿Kraj_Cislo;Kraj_Nazev;ORP_Cislo;ORP_Nazev; Pocet_Obyvatel 
+CZ010;Hlavní město Praha;1000;Praha; 1 275 406 
+CZ020;Středočeský kraj;2101;Benešov; 61 122 
+CZ020;Středočeský kraj;2102;Beroun; 66 476 
+CZ020;Středočeský kraj;2103;Brandýs n. Lab.-St.Boleslav; 114 553 
+CZ020;Středočeský kraj;2104;Čáslav; 25 716 
+CZ020;Středočeský kraj;2105;Černošice; 151 093 
+CZ020;Středočeský kraj;2106;Český Brod; 19 766 
+CZ020;Středočeský kraj;2107;Dobříš; 23 359 
+CZ020;Středočeský kraj;2108;Hořovice; 30 148 
+CZ020;Středočeský kraj;2109;Kladno; 123 904 
+CZ020;Středočeský kraj;2110;Kolín; 84 128 
+CZ020;Středočeský kraj;2111;Kralupy nad Vltavou; 32 665 
+CZ020;Středočeský kraj;2112;Kutná Hora; 49 967 
+CZ020;Středočeský kraj;2113;Lysá nad Labem; 29 537 
+CZ020;Středočeský kraj;2114;Mělník; 44 757 
+CZ020;Středočeský kraj;2115;Mladá Boleslav; 109 665 
+CZ020;Středočeský kraj;2116;Mnichovo Hradiště; 17 927 
+CZ020;Středočeský kraj;2117;Neratovice; 31 932 
+CZ020;Středočeský kraj;2118;Nymburk; 40 221 
+CZ020;Středočeský kraj;2119;Poděbrady; 31 362 
+CZ020;Středočeský kraj;2120;Příbram; 69 222 
+CZ020;Středočeský kraj;2121;Rakovník; 54 898 
+CZ020;Středočeský kraj;2122;Říčany; 73 831 
+CZ020;Středočeský kraj;2123;Sedlčany; 21 785 
+CZ020;Středočeský kraj;2124;Slaný; 40 589 
+CZ020;Středočeský kraj;2125;Vlašim; 25 744 
+CZ020;Středočeský kraj;2126;Votice; 12 457 
+CZ031;Jihočeský kraj;3101;Blatná; 13 328 
+CZ031;Jihočeský kraj;3102;České Budějovice; 162 394 
+CZ031;Jihočeský kraj;3103;Český Krumlov; 40 714 
+CZ031;Jihočeský kraj;3104;Dačice; 18 396 
+CZ031;Jihočeský kraj;3105;Jindřichův Hradec; 46 461 
+CZ031;Jihočeský kraj;3106;Kaplice; 19 382 
+CZ031;Jihočeský kraj;3107;Milevsko; 18 025 
+CZ031;Jihočeský kraj;3108;Písek; 52 744 
+CZ031;Jihočeský kraj;3109;Prachatice; 33 078 
+CZ031;Jihočeský kraj;3110;Soběslav; 21 927 
+CZ031;Jihočeský kraj;3111;Strakonice; 44 662 
+CZ031;Jihočeský kraj;3112;Tábor; 79 436 
+CZ031;Jihočeský kraj;3113;Trhové Sviny; 19 234 
+CZ031;Jihočeský kraj;3114;Třeboň; 24 426 
+CZ031;Jihočeský kraj;3115;Týn nad Vltavou; 13 905 
+CZ031;Jihočeský kraj;3116;Vimperk; 17 152 
+CZ031;Jihočeský kraj;3117;Vodňany; 11 783 
+CZ032;Plzeňský kraj;3201;Blovice; 12 200 
+CZ032;Plzeňský kraj;3202;Domažlice; 39 785 
+CZ032;Plzeňský kraj;3203;Horažďovice; 11 415 
+CZ032;Plzeňský kraj;3204;Horšovský Týn; 14 606 
+CZ032;Plzeňský kraj;3205;Klatovy; 49 748 
+CZ032;Plzeňský kraj;3206;Kralovice; 22 495 
+CZ032;Plzeňský kraj;3207;Nepomuk; 11 066 
+CZ032;Plzeňský kraj;3208;Nýřany; 58 171 
+CZ032;Plzeňský kraj;3209;Plzeň; 188 407 
+CZ032;Plzeňský kraj;3210;Přeštice; 22 476 
+CZ032;Plzeňský kraj;3211;Rokycany; 48 770 
+CZ032;Plzeňský kraj;3212;Stod; 23 176 
+CZ032;Plzeňský kraj;3213;Stříbro; 16 761 
+CZ032;Plzeňský kraj;3214;Sušice; 23 451 
+CZ032;Plzeňský kraj;3215;Tachov; 36 180 
+CZ041;Karlovarský kraj;4101;Aš; 16 871 
+CZ041;Karlovarský kraj;4102;Cheb; 47 890 
+CZ041;Karlovarský kraj;4103;Karlovy Vary; 83 689 
+CZ041;Karlovarský kraj;4104;Kraslice; 12 666 
+CZ041;Karlovarský kraj;4105;Mariánské Lázně; 23 197 
+CZ041;Karlovarský kraj;4106;Ostrov; 26 363 
+CZ041;Karlovarský kraj;4107;Sokolov; 72 534 
+CZ042;Ústecký kraj;4201;Bílina; 19 400 
+CZ042;Ústecký kraj;4202;Děčín; 74 944 
+CZ042;Ústecký kraj;4203;Chomutov; 79 204 
+CZ042;Ústecký kraj;4204;Kadaň; 42 276 
+CZ042;Ústecký kraj;4205;Litoměřice; 57 785 
+CZ042;Ústecký kraj;4206;Litvínov; 35 650 
+CZ042;Ústecký kraj;4207;Louny; 42 895 
+CZ042;Ústecký kraj;4208;Lovosice; 27 238 
+CZ042;Ústecký kraj;4209;Most; 71 123 
+CZ042;Ústecký kraj;4210;Podbořany; 15 472 
+CZ042;Ústecký kraj;4211;Roudnice nad Labem; 32 559 
+CZ042;Ústecký kraj;4212;Rumburk; 31 999 
+CZ042;Ústecký kraj;4213;Teplice; 105 072 
+CZ042;Ústecký kraj;4214;Ústí nad Labem; 116 916 
+CZ042;Ústecký kraj;4215;Varnsdorf; 19 351 
+CZ042;Ústecký kraj;4216;Žatec; 27 014 
+CZ051;Liberecký kraj;5101;Česká Lípa; 75 831 
+CZ051;Liberecký kraj;5102;Frýdlant; 24 268 
+CZ051;Liberecký kraj;5103;Jablonec nad Nisou; 55 814 
+CZ051;Liberecký kraj;5104;Jilemnice; 21 605 
+CZ051;Liberecký kraj;5105;Liberec; 144 062 
+CZ051;Liberecký kraj;5106;Nový Bor; 26 131 
+CZ051;Liberecký kraj;5107;Semily; 25 300 
+CZ051;Liberecký kraj;5108;Tanvald; 19 919 
+CZ051;Liberecký kraj;5109;Turnov; 32 632 
+CZ051;Liberecký kraj;5110;Železný Brod; 12 008 
+CZ052;Královéhradecký kraj;5201;Broumov; 15 476 
+CZ052;Královéhradecký kraj;5202;Dobruška; 19 907 
+CZ052;Královéhradecký kraj;5203;Dvůr Králové nad Labem; 26 622 
+CZ052;Královéhradecký kraj;5204;Hořice; 18 087 
+CZ052;Královéhradecký kraj;5205;Hradec Králové; 144 847 
+CZ052;Královéhradecký kraj;5206;Jaroměř; 19 176 
+CZ052;Královéhradecký kraj;5207;Jičín; 47 589 
+CZ052;Královéhradecký kraj;5208;Kostelec nad Orlicí; 24 858 
+CZ052;Královéhradecký kraj;5209;Náchod; 59 412 
+CZ052;Královéhradecký kraj;5210;Nová Paka; 13 037 
+CZ052;Královéhradecký kraj;5211;Nové Město nad Metují; 13 909 
+CZ052;Královéhradecký kraj;5212;Nový Bydžov; 17 553 
+CZ052;Královéhradecký kraj;5213;Rychnov nad Kněžnou; 33 659 
+CZ052;Královéhradecký kraj;5214;Trutnov; 61 713 
+CZ052;Královéhradecký kraj;5215;Vrchlabí; 26 738 
+CZ053;Pardubický kraj;5301;Česká Třebová; 17 644 
+CZ053;Pardubický kraj;5302;Hlinsko; 20 765 
+CZ053;Pardubický kraj;5303;Holice; 17 945 
+CZ053;Pardubický kraj;5304;Chrudim; 82 981 
+CZ053;Pardubický kraj;5305;Králíky; 8 376 
+CZ053;Pardubický kraj;5306;Lanškroun; 22 498 
+CZ053;Pardubický kraj;5307;Litomyšl; 26 780 
+CZ053;Pardubický kraj;5308;Moravská Třebová; 25 775 
+CZ053;Pardubický kraj;5309;Pardubice; 128 883 
+CZ053;Pardubický kraj;5310;Polička; 19 435 
+CZ053;Pardubický kraj;5311;Přelouč; 25 396 
+CZ053;Pardubický kraj;5312;Svitavy; 30 876 
+CZ053;Pardubický kraj;5313;Ústí nad Orlicí; 26 106 
+CZ053;Pardubický kraj;5314;Vysoké Mýto; 32 082 
+CZ053;Pardubický kraj;5315;Žamberk; 28 976 
+CZ063;Kraj Vysočina;6101;Bystřice nad Pernštejnem; 19 463 
+CZ063;Kraj Vysočina;6102;Havlíčkův Brod; 52 820 
+CZ063;Kraj Vysočina;6103;Humpolec; 17 710 
+CZ063;Kraj Vysočina;6104;Chotěboř; 21 532 
+CZ063;Kraj Vysočina;6105;Jihlava; 99 606 
+CZ063;Kraj Vysočina;6106;Moravské Budějovice; 22 697 
+CZ063;Kraj Vysočina;6107;Náměšť nad Oslavou; 13 329 
+CZ063;Kraj Vysočina;6108;Nové Město na Moravě; 19 169 
+CZ063;Kraj Vysočina;6109;Pacov; 9 207 
+CZ063;Kraj Vysočina;6110;Pelhřimov; 44 654 
+CZ063;Kraj Vysočina;6111;Světlá nad Sázavou; 19 340 
+CZ063;Kraj Vysočina;6112;Telč; 12 809 
+CZ063;Kraj Vysočina;6113;Třebíč; 73 157 
+CZ063;Kraj Vysočina;6114;Velké Meziříčí; 36 332 
+CZ063;Kraj Vysočina;6115;Žďár nad Sázavou; 42 200 
+CZ064;Jihomoravský kraj;6201;Blansko; 56 155 
+CZ064;Jihomoravský kraj;6202;Boskovice; 51 757 
+CZ064;Jihomoravský kraj;6203;Brno; 379 466 
+CZ064;Jihomoravský kraj;6204;Břeclav; 58 281 
+CZ064;Jihomoravský kraj;6205;Bučovice; 16 225 
+CZ064;Jihomoravský kraj;6206;Hodonín; 59 605 
+CZ064;Jihomoravský kraj;6207;Hustopeče; 36 205 
+CZ064;Jihomoravský kraj;6208;Ivančice; 24 509 
+CZ064;Jihomoravský kraj;6209;Kuřim; 23 345 
+CZ064;Jihomoravský kraj;6210;Kyjov; 54 837 
+CZ064;Jihomoravský kraj;6211;Mikulov; 20 315 
+CZ064;Jihomoravský kraj;6212;Moravský Krumlov; 22 425 
+CZ064;Jihomoravský kraj;6213;Pohořelice; 14 982 
+CZ064;Jihomoravský kraj;6214;Rosice; 26 446 
+CZ064;Jihomoravský kraj;6215;Slavkov u Brna; 24 284 
+CZ064;Jihomoravský kraj;6216;Šlapanice; 70 716 
+CZ064;Jihomoravský kraj;6217;Tišnov; 31 853 
+CZ064;Jihomoravský kraj;6218;Veselí nad Moravou; 36 654 
+CZ064;Jihomoravský kraj;6219;Vyškov; 51 808 
+CZ064;Jihomoravský kraj;6220;Znojmo; 91 037 
+CZ064;Jihomoravský kraj;6221;Židlochovice; 33 663 
+CZ071;Olomoucký kraj;7101;Hranice; 33 567 
+CZ071;Olomoucký kraj;7102;Jeseník; 36 752 
+CZ071;Olomoucký kraj;7103;Konice; 10 553 
+CZ071;Olomoucký kraj;7104;Lipník nad Bečvou; 14 960 
+CZ071;Olomoucký kraj;7105;Litovel; 23 524 
+CZ071;Olomoucký kraj;7106;Mohelnice; 18 212 
+CZ071;Olomoucký kraj;7107;Olomouc; 164 208 
+CZ071;Olomoucký kraj;7108;Prostějov; 97 027 
+CZ071;Olomoucký kraj;7109;Přerov; 78 086 
+CZ071;Olomoucký kraj;7110;Šternberk; 23 816 
+CZ071;Olomoucký kraj;7111;Šumperk; 67 419 
+CZ071;Olomoucký kraj;7112;Uničov; 22 040 
+CZ071;Olomoucký kraj;7113;Zábřeh; 32 766 
+CZ072;Zlínský kraj;7201;Bystřice pod Hostýnem; 14 956 
+CZ072;Zlínský kraj;7202;Holešov; 21 425 
+CZ072;Zlínský kraj;7203;Kroměříž; 67 064 
+CZ072;Zlínský kraj;7204;Luhačovice; 18 272 
+CZ072;Zlínský kraj;7205;Otrokovice; 33 487 
+CZ072;Zlínský kraj;7206;Rožnov pod Radhoštěm; 34 565 
+CZ072;Zlínský kraj;7207;Uherské Hradiště; 88 654 
+CZ072;Zlínský kraj;7208;Uherský Brod; 51 175 
+CZ072;Zlínský kraj;7209;Valašské Klobouky; 22 727 
+CZ072;Zlínský kraj;7210;Valašské Meziříčí; 41 459 
+CZ072;Zlínský kraj;7211;Vizovice; 16 981 
+CZ072;Zlínský kraj;7212;Vsetín; 64 147 
+CZ072;Zlínský kraj;7213;Zlín; 97 520 
+CZ080;Moravskoslezský kraj;8101;Bílovec; 25 463 
+CZ080;Moravskoslezský kraj;8102;Bohumín; 33 308 
+CZ080;Moravskoslezský kraj;8103;Bruntál; 35 566 
+CZ080;Moravskoslezský kraj;8104;Český Těšín; 24 826 
+CZ080;Moravskoslezský kraj;8105;Frenštát pod Radhoštěm; 19 303 
+CZ080;Moravskoslezský kraj;8106;Frýdek-Místek; 111 311 
+CZ080;Moravskoslezský kraj;8107;Frýdlant nad Ostravicí; 24 915 
+CZ080;Moravskoslezský kraj;8108;Havířov; 84 518 
+CZ080;Moravskoslezský kraj;8109;Hlučín; 40 254 
+CZ080;Moravskoslezský kraj;8110;Jablunkov; 22 364 
+CZ080;Moravskoslezský kraj;8111;Karviná; 60 854 
+CZ080;Moravskoslezský kraj;8112;Kopřivnice; 40 184 
+CZ080;Moravskoslezský kraj;8113;Kravaře; 21 023 
+CZ080;Moravskoslezský kraj;8114;Krnov; 39 120 
+CZ080;Moravskoslezský kraj;8115;Nový Jičín; 48 118 
+CZ080;Moravskoslezský kraj;8116;Odry; 16 851 
+CZ080;Moravskoslezský kraj;8117;Opava; 99 316 
+CZ080;Moravskoslezský kraj;8118;Orlová; 36 813 
+CZ080;Moravskoslezský kraj;8119;Ostrava; 312 104 
+CZ080;Moravskoslezský kraj;8120;Rýmařov; 14 861 
+CZ080;Moravskoslezský kraj;8121;Třinec; 53 757 
+CZ080;Moravskoslezský kraj;8122;Vítkov; 13 160 
