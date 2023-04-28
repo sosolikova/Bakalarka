@@ -119,9 +119,7 @@ def show_map():
         gdf_kraje = gpd.read_file('kraje-simple.json', encoding='utf-8')
         gdf_orp = gpd.read_file('orp-simple.json', encoding='utf-8')
         gdf_obce = gpd.read_file('obce-simple.json', encoding='utf-8')
-        gdf_kraje.to_csv('gdf_kraje.csv', index=False)
-        gdf_orp.to_csv('gdf_orp.csv', index=False)
-        gdf_obce.to_csv('gdf_obce.csv', index=False)
+
         if subjekt_radiobut_value.get() == '1':
             subjekt = 'Evident'
         elif subjekt_radiobut_value.get() == '2':
@@ -132,9 +130,9 @@ def show_map():
             mapa = gdf_kraje
             json_column = 'NUTS3_KOD'
         elif uzemi_radiobut_value.get() == '2':
-            uzemi = 'ORP_Nazev'
+            uzemi = 'ORP_Cislo'
             mapa = gdf_orp
-            json_column = 'NAZEV'
+            json_column = 'ORP_Cislo'
         elif uzemi_radiobut_value.get() == '3':
             uzemi = 'ZUJ_Cislo'
             json_column = 'KOD'
