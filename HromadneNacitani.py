@@ -394,7 +394,7 @@ def odpadNaObyvatele_g(df_filtered,column_grouped,df_lexikon,column_lexikon):
     odpad_obyvatele = obyvatele.merge(odpad,left_on=column_lexikon, right_on = column_grouped, how='left')
     print("merged odpad_obyvatele")
     print(odpad_obyvatele)
-    odpad_obyvatele['Odpad_vKg'] = odpad_obyvatele['Odpad_vKg'].fillna(value=0)
+    odpad_obyvatele['Odpad_vKg'] = odpad_obyvatele['Odpad_vKg'].fillna(value=-1)
     print("odpad_obyvatele s nulama")
     print(odpad_obyvatele)
     odpadNaObyv_g = vlozit_sloupec_prepocet_odpadNaPocetObyv(odpad_obyvatele)

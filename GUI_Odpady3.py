@@ -175,7 +175,7 @@ def show_map():
         gdf_merged.to_csv('gdf_merged.csv', index=False) # pak vymazat
         print(gdf_merged)
         # nahrazení chybějících hodnot v datovém rámci gdf_merged
-        gdf_merged[hodnoty] = gdf_merged[hodnoty].fillna(value=0)
+        gdf_merged[hodnoty] = gdf_merged[hodnoty].fillna(value=-1)
         # zaokrouhlení sloupce hodnoty ('OdpadNaObyvatele') na celá čísla nahoru
         gdf_merged[hodnoty] = gdf_merged[hodnoty].apply(np.ceil).astype(int)
 
@@ -201,23 +201,34 @@ def show_map():
         print("tisk outliers")
         print(outliers)
         pocet_odlehlych_hodnot = len(outliers)
-        upper_bound = round(upper_bound,-3)
+        if pocet_odlehlych_hodnot > 0:
+            upper_limit_scale = upper_bound = round(upper_bound,0)
+        else:
+            upper_limit_scale = bezNul_data[hodnoty].max()
         #upper_bound = 10
+        print("upper limit scale")
+        print(upper_limit_scale)
         cmap = plt.cm.get_cmap('viridis')
         cmap = cmap.reversed()
         cmap.set_over('black')
         cmap.set_under('white')
+
+        # nastavení rozsahu hodnot pro barevnou mapu
+        vmin = 0
+        vmax = upper_limit_scale  # nastavíme max hodnotu v hodnotách jako vrchol legendy
+        norm = plt.Normalize(vmin=vmin, vmax=vmax)
+
         fig, ax = plt.subplots()
 
         # použití metody plot() pro zobrazení mapy s barvami krajů podle hodnot ze sloupce dle uživatelské volby  v novém datovém rámci gdf_merged
         gdf_merged.plot(column = hodnoty,
                         cmap = cmap,
                         ax=ax,
+                        norm=norm,
                         legend = True,
                         edgecolor='black',
                         linewidth=0.5,
                         alpha=0.8,
-                        norm=plt.Normalize(0.9, vmax=upper_bound)
                         )
         if len(gdf_merged[gdf_merged[hodnoty] == 0]) > 0:
             text_bila_mista = 'Bílá místa znázorňují území, která neevidovala tento druh odpadu. '
