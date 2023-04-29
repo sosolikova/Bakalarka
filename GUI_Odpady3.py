@@ -187,7 +187,7 @@ def show_map():
 
         pocet_odlehlych_hodnot = len(outliers)
         if pocet_odlehlych_hodnot > 0:
-            upper_limit_scale = horni_hranice = round(horni_hranice,0)
+            upper_limit_scale = horni_hranice
         else:
             upper_limit_scale = gdf_merged_filtered[hodnoty].max()
 
@@ -221,6 +221,7 @@ def show_map():
         if pocet_odlehlych_hodnot > 0:
             text_odlehle_hodnoty = 'Černě jsou zvýrazněny\n vybočující hodnoty nad {}'
         else: text_odlehle_hodnoty = ''
+
         # popisky názvů míst nezobrazovat na úrovni ZÚJ
         if uzemi_radiobut_value.get() != '3':
             for index, row in gdf_merged.iterrows():
@@ -237,8 +238,21 @@ def show_map():
         
         text_widget.insert(END, bezNul_data)
         
+        def zaokrouhleni(cislo):
+            cele_cislo = int(cislo)
+            delka = len(str(cele_cislo))
+            pocet_cifer = delka - 2
+            if delka > 2:
+                cislo_zaokr = round(cele_cislo,-pocet_cifer)
+            else: 
+                cislo_zaokr
+            return cislo_zaokr
+
+        horni_hranice_zaokr = zaokrouhleni(horni_hranice)
+
+
         # Přidání textu s hodnotou vmax
-        formatted_upper_bound = '{:,.0f}'.format(horni_hranice).replace(',', ' ')
+        formatted_upper_bound = '{:,.0f}'.format(horni_hranice_zaokr).replace(',', ' ')
         ax.annotate(f'{text_odlehle_hodnoty} {jednotka}\n{text_bila_mista}'.format(formatted_upper_bound), xy=(0.95, 0.1), xycoords='axes fraction', ha='right', va='center')
         
         def create_title_from_list(my_list):
@@ -249,53 +263,55 @@ def show_map():
             return title
         
         if sloupecHodnoty_radiobut_value.get() == '1':
-            hodnoty_text = 'Mapa zobrazuje hodnoty: v g na obyvatele '
+            hodnoty_text = 'Mapa zobrazuje hodnoty:   v g na obyvatele '
         elif sloupecHodnoty_radiobut_value.get() == '2':
-            hodnoty_text = 'Mapa zobrazuje hodnoty: odpad v kg '
+            hodnoty_text = 'Mapa zobrazuje hodnoty:   odpad v kg '
         if subjekt_radiobut_value.get() == '1':
-            subjekt_text = 'Nakládání s odpady z pohledu: evidentů, '
+            subjekt_text = 'Nakládání s odpady z pohledu:   evidentů '
         elif subjekt_radiobut_value.get() == '2':
-            subjekt_text = 'Nakládání s odpady z pohledu: partnerů, '
+            subjekt_text = 'Nakládání s odpady z pohledu:   partnerů '
         if uzemi_radiobut_value.get() == '1':
-            uzemi_text = 'shrnutí na úrovni: krajů '
+            uzemi_text = 'Shrnutí na úrovni:   krajů '
         elif uzemi_radiobut_value.get() == '2':
-            uzemi_text = 'shrnutí na úrovni: ORP '
+            uzemi_text = 'Shrnutí na úrovni:   ORP '
         elif uzemi_radiobut_value.get() == '3':
-            uzemi_text = 'shrnutí na úrovni: ZÚJ '
+            uzemi_text = 'Shrnutí na úrovni:   ZÚJ '
         if volby_evident_kraj:
             text = create_title_from_list(volby_evident_kraj)
-            evident_kraj = f' evident kraj: {text}, '
+            evident_kraj = f'Evident kraj:   {text} '
         else: evident_kraj= ''
         if volby_evident_ORP:
             text = create_title_from_list(volby_evident_ORP)
-            evident_ORP = f' evident ORP: {text}, '
+            evident_ORP = f'     Evident ORP:   {text} '
         else: evident_ORP= ''
         if volby_partner_kraj:
             text = create_title_from_list(volby_partner_kraj)
-            partner_kraj = f' partner kraj: {text}, '
+            partner_kraj = f'Partner kraj:   {text} '
         else: partner_kraj= ''
         if volby_partner_ORP:
             text = create_title_from_list(volby_partner_ORP)
-            partner_ORP = f' partner ORP: {text}, '
+            partner_ORP = f'     Partner ORP:   {text} '
         else: partner_ORP= ''
         if volby_druhOdpadu:
             text = create_title_from_list(volby_druhOdpadu)
-            odpad = f' Druh odpadu: {text}, '
+            odpad = f'Druh odpadu:   {text} '
         else: odpad= ''
         if volby_indikator:
             text = create_title_from_list(volby_indikator)
-            identifikator = f' Indikátor: {text} '
-        else: identifikator = ''
+            indikator = f'Indikátor:   {text} '
+        else: indikator = ''
         if volby_kod:
             text = create_title_from_list(volby_kod)
-            nakladani = f' Kód způsobu nakládání: {text} '
+            nakladani = f'Kód způsobu nakládání:   {text} '
         else: nakladani = ''
         if volby_rok:
           text = create_title_from_list(volby_rok)
-          obdobi = f' Období: {text} '
+          obdobi = f'Období:   {text} '
         else: obdobi = ''
-
-        plt.title(f'{hodnoty_text}\n{subjekt_text}{uzemi_text}\n{evident_kraj}{evident_ORP}{partner_kraj}{partner_ORP}\n{odpad}{identifikator}{nakladani}{obdobi}')
+        
+        title_text = f'{hodnoty_text}\n{subjekt_text}\n{uzemi_text}\n{evident_kraj}{evident_ORP}\n{partner_kraj}{partner_ORP}\n{odpad}\n{indikator}\n{nakladani}\n{obdobi}'
+        plt.title(title_text,ha='left',loc='left',fontsize=10)
+        
         plt.show()
     else:
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení v mapě.")
@@ -762,7 +778,7 @@ ORP_radiobut.grid(row=4, column=7, padx=20, pady=0, sticky="W")
 ZUJ_radiobut = tkinter.Radiobutton(right_frame, text="Úroveň ZÚJ", variable=uzemi_radiobut_value, value="3")
 ZUJ_radiobut.grid(row=5, column=7, padx=20, pady=0, sticky="W")
 
-NaPocObyv_radiobut = tkinter.Radiobutton(right_frame, text="Kg na obyvatele", variable=sloupecHodnoty_radiobut_value, value="1")
+NaPocObyv_radiobut = tkinter.Radiobutton(right_frame, text="g na obyvatele", variable=sloupecHodnoty_radiobut_value, value="1")
 NaPocObyv_radiobut.grid(row=3, column=6, padx=20, pady=0, sticky="W")
 MnozstviKg_radiobut = tkinter.Radiobutton(right_frame, text="Odpad_vKg", variable=sloupecHodnoty_radiobut_value, value="2")
 MnozstviKg_radiobut.grid(row=4, column=6, padx=20, pady=0, sticky="W")
