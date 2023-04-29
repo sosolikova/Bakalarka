@@ -102,8 +102,7 @@
 538051;Bašť;CZ020;Středočeský kraj;2103;Brandýs n. Lab.-St.Boleslav;213;2851
 534684;Borek;CZ020;Středočeský kraj;2103;Brandýs n. Lab.-St.Boleslav;213;311
 538086;Bořanovice;CZ020;Středočeský kraj;2103;Brandýs n. Lab.-St.Boleslav;213;908
-538094;"Brandýs nad Labem
-     -Stará Boleslav";CZ020;Středočeský kraj;2103;Brandýs n. Lab.-St.Boleslav;213;18755
+538094;Brandýs nad Labem -Stará Boleslav;CZ020;Středočeský kraj;2103;Brandýs n. Lab.-St.Boleslav;213;18755
 538108;Brázdim;CZ020;Středočeský kraj;2103;Brandýs n. Lab.-St.Boleslav;213;684
 538132;Čelákovice;CZ020;Středočeský kraj;2103;Brandýs n. Lab.-St.Boleslav;213;12008
 565008;Dobročovice;CZ020;Středočeský kraj;2103;Brandýs n. Lab.-St.Boleslav;213;332
@@ -969,8 +968,7 @@
 538299;Kamenice;CZ020;Středočeský kraj;2122;Říčany;221;4782
 513628;Klokočná;CZ020;Středočeský kraj;2122;Říčany;221;278
 564761;Konojedy;CZ020;Středočeský kraj;2122;Říčany;221;270
-533416;"Kostelec
-   nad Černými lesy";CZ020;Středočeský kraj;2122;Říčany;221;3773
+533416;Kostelec nad Černými lesy;CZ020;Středočeský kraj;2122;Říčany;221;3773
 538370;Kostelec u Křížků;CZ020;Středočeský kraj;2122;Říčany;221;756
 533432;Kozojedy;CZ020;Středočeský kraj;2122;Říčany;221;951
 564991;Křenice;CZ020;Středočeský kraj;2122;Říčany;221;908
@@ -1184,8 +1182,7 @@
 544256;České Budějovice;CZ031;Jihočeský kraj;3102;České Budějovice;302;93426
 535249;Dasný;CZ031;Jihočeský kraj;3102;České Budějovice;302;342
 544361;Dívčice;CZ031;Jihočeský kraj;3102;České Budějovice;302;576
-535206;"Dobrá Voda u Českých
-     Budějovic";CZ031;Jihočeský kraj;3102;České Budějovice;302;2652
+535206;Dobrá Voda u Českých Budějovic;CZ031;Jihočeský kraj;3102;České Budějovice;302;2652
 535664;Doubravice;CZ031;Jihočeský kraj;3102;České Budějovice;302;312
 544400;Doudleby;CZ031;Jihočeský kraj;3102;České Budějovice;302;472
 535958;Drahotěšice;CZ031;Jihočeský kraj;3102;České Budějovice;302;321
@@ -1351,8 +1348,7 @@
 547085;Rodvínov;CZ031;Jihočeský kraj;3105;Jindřichův Hradec;345;638
 508004;Roseč;CZ031;Jihočeský kraj;3105;Jindřichův Hradec;345;225
 560995;Rosička;CZ031;Jihočeský kraj;3105;Jindřichův Hradec;345;62
-547212;"Staré Město
-     pod Landštejnem";CZ031;Jihočeský kraj;3105;Jindřichův Hradec;345;456
+547212;Staré Město pod Landštejnem;CZ031;Jihočeský kraj;3105;Jindřichův Hradec;345;456
 547221;Stráž nad Nežárkou;CZ031;Jihočeský kraj;3105;Jindřichův Hradec;345;870
 547239;Strmilov;CZ031;Jihočeský kraj;3105;Jindřichův Hradec;345;1445
 508152;Střížovice;CZ031;Jihočeský kraj;3105;Jindřichův Hradec;345;568
@@ -2831,8 +2827,7 @@
 563731;Nová Ves nad Nisou;CZ051;Liberecký kraj;5103;Jablonec nad Nisou;779;835
 546577;Pulečný;CZ051;Liberecký kraj;5103;Jablonec nad Nisou;779;476
 563781;Rádlo;CZ051;Liberecký kraj;5103;Jablonec nad Nisou;779;947
-563790;"Rychnov u Jablonce
-     nad Nisou";CZ051;Liberecký kraj;5103;Jablonec nad Nisou;779;2756
+563790;Rychnov u Jablonce nad Nisou;CZ051;Liberecký kraj;5103;Jablonec nad Nisou;779;2756
 576981;Benecko;CZ051;Liberecký kraj;5104;Jilemnice;1139;1090
 577031;Bukovina u Čisté;CZ051;Liberecký kraj;5104;Jilemnice;1139;209
 577057;Čistá u Horek;CZ051;Liberecký kraj;5104;Jilemnice;1139;576
@@ -2920,8 +2915,7 @@
 577642;Veselá;CZ051;Liberecký kraj;5107;Semily;1147;236
 577693;Vysoké nad Jizerou;CZ051;Liberecký kraj;5107;Semily;1147;1291
 577707;Záhoří;CZ051;Liberecký kraj;5107;Semily;1147;496
-563528;"Albrechtice v Jizerských
-     horách";CZ051;Liberecký kraj;5108;Tanvald;787;345
+563528;Albrechtice v Jizerských horách;CZ051;Liberecký kraj;5108;Tanvald;787;345
 563552;Desná;CZ051;Liberecký kraj;5108;Tanvald;787;3057
 577081;Harrachov;CZ051;Liberecký kraj;5108;Tanvald;787;1301
 546585;Jiřetín pod Bukovou;CZ051;Liberecký kraj;5108;Tanvald;787;459
@@ -3148,8 +3142,7 @@
 548154;Světí;CZ052;Královéhradecký kraj;5205;Hradec Králové;965;330
 571008;Syrovátka;CZ052;Královéhradecký kraj;5205;Hradec Králové;965;438
 571024;Těchlovice;CZ052;Královéhradecký kraj;5205;Hradec Králové;965;358
-571041;"Třebechovice
-     pod Orebem";CZ052;Královéhradecký kraj;5205;Hradec Králové;965;5706
+571041;Třebechovice pod Orebem;CZ052;Královéhradecký kraj;5205;Hradec Králové;965;5706
 571059;Třesovice;CZ052;Královéhradecký kraj;5205;Hradec Králové;965;272
 513717;Urbanice;CZ052;Královéhradecký kraj;5205;Hradec Králové;965;304
 548057;Vrchovnice;CZ052;Královéhradecký kraj;5205;Hradec Králové;965;66
@@ -3348,8 +3341,7 @@
 571083;Vinary;CZ052;Královéhradecký kraj;5212;Nový Bydžov;973;464
 571130;Zachrašťany;CZ052;Královéhradecký kraj;5212;Nový Bydžov;973;230
 573744;Zdechovice;CZ052;Královéhradecký kraj;5212;Nový Bydžov;973;164
-576093;"Bartošovice v Orlických
-     horách";CZ052;Královéhradecký kraj;5213;Rychnov nad Kněžnou;1121;198
+576093;Bartošovice v Orlických horách;CZ052;Královéhradecký kraj;5213;Rychnov nad Kněžnou;1121;198
 576107;Bílý Újezd;CZ052;Královéhradecký kraj;5213;Rychnov nad Kněžnou;1121;718
 576174;Byzhradec;CZ052;Královéhradecký kraj;5213;Rychnov nad Kněžnou;1121;219
 576204;Černíkovice;CZ052;Královéhradecký kraj;5213;Rychnov nad Kněžnou;1121;798
@@ -3368,8 +3360,7 @@
 548723;Polom;CZ052;Královéhradecký kraj;5213;Rychnov nad Kněžnou;1121;143
 576671;Potštejn;CZ052;Královéhradecký kraj;5213;Rychnov nad Kněžnou;1121;978
 548758;Proruby;CZ052;Královéhradecký kraj;5213;Rychnov nad Kněžnou;1121;48
-576701;"Rokytnice v Orlických
-     horách";CZ052;Královéhradecký kraj;5213;Rychnov nad Kněžnou;1121;1971
+576701;Rokytnice v Orlických horách;CZ052;Královéhradecký kraj;5213;Rychnov nad Kněžnou;1121;1971
 576727;Rybná nad Zdobnicí;CZ052;Královéhradecký kraj;5213;Rychnov nad Kněžnou;1121;411
 576069;Rychnov nad Kněžnou;CZ052;Královéhradecký kraj;5213;Rychnov nad Kněžnou;1121;10717
 576735;Říčky v Orlických horách;CZ052;Královéhradecký kraj;5213;Rychnov nad Kněžnou;1121;99
@@ -3500,8 +3491,7 @@
 573787;Klešice;CZ053;Pardubický kraj;5304;Chrudim;981;402
 574007;Kněžice;CZ053;Pardubický kraj;5304;Chrudim;981;134
 571610;Kočí;CZ053;Pardubický kraj;5304;Chrudim;981;694
-571628;"Kostelec u Heřmanova
-     Městce";CZ053;Pardubický kraj;5304;Chrudim;981;360
+571628;Kostelec u Heřmanova Městce;CZ053;Pardubický kraj;5304;Chrudim;981;360
 571652;Krásné;CZ053;Pardubický kraj;5304;Chrudim;981;147
 547824;Křižanovice;CZ053;Pardubický kraj;5304;Chrudim;981;124
 504807;Lány;CZ053;Pardubický kraj;5304;Chrudim;981;283
@@ -3625,8 +3615,7 @@
 572632;Borušov;CZ053;Pardubický kraj;5308;Moravská Třebová;1171;171
 577871;Březina;CZ053;Pardubický kraj;5308;Moravská Třebová;1171;317
 572250;Březinky;CZ053;Pardubický kraj;5308;Moravská Třebová;1171;124
-572683;"Dětřichov u Moravské
-     Třebové";CZ053;Pardubický kraj;5308;Moravská Třebová;1171;188
+572683;Dětřichov u Moravské Třebové;CZ053;Pardubický kraj;5308;Moravská Třebová;1171;188
 577987;Dlouhá Loučka;CZ053;Pardubický kraj;5308;Moravská Třebová;1171;562
 574325;Gruna;CZ053;Pardubický kraj;5308;Moravská Třebová;1171;240
 572284;Hartinkov;CZ053;Pardubický kraj;5308;Moravská Třebová;1171;54
@@ -4125,8 +4114,7 @@
 590568;Domamil;CZ063;Kraj Vysočina;6106;Moravské Budějovice;1571;311
 590665;Hornice;CZ063;Kraj Vysočina;6106;Moravské Budějovice;1571;59
 550477;Chotěbudice;CZ063;Kraj Vysočina;6106;Moravské Budějovice;1571;103
-590746;"Jakubov u Moravských
-     Budějovic";CZ063;Kraj Vysočina;6106;Moravské Budějovice;1571;629
+590746;Jakubov u Moravských Budějovic;CZ063;Kraj Vysočina;6106;Moravské Budějovice;1571;629
 590789;Jemnice;CZ063;Kraj Vysočina;6106;Moravské Budějovice;1571;3958
 550591;Jiratice;CZ063;Kraj Vysočina;6106;Moravské Budějovice;1571;71
 590819;Kdousov;CZ063;Kraj Vysočina;6106;Moravské Budějovice;1571;115
@@ -4185,16 +4173,14 @@
 591769;Studenec;CZ063;Kraj Vysočina;6107;Náměšť nad Oslavou;1589;601
 591785;Sudice;CZ063;Kraj Vysočina;6107;Náměšť nad Oslavou;1589;352
 550311;Třesov;CZ063;Kraj Vysočina;6107;Náměšť nad Oslavou;1589;104
-511242;"Vícenice u Náměště
-     nad Oslavou";CZ063;Kraj Vysočina;6107;Náměšť nad Oslavou;1589;411
+511242;Vícenice u Náměště nad Oslavou;CZ063;Kraj Vysočina;6107;Náměšť nad Oslavou;1589;411
 591947;Zahrádka;CZ063;Kraj Vysočina;6107;Náměšť nad Oslavou;1589;145
 595268;Bobrová;CZ063;Kraj Vysočina;6108;Nové Město na Moravě;1686;901
 595276;Bobrůvka;CZ063;Kraj Vysočina;6108;Nové Město na Moravě;1686;243
 595322;Borovnice;CZ063;Kraj Vysočina;6108;Nové Město na Moravě;1686;182
 595462;Daňkovice;CZ063;Kraj Vysočina;6108;Nové Město na Moravě;1686;158
 595471;Dlouhé;CZ063;Kraj Vysočina;6108;Nové Město na Moravě;1686;256
-595578;"Fryšava pod Žákovou
-     horou";CZ063;Kraj Vysočina;6108;Nové Město na Moravě;1686;320
+595578;Fryšava pod Žákovou horou;CZ063;Kraj Vysočina;6108;Nové Město na Moravě;1686;320
 595748;Javorek;CZ063;Kraj Vysočina;6108;Nové Město na Moravě;1686;109
 595772;Jimramov;CZ063;Kraj Vysočina;6108;Nové Město na Moravě;1686;1141
 595829;Kadov;CZ063;Kraj Vysočina;6108;Nové Město na Moravě;1686;164
@@ -4204,8 +4190,7 @@
 595969;Kuklík;CZ063;Kraj Vysočina;6108;Nové Město na Moravě;1686;194
 596060;Líšná;CZ063;Kraj Vysočina;6108;Nové Město na Moravě;1686;53
 596132;Mirošov;CZ063;Kraj Vysočina;6108;Nové Město na Moravě;1686;131
-596221;"Nová Ves u Nového Města
-     na Moravě";CZ063;Kraj Vysočina;6108;Nové Město na Moravě;1686;665
+596221;Nová Ves u Nového Města na Moravě;CZ063;Kraj Vysočina;6108;Nové Město na Moravě;1686;665
 596230;Nové Město na Moravě;CZ063;Kraj Vysočina;6108;Nové Město na Moravě;1686;9829
 596264;Nový Jimramov;CZ063;Kraj Vysočina;6108;Nové Město na Moravě;1686;62
 596469;Podolí;CZ063;Kraj Vysočina;6108;Nové Město na Moravě;1686;89
@@ -5064,8 +5049,7 @@
 582735;Zhoř;CZ064;Jihomoravský kraj;6217;Tišnov;1350;69
 597171;Žďárec;CZ064;Jihomoravský kraj;6217;Tišnov;1350;358
 584274;Železné;CZ064;Jihomoravský kraj;6217;Tišnov;1350;517
-586048;"Blatnice pod Svatým
-     Antonínkem";CZ064;Jihomoravský kraj;6218;Veselí nad Moravou;1490;1946
+586048;Blatnice pod Svatým Antonínkem;CZ064;Jihomoravský kraj;6218;Veselí nad Moravou;1490;1946
 586056;Blatnička;CZ064;Jihomoravský kraj;6218;Veselí nad Moravou;1490;411
 586188;Hroznová Lhota;CZ064;Jihomoravský kraj;6218;Veselí nad Moravou;1490;1168
 586196;Hrubá Vrbka;CZ064;Jihomoravský kraj;6218;Veselí nad Moravou;1490;629
@@ -5159,14 +5143,12 @@
 594121;Hostim;CZ064;Jihomoravský kraj;6220;Znojmo;1660;410
 594130;Hrabětice;CZ064;Jihomoravský kraj;6220;Znojmo;1660;855
 594148;Hrádek;CZ064;Jihomoravský kraj;6220;Znojmo;1660;925
-594156;"Hrušovany
-     nad Jevišovkou";CZ064;Jihomoravský kraj;6220;Znojmo;1660;3245
+594156;Hrušovany nad Jevišovkou;CZ064;Jihomoravský kraj;6220;Znojmo;1660;3245
 594164;Chvalatice;CZ064;Jihomoravský kraj;6220;Znojmo;1660;106
 594172;Chvalovice;CZ064;Jihomoravský kraj;6220;Znojmo;1660;675
 594199;Jaroslavice;CZ064;Jihomoravský kraj;6220;Znojmo;1660;1247
 594202;Jevišovice;CZ064;Jihomoravský kraj;6220;Znojmo;1660;1146
-550841;"Jiřice u Moravských
-     Budějovic";CZ064;Jihomoravský kraj;6220;Znojmo;1660;55
+550841;Jiřice u Moravských Budějovic;CZ064;Jihomoravský kraj;6220;Znojmo;1660;55
 594253;Korolupy;CZ064;Jihomoravský kraj;6220;Znojmo;1660;154
 594261;Kravsko;CZ064;Jihomoravský kraj;6220;Znojmo;1660;573
 594270;Krhovice;CZ064;Jihomoravský kraj;6220;Znojmo;1660;594

@@ -112,7 +112,8 @@ def format_column(df):
         df['Pocet_Obyvatel'] = df['Pocet_Obyvatel'].apply(lambda x: locale.format_string("%d", x, grouping=True))
     if 'OdpadNaPocetObyv' in df.columns:
         df['OdpadNaPocetObyv'] = df['OdpadNaPocetObyv'].apply(lambda x: locale.format_string("%0.3f", x, grouping=True))
-
+    if 'OdpadNaObyv_g' in df.columns:
+        df['OdpadNaObyv_g'] = df['OdpadNaObyv_g'].apply(lambda x: locale.format_string("%d", x, grouping=True))
 def show_map():
     global vyber_dat_vysledek
     if vyber_dat_vysledek is not None:
@@ -155,7 +156,7 @@ def show_map():
         nazev_sloupce = f'{subjekt}_{uzemi_cislo}'
         nazev_sloupce_lexikon = uzemi_cislo
         nazev_sloupce_unique_nazev = uzemi_nazev
-
+        
         mapa_data = hn.odpadNaObyvatele_g(vyber_dat_vysledek,nazev_sloupce,hn.LexikonObci,nazev_sloupce_lexikon)
 
         bezNul_data = mapa_data[mapa_data['Odpad_vKg'] > 0]
@@ -219,7 +220,7 @@ def show_map():
             text_bila_mista = 'Bílá místa znázorňují území, která neevidovala tento druh odpadu. '
         else: text_bila_mista = ''
         if pocet_odlehlych_hodnot > 0:
-            text_odlehle_hodnoty = 'Černě jsou zvýrazněny\n vybočující hodnoty nad {}'
+            text_odlehle_hodnoty = 'Černě jsou zvýrazněny\n vybočující hodnoty nad {} '
         else: text_odlehle_hodnoty = ''
 
         # popisky názvů míst nezobrazovat na úrovni ZÚJ
@@ -231,12 +232,12 @@ def show_map():
                       color='black',
                       fontsize=5)
 
-
+        format_column(bezNul_data)
         text_widget.delete("1.0","end")
         text_widget.insert(END, "Data pro vznik mapy:\n\n ")
-        #text_widget.insert(END, hn.unique_orp)
         
-        text_widget.insert(END, bezNul_data)
+        mapa_sloupce = [nazev_sloupce_unique_nazev, nazev_sloupce_lexikon,'OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg']
+        text_widget.insert(END, bezNul_data[mapa_sloupce].to_string(index=False,justify='left'))
         
         def zaokrouhleni(cislo):
             cele_cislo = int(cislo)
@@ -253,7 +254,7 @@ def show_map():
 
         # Přidání textu s hodnotou vmax
         formatted_upper_bound = '{:,.0f}'.format(horni_hranice_zaokr).replace(',', ' ')
-        ax.annotate(f'{text_odlehle_hodnoty} {jednotka}\n{text_bila_mista}'.format(formatted_upper_bound), xy=(0.95, 0.1), xycoords='axes fraction', ha='right', va='center')
+        ax.annotate(f'{text_odlehle_hodnoty}\n{text_bila_mista}'.format(formatted_upper_bound), xy=(0.95, 0.1), xycoords='axes fraction', ha='right', va='center')
         
         def create_title_from_list(my_list):
             title = ""
@@ -282,7 +283,7 @@ def show_map():
         else: evident_kraj= ''
         if volby_evident_ORP:
             text = create_title_from_list(volby_evident_ORP)
-            evident_ORP = f'     Evident ORP:   {text} '
+            evident_ORP = f'        Evident ORP:   {text} '
         else: evident_ORP= ''
         if volby_partner_kraj:
             text = create_title_from_list(volby_partner_kraj)
@@ -290,7 +291,7 @@ def show_map():
         else: partner_kraj= ''
         if volby_partner_ORP:
             text = create_title_from_list(volby_partner_ORP)
-            partner_ORP = f'     Partner ORP:   {text} '
+            partner_ORP = f'        Partner ORP:   {text} '
         else: partner_ORP= ''
         if volby_druhOdpadu:
             text = create_title_from_list(volby_druhOdpadu)
@@ -311,7 +312,6 @@ def show_map():
         
         title_text = f'{hodnoty_text}\n{subjekt_text}\n{uzemi_text}\n{evident_kraj}{evident_ORP}\n{partner_kraj}{partner_ORP}\n{odpad}\n{indikator}\n{nakladani}\n{obdobi}'
         plt.title(title_text,ha='left',loc='left',fontsize=10)
-        
         plt.show()
     else:
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení v mapě.")
