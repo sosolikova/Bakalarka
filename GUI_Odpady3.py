@@ -147,8 +147,10 @@ def show_map():
 
         if sloupecHodnoty_radiobut_value.get() == '1':
             hodnoty = 'OdpadNaObyv_g'
+            jednotka = 'g'
         elif sloupecHodnoty_radiobut_value.get() == '2':
             hodnoty = 'Odpad_vKg'
+            jednotka = 'kg'
 
         nazev_sloupce = f'{subjekt}_{uzemi_cislo}'
         nazev_sloupce_lexikon = uzemi_cislo
@@ -217,7 +219,7 @@ def show_map():
             text_bila_mista = 'Bílá místa znázorňují území, která neevidovala tento druh odpadu. '
         else: text_bila_mista = ''
         if pocet_odlehlych_hodnot > 0:
-            text_odlehle_hodnoty = 'Černě jsou zvýrazněny\n odlehlé hodnoty nad {} kg'
+            text_odlehle_hodnoty = 'Černě jsou zvýrazněny\n vybočující hodnoty nad {}'
         else: text_odlehle_hodnoty = ''
         # popisky názvů míst nezobrazovat na úrovni ZÚJ
         if uzemi_radiobut_value.get() != '3':
@@ -237,7 +239,7 @@ def show_map():
         
         # Přidání textu s hodnotou vmax
         formatted_upper_bound = '{:,.0f}'.format(horni_hranice).replace(',', ' ')
-        ax.annotate(f'{text_odlehle_hodnoty}\n{text_bila_mista}'.format(formatted_upper_bound), xy=(0.95, 0.1), xycoords='axes fraction', ha='right', va='center')
+        ax.annotate(f'{text_odlehle_hodnoty} {jednotka}\n{text_bila_mista}'.format(formatted_upper_bound), xy=(0.95, 0.1), xycoords='axes fraction', ha='right', va='center')
         
         def create_title_from_list(my_list):
             title = ""
