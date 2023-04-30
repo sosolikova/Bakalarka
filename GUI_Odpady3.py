@@ -117,6 +117,7 @@ def format_column(df):
         df['OdpadNaObyv_g'] = df['OdpadNaObyv_g'].apply(lambda x: locale.format_string("%d", x, grouping=True))
 def show_map():
     global vyber_dat_vysledek
+    global vysledek_excel
     if vyber_dat_vysledek is not None:
         # Načtení souboru
         gdf_kraje = gpd.read_file('kraje-simple.json', encoding='utf-8')
@@ -199,7 +200,9 @@ def show_map():
         
         mapa_sloupce = [nazev_sloupce_unique_nazev, nazev_sloupce_lexikon,'OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg']
         text_widget.insert(END, bezNul_data[mapa_sloupce].to_string(index=False,justify='left'))
-  
+        
+        vysledek_excel =bezNul_data[mapa_sloupce]
+        
         cmap = cm.get_cmap('viridis')
         cmap = cmap.reversed()
         cmap.set_over('black')
@@ -251,7 +254,7 @@ def show_map():
             if delka > 2:
                 cislo_zaokr = round(cele_cislo,-pocet_cifer)
             else: 
-                cislo_zaokr
+                cislo_zaokr = cele_cislo
             return cislo_zaokr
 
         horni_hranice_zaokr = zaokrouhleni(horni_hranice)
@@ -279,46 +282,47 @@ def show_map():
         elif subjekt_radiobut_value.get() == '2':
             subjekt_text = 'Nakládání s odpady z pohledu:   partnerů \n'
         if uzemi_radiobut_value.get() == '1':
-            uzemi_text = 'Shrnutí na úrovni:   krajů \n'
+            uzemi_text = 'Shrnutí na úrovni:   krajů\n'
         elif uzemi_radiobut_value.get() == '2':
-            uzemi_text = 'Shrnutí na úrovni:   ORP \n'
+            uzemi_text = 'Shrnutí na úrovni:   ORP\n'
         elif uzemi_radiobut_value.get() == '3':
-            uzemi_text = 'Shrnutí na úrovni:   ZÚJ \n'
+            uzemi_text = 'Shrnutí na úrovni:   ZÚJ\n'
         if volby_evident_kraj:
             text = create_title_from_list(volby_evident_kraj)
-            evident_kraj = f'Evident kraj:   {text} '
+            evident_kraj = f'Evident kraj:   {text}      '
         else: evident_kraj= ''
         if volby_evident_ORP:
             text = create_title_from_list(volby_evident_ORP)
-            evident_ORP = f'        Evident ORP:   {text}'
+            evident_ORP = f'Evident ORP:   {text}'
         else: evident_ORP= ''
         if volby_partner_kraj:
             text = create_title_from_list(volby_partner_kraj)
-            partner_kraj = f'\nPartner kraj:   {text} '
+            partner_kraj = f'\nPartner kraj:   {text}      '
         else: partner_kraj= ''
         if volby_partner_ORP:
             text = create_title_from_list(volby_partner_ORP)
-            partner_ORP = f'        Partner ORP:   {text} '
+            partner_ORP = f'Partner ORP:   {text} '
         else: partner_ORP= ''
         if volby_druhOdpadu:
             text = create_title_from_list(volby_druhOdpadu)
-            odpad = f'\nDruh odpadu:   {text} \n'
+            odpad = f'\nDruh odpadu:   {text}'
         else: odpad= ''
         if volby_indikator:
             text = create_title_from_list(volby_indikator)
-            indikator = f'Indikátor:   {text} \n'
+            indikator = f'\nIndikátor:   {text}'
         else: indikator = ''
         if volby_kod:
             text = create_title_from_list(volby_kod)
-            nakladani = f'Kód způsobu nakládání:   {text} \n'
+            nakladani = f'\nKód způsobu nakládání:   {text}'
         else: nakladani = ''
         if volby_rok:
           text = create_title_from_list(volby_rok)
-          obdobi = f'Období:   {text} \n'
+          obdobi = f'\nObdobí:   {text}'
         else: obdobi = ''
-        
+
         title_text = f'{hodnoty_text}{subjekt_text}{uzemi_text}{evident_kraj}{evident_ORP}{partner_kraj}{partner_ORP}{odpad}{indikator}{nakladani}{obdobi}'
         plt.title(title_text,ha='left',loc='left',fontsize=10)
+
         plt.show()
     else:
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení v mapě.")
