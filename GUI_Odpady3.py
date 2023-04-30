@@ -199,7 +199,7 @@ def show_map():
         
         mapa_sloupce = [nazev_sloupce_unique_nazev, nazev_sloupce_lexikon,'OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg']
         text_widget.insert(END, bezNul_data[mapa_sloupce].to_string(index=False,justify='left'))
-
+  
         cmap = cm.get_cmap('viridis')
         cmap = cmap.reversed()
         cmap.set_over('black')
@@ -785,9 +785,9 @@ ORP_radiobut.grid(row=4, column=7, padx=20, pady=0, sticky="W")
 ZUJ_radiobut = tkinter.Radiobutton(right_frame, text="Úroveň ZÚJ", variable=uzemi_radiobut_value, value="3")
 ZUJ_radiobut.grid(row=5, column=7, padx=20, pady=0, sticky="W")
 
-NaPocObyv_radiobut = tkinter.Radiobutton(right_frame, text="g na obyvatele", variable=sloupecHodnoty_radiobut_value, value="1")
+NaPocObyv_radiobut = tkinter.Radiobutton(right_frame, text="Odpad v g na obyvatele", variable=sloupecHodnoty_radiobut_value, value="1")
 NaPocObyv_radiobut.grid(row=3, column=6, padx=20, pady=0, sticky="W")
-MnozstviKg_radiobut = tkinter.Radiobutton(right_frame, text="Odpad_vKg", variable=sloupecHodnoty_radiobut_value, value="2")
+MnozstviKg_radiobut = tkinter.Radiobutton(right_frame, text="Odpad v kg", variable=sloupecHodnoty_radiobut_value, value="2")
 MnozstviKg_radiobut.grid(row=4, column=6, padx=20, pady=0, sticky="W")
 
 
