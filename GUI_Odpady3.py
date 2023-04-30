@@ -192,6 +192,12 @@ def show_map():
         else:
             upper_limit_scale = gdf_merged_filtered[hodnoty].max()
 
+        format_column(bezNul_data)
+        text_widget.delete("1.0","end")
+        text_widget.insert(END, "Data pro vznik mapy:\n\n ")
+        
+        mapa_sloupce = [nazev_sloupce_unique_nazev, nazev_sloupce_lexikon,'OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg']
+        text_widget.insert(END, bezNul_data[mapa_sloupce].to_string(index=False,justify='left'))
 
         cmap = cm.get_cmap('viridis')
         cmap = cmap.reversed()
@@ -221,7 +227,12 @@ def show_map():
         else: text_bila_mista = ''
         if pocet_odlehlych_hodnot > 0:
             text_odlehle_hodnoty = 'Černě jsou zvýrazněny\n vybočující hodnoty nad {} '
-        else: text_odlehle_hodnoty = ''
+            uvedeni_jednotky = f'{jednotka}'
+            tecka = '.'
+        else: 
+            text_odlehle_hodnoty = ''
+            uvedeni_jednotky = ''
+            tecka = ''
 
         # popisky názvů míst nezobrazovat na úrovni ZÚJ
         if uzemi_radiobut_value.get() != '3':
@@ -232,13 +243,6 @@ def show_map():
                       color='black',
                       fontsize=5)
 
-        format_column(bezNul_data)
-        text_widget.delete("1.0","end")
-        text_widget.insert(END, "Data pro vznik mapy:\n\n ")
-        
-        mapa_sloupce = [nazev_sloupce_unique_nazev, nazev_sloupce_lexikon,'OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg']
-        text_widget.insert(END, bezNul_data[mapa_sloupce].to_string(index=False,justify='left'))
-        
         def zaokrouhleni(cislo):
             cele_cislo = int(cislo)
             delka = len(str(cele_cislo))
@@ -254,8 +258,10 @@ def show_map():
 
         # Přidání textu s hodnotou vmax
         formatted_upper_bound = '{:,.0f}'.format(horni_hranice_zaokr).replace(',', ' ')
-        ax.annotate(f'{text_odlehle_hodnoty}\n{text_bila_mista}'.format(formatted_upper_bound), xy=(0.95, 0.1), xycoords='axes fraction', ha='right', va='center')
+        ax.annotate(f'{text_odlehle_hodnoty}{uvedeni_jednotky}{tecka}\n{text_bila_mista}'.format(formatted_upper_bound), xy=(0.95, 0.1), xycoords='axes fraction', ha='right', va='center')
         
+
+
         def create_title_from_list(my_list):
             title = ""
             for item in my_list:
