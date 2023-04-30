@@ -18,6 +18,7 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 import HromadneNacitani as hn
 import Funkce as fc
+import matplotlib.ticker as mtick
 import csv
 import locale
 locale.setlocale(locale.LC_ALL, '')
@@ -259,8 +260,8 @@ def show_map():
         # Přidání textu s hodnotou vmax
         formatted_upper_bound = '{:,.0f}'.format(horni_hranice_zaokr).replace(',', ' ')
         ax.annotate(f'{text_odlehle_hodnoty}{uvedeni_jednotky}{tecka}\n{text_bila_mista}'.format(formatted_upper_bound), xy=(0.95, 0.1), xycoords='axes fraction', ha='right', va='center')
-        
-
+        ax.text(1.1, 1.15, f'{jednotka}', transform=ax.transAxes,
+        fontsize=12, color='black', ha='center')
 
         def create_title_from_list(my_list):
             title = ""
@@ -270,30 +271,30 @@ def show_map():
             return title
         
         if sloupecHodnoty_radiobut_value.get() == '1':
-            hodnoty_text = 'Mapa zobrazuje hodnoty:   v g na obyvatele '
+            hodnoty_text = 'Mapa zobrazuje hodnoty:   v g na obyvatele\n'
         elif sloupecHodnoty_radiobut_value.get() == '2':
-            hodnoty_text = 'Mapa zobrazuje hodnoty:   odpad v kg '
+            hodnoty_text = 'Mapa zobrazuje hodnoty:   odpad v kg\n'
         if subjekt_radiobut_value.get() == '1':
-            subjekt_text = 'Nakládání s odpady z pohledu:   evidentů '
+            subjekt_text = 'Nakládání s odpady z pohledu:   evidentů \n'
         elif subjekt_radiobut_value.get() == '2':
-            subjekt_text = 'Nakládání s odpady z pohledu:   partnerů '
+            subjekt_text = 'Nakládání s odpady z pohledu:   partnerů \n'
         if uzemi_radiobut_value.get() == '1':
-            uzemi_text = 'Shrnutí na úrovni:   krajů '
+            uzemi_text = 'Shrnutí na úrovni:   krajů \n'
         elif uzemi_radiobut_value.get() == '2':
-            uzemi_text = 'Shrnutí na úrovni:   ORP '
+            uzemi_text = 'Shrnutí na úrovni:   ORP \n'
         elif uzemi_radiobut_value.get() == '3':
-            uzemi_text = 'Shrnutí na úrovni:   ZÚJ '
+            uzemi_text = 'Shrnutí na úrovni:   ZÚJ \n'
         if volby_evident_kraj:
             text = create_title_from_list(volby_evident_kraj)
             evident_kraj = f'Evident kraj:   {text} '
         else: evident_kraj= ''
         if volby_evident_ORP:
             text = create_title_from_list(volby_evident_ORP)
-            evident_ORP = f'        Evident ORP:   {text} '
+            evident_ORP = f'        Evident ORP:   {text}'
         else: evident_ORP= ''
         if volby_partner_kraj:
             text = create_title_from_list(volby_partner_kraj)
-            partner_kraj = f'Partner kraj:   {text} '
+            partner_kraj = f'\nPartner kraj:   {text} '
         else: partner_kraj= ''
         if volby_partner_ORP:
             text = create_title_from_list(volby_partner_ORP)
@@ -301,22 +302,22 @@ def show_map():
         else: partner_ORP= ''
         if volby_druhOdpadu:
             text = create_title_from_list(volby_druhOdpadu)
-            odpad = f'Druh odpadu:   {text} '
+            odpad = f'\nDruh odpadu:   {text} \n'
         else: odpad= ''
         if volby_indikator:
             text = create_title_from_list(volby_indikator)
-            indikator = f'Indikátor:   {text} '
+            indikator = f'Indikátor:   {text} \n'
         else: indikator = ''
         if volby_kod:
             text = create_title_from_list(volby_kod)
-            nakladani = f'Kód způsobu nakládání:   {text} '
+            nakladani = f'Kód způsobu nakládání:   {text} \n'
         else: nakladani = ''
         if volby_rok:
           text = create_title_from_list(volby_rok)
-          obdobi = f'Období:   {text} '
+          obdobi = f'Období:   {text} \n'
         else: obdobi = ''
         
-        title_text = f'{hodnoty_text}\n{subjekt_text}\n{uzemi_text}\n{evident_kraj}{evident_ORP}\n{partner_kraj}{partner_ORP}\n{odpad}\n{indikator}\n{nakladani}\n{obdobi}'
+        title_text = f'{hodnoty_text}{subjekt_text}{uzemi_text}{evident_kraj}{evident_ORP}{partner_kraj}{partner_ORP}{odpad}{indikator}{nakladani}{obdobi}'
         plt.title(title_text,ha='left',loc='left',fontsize=10)
         plt.show()
     else:
