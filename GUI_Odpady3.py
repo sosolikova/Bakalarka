@@ -346,7 +346,7 @@ def show_map():
         plt.show()
     else:
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení v mapě.")
-        
+
 def relativni_cetnosti():
     global vysledek_excel
     global vyber_dat_vysledek    
@@ -359,21 +359,35 @@ def relativni_cetnosti():
 
         vysledek = pd.merge(vysledek, nazev_souboru_unique[[nazev_sloupce_lexikon, nazev_sloupce_unique_nazev]], on=nazev_sloupce_lexikon, how='left')
 
-        soucet = vysledek['OdpadNaObyv_g'].sum()
-        vysledek['Relativni_cetnost'] = vysledek['OdpadNaObyv_g'] / soucet
-        vysledek['Relativni_cetnost'] = vysledek['Relativni_cetnost'].apply('{:.2%}'.format)
-
         cetnosti_sloupce = ['Kraj_Nazev', 'Kraj_Cislo','OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg', 'Relativni_cetnost']
 
+        soucet = vysledek['OdpadNaObyv_g'].sum()
+        vysledek['Relativni_cetnost'] = vysledek['OdpadNaObyv_g'] / soucet
+        vysledek = vysledek.sort_values('OdpadNaObyv_g', ascending=False)
+
+        vysledek_graf = vysledek[cetnosti_sloupce]
+
+        vysledek['Relativni_cetnost'] = vysledek['Relativni_cetnost'].apply('{:.2%}'.format)
+
         vysledek_excel =vysledek[cetnosti_sloupce]
-        
+
         format_column(vysledek)
         
         text_widget.delete("1.0","end")
         text_widget.insert(END, "Procentuelní zastoupení jednotlivých krajů:\n\n ")
         text_widget.insert(END, vysledek[cetnosti_sloupce].to_string(index=False,justify='left'))
         
-        
+        fig, ax = plt.subplots(figsize=(12,6))
+        ax.bar(vysledek_graf['Kraj_Nazev'], vysledek_graf['Relativni_cetnost'])
+        ax.set_xticklabels(vysledek_graf['Kraj_Nazev'], rotation=90)
+        ax.set_xlabel('Kraj')
+        ax.set_ylabel('Relativní četnost')
+        # přidání hodnot
+        for i, v in enumerate(vysledek_graf['Relativni_cetnost']):
+            plt.text(i, v, round(v, 2), color='black', ha='center', fontsize=10)
+        plt.tight_layout()
+        plt.show()
+
 
 '''
         import seaborn as sns
