@@ -116,6 +116,7 @@ def format_column(df):
     if 'OdpadNaObyv_g' in df.columns:
         df['OdpadNaObyv_g'] = df['OdpadNaObyv_g'].apply(lambda x: locale.format_string("%d", x, grouping=True))
 
+
 def zaokrouhleni(cislo):
     cele_cislo = int(cislo)
     delka = len(str(cele_cislo))
@@ -126,18 +127,13 @@ def zaokrouhleni(cislo):
         cislo_zaokr = cele_cislo
     return cislo_zaokr
 
-def create_title_from_list(my_list):
-    title = ""
-    for item in my_list:
-        title = title + str(item) + ", "
-        title = title[:-2]  # odstranění posledních dvou znaků
-    return title
+
 
 def show_map():
     global vyber_dat_vysledek
     global vysledek_excel
     if vyber_dat_vysledek is not None:
-        # Načtení souboru
+        # Načtení geografického souboru
         gdf_kraje = gpd.read_file('kraje-simple.json', encoding='utf-8')
         gdf_orp = gpd.read_file('orp-simple.json', encoding='utf-8')
         gdf_obce = gpd.read_file('obce-simple.json', encoding='utf-8')
@@ -224,7 +220,6 @@ def show_map():
         cmap = cmap.reversed()
         cmap.set_over('black')
         cmap.set_under('white')
-
         # nastavení rozsahu hodnot pro barevnou mapu
         vmin = 1
         vmax = upper_limit_scale  # nastavíme max hodnotu v hodnotách jako vrchol legendy
@@ -249,11 +244,11 @@ def show_map():
         if pocet_odlehlych_hodnot > 0:
             text_odlehle_hodnoty = 'Černě jsou zvýrazněny\n vybočující hodnoty nad {} '
             uvedeni_jednotky = f'{jednotka}'
-            tecka = '.'
+            tecka = ''
         else: 
             text_odlehle_hodnoty = ''
             uvedeni_jednotky = ''
-            tecka = ''
+            tecka = '.'
 
         # popisky názvů míst nezobrazovat na úrovni ZÚJ
         if uzemi_radiobut_value.get() != '3':
@@ -274,6 +269,14 @@ def show_map():
         ax.text(1.1, 1.15, f'{jednotka}', transform=ax.transAxes,
         fontsize=12, color='black', ha='center')
         
+        def create_title_from_list(list):
+            title = ""
+            for item in list:
+                title = title + str(item) + ", "
+            title = title[:-2]  # odstranění posledních dvou znaků
+            return title
+
+
         if sloupecHodnoty_radiobut_value.get() == '1':
             hodnoty_text = 'Mapa zobrazuje hodnoty:   v g na obyvatele\n'
         elif sloupecHodnoty_radiobut_value.get() == '2':
@@ -299,7 +302,7 @@ def show_map():
         if volby_evident_nazev:
             text = create_title_from_list(volby_evident_nazev)
             evident_ZUJ = f'Evident ZÚJ:   {text}      '
-        else: evident_ORP= ''        
+        else: evident_ZUJ= ''        
         if volby_evident_typ:
             text = create_title_from_list(volby_evident_typ)
             evident_typ = f'Evident typ subjektu:   {text}'
@@ -343,6 +346,40 @@ def show_map():
         plt.show()
     else:
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení v mapě.")
+        
+def relativni_cetnosti():
+    global vysledek_excel
+    global vyber_dat_vysledek    
+    if vyber_dat_vysledek is not None:
+        nazev_souboru_unique = hn.unique_kraj
+        nazev_sloupce_lexikon = 'Kraj_Cislo'
+        nazev_sloupce_unique_nazev = 'Kraj_Nazev'
+
+        vysledek = hn.odpadNaObyvatele_g(vyber_dat_vysledek,'Evident_Kraj_Cislo',hn.LexikonObci,nazev_sloupce_lexikon)
+
+        vysledek = pd.merge(vysledek, nazev_souboru_unique[[nazev_sloupce_lexikon, nazev_sloupce_unique_nazev]], on=nazev_sloupce_lexikon, how='left')
+
+        soucet = vysledek['OdpadNaObyv_g'].sum()
+        vysledek['Relativni_cetnost'] = vysledek['OdpadNaObyv_g'] / soucet
+        vysledek['Relativni_cetnost'] = vysledek['Relativni_cetnost'].apply('{:.2%}'.format)
+
+        cetnosti_sloupce = ['Kraj_Nazev', 'Kraj_Cislo','OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg', 'Relativni_cetnost']
+
+        vysledek_excel =vysledek[cetnosti_sloupce]
+        
+        format_column(vysledek)
+        
+        text_widget.delete("1.0","end")
+        text_widget.insert(END, "Procentuelní zastoupení jednotlivých krajů:\n\n ")
+        text_widget.insert(END, vysledek[cetnosti_sloupce].to_string(index=False,justify='left'))
+        
+        
+
+'''
+        import seaborn as sns
+
+        sns.catplot(x='Odpad_vKg', y='Relative Frequency', hue='Evident_Kraj_Nazev', data=rel_freq, kind='bar', height=4, aspect=2)
+'''
 
 def sumarizace():
     global vysledek_excel
@@ -350,14 +387,14 @@ def sumarizace():
     if vyber_dat_vysledek is not None:
         vysledek = vyber_dat_vysledek
         if volby_evident_kraj:
-            vysledek=hn.summary_stat_parametr(vysledek,'Evident_ORP_Nazev',hn.list_kraj_orp[volby_evident_kraj],'Odpad_vKg')
+            vysledek=hn.summary_stat_parametr(vysledek,'Evident_ORP_Nazev',hn.list_kraj_orp[volby_evident_kraj],'OdpadNaObyv_g')
 
             vysledek_excel = vysledek
 
             text_widget.delete("1.0","end")
             text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY PRO ORP v kraji: {volby_evident_kraj}\n {vysledek}\n")
         elif volby_evident_ORP:
-            vysledek=hn.summary_stat_parametr(vysledek,'Evident_ZUJ_Nazev',hn.list_orp_zuj[volby_evident_ORP],'Odpad_vKg')
+            vysledek=hn.summary_stat_parametr(vysledek,'Evident_ZUJ_Nazev',hn.list_orp_zuj[volby_evident_ORP],'OdpadNaObyv_g')
 
             text_widget.delete("1.0","end")
             text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY PRO ZUJ v ORP: {volby_evident_ORP}\n {vysledek}\n")
@@ -585,6 +622,7 @@ funkce_dict = {
     "Zjištění odlehlých hodnot": odlehle_hodnoty,
     "Seskupení dat": seskupeni_dat,
     "XY Bodový graf": graf_xyBodovy,
+    "Relativní četnosti": relativni_cetnosti,
     
 }       
 
@@ -766,7 +804,7 @@ vyber_dat_button.grid(row=1, column=3, padx=20,pady=0)
 # Seznam funkcí
 funkce_label= tk.Label(right_frame, text="Funkce")
 funkce_label.grid(row=2, column=3, padx=20, pady=0)
-options = ['','Sumarizace','Zjištění odlehlých hodnot', 'Seskupení dat','XY Bodový graf']
+options = ['','Relativní četnosti','Sumarizace','Zjištění odlehlých hodnot', 'Seskupení dat','XY Bodový graf']
 funkce_combo = ttk.Combobox(right_frame, value=options, state="disabled", width=25)
 funkce_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_funkce(funkce_combo.get()))
 funkce_combo.current(0)
