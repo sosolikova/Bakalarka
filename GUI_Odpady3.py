@@ -351,15 +351,27 @@ def relativni_cetnosti():
     global vysledek_excel
     global vyber_dat_vysledek    
     if vyber_dat_vysledek is not None:
-        nazev_souboru_unique = hn.unique_kraj
-        nazev_sloupce_lexikon = 'Kraj_Cislo'
-        nazev_sloupce_unique_nazev = 'Kraj_Nazev'
+        if (volby_evident_kraj) and (not (volby_evident_ORP or volby_evident_nazev)):
+            nazev_souboru_unique = hn.unique_orp
+            nazev_sloupce_lexikon = 'ORP_Cislo'
+            nazev_sloupce_unique_nazev = 'ORP_Nazev'
+            column_grouped = 'Evident_ORP_Cislo'
+        elif (volby_evident_ORP) and (not (volby_evident_kraj or volby_evident_nazev)):
+            nazev_souboru_unique = hn.LexikonObci
+            nazev_sloupce_lexikon = 'ZUJ_Cislo'
+            nazev_sloupce_unique_nazev = 'ZUJ_Nazev'
+            column_grouped = 'Evident_ZUJ_Cislo'
+        else :
+            nazev_souboru_unique = hn.unique_kraj
+            nazev_sloupce_lexikon = 'Kraj_Cislo'
+            nazev_sloupce_unique_nazev = 'Kraj_Nazev'
+            column_grouped = 'Evident_Kraj_Cislo'
 
-        vysledek = hn.odpadNaObyvatele_g(vyber_dat_vysledek,'Evident_Kraj_Cislo',hn.LexikonObci,nazev_sloupce_lexikon)
+        vysledek = hn.odpadNaObyvatele_g2(vyber_dat_vysledek,column_grouped,hn.LexikonObci,nazev_sloupce_lexikon)
 
         vysledek = pd.merge(vysledek, nazev_souboru_unique[[nazev_sloupce_lexikon, nazev_sloupce_unique_nazev]], on=nazev_sloupce_lexikon, how='left')
 
-        cetnosti_sloupce = ['Kraj_Nazev', 'Kraj_Cislo','OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg', 'Relativni_cetnost']
+        cetnosti_sloupce = [nazev_sloupce_unique_nazev, nazev_sloupce_lexikon,'OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg', 'Relativni_cetnost']
 
         soucet = vysledek['OdpadNaObyv_g'].sum()
         vysledek['Relativni_cetnost'] = vysledek['OdpadNaObyv_g'] / soucet
@@ -378,22 +390,20 @@ def relativni_cetnosti():
         text_widget.insert(END, vysledek[cetnosti_sloupce].to_string(index=False,justify='left'))
         
         fig, ax = plt.subplots(figsize=(12,6))
-        ax.bar(vysledek_graf['Kraj_Nazev'], vysledek_graf['Relativni_cetnost'])
-        ax.set_xticklabels(vysledek_graf['Kraj_Nazev'], rotation=90)
-        ax.set_xlabel('Kraj')
+        ax.bar(vysledek_graf[nazev_sloupce_unique_nazev], vysledek_graf['Relativni_cetnost'])
+        ax.set_xticklabels(vysledek_graf[nazev_sloupce_unique_nazev], rotation=90)
+        ax.set_xlabel(nazev_sloupce_unique_nazev)
         ax.set_ylabel('Relativní četnost')
         # přidání hodnot
         for i, v in enumerate(vysledek_graf['Relativni_cetnost']):
             plt.text(i, v, round(v, 2), color='black', ha='center', fontsize=10)
         plt.tight_layout()
         plt.show()
+        # to do: popisky grafu, navázat graf na úroveň 
 
+    else:
+        messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení.")
 
-'''
-        import seaborn as sns
-
-        sns.catplot(x='Odpad_vKg', y='Relative Frequency', hue='Evident_Kraj_Nazev', data=rel_freq, kind='bar', height=4, aspect=2)
-'''
 
 def sumarizace():
     global vysledek_excel

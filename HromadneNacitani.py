@@ -407,6 +407,17 @@ def odpadNaObyvatele_g(df_filtered,column_grouped,df_lexikon,column_lexikon):
     odpadNaObyv_g = vlozit_sloupec_prepocet_odpadNaPocetObyv(odpad_obyvatele)
     return odpadNaObyv_g
 
+# ve funkci odstraněné how='left' pro výpočet Relativních četností
+def odpadNaObyvatele_g2(df_filtered,column_grouped,df_lexikon,column_lexikon):
+    odpad = seskupeni_dat_po_sloupcich(df_filtered,'Odpad_vKg',column_grouped)
+    odpad['Odpad_vKg'] = odpad['Odpad_vKg'].abs()
+    obyvatele = seskupeni_dat_po_sloupcich(df_lexikon,'Pocet_Obyvatel',column_lexikon)
+    odpad_obyvatele = obyvatele.merge(odpad,left_on=column_lexikon, right_on = column_grouped)
+    odpad_obyvatele['Odpad_vKg'] = odpad_obyvatele['Odpad_vKg'].fillna(value=0)
+    odpadNaObyv_g = vlozit_sloupec_prepocet_odpadNaPocetObyv(odpad_obyvatele)
+    return odpadNaObyv_g
+
+
 def zjisteni_hranic(df, columns):
     # určení kvantilů
     q1 = df[columns].quantile(0.15)
