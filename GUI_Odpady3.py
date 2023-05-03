@@ -355,70 +355,8 @@ def show_map():
         ax.text(1.1, 1.15, f'{jednotka}', transform=ax.transAxes,
         fontsize=12, color='black', ha='center')
         
-        if sloupecHodnoty_radiobut_value.get() == '1':
-            hodnoty_text = 'Mapa zobrazuje hodnoty:   v g na obyvatele\n'
-        elif sloupecHodnoty_radiobut_value.get() == '2':
-            hodnoty_text = 'Mapa zobrazuje hodnoty:   odpad v kg\n'
-        if subjekt_radiobut_value.get() == '1':
-            subjekt_text = 'Nakládání s odpady z pohledu:   evidentů \n'
-        elif subjekt_radiobut_value.get() == '2':
-            subjekt_text = 'Nakládání s odpady z pohledu:   partnerů \n'
-        if uzemi_radiobut_value.get() == '1':
-            uzemi_text = 'Shrnutí na úrovni:   krajů\n'
-        elif uzemi_radiobut_value.get() == '2':
-            uzemi_text = 'Shrnutí na úrovni:   ORP\n'
-        elif uzemi_radiobut_value.get() == '3':
-            uzemi_text = 'Shrnutí na úrovni:   ZÚJ\n'
-        if volby_evident_kraj:
-            text = create_title_from_list(volby_evident_kraj)
-            evident_kraj = f'Evident kraj:   {text}      '
-        else: evident_kraj= ''
-        if volby_evident_ORP:
-            text = create_title_from_list(volby_evident_ORP)
-            evident_ORP = f'Evident ORP:   {text}      '
-        else: evident_ORP= ''
-        if volby_evident_nazev:
-            text = create_title_from_list(volby_evident_nazev)
-            evident_ZUJ = f'Evident ZÚJ:   {text}      '
-        else: evident_ZUJ= ''        
-        if volby_evident_typ:
-            text = create_title_from_list(volby_evident_typ)
-            evident_typ = f'Evident typ subjektu:   {text}'
-        else: evident_typ= ''
-        if volby_partner_kraj:
-            text = create_title_from_list(volby_partner_kraj)
-            partner_kraj = f'\nPartner kraj:   {text}      '
-        else: partner_kraj= ''
-        if volby_partner_ORP:
-            text = create_title_from_list(volby_partner_ORP)
-            partner_ORP = f' Partner ORP:   {text}      '
-        else: partner_ORP= ''
-        if volby_partner_nazev:
-            text = create_title_from_list(volby_partner_nazev)
-            partner_ZUJ = f' Partner ZÚJ:   {text}      '
-        else: partner_ZUJ= ''
-        if volby_partner_typ:
-            text = create_title_from_list(volby_partner_typ)
-            partner_typ = f' Partner typ subjektu:   {text}'
-        else: partner_typ= ''
-        if volby_druhOdpadu:
-            text = create_title_from_list(volby_druhOdpadu)
-            odpad = f'\nDruh odpadu:   {text}'
-        else: odpad= ''
-        if volby_indikator:
-            text = create_title_from_list(volby_indikator)
-            indikator = f'\nIndikátor:   {text}'
-        else: indikator = ''
-        if volby_kod:
-            text = create_title_from_list(volby_kod)
-            nakladani = f'\nKód způsobu nakládání:   {text}'
-        else: nakladani = ''
-        if volby_rok:
-          text = create_title_from_list(volby_rok)
-          obdobi = f'\nObdobí:   {text}'
-        else: obdobi = ''
         # Sestavení titulku mapy podle voleb uživatele
-        title_text = f'{hodnoty_text}{subjekt_text}{uzemi_text}{evident_kraj}{evident_ORP}{evident_ZUJ}{evident_typ}{partner_kraj}{partner_ORP}{partner_ZUJ}{partner_typ}{odpad}{indikator}{nakladani}{obdobi}'
+        title_text = tvorba_popisku_grafu('cely')
         plt.title(title_text,ha='left',loc='left',fontsize=10)
 
         plt.show()
@@ -483,7 +421,7 @@ def relativni_cetnosti():
         title_text = tvorba_popisku_grafu('cast')
         plt.title(title_text,ha='left',loc='left',fontsize=10)
 
-        ax.text(0.95, 0.15, 'Relativní četnosti\n(z hodnot ´odpad na obyvatele´)', transform=ax.transAxes, fontsize=14,
+        ax.text(0.95, 1.15, 'Relativní četnosti\n(z hodnot ´odpad na obyvatele´)', transform=ax.transAxes, fontsize=14,
         verticalalignment='top', horizontalalignment='right')
 
         plt.tight_layout()
