@@ -128,7 +128,7 @@ def zaokrouhleni(cislo):
     return cislo_zaokr
 
 # tvorba popisku grafu
-def tvorba_popisku_grafu():
+def tvorba_popisku_grafu(delka_titulku):
     
     if sloupecHodnoty_radiobut_value.get() == '1':
         hodnoty_text = 'Mapa zobrazuje hodnoty:   v g na obyvatele\n'
@@ -192,15 +192,19 @@ def tvorba_popisku_grafu():
       text = create_title_from_list(volby_rok)
       obdobi = f'\nObdobí:   {text}'
     else: obdobi = ''
-    '''
-    if funkce == 'mapa':
-        title_text = title_text_cely
-    elif funkce == 'cetnosti':
-        title_text = title_text_cast
 
     title_text_cely = f'{hodnoty_text}{subjekt_text}{uzemi_text}{evident_kraj}{evident_ORP}{evident_ZUJ}{evident_typ}{partner_kraj}{partner_ORP}{partner_ZUJ}{partner_typ}{odpad}{indikator}{nakladani}{obdobi}'
-    '''
-    title_text = f'{evident_kraj}{evident_ORP}{evident_ZUJ}{evident_typ}{partner_kraj}{partner_ORP}{partner_ZUJ}{partner_typ}{odpad}{indikator}{nakladani}{obdobi}'
+    
+    title_text_cast = f'{evident_kraj}{evident_ORP}{evident_ZUJ}{evident_typ}{partner_kraj}{partner_ORP}{partner_ZUJ}{partner_typ}{odpad}{indikator}{nakladani}{obdobi}'    
+
+    if delka_titulku == 'cely':
+        title_text = title_text_cely
+    elif delka_titulku == 'cast':
+        title_text = title_text_cast
+    else:
+        title_text = title_text_cast
+
+
 
     return title_text
 
@@ -476,13 +480,14 @@ def relativni_cetnosti():
             plt.text(i, v, round(v, 2), color='black', ha='center', fontsize=10)
 
         # Sestavení titulku mapy podle voleb uživatele
-        title_text = tvorba_popisku_grafu()
-
+        title_text = tvorba_popisku_grafu('cast')
         plt.title(title_text,ha='left',loc='left',fontsize=10)
+
+        ax.text(0.95, 0.15, 'Relativní četnosti\n(z hodnot ´odpad na obyvatele´)', transform=ax.transAxes, fontsize=14,
+        verticalalignment='top', horizontalalignment='right')
 
         plt.tight_layout()
         plt.show()
-        # to do: popisky grafu
 
     else:
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení.")
