@@ -409,19 +409,23 @@ def relativni_cetnosti():
         text_widget.insert(END, vysledek[cetnosti_sloupce].to_string(index=False,justify='left'))
         
         fig, ax = plt.subplots(figsize=(12,6))
-        ax.bar(vysledek_graf[nazev_sloupce_unique_nazev], vysledek_graf['Relativni_cetnost'])
+        #ax.bar(vysledek_graf[nazev_sloupce_unique_nazev], vysledek_graf['Relativni_cetnost'], color = 'viridis')
+        ax.bar(vysledek_graf[nazev_sloupce_unique_nazev], vysledek_graf['Relativni_cetnost'], color=cm.viridis(np.linspace(0, 1, len(vysledek_graf))))
         ax.set_xticklabels(vysledek_graf[nazev_sloupce_unique_nazev], rotation=90)
-        ax.set_xlabel(popisek_osaX)
-        ax.set_ylabel('Relativní četnosti')
+        ax.set_xlabel(popisek_osaX,fontsize=13)
+        ax.set_ylabel('Relativní četnosti',fontsize=13)
         # přidání hodnot
         for i, v in enumerate(vysledek_graf['Relativni_cetnost']):
             plt.text(i, v, round(v, 2), color='black', ha='center', fontsize=10)
 
-        # Sestavení titulku mapy podle voleb uživatele
+        # Sestavení titulku grafu podle voleb uživatele
         title_text = tvorba_popisku_grafu('cast')
         plt.title(title_text,ha='left',loc='left',fontsize=10)
 
-        ax.text(0.95, 1.15, 'Relativní četnosti\n(z hodnot ´odpad na obyvatele´)', transform=ax.transAxes, fontsize=14,
+        ax.text(0.95, 1.15, 'Relativní četnosti', transform=ax.transAxes, fontsize=14,
+        verticalalignment='top', horizontalalignment='right')
+
+        ax.text(0.95, 1.10, '\n(sestaveno z hodnot ´odpad na obyvatele´)', transform=ax.transAxes, fontsize=10,
         verticalalignment='top', horizontalalignment='right')
 
         plt.tight_layout()
