@@ -203,9 +203,6 @@ def tvorba_popisku_grafu(delka_titulku):
         title_text = title_text_cast
     else:
         title_text = title_text_cast
-
-
-
     return title_text
 
 def create_title_from_list(list):
@@ -373,18 +370,21 @@ def relativni_cetnosti():
             nazev_sloupce_unique_nazev = 'ORP_Nazev'
             column_grouped = 'Evident_ORP_Cislo'
             popisek_osaX = 'ORP'
+            popisek_text_widget = popisek_osaX
         elif (volby_evident_ORP) and (not (volby_evident_kraj or volby_evident_nazev)):
             nazev_souboru_unique = hn.LexikonObci
             nazev_sloupce_lexikon = 'ZUJ_Cislo'
             nazev_sloupce_unique_nazev = 'ZUJ_Nazev'
             column_grouped = 'Evident_ZUJ_Cislo'
             popisek_osaX = 'ZÚJ'
+            popisek_text_widget = popisek_osaX
         else :
             nazev_souboru_unique = hn.unique_kraj
             nazev_sloupce_lexikon = 'Kraj_Cislo'
             nazev_sloupce_unique_nazev = 'Kraj_Nazev'
             column_grouped = 'Evident_Kraj_Cislo'
-            popisek_osaX = 'kraje'
+            popisek_osaX = 'Kraje'
+            popisek_text_widget = 'krajů'
 
         vysledek = hn.odpadNaObyvatele_g2(vyber_dat_vysledek,column_grouped,hn.LexikonObci,nazev_sloupce_lexikon)
 
@@ -405,11 +405,11 @@ def relativni_cetnosti():
         format_column(vysledek)
         
         text_widget.delete("1.0","end")
-        text_widget.insert(END, "Procentuelní zastoupení jednotlivých krajů:\n\n ")
+        text_widget.insert(END, f"Procentuelní zastoupení jednotlivých {popisek_text_widget}:\n\n ")
         text_widget.insert(END, vysledek[cetnosti_sloupce].to_string(index=False,justify='left'))
         
         fig, ax = plt.subplots(figsize=(12,6))
-        #ax.bar(vysledek_graf[nazev_sloupce_unique_nazev], vysledek_graf['Relativni_cetnost'], color = 'viridis')
+
         ax.bar(vysledek_graf[nazev_sloupce_unique_nazev], vysledek_graf['Relativni_cetnost'], color=cm.viridis(np.linspace(0, 1, len(vysledek_graf))))
         ax.set_xticklabels(vysledek_graf[nazev_sloupce_unique_nazev], rotation=90)
         ax.set_xlabel(popisek_osaX,fontsize=13)
@@ -434,6 +434,80 @@ def relativni_cetnosti():
     else:
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení.")
 
+def histogram():
+    global vysledek_excel
+    global vyber_dat_vysledek    
+    if vyber_dat_vysledek is not None:
+        if (volby_evident_kraj) and (not (volby_evident_ORP or volby_evident_nazev)):
+            nazev_souboru_unique = hn.unique_orp
+            nazev_sloupce_lexikon = 'ORP_Cislo'
+            nazev_sloupce_unique_nazev = 'ORP_Nazev'
+            column_grouped = 'Evident_ORP_Cislo'
+            popisek_osaX = 'ORP'
+        elif (volby_evident_ORP) and (not (volby_evident_kraj or volby_evident_nazev)):
+            nazev_souboru_unique = hn.LexikonObci
+            nazev_sloupce_lexikon = 'ZUJ_Cislo'
+            nazev_sloupce_unique_nazev = 'ZUJ_Nazev'
+            column_grouped = 'Evident_ZUJ_Cislo'
+            popisek_osaX = 'ZÚJ'
+        else :
+            nazev_souboru_unique = hn.unique_kraj
+            nazev_sloupce_lexikon = 'Kraj_Cislo'
+            nazev_sloupce_unique_nazev = 'Kraj_Nazev'
+            column_grouped = 'Evident_Kraj_Cislo'
+            popisek_osaX = 'Kraje'
+
+        vysledek = hn.odpadNaObyvatele_g2(vyber_dat_vysledek,column_grouped,hn.LexikonObci,nazev_sloupce_lexikon)
+        print("Výsledek první")
+        print(vysledek)
+        vysledek = pd.merge(vysledek, nazev_souboru_unique[[nazev_sloupce_lexikon, nazev_sloupce_unique_nazev]], on=nazev_sloupce_lexikon, how='left')
+        print("Výsledek druhý")
+        print(vysledek)
+        widget_sloupce = [nazev_sloupce_unique_nazev, nazev_sloupce_lexikon,'OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg']
+
+        
+
+        soucet = vysledek['OdpadNaObyv_g'].sum()
+        vysledek['Relativni_cetnost'] = vysledek['OdpadNaObyv_g'] / soucet
+        vysledek = vysledek.sort_values('OdpadNaObyv_g', ascending=True)
+
+        spodni_hranice, horni_hranice = hn.zjisteni_hranic(vysledek,'OdpadNaObyv_g')
+        
+        vysledek_lower = vysledek[vysledek['OdpadNaObyv_g'] <= horni_hranice]
+        vysledek_higher = vysledek[vysledek['OdpadNaObyv_g'] > horni_hranice]
+        
+
+        print("výsledek higher")
+        print(vysledek_higher)
+
+        vysledek_excel =vysledek[widget_sloupce]
+
+        vysledek_widget_lower = format_column(vysledek_lower)
+        vysledek_widget_higher = format_column(vysledek_higher)
+
+        text_widget.delete("1.0","end")
+        text_widget.insert(END, "Histogram četností:\n\n ")
+        text_widget.insert(END, "Záznamy, které mají hodnotu 'OdpadNaObyv_g' vyšší než je hranice:\n ")
+        text_widget.insert(END, vysledek_higher[widget_sloupce].to_string(index=False,justify='left'))
+        text_widget.insert(END, "\nZáznamy, které mají hodnotu 'OdpadNaObyv_g' nižší než je hranice:\n ")
+        text_widget.insert(END, vysledek_lower[widget_sloupce].to_string(index=False,justify='left'))
+
+        plt.hist(vysledek_lower['OdpadNaObyv_g'])
+        plt.xlabel('Odpad na obyvatele v gramech')
+        plt.ylabel('Počet územních jednotek')
+
+        # Sestavení titulku grafu podle voleb uživatele
+        title_text = tvorba_popisku_grafu('cast')
+        plt.title(title_text,ha='left',loc='left',fontsize=10)
+
+
+        plt.tight_layout()
+        plt.show()
+
+    else:
+        messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení.")
+
+    
 
 def sumarizace():
     global vysledek_excel
@@ -677,6 +751,7 @@ funkce_dict = {
     "Seskupení dat": seskupeni_dat,
     "XY Bodový graf": graf_xyBodovy,
     "Relativní četnosti": relativni_cetnosti,
+    "Histogram četností": histogram,
     
 }       
 
@@ -858,7 +933,7 @@ vyber_dat_button.grid(row=1, column=3, padx=20,pady=0)
 # Seznam funkcí
 funkce_label= tk.Label(right_frame, text="Funkce")
 funkce_label.grid(row=2, column=3, padx=20, pady=0)
-options = ['','Relativní četnosti','Sumarizace','Zjištění odlehlých hodnot', 'Seskupení dat','XY Bodový graf']
+options = ['','Relativní četnosti','Histogram četností','Sumarizace','Zjištění odlehlých hodnot', 'Seskupení dat','XY Bodový graf']
 funkce_combo = ttk.Combobox(right_frame, value=options, state="disabled", width=25)
 funkce_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_funkce(funkce_combo.get()))
 funkce_combo.current(0)
