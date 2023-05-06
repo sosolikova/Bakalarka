@@ -108,14 +108,26 @@ def handle_funkce(selection):
 
 def format_column(df):
     if 'Odpad_vKg' in df.columns:
+        df.loc[:, 'Odpad_vKg'] = df['Odpad_vKg'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+        '''
         df['Odpad_vKg'] = df['Odpad_vKg'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+        '''
     if 'Pocet_Obyvatel' in df.columns:
+        df.loc[:, 'Pocet_Obyvatel'] = df['Pocet_Obyvatel'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+        '''
         df['Pocet_Obyvatel'] = df['Pocet_Obyvatel'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+        '''
     if 'OdpadNaPocetObyv' in df.columns:
+        df.loc[:, 'OdpadNaPocetObyv'] = df['OdpadNaPocetObyv'].apply(lambda x: locale.format_string("%0.3f", x, grouping=True))
+        '''
         df['OdpadNaPocetObyv'] = df['OdpadNaPocetObyv'].apply(lambda x: locale.format_string("%0.3f", x, grouping=True))
+        '''
     if 'OdpadNaObyv_g' in df.columns:
-        df['OdpadNaObyv_g'] = df['OdpadNaObyv_g'].apply(lambda x: locale.format_string("%d", x, grouping=True))
-
+        df.loc[:, 'OdpadNaObyv_g'] = df['OdpadNaObyv_g'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+        '''
+        df['OdpadNaObyv_g'] = df['OdpadNaObyv_g'].apply(lambda x: locale.format_string("%d", x, grouping=True))   
+        ''' 
+    return df
 
 def zaokrouhleni(cislo):
     cele_cislo = int(cislo)
@@ -438,68 +450,74 @@ def histogram():
     global vysledek_excel
     global vyber_dat_vysledek    
     if vyber_dat_vysledek is not None:
-        if (volby_evident_kraj) and (not (volby_evident_ORP or volby_evident_nazev)):
-            nazev_souboru_unique = hn.unique_orp
-            nazev_sloupce_lexikon = 'ORP_Cislo'
-            nazev_sloupce_unique_nazev = 'ORP_Nazev'
-            column_grouped = 'Evident_ORP_Cislo'
-            popisek_osaX = 'ORP'
-        elif (volby_evident_ORP) and (not (volby_evident_kraj or volby_evident_nazev)):
-            nazev_souboru_unique = hn.LexikonObci
-            nazev_sloupce_lexikon = 'ZUJ_Cislo'
-            nazev_sloupce_unique_nazev = 'ZUJ_Nazev'
-            column_grouped = 'Evident_ZUJ_Cislo'
-            popisek_osaX = 'ZÚJ'
-        else :
-            nazev_souboru_unique = hn.unique_kraj
-            nazev_sloupce_lexikon = 'Kraj_Cislo'
-            nazev_sloupce_unique_nazev = 'Kraj_Nazev'
-            column_grouped = 'Evident_Kraj_Cislo'
-            popisek_osaX = 'Kraje'
+        nazev_souboru_unique = hn.LexikonObci
+        nazev_sloupce_lexikon = 'ZUJ_Cislo'
+        nazev_sloupce_unique_nazev = 'ZUJ_Nazev'
+        column_grouped = 'Evident_ZUJ_Cislo'
+        popisek_osaX = 'ZÚJ'
 
         vysledek = hn.odpadNaObyvatele_g2(vyber_dat_vysledek,column_grouped,hn.LexikonObci,nazev_sloupce_lexikon)
-        print("Výsledek první")
-        print(vysledek)
+
         vysledek = pd.merge(vysledek, nazev_souboru_unique[[nazev_sloupce_lexikon, nazev_sloupce_unique_nazev]], on=nazev_sloupce_lexikon, how='left')
-        print("Výsledek druhý")
-        print(vysledek)
+
         widget_sloupce = [nazev_sloupce_unique_nazev, nazev_sloupce_lexikon,'OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg']
 
-        
-
-        soucet = vysledek['OdpadNaObyv_g'].sum()
-        vysledek['Relativni_cetnost'] = vysledek['OdpadNaObyv_g'] / soucet
         vysledek = vysledek.sort_values('OdpadNaObyv_g', ascending=True)
 
         spodni_hranice, horni_hranice = hn.zjisteni_hranic(vysledek,'OdpadNaObyv_g')
         
         vysledek_lower = vysledek[vysledek['OdpadNaObyv_g'] <= horni_hranice]
         vysledek_higher = vysledek[vysledek['OdpadNaObyv_g'] > horni_hranice]
-        
+        pocty_higher = len(vysledek_higher)
+        pocty_lower = len(vysledek_lower)
+        minimum = vysledek_lower['OdpadNaObyv_g'].min()
+        maximum = vysledek_lower['OdpadNaObyv_g'].max()
+        maximumVyboc = vysledek_higher['OdpadNaObyv_g'].max()
 
-        print("výsledek higher")
-        print(vysledek_higher)
-
+        vysledek_graf = vysledek_lower
         vysledek_excel =vysledek[widget_sloupce]
 
-        vysledek_widget_lower = format_column(vysledek_lower)
-        vysledek_widget_higher = format_column(vysledek_higher)
+        # Zjištění počtu intervalů podle Sturgesova pravidla
+        import math
+
+        n = pocty_lower
+        k = round(1 + 3.322 * math.log10(n))
+        print("počet intervalů podle Sturgessova pravidla")
+        print(k)
+        fig, ax = plt.subplots(figsize=(12,6))
+        plt.hist(vysledek_graf['OdpadNaObyv_g'],bins=k)
+        plt.xlabel('Odpad na obyvatele v gramech')
+        plt.ylabel('Počet ZÚJ')
 
         text_widget.delete("1.0","end")
         text_widget.insert(END, "Histogram četností:\n\n ")
-        text_widget.insert(END, "Záznamy, které mají hodnotu 'OdpadNaObyv_g' vyšší než je hranice:\n ")
-        text_widget.insert(END, vysledek_higher[widget_sloupce].to_string(index=False,justify='left'))
-        text_widget.insert(END, "\nZáznamy, které mají hodnotu 'OdpadNaObyv_g' nižší než je hranice:\n ")
+        if pocty_higher > 0:
+            format_column(vysledek_higher)
+            text_widget.insert(END, f"Záznamy ({pocty_higher}), které obsahují vybočující hodnoty ve sloupci 'OdpadNaObyv_g':\n\n ")
+            text_widget.insert(END, vysledek_higher[widget_sloupce].to_string(index=False,justify='left'))
+            text_widget.insert(END, f"\n\nZáznamy ({pocty_lower}) bez vybočujících hodnot, pro zobrazení v histogramu: \n\n ")
+        format_column(vysledek_lower)
         text_widget.insert(END, vysledek_lower[widget_sloupce].to_string(index=False,justify='left'))
 
-        plt.hist(vysledek_lower['OdpadNaObyv_g'])
-        plt.xlabel('Odpad na obyvatele v gramech')
-        plt.ylabel('Počet územních jednotek')
+        # Sestavení popisku min a max hodnoty
+        minimum_format = locale.format_string("%d", round(minimum), grouping=True)
+        maximum_format = locale.format_string("%d", round(maximum), grouping=True)
+        ax.annotate(f'minimum: {minimum_format} g, maximum: {maximum_format} g, počet hodnot {pocty_lower}', xy=(0.95, 0.95), xycoords='axes fraction', ha='right', va='center')
+        
+        # Sestavení popisku grafu
+        ax.text(0.95, 1.15, 'Histogram četností', transform=ax.transAxes, fontsize=14,
+        verticalalignment='top', horizontalalignment='right')
+
+        if pocty_higher > 0:
+            horni_hranice_zaokr = zaokrouhleni(horni_hranice)
+            horni_hranice_format = locale.format_string("%d", round(horni_hranice_zaokr), grouping=True)
+            ax.text(0.95, 1.1, f'\n(sestaven bez vybočujících hodnot větších než {horni_hranice_format} gramů )', transform=ax.transAxes, fontsize=10,verticalalignment='top', horizontalalignment='right')
+            maximumVyboc_format = locale.format_string("%d", round(maximumVyboc), grouping=True)
+            ax.annotate(f'maximum z vybočujících hodnot {maximumVyboc_format} g, počet vybočujících hodnot {pocty_higher}', xy=(0.95, 0.90), xycoords='axes fraction', ha='right', va='center')
 
         # Sestavení titulku grafu podle voleb uživatele
         title_text = tvorba_popisku_grafu('cast')
         plt.title(title_text,ha='left',loc='left',fontsize=10)
-
 
         plt.tight_layout()
         plt.show()
