@@ -1,10 +1,11 @@
 from cgitb import text
+import tkinter
 from tkinter import *
 from tkinter import ttk
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
-import tkinter
+import math
 from PIL import ImageTk, Image
 from matplotlib import cm
 import matplotlib.pyplot as plt
@@ -454,7 +455,6 @@ def histogram():
         nazev_sloupce_lexikon = 'ZUJ_Cislo'
         nazev_sloupce_unique_nazev = 'ZUJ_Nazev'
         column_grouped = 'Evident_ZUJ_Cislo'
-        popisek_osaX = 'ZÚJ'
 
         vysledek = hn.odpadNaObyvatele_g2(vyber_dat_vysledek,column_grouped,hn.LexikonObci,nazev_sloupce_lexikon)
 
@@ -473,22 +473,25 @@ def histogram():
         minimum = vysledek_lower['OdpadNaObyv_g'].min()
         maximum = vysledek_lower['OdpadNaObyv_g'].max()
         maximumVyboc = vysledek_higher['OdpadNaObyv_g'].max()
+        prumer = vysledek_lower['OdpadNaObyv_g'].mean()
+        median = vysledek_lower['OdpadNaObyv_g'].median()
 
         vysledek_graf = vysledek_lower
         vysledek_excel =vysledek[widget_sloupce]
 
         # Zjištění počtu intervalů podle Sturgesova pravidla
-        import math
-
         n = pocty_lower
         k = round(1 + 3.322 * math.log10(n))
-        print("počet intervalů podle Sturgessova pravidla")
-        print(k)
+
         fig, ax = plt.subplots(figsize=(12,6))
         plt.hist(vysledek_graf['OdpadNaObyv_g'],bins=k)
         plt.xlabel('Odpad na obyvatele v gramech')
         plt.ylabel('Počet ZÚJ')
 
+        # Přidání vertikálních čar pro průměr a medián
+        ax.axvline(prumer, color='r', linestyle='--', linewidth=2)
+        ax.axvline(median, color='g', linestyle='--', linewidth=2)
+        
         text_widget.delete("1.0","end")
         text_widget.insert(END, "Histogram četností:\n\n ")
         if pocty_higher > 0:
@@ -503,7 +506,14 @@ def histogram():
         minimum_format = locale.format_string("%d", round(minimum), grouping=True)
         maximum_format = locale.format_string("%d", round(maximum), grouping=True)
         ax.annotate(f'minimum: {minimum_format} g, maximum: {maximum_format} g, počet hodnot {pocty_lower}', xy=(0.95, 0.95), xycoords='axes fraction', ha='right', va='center')
-        
+
+        # Sestavení popisku průměr a medián
+        prumer_format = locale.format_string("%d", round(prumer), grouping=True)
+        median_format = locale.format_string("%d", round(median), grouping=True)
+
+        ax.annotate(f'průměr: {prumer_format} g', xy=(0.80, 0.90), xycoords='axes fraction', ha='right', va='center', color = 'red')
+        ax.annotate(f'medián: {median_format} g', xy=(0.95, 0.90), xycoords='axes fraction', ha='right', va='center', color = 'green')        
+
         # Sestavení popisku grafu
         ax.text(0.95, 1.15, 'Histogram četností', transform=ax.transAxes, fontsize=14,
         verticalalignment='top', horizontalalignment='right')
@@ -513,15 +523,13 @@ def histogram():
             horni_hranice_format = locale.format_string("%d", round(horni_hranice_zaokr), grouping=True)
             ax.text(0.95, 1.1, f'\n(sestaven bez vybočujících hodnot větších než {horni_hranice_format} gramů )', transform=ax.transAxes, fontsize=10,verticalalignment='top', horizontalalignment='right')
             maximumVyboc_format = locale.format_string("%d", round(maximumVyboc), grouping=True)
-            ax.annotate(f'maximum z vybočujících hodnot {maximumVyboc_format} g, počet vybočujících hodnot {pocty_higher}', xy=(0.95, 0.90), xycoords='axes fraction', ha='right', va='center')
+            ax.annotate(f'maximum z vybočujících hodnot {maximumVyboc_format} g, počet vybočujících hodnot {pocty_higher}', xy=(0.95, 0.85), xycoords='axes fraction', ha='right', va='center')
 
         # Sestavení titulku grafu podle voleb uživatele
         title_text = tvorba_popisku_grafu('cast')
         plt.title(title_text,ha='left',loc='left',fontsize=10)
-
         plt.tight_layout()
         plt.show()
-
     else:
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení.")
 
