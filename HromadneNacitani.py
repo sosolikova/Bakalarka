@@ -427,3 +427,11 @@ def zjisteni_hranic(df, columns):
     horni_hranice = q3 + 1.5 * iqr
     return spodni_hranice, horni_hranice
 
+def zjisteni_hranic2(df, columns,q1,q3):
+    # určení kvantilů
+    q1 = df[columns].quantile(q1)
+    q3 = df[columns].quantile(q3)
+    iqr = q3 - q1
+    spodni_hranice = q1 - 1.5 * iqr
+    horni_hranice = q3 + 1.5 * iqr
+    return spodni_hranice, horni_hranice
