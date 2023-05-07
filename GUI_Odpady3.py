@@ -557,21 +557,14 @@ def boxplot():
         vysledek = hn.odpadNaObyvatele_g2(vyber_dat_vysledek,column_grouped,hn.LexikonObci,nazev_sloupce_lexikon)
         print("výsledek po prvním")
         print(vysledek)
-        vysledek = pd.merge(vysledek, nazev_souboru_unique[[nazev_sloupce_lexikon, nazev_sloupce_unique_nazev]], on=nazev_sloupce_lexikon, how='left')
+        vysledek = pd.merge(vysledek, nazev_souboru_unique[[nazev_sloupce_lexikon, nazev_sloupce_unique_nazev,'Kraj_Nazev','ORP_Nazev']], on=nazev_sloupce_lexikon, how='left')
+        vysledek = vysledek.sort_values(by=['Kraj_Nazev','ORP_Nazev','ZUJ_Nazev'])
         print("výsledek po druhém")
-        vysledek = pd.merge(vysledek, nazev_souboru_unique[[nazev_sloupce_lexikon, 'Kraj_Nazev']], on=nazev_sloupce_lexikon, how='left')
-        print("výsledek po třetím")
-        print(vysledek)
-        cetnosti_sloupce = ['Kraj_Nazev',nazev_sloupce_unique_nazev, nazev_sloupce_lexikon,'OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg', 'Relativni_cetnost']
 
-        soucet = vysledek['OdpadNaObyv_g'].sum()
-        vysledek['Relativni_cetnost'] = vysledek['OdpadNaObyv_g'] / soucet
-        vysledek = vysledek.sort_values('OdpadNaObyv_g', ascending=True)
+        cetnosti_sloupce = ['Kraj_Nazev','ORP_Nazev',nazev_sloupce_unique_nazev, nazev_sloupce_lexikon,'OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg']
 
+        
         vysledek_graf = vysledek[cetnosti_sloupce]
-
-        vysledek['Relativni_cetnost'] = vysledek['Relativni_cetnost'].apply('{:.2%}'.format)
-
         vysledek_excel =vysledek[cetnosti_sloupce]
 
         format_column(vysledek)
@@ -580,27 +573,24 @@ def boxplot():
         text_widget.insert(END, f"Procentuelní zastoupení jednotlivých:\n\n ")
         text_widget.insert(END, vysledek[cetnosti_sloupce].to_string(index=False,justify='left'))
         
-        fig, ax = plt.subplots(figsize=(12,6))
 
-        ax.bar(vysledek_graf[nazev_sloupce_unique_nazev], vysledek_graf['Relativni_cetnost'], color=cm.viridis(np.linspace(0, 1, len(vysledek_graf))))
-        ax.set_xticklabels(vysledek_graf[nazev_sloupce_unique_nazev], rotation=90)
-        ax.set_xlabel('popisek_osaX',fontsize=13)
-        ax.set_ylabel('Relativní četnosti',fontsize=13)
-        # přidání hodnot
-        for i, v in enumerate(vysledek_graf['Relativni_cetnost']):
-            plt.text(i, v, round(v, 2), color='black', ha='center', fontsize=10)
+        odpad_zlinsky = vysledek_graf.loc[vysledek_graf['Kraj_Nazev'] == 'Zlínský kraj', 'OdpadNaObyv_g']
+        odpad_pardubicky = vysledek_graf.loc[vysledek_graf['Kraj_Nazev'] == 'Pardubický kraj', 'OdpadNaObyv_g']
+        odpad_vysocina = vysledek_graf.loc[vysledek_graf['Kraj_Nazev'] == 'Kraj Vysočina', 'OdpadNaObyv_g']
 
-        # Sestavení titulku grafu podle voleb uživatele
-        title_text = tvorba_popisku_grafu('cast')
-        plt.title(title_text,ha='left',loc='left',fontsize=10)
+        # Vytvoření boxplotu
+        fig, ax = plt.subplots()
+        ax.boxplot([odpad_zlinsky, odpad_pardubicky, odpad_vysocina])
 
-        ax.text(0.95, 1.15, 'Relativní četnosti', transform=ax.transAxes, fontsize=14,
-        verticalalignment='top', horizontalalignment='right')
+        # Nastavení popisků os a názvu grafu
+        ax.set_xlabel('Kraje')
+        ax.set_ylabel('Hodnoty')
+        ax.set_title('Boxplot')
 
-        ax.text(0.95, 1.10, '\n(sestaveno z hodnot ´odpad na obyvatele´)', transform=ax.transAxes, fontsize=10,
-        verticalalignment='top', horizontalalignment='right')
+        # Nastavení popisků na ose x
+        ax.set_xticklabels(['Zlínský kraj', 'Pardubický kraj', 'Kraj Vysočina'])
 
-        plt.tight_layout()
+        # Zobrazení grafu
         plt.show()
 
     else:
