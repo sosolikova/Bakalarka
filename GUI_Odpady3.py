@@ -473,8 +473,10 @@ def histogram():
         minimum = vysledek_lower['OdpadNaObyv_g'].min()
         maximum = vysledek_lower['OdpadNaObyv_g'].max()
         maximumVyboc = vysledek_higher['OdpadNaObyv_g'].max()
-        prumer = vysledek_lower['OdpadNaObyv_g'].mean()
-        median = vysledek_lower['OdpadNaObyv_g'].median()
+        prumer_lower = vysledek_lower['OdpadNaObyv_g'].mean()
+        median_lower = vysledek_lower['OdpadNaObyv_g'].median()
+        prumer = vysledek['OdpadNaObyv_g'].mean()
+        median = vysledek['OdpadNaObyv_g'].median()
 
         vysledek_graf = vysledek_lower
         vysledek_excel =vysledek[widget_sloupce]
@@ -489,8 +491,10 @@ def histogram():
         plt.ylabel('Počet ZÚJ')
 
         # Přidání vertikálních čar pro průměr a medián
-        ax.axvline(prumer, color='r', linestyle='--', linewidth=2)
-        ax.axvline(median, color='g', linestyle='--', linewidth=2)
+        ax.axvline(prumer_lower, color='r', linestyle='--', linewidth=2)
+        ax.axvline(median_lower, color='g', linestyle='--', linewidth=2)
+        ax.axvline(prumer, color='r', linestyle='solid', linewidth=2)
+        ax.axvline(median, color='g', linestyle='solid', linewidth=2)
         
         text_widget.delete("1.0","end")
         text_widget.insert(END, "Histogram četností:\n\n ")
@@ -505,14 +509,14 @@ def histogram():
         # Sestavení popisku min a max hodnoty
         minimum_format = locale.format_string("%d", round(minimum), grouping=True)
         maximum_format = locale.format_string("%d", round(maximum), grouping=True)
-        ax.annotate(f'minimum: {minimum_format} g, maximum: {maximum_format} g, počet hodnot {pocty_lower}', xy=(0.95, 0.95), xycoords='axes fraction', ha='right', va='center')
+        ax.annotate(f'minimum: {minimum_format} g, maximum: {maximum_format} g, počet hodnot {pocty_lower}', xy=(0.95, 0.90), xycoords='axes fraction', ha='right', va='center')
 
-        # Sestavení popisku průměr a medián
-        prumer_format = locale.format_string("%d", round(prumer), grouping=True)
-        median_format = locale.format_string("%d", round(median), grouping=True)
+        # Sestavení popisku průměr a medián lower
+        prumer_lower_format = locale.format_string("%d", round(prumer_lower), grouping=True)
+        median_lower_format = locale.format_string("%d", round(median_lower), grouping=True)
 
-        ax.annotate(f'průměr: {prumer_format} g', xy=(0.80, 0.90), xycoords='axes fraction', ha='right', va='center', color = 'red')
-        ax.annotate(f'medián: {median_format} g', xy=(0.95, 0.90), xycoords='axes fraction', ha='right', va='center', color = 'green')        
+        ax.annotate(f'--- průměr: {prumer_lower_format} g', xy=(0.80, 0.85), xycoords='axes fraction', ha='right', va='center', color = 'red')
+        ax.annotate(f'--- medián: {median_lower_format} g', xy=(0.95, 0.85), xycoords='axes fraction', ha='right', va='center', color = 'green')        
 
         # Sestavení popisku grafu
         ax.text(0.95, 1.15, 'Histogram četností', transform=ax.transAxes, fontsize=14,
@@ -521,9 +525,17 @@ def histogram():
         if pocty_higher > 0:
             horni_hranice_zaokr = zaokrouhleni(horni_hranice)
             horni_hranice_format = locale.format_string("%d", round(horni_hranice_zaokr), grouping=True)
-            ax.text(0.95, 1.1, f'\n(sestaven bez vybočujících hodnot větších než {horni_hranice_format} gramů )', transform=ax.transAxes, fontsize=10,verticalalignment='top', horizontalalignment='right')
+            ax.text(0.95, 1.1, f'\ngraf sestaven bez vybočujících hodnot větších než {horni_hranice_format} g', transform=ax.transAxes, fontsize=10,verticalalignment='top', horizontalalignment='right')
+            ax.annotate(f'Metriky pro data bez vybočujících hodnot:', xy=(0.60, 0.95), xycoords='axes fraction', ha='left', va='center')
+            ax.annotate(f'Metriky pro data včetně vybočujících hodnot:', xy=(0.60, 0.80), xycoords='axes fraction', ha='left', va='center')
             maximumVyboc_format = locale.format_string("%d", round(maximumVyboc), grouping=True)
-            ax.annotate(f'maximum z vybočujících hodnot {maximumVyboc_format} g, počet vybočujících hodnot {pocty_higher}', xy=(0.95, 0.85), xycoords='axes fraction', ha='right', va='center')
+            ax.annotate(f'maximum: {maximumVyboc_format} g, počet vybočujících hodnot: {pocty_higher}', xy=(0.95, 0.75), xycoords='axes fraction', ha='right', va='center')
+            # Sestavení popisku průměr a medián lower
+            prumer_format = locale.format_string("%d", round(prumer), grouping=True)
+            median_format = locale.format_string("%d", round(median), grouping=True)
+
+            ax.annotate(f'___ průměr: {prumer_format} g', xy=(0.80, 0.70), xycoords='axes fraction', ha='right', va='center', color = 'red')
+            ax.annotate(f'___ medián: {median_format} g', xy=(0.95, 0.70), xycoords='axes fraction', ha='right', va='center', color = 'green') 
 
         # Sestavení titulku grafu podle voleb uživatele
         title_text = tvorba_popisku_grafu('cast')
@@ -533,7 +545,54 @@ def histogram():
     else:
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení.")
 
-    
+def boxplot():
+    global vysledek_excel
+    global vyber_dat_vysledek    
+    if vyber_dat_vysledek is not None:
+        nazev_souboru_unique = hn.LexikonObci
+        nazev_sloupce_lexikon = 'ZUJ_Cislo'
+        nazev_sloupce_unique_nazev = 'ZUJ_Nazev'
+        column_grouped = 'Evident_ZUJ_Cislo'
+
+        vysledek = hn.odpadNaObyvatele_g2(vyber_dat_vysledek,column_grouped,hn.LexikonObci,nazev_sloupce_lexikon)
+
+        vysledek = pd.merge(vysledek, nazev_souboru_unique[[nazev_sloupce_lexikon, nazev_sloupce_unique_nazev]], on=nazev_sloupce_lexikon, how='left')
+
+        widget_sloupce = [nazev_sloupce_unique_nazev, nazev_sloupce_lexikon,'OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg']
+
+        vysledek = vysledek.sort_values('OdpadNaObyv_g', ascending=True)
+
+        spodni_hranice, horni_hranice = hn.zjisteni_hranic(vysledek,'OdpadNaObyv_g')
+        
+        vysledek_lower = vysledek[vysledek['OdpadNaObyv_g'] <= horni_hranice]
+        vysledek_higher = vysledek[vysledek['OdpadNaObyv_g'] > horni_hranice]
+        pocty_higher = len(vysledek_higher)
+        pocty_lower = len(vysledek_lower)
+        minimum = vysledek_lower['OdpadNaObyv_g'].min()
+        maximum = vysledek_lower['OdpadNaObyv_g'].max()
+        maximumVyboc = vysledek_higher['OdpadNaObyv_g'].max()
+        prumer_lower = vysledek_lower['OdpadNaObyv_g'].mean()
+        median_lower = vysledek_lower['OdpadNaObyv_g'].median()
+        prumer = vysledek['OdpadNaObyv_g'].mean()
+        median = vysledek['OdpadNaObyv_g'].median()
+
+        vysledek_graf = vysledek_lower
+        vysledek_excel =vysledek[widget_sloupce]
+
+        fig, ax = plt.subplots(figsize=(12,6))
+        plt.boxplot(vysledek_graf['OdpadNaObyv_g'])
+        plt.xlabel('Odpad na obyvatele v gramech')
+        plt.ylabel('Počet ZÚJ')
+
+        # Sestavení popisku grafu
+        ax.text(0.95, 1.15, 'Boxplot', transform=ax.transAxes, fontsize=14,
+        verticalalignment='top', horizontalalignment='right')
+
+        # Sestavení titulku grafu podle voleb uživatele
+        title_text = tvorba_popisku_grafu('cast')
+        plt.title(title_text,ha='left',loc='left',fontsize=10)
+        plt.tight_layout()
+        plt.show()
 
 def sumarizace():
     global vysledek_excel
@@ -778,6 +837,7 @@ funkce_dict = {
     "XY Bodový graf": graf_xyBodovy,
     "Relativní četnosti": relativni_cetnosti,
     "Histogram četností": histogram,
+    "Krabicový diagram": boxplot,
     
 }       
 
@@ -959,7 +1019,7 @@ vyber_dat_button.grid(row=1, column=3, padx=20,pady=0)
 # Seznam funkcí
 funkce_label= tk.Label(right_frame, text="Funkce")
 funkce_label.grid(row=2, column=3, padx=20, pady=0)
-options = ['','Relativní četnosti','Histogram četností','Sumarizace','Zjištění odlehlých hodnot', 'Seskupení dat','XY Bodový graf']
+options = ['','Relativní četnosti','Histogram četností','Sumarizace','Krabicový diagram','Zjištění odlehlých hodnot', 'Seskupení dat','XY Bodový graf']
 funkce_combo = ttk.Combobox(right_frame, value=options, state="disabled", width=25)
 funkce_combo.bind("<<ComboboxSelected>>" ,lambda event: handle_funkce(funkce_combo.get()))
 funkce_combo.current(0)
