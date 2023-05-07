@@ -558,7 +558,8 @@ def boxplot():
         print("výsledek po prvním")
         print(vysledek)
         vysledek = pd.merge(vysledek, nazev_souboru_unique[[nazev_sloupce_lexikon, nazev_sloupce_unique_nazev,'Kraj_Nazev','ORP_Nazev']], on=nazev_sloupce_lexikon, how='left')
-        vysledek = vysledek.sort_values(by=['Kraj_Nazev','ORP_Nazev','ZUJ_Nazev'])
+        vysledek = vysledek.sort_values(by=['Kraj_Nazev','ORP_Nazev','OdpadNaObyv_g'], ascending=[True, True, False])
+
         print("výsledek po druhém")
 
         cetnosti_sloupce = ['Kraj_Nazev','ORP_Nazev',nazev_sloupce_unique_nazev, nazev_sloupce_lexikon,'OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg']
