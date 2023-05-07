@@ -573,25 +573,31 @@ def boxplot():
         text_widget.insert(END, f"Procentuelní zastoupení jednotlivých:\n\n ")
         text_widget.insert(END, vysledek[cetnosti_sloupce].to_string(index=False,justify='left'))
         
+        # Seznam názvů všech krajů v datasetu
+        kraje = vysledek_graf['Kraj_Nazev'].unique()
 
-        odpad_zlinsky = vysledek_graf.loc[vysledek_graf['Kraj_Nazev'] == 'Zlínský kraj', 'OdpadNaObyv_g']
-        odpad_pardubicky = vysledek_graf.loc[vysledek_graf['Kraj_Nazev'] == 'Pardubický kraj', 'OdpadNaObyv_g']
-        odpad_vysocina = vysledek_graf.loc[vysledek_graf['Kraj_Nazev'] == 'Kraj Vysočina', 'OdpadNaObyv_g']
+        # Vytvoření seznamu datových souborů odpadu pro jednotlivé kraje
+        odpady_kraje = []
+        for kraj in kraje:
+            odpad_kraje = vysledek_graf.loc[vysledek_graf['Kraj_Nazev'] == kraj, 'OdpadNaObyv_g']
+            odpady_kraje.append(odpad_kraje)
 
-        # Vytvoření boxplotu
+        # Vytvoření boxplotu pro jednotlivé kraje
         fig, ax = plt.subplots()
-        ax.boxplot([odpad_zlinsky, odpad_pardubicky, odpad_vysocina])
+        ax.boxplot(odpady_kraje)
 
         # Nastavení popisků os a názvu grafu
         ax.set_xlabel('Kraje')
-        ax.set_ylabel('Hodnoty')
-        ax.set_title('Boxplot')
+        ax.set_ylabel('Odpad na obyvatele v g')
+        ax.set_title('Krabicové diagramy')
 
         # Nastavení popisků na ose x
-        ax.set_xticklabels(['Zlínský kraj', 'Pardubický kraj', 'Kraj Vysočina'])
+        ax.set_xticklabels(kraje, rotation=45, ha='right')
 
         # Zobrazení grafu
+        plt.tight_layout()
         plt.show()
+
 
     else:
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení.")
