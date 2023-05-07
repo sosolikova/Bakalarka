@@ -555,44 +555,57 @@ def boxplot():
         column_grouped = 'Evident_ZUJ_Cislo'
 
         vysledek = hn.odpadNaObyvatele_g2(vyber_dat_vysledek,column_grouped,hn.LexikonObci,nazev_sloupce_lexikon)
-
+        print("výsledek po prvním")
+        print(vysledek)
         vysledek = pd.merge(vysledek, nazev_souboru_unique[[nazev_sloupce_lexikon, nazev_sloupce_unique_nazev]], on=nazev_sloupce_lexikon, how='left')
+        print("výsledek po druhém")
+        vysledek = pd.merge(vysledek, nazev_souboru_unique[[nazev_sloupce_lexikon, 'Kraj_Nazev']], on=nazev_sloupce_lexikon, how='left')
+        print("výsledek po třetím")
+        print(vysledek)
+        cetnosti_sloupce = ['Kraj_Nazev',nazev_sloupce_unique_nazev, nazev_sloupce_lexikon,'OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg', 'Relativni_cetnost']
 
-        widget_sloupce = [nazev_sloupce_unique_nazev, nazev_sloupce_lexikon,'OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg']
-
+        soucet = vysledek['OdpadNaObyv_g'].sum()
+        vysledek['Relativni_cetnost'] = vysledek['OdpadNaObyv_g'] / soucet
         vysledek = vysledek.sort_values('OdpadNaObyv_g', ascending=True)
 
-        spodni_hranice, horni_hranice = hn.zjisteni_hranic(vysledek,'OdpadNaObyv_g')
+        vysledek_graf = vysledek[cetnosti_sloupce]
+
+        vysledek['Relativni_cetnost'] = vysledek['Relativni_cetnost'].apply('{:.2%}'.format)
+
+        vysledek_excel =vysledek[cetnosti_sloupce]
+
+        format_column(vysledek)
         
-        vysledek_lower = vysledek[vysledek['OdpadNaObyv_g'] <= horni_hranice]
-        vysledek_higher = vysledek[vysledek['OdpadNaObyv_g'] > horni_hranice]
-        pocty_higher = len(vysledek_higher)
-        pocty_lower = len(vysledek_lower)
-        minimum = vysledek_lower['OdpadNaObyv_g'].min()
-        maximum = vysledek_lower['OdpadNaObyv_g'].max()
-        maximumVyboc = vysledek_higher['OdpadNaObyv_g'].max()
-        prumer_lower = vysledek_lower['OdpadNaObyv_g'].mean()
-        median_lower = vysledek_lower['OdpadNaObyv_g'].median()
-        prumer = vysledek['OdpadNaObyv_g'].mean()
-        median = vysledek['OdpadNaObyv_g'].median()
-
-        vysledek_graf = vysledek_lower
-        vysledek_excel =vysledek[widget_sloupce]
-
+        text_widget.delete("1.0","end")
+        text_widget.insert(END, f"Procentuelní zastoupení jednotlivých:\n\n ")
+        text_widget.insert(END, vysledek[cetnosti_sloupce].to_string(index=False,justify='left'))
+        
         fig, ax = plt.subplots(figsize=(12,6))
-        plt.boxplot(vysledek_graf['OdpadNaObyv_g'])
-        plt.xlabel('Odpad na obyvatele v gramech')
-        plt.ylabel('Počet ZÚJ')
 
-        # Sestavení popisku grafu
-        ax.text(0.95, 1.15, 'Boxplot', transform=ax.transAxes, fontsize=14,
-        verticalalignment='top', horizontalalignment='right')
+        ax.bar(vysledek_graf[nazev_sloupce_unique_nazev], vysledek_graf['Relativni_cetnost'], color=cm.viridis(np.linspace(0, 1, len(vysledek_graf))))
+        ax.set_xticklabels(vysledek_graf[nazev_sloupce_unique_nazev], rotation=90)
+        ax.set_xlabel('popisek_osaX',fontsize=13)
+        ax.set_ylabel('Relativní četnosti',fontsize=13)
+        # přidání hodnot
+        for i, v in enumerate(vysledek_graf['Relativni_cetnost']):
+            plt.text(i, v, round(v, 2), color='black', ha='center', fontsize=10)
 
         # Sestavení titulku grafu podle voleb uživatele
         title_text = tvorba_popisku_grafu('cast')
         plt.title(title_text,ha='left',loc='left',fontsize=10)
+
+        ax.text(0.95, 1.15, 'Relativní četnosti', transform=ax.transAxes, fontsize=14,
+        verticalalignment='top', horizontalalignment='right')
+
+        ax.text(0.95, 1.10, '\n(sestaveno z hodnot ´odpad na obyvatele´)', transform=ax.transAxes, fontsize=10,
+        verticalalignment='top', horizontalalignment='right')
+
         plt.tight_layout()
         plt.show()
+
+    else:
+        messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení.")
+
 
 def sumarizace():
     global vysledek_excel
