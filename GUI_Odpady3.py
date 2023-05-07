@@ -588,14 +588,12 @@ def boxplot():
             text_widget.insert(END, f"\n\nZáznamy ({pocty_lower}) bez vybočujících hodnot, pro zobrazení v krabicových diagramech: \n\n ")
         format_column(vysledek_lower)
         text_widget.insert(END, vysledek_widget[box_sloupce].to_string(index=False,justify='left'))
-
-
-
-
-
         
         # Seznam názvů všech krajů v datasetu
         kraje = vysledek_graf['Kraj_Nazev'].unique()
+
+        # Seřazení názvů krajů abecedně
+        kraje = sorted(kraje)
 
         # Vytvoření seznamu datových souborů odpadu pro jednotlivé kraje
         odpady_kraje = []
