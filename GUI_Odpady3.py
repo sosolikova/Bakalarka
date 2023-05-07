@@ -6,6 +6,7 @@ import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
 import math
+import matplotlib.ticker as ticker
 from PIL import ImageTk, Image
 from matplotlib import cm
 import matplotlib.pyplot as plt
@@ -555,24 +556,43 @@ def boxplot():
         column_grouped = 'Evident_ZUJ_Cislo'
 
         vysledek = hn.odpadNaObyvatele_g2(vyber_dat_vysledek,column_grouped,hn.LexikonObci,nazev_sloupce_lexikon)
-        print("výsledek po prvním")
-        print(vysledek)
+
         vysledek = pd.merge(vysledek, nazev_souboru_unique[[nazev_sloupce_lexikon, nazev_sloupce_unique_nazev,'Kraj_Nazev','ORP_Nazev']], on=nazev_sloupce_lexikon, how='left')
-        vysledek = vysledek.sort_values(by=['Kraj_Nazev','ORP_Nazev','OdpadNaObyv_g'], ascending=[True, True, False])
 
-        print("výsledek po druhém")
+        vysledek = vysledek.sort_values('OdpadNaObyv_g', ascending=True)
 
-        cetnosti_sloupce = ['Kraj_Nazev','ORP_Nazev',nazev_sloupce_unique_nazev, nazev_sloupce_lexikon,'OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg']
-
+        spodni_hranice, horni_hranice = hn.zjisteni_hranic(vysledek,'OdpadNaObyv_g')
         
-        vysledek_graf = vysledek[cetnosti_sloupce]
-        vysledek_excel =vysledek[cetnosti_sloupce]
+        vysledek_lower = vysledek[vysledek['OdpadNaObyv_g'] <= horni_hranice]
+        vysledek_higher = vysledek[vysledek['OdpadNaObyv_g'] > horni_hranice]
+        pocty_vysledek = len(vysledek)
+        pocty_higher = len(vysledek_higher)
+        pocty_lower = len(vysledek_lower)
 
-        format_column(vysledek)
+        box_sloupce = ['Kraj_Nazev','ORP_Nazev',nazev_sloupce_unique_nazev, nazev_sloupce_lexikon,'OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg']
+
+        vysledek_graf = vysledek_lower[box_sloupce]
+        vysledek_excel =vysledek_lower[box_sloupce]
+        
+        vysledek_widget = vysledek_lower.sort_values(by=['Kraj_Nazev','ORP_Nazev','OdpadNaObyv_g'], ascending=[True, True, True])
+        format_column(vysledek_widget)
         
         text_widget.delete("1.0","end")
-        text_widget.insert(END, f"Procentuelní zastoupení jednotlivých:\n\n ")
-        text_widget.insert(END, vysledek[cetnosti_sloupce].to_string(index=False,justify='left'))
+        text_widget.insert(END, f"Data pro sestavení krabicových diagramů:\n\n ")
+        #text_widget.insert(END, vysledek_widget[box_sloupce].to_string(index=False,justify='left'))
+        if pocty_higher > 0:
+            vysledek_higher = vysledek_higher.sort_values(by=['Kraj_Nazev','ORP_Nazev','OdpadNaObyv_g'], ascending=[True, True, True])
+            format_column(vysledek_higher)
+            text_widget.insert(END, f"Záznamy ({pocty_higher}), které obsahují vybočující hodnoty ve sloupci 'OdpadNaObyv_g':\n\n ")
+            text_widget.insert(END, vysledek_higher[box_sloupce].to_string(index=False,justify='left'))
+            text_widget.insert(END, f"\n\nZáznamy ({pocty_lower}) bez vybočujících hodnot, pro zobrazení v krabicových diagramech: \n\n ")
+        format_column(vysledek_lower)
+        text_widget.insert(END, vysledek_widget[box_sloupce].to_string(index=False,justify='left'))
+
+
+
+
+
         
         # Seznam názvů všech krajů v datasetu
         kraje = vysledek_graf['Kraj_Nazev'].unique()
@@ -587,13 +607,31 @@ def boxplot():
         fig, ax = plt.subplots()
         ax.boxplot(odpady_kraje)
 
+        # Sestavení popisku grafu
+        ax.text(0.95, 1.15, 'Krabicové diagramy', transform=ax.transAxes, fontsize=14,
+        verticalalignment='top', horizontalalignment='right')
+
+        if pocty_higher > 0:
+            horni_hranice_zaokr = zaokrouhleni(horni_hranice)
+            horni_hranice_format = locale.format_string("%d", round(horni_hranice_zaokr), grouping=True)
+            ax.text(0.95, 1.1, f'\ngraf sestaven bez vybočujících hodnot větších než {horni_hranice_format} g', transform=ax.transAxes, fontsize=10,verticalalignment='top', horizontalalignment='right')
+        
+        # Sestavení titulku grafu podle voleb uživatele
+        title_text = tvorba_popisku_grafu('cast')
+        plt.title(title_text,ha='left',loc='left',fontsize=10)
+        
+        
         # Nastavení popisků os a názvu grafu
         ax.set_xlabel('Kraje')
         ax.set_ylabel('Odpad na obyvatele v g')
-        ax.set_title('Krabicové diagramy')
+        #ax.set_title('Krabicové diagramy')
 
         # Nastavení popisků na ose x
         ax.set_xticklabels(kraje, rotation=45, ha='right')
+        
+        # Nastavení formátu osy y
+        formatter = ticker.ScalarFormatter(useOffset=False)
+        ax.yaxis.set_major_formatter(formatter)
 
         # Zobrazení grafu
         plt.tight_layout()
