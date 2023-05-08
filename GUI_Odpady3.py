@@ -137,7 +137,7 @@ def format_column(df):
     if '75.percentil' in df.columns:
         df.loc[:, '75.percentil'] = df['75.percentil'].apply(lambda x: locale.format_string("%d", x, grouping=True))
     if 'Smerodatna_odchylka' in df.columns:
-        df.loc[:, 'Smerodatna_odchylka'] = df['Smerodatna_odchylka'].apply(lambda x: locale.format_string("%d", x, grouping=True)if not np.isnan(x) else "") 
+        df.loc[:, 'Smerodatna_odchylka'] = df['Smerodatna_odchylka'].apply(lambda x: locale.format_string("%d", x, grouping=True)if not np.isnan(x) else "-") 
     return df
 
 def zaokrouhleni(cislo):
@@ -579,26 +579,12 @@ def boxplot():
         pocty_lower = len(vysledek_lower)
 
         box_sloupce = ['Kraj_Nazev','ORP_Nazev',nazev_sloupce_unique_nazev, nazev_sloupce_lexikon,'OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg']
-
+        
+        # Zde se nastavouje, jaká data půjdou do modelu
         vysledek_graf = vysledek_lower[box_sloupce]
         vysledek_excel =vysledek_lower[box_sloupce]
         
-        vysledek_widget = vysledek_lower.sort_values(by=['Kraj_Nazev','ORP_Nazev','OdpadNaObyv_g'], ascending=[True, True, True])
-        format_column(vysledek_widget)
-        
-        text_widget.delete("1.0","end")
-        text_widget.insert(END, f"Data pro sestavení krabicových diagramů:\n\n ")
-        
-        if pocty_higher > 0:
-            vysledek_higher = vysledek_higher.sort_values(by=['Kraj_Nazev','ORP_Nazev','OdpadNaObyv_g'], ascending=[True, True, True])
-            format_column(vysledek_higher)
-            text_widget.insert(END, f"Záznamy ({pocty_higher}), které obsahují vybočující hodnoty ve sloupci 'OdpadNaObyv_g':\n\n ")
-            text_widget.insert(END, vysledek_higher[box_sloupce].to_string(index=False,justify='left'))
-            text_widget.insert(END, f"\n\nZáznamy ({pocty_lower}) bez vybočujících hodnot, pro zobrazení v krabicových diagramech: \n\n ")
-        format_column(vysledek_lower)
-        text_widget.insert(END, vysledek_widget[box_sloupce].to_string(index=False,justify='left'))
-        
-        # Vytvoření prázdného dataframe pro výsledky
+        # Vytvoření prázdného dataframe pro výsledky výpočtu charakteristik polohy
         metriky_df = pd.DataFrame(columns=['Kraj','Pocet_hodnot', 'Prumer', 'Median','Minimum','25.percentil', '50.percentil', '75.percentil','Maximum', 'Smerodatna_odchylka'])
 
         # Seznam názvů všech krajů v datasetu
@@ -613,7 +599,7 @@ def boxplot():
             odpad_kraje = vysledek_graf.loc[vysledek_graf['Kraj_Nazev'] == kraj, 'OdpadNaObyv_g']
             odpady_kraje.append(odpad_kraje)
         
-        # Výpočet statistik pro jednotlivé kraje
+        # Výpočet charakteristik pro jednotlivé kraje
         results = []
         for odpad_kraje in odpady_kraje:
             minimum = odpad_kraje.min()
@@ -633,11 +619,29 @@ def boxplot():
         # Vložení sloupce s názvy krajů do prvního sloupce df
         metriky_df.insert(0, "Kraj", kraje)
         
-        # Tisk v text widgetu
+        # TVORBA TEXT WIDGETU
+        # Charakteristiky polohy
         format_column(metriky_df)
-        text_widget.insert(END, f"\n\nMetriky pro jednotlivé kraje v gramech: \n\n ")
+        text_widget.delete("1.0","end")
+        text_widget.insert(END, f"\n\nCharakteristiky polohy odpadu na obyvatele v jednotlivých krajích (g) : \n\n ")
         text_widget.insert('end', metriky_df.to_string(index=False))
 
+        vysledek_widget = vysledek_lower.sort_values(by=['Kraj_Nazev','ORP_Nazev','OdpadNaObyv_g'], ascending=[True, True, True])
+        format_column(vysledek_widget)
+        
+        text_widget.insert(END, f"\n\nData pro sestavení krabicových diagramů:\n\n ")
+        
+        if pocty_higher > 0:
+            vysledek_higher = vysledek_higher.sort_values(by=['Kraj_Nazev','ORP_Nazev','OdpadNaObyv_g'], ascending=[True, True, True])
+            format_column(vysledek_higher)
+            text_widget.insert(END, f"Záznamy ({pocty_higher}), které obsahují vybočující hodnoty ve sloupci 'OdpadNaObyv_g':\n\n ")
+            text_widget.insert(END, vysledek_higher[box_sloupce].to_string(index=False,justify='left'))
+            text_widget.insert(END, f"\n\nZáznamy ({pocty_lower}) bez vybočujících hodnot, pro zobrazení v krabicových diagramech: \n\n ")
+        format_column(vysledek_lower)
+        text_widget.insert(END, vysledek_widget[box_sloupce].to_string(index=False,justify='left'))
+
+
+        # TVORBA GRAFU
         # Vytvoření boxplotu pro jednotlivé kraje
         fig, ax = plt.subplots()
         ax.boxplot(odpady_kraje)
