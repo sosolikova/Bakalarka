@@ -682,22 +682,82 @@ def sumarizace():
     global vysledek_excel
     global vyber_dat_vysledek
     if vyber_dat_vysledek is not None:
-        vysledek = vyber_dat_vysledek
+        nazev_souboru_unique = hn.LexikonObci
+        nazev_sloupce_lexikon = 'ZUJ_Cislo'
+        nazev_sloupce_unique_nazev = 'ZUJ_Nazev'
+        column_grouped = 'Evident_ZUJ_Cislo'
+
+        vysledek = hn.odpadNaObyvatele_g2(vyber_dat_vysledek,column_grouped,hn.LexikonObci,nazev_sloupce_lexikon)
+
+        vysledek = pd.merge(vysledek, nazev_souboru_unique[[nazev_sloupce_lexikon, nazev_sloupce_unique_nazev,'Kraj_Nazev','ORP_Nazev']], on=nazev_sloupce_lexikon, how='left')
+
+        
+        box_sloupce = ['Kraj_Nazev','ORP_Nazev',nazev_sloupce_unique_nazev, nazev_sloupce_lexikon,'OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg']
+        
+        # Zde se nastavouje, jaká data půjdou do modelu
+        vysledek_graf = vysledek[box_sloupce]
+        vysledek_excel =vysledek[box_sloupce]
+        
+        # Vytvoření prázdného dataframe pro výsledky výpočtu charakteristik polohy
+        metriky_df = pd.DataFrame(columns=['Kraj','Pocet_hodnot', 'Prumer', 'Median','Minimum','25.percentil', '50.percentil', '75.percentil','Maximum', 'Smerodatna_odchylka'])
+
+        # Seznam názvů všech krajů v datasetu
+        kraje = vysledek_graf['Kraj_Nazev'].unique()
+
+        # Seřazení názvů krajů abecedně
+        kraje = sorted(kraje)
+        
+        # Vytvoření seznamu datových souborů odpadu pro jednotlivé kraje
+        odpady_kraje = []
+        for kraj in kraje:
+            odpad_kraje = vysledek_graf.loc[vysledek_graf['Kraj_Nazev'] == kraj, 'OdpadNaObyv_g']
+            odpady_kraje.append(odpad_kraje)
+        
+        # Výpočet charakteristik pro jednotlivé kraje
+        results = []
+        for odpad_kraje in odpady_kraje:
+            minimum = odpad_kraje.min()
+            maximum = odpad_kraje.max()
+            pocet_hodnot = odpad_kraje.count()
+            prumer = odpad_kraje.mean()
+            median = odpad_kraje.median()
+            perc_25 = np.percentile(odpad_kraje, 25)
+            perc_50 = np.percentile(odpad_kraje, 50)
+            perc_75 = np.percentile(odpad_kraje, 75)
+            sm_odchylka = odpad_kraje.std(ddof=1)
+            results.append([pocet_hodnot, prumer, median, minimum, perc_25, perc_50, perc_75, maximum, sm_odchylka])
+
+        # Vytvoření dataframe s výpočty
+        metriky_df = pd.DataFrame(results, columns=['Pocet_hodnot', 'Prumer', 'Median','Minimum','25.percentil', '50.percentil', '75.percentil','Maximum', 'Smerodatna_odchylka'])
+
+        # Vložení sloupce s názvy krajů do prvního sloupce df
+        metriky_df.insert(0, "Kraj", kraje)
+        
+        # TVORBA TEXT WIDGETU
+        # Charakteristiky polohy
+        format_column(metriky_df)
+        text_widget.delete("1.0","end")
+        text_widget.insert(END, f"\n\nCharakteristiky polohy odpadu na obyvatele v jednotlivých krajích (g) : \n\n ")
+        text_widget.insert('end', metriky_df.to_string(index=False))
+
+
+        '''
         if volby_evident_kraj:
-            vysledek=hn.summary_stat_parametr(vysledek,'Evident_ORP_Nazev',hn.list_kraj_orp[volby_evident_kraj],'OdpadNaObyv_g')
+            vysledek=hn.summary_stat_parametr(vysledek,'ORP_Nazev',hn.list_kraj_orp[volby_evident_kraj],'OdpadNaObyv_g')
 
             vysledek_excel = vysledek
 
             text_widget.delete("1.0","end")
             text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY PRO ORP v kraji: {volby_evident_kraj}\n {vysledek}\n")
         elif volby_evident_ORP:
-            vysledek=hn.summary_stat_parametr(vysledek,'Evident_ZUJ_Nazev',hn.list_orp_zuj[volby_evident_ORP],'OdpadNaObyv_g')
+            vysledek=hn.summary_stat_parametr(vysledek,'ZUJ_Nazev',hn.list_orp_zuj[volby_evident_ORP],'OdpadNaObyv_g')
 
             text_widget.delete("1.0","end")
             text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY PRO ZUJ v ORP: {volby_evident_ORP}\n {vysledek}\n")
         else:
             text_widget.delete("1.0","end")
             text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")  
+            '''
     else:
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení.")
 
