@@ -111,24 +111,31 @@ def handle_funkce(selection):
 def format_column(df):
     if 'Odpad_vKg' in df.columns:
         df.loc[:, 'Odpad_vKg'] = df['Odpad_vKg'].apply(lambda x: locale.format_string("%d", x, grouping=True))
-        '''
-        df['Odpad_vKg'] = df['Odpad_vKg'].apply(lambda x: locale.format_string("%d", x, grouping=True))
-        '''
+
     if 'Pocet_Obyvatel' in df.columns:
         df.loc[:, 'Pocet_Obyvatel'] = df['Pocet_Obyvatel'].apply(lambda x: locale.format_string("%d", x, grouping=True))
-        '''
-        df['Pocet_Obyvatel'] = df['Pocet_Obyvatel'].apply(lambda x: locale.format_string("%d", x, grouping=True))
-        '''
+
     if 'OdpadNaPocetObyv' in df.columns:
         df.loc[:, 'OdpadNaPocetObyv'] = df['OdpadNaPocetObyv'].apply(lambda x: locale.format_string("%0.3f", x, grouping=True))
-        '''
-        df['OdpadNaPocetObyv'] = df['OdpadNaPocetObyv'].apply(lambda x: locale.format_string("%0.3f", x, grouping=True))
-        '''
+
     if 'OdpadNaObyv_g' in df.columns:
         df.loc[:, 'OdpadNaObyv_g'] = df['OdpadNaObyv_g'].apply(lambda x: locale.format_string("%d", x, grouping=True))
-        '''
-        df['OdpadNaObyv_g'] = df['OdpadNaObyv_g'].apply(lambda x: locale.format_string("%d", x, grouping=True))   
-        ''' 
+    if 'Maximum' in df.columns:
+        df.loc[:, 'Maximum'] = df['Maximum'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+    if 'Minimum' in df.columns:
+        df.loc[:, 'Minimum'] = df['Minimum'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+    if 'Pocet_hodnot' in df.columns:
+        df.loc[:, 'Pocet_hodnot'] = df['Pocet_hodnot'].apply(lambda x: locale.format_string("%d", x, grouping=True))        
+    if 'Median' in df.columns:
+        df.loc[:, 'Median'] = df['Median'].apply(lambda x: locale.format_string("%d", x, grouping=True)) 
+    if 'Prumer' in df.columns:
+        df.loc[:, 'Prumer'] = df['Prumer'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+    if '25.percentil' in df.columns:
+        df.loc[:, '25.percentil'] = df['25.percentil'].apply(lambda x: locale.format_string("%d", x, grouping=True)) 
+    if '50.percentil' in df.columns:
+        df.loc[:, '50.percentil'] = df['50.percentil'].apply(lambda x: locale.format_string("%d", x, grouping=True)) 
+    if '75.percentil' in df.columns:
+        df.loc[:, '75.percentil'] = df['75.percentil'].apply(lambda x: locale.format_string("%d", x, grouping=True)) 
     return df
 
 def zaokrouhleni(cislo):
@@ -589,17 +596,49 @@ def boxplot():
         format_column(vysledek_lower)
         text_widget.insert(END, vysledek_widget[box_sloupce].to_string(index=False,justify='left'))
         
+        # Vytvoření prázdného dataframe pro výsledky
+        metriky_df = pd.DataFrame(columns=['Kraj','Pocet_hodnot', 'Prumer', 'Median','Minimum','25.percentil', '50.percentil', '75.percentil','Maximum'])
+
         # Seznam názvů všech krajů v datasetu
         kraje = vysledek_graf['Kraj_Nazev'].unique()
 
         # Seřazení názvů krajů abecedně
         kraje = sorted(kraje)
-
+        
         # Vytvoření seznamu datových souborů odpadu pro jednotlivé kraje
         odpady_kraje = []
         for kraj in kraje:
             odpad_kraje = vysledek_graf.loc[vysledek_graf['Kraj_Nazev'] == kraj, 'OdpadNaObyv_g']
             odpady_kraje.append(odpad_kraje)
+        
+        # Výpočet statistik pro jednotlivé kraje
+        results = []
+        for odpad_kraje in odpady_kraje:
+            minimum = round(odpad_kraje.min(),0)
+            maximum = round(odpad_kraje.max(),0)
+            pocet_hodnot = odpad_kraje.count()
+            prumer = round(odpad_kraje.mean(), 0)
+            median = round(odpad_kraje.median(), 0)
+            perc_25 = round(np.percentile(odpad_kraje, 25), 0)
+            perc_50 = round(np.percentile(odpad_kraje, 50), 0)
+            perc_75 = round(np.percentile(odpad_kraje, 75), 0)
+            results.append([pocet_hodnot, prumer, median, minimum, perc_25, perc_50, perc_75, maximum])
+
+        # Vytvoření dataframe s výpočty
+        metriky_df = pd.DataFrame(results, columns=['Pocet_hodnot', 'Prumer', 'Median','Minimum','25.percentil', '50.percentil', '75.percentil','Maximum'])
+        '''
+        # Zaokrouhlení na celá čísla a oddělení tisíců
+        metriky_df = metriky_df.round(0).applymap('{:,.0f}'.format).replace(',', ' ')
+        '''
+
+
+        # Vložení sloupce s názvy krajů do prvního sloupce df
+        metriky_df.insert(0, "Kraj", kraje)
+        
+        # Tisk v text widgetu
+        format_column(metriky_df)
+        text_widget.insert(END, f"\n\nMetriky pro jednotlivé kraje v gramech: \n\n ")
+        text_widget.insert('end', metriky_df.to_string(index=False))
 
         # Vytvoření boxplotu pro jednotlivé kraje
         fig, ax = plt.subplots()
