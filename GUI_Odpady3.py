@@ -135,7 +135,9 @@ def format_column(df):
     if '50.percentil' in df.columns:
         df.loc[:, '50.percentil'] = df['50.percentil'].apply(lambda x: locale.format_string("%d", x, grouping=True)) 
     if '75.percentil' in df.columns:
-        df.loc[:, '75.percentil'] = df['75.percentil'].apply(lambda x: locale.format_string("%d", x, grouping=True)) 
+        df.loc[:, '75.percentil'] = df['75.percentil'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+    if 'Smerodatna_odchylka' in df.columns:
+        df.loc[:, 'Smerodatna_odchylka'] = df['Smerodatna_odchylka'].apply(lambda x: locale.format_string("%d", x, grouping=True)if not np.isnan(x) else "") 
     return df
 
 def zaokrouhleni(cislo):
@@ -597,7 +599,7 @@ def boxplot():
         text_widget.insert(END, vysledek_widget[box_sloupce].to_string(index=False,justify='left'))
         
         # Vytvoření prázdného dataframe pro výsledky
-        metriky_df = pd.DataFrame(columns=['Kraj','Pocet_hodnot', 'Prumer', 'Median','Minimum','25.percentil', '50.percentil', '75.percentil','Maximum'])
+        metriky_df = pd.DataFrame(columns=['Kraj','Pocet_hodnot', 'Prumer', 'Median','Minimum','25.percentil', '50.percentil', '75.percentil','Maximum', 'Smerodatna_odchylka'])
 
         # Seznam názvů všech krajů v datasetu
         kraje = vysledek_graf['Kraj_Nazev'].unique()
@@ -614,23 +616,19 @@ def boxplot():
         # Výpočet statistik pro jednotlivé kraje
         results = []
         for odpad_kraje in odpady_kraje:
-            minimum = round(odpad_kraje.min(),0)
-            maximum = round(odpad_kraje.max(),0)
+            minimum = odpad_kraje.min()
+            maximum = odpad_kraje.max()
             pocet_hodnot = odpad_kraje.count()
-            prumer = round(odpad_kraje.mean(), 0)
-            median = round(odpad_kraje.median(), 0)
-            perc_25 = round(np.percentile(odpad_kraje, 25), 0)
-            perc_50 = round(np.percentile(odpad_kraje, 50), 0)
-            perc_75 = round(np.percentile(odpad_kraje, 75), 0)
-            results.append([pocet_hodnot, prumer, median, minimum, perc_25, perc_50, perc_75, maximum])
+            prumer = odpad_kraje.mean()
+            median = odpad_kraje.median()
+            perc_25 = np.percentile(odpad_kraje, 25)
+            perc_50 = np.percentile(odpad_kraje, 50)
+            perc_75 = np.percentile(odpad_kraje, 75)
+            sm_odchylka = odpad_kraje.std(ddof=1)
+            results.append([pocet_hodnot, prumer, median, minimum, perc_25, perc_50, perc_75, maximum, sm_odchylka])
 
         # Vytvoření dataframe s výpočty
-        metriky_df = pd.DataFrame(results, columns=['Pocet_hodnot', 'Prumer', 'Median','Minimum','25.percentil', '50.percentil', '75.percentil','Maximum'])
-        '''
-        # Zaokrouhlení na celá čísla a oddělení tisíců
-        metriky_df = metriky_df.round(0).applymap('{:,.0f}'.format).replace(',', ' ')
-        '''
-
+        metriky_df = pd.DataFrame(results, columns=['Pocet_hodnot', 'Prumer', 'Median','Minimum','25.percentil', '50.percentil', '75.percentil','Maximum', 'Smerodatna_odchylka'])
 
         # Vložení sloupce s názvy krajů do prvního sloupce df
         metriky_df.insert(0, "Kraj", kraje)
