@@ -579,7 +579,7 @@ def boxplot():
         
         text_widget.delete("1.0","end")
         text_widget.insert(END, f"Data pro sestavení krabicových diagramů:\n\n ")
-        #text_widget.insert(END, vysledek_widget[box_sloupce].to_string(index=False,justify='left'))
+        
         if pocty_higher > 0:
             vysledek_higher = vysledek_higher.sort_values(by=['Kraj_Nazev','ORP_Nazev','OdpadNaObyv_g'], ascending=[True, True, True])
             format_column(vysledek_higher)
@@ -606,26 +606,24 @@ def boxplot():
         ax.boxplot(odpady_kraje)
 
         # Sestavení popisku grafu
-        ax.text(0.95, 1.15, 'Krabicové diagramy', transform=ax.transAxes, fontsize=14,
+        ax.text(0.95, 1.2, 'Krabicové diagramy', transform=ax.transAxes, fontsize=16,
         verticalalignment='top', horizontalalignment='right')
 
         if pocty_higher > 0:
             horni_hranice_zaokr = zaokrouhleni(horni_hranice)
             horni_hranice_format = locale.format_string("%d", round(horni_hranice_zaokr), grouping=True)
-            ax.text(0.95, 1.1, f'\ngraf sestaven bez vybočujících hodnot větších než {horni_hranice_format} g', transform=ax.transAxes, fontsize=10,verticalalignment='top', horizontalalignment='right')
+            ax.text(0.95, 1.15, f'\ngraf sestaven bez vybočujících hodnot větších než {horni_hranice_format} g', transform=ax.transAxes, fontsize=12,verticalalignment='top', horizontalalignment='right')
         
         # Sestavení titulku grafu podle voleb uživatele
         title_text = tvorba_popisku_grafu('cast')
-        plt.title(title_text,ha='left',loc='left',fontsize=10)
-        
+        plt.title(title_text,ha='left',loc='left',fontsize=12)
         
         # Nastavení popisků os a názvu grafu
-        ax.set_xlabel('Kraje')
-        ax.set_ylabel('Odpad na obyvatele v g')
-        #ax.set_title('Krabicové diagramy')
+        ax.set_xlabel('Kraje', fontsize=14)
+        ax.set_ylabel('Odpad na obyvatele v g', fontsize=14)
 
         # Nastavení popisků na ose x
-        ax.set_xticklabels(kraje, rotation=45, ha='right')
+        ax.set_xticklabels(kraje, rotation=45, ha='right',fontsize=12)
         
         # Nastavení formátu osy y
         formatter = ticker.ScalarFormatter(useOffset=False)
@@ -634,7 +632,6 @@ def boxplot():
         # Zobrazení grafu
         plt.tight_layout()
         plt.show()
-
 
     else:
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení.")
