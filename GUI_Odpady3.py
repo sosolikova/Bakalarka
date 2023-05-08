@@ -699,7 +699,7 @@ def sumarizace():
             
             # Zde se nastavouje, jaká data půjdou do modelu
             vysledek_graf = vysledek[box_sloupce]
-            vysledek_excel =vysledek[box_sloupce]
+            
             if volby_evident_kraj:
                 nazev_sloupce = 'ORP'
                 uzemi_sloupec = 'ORP_Nazev'
@@ -747,12 +747,13 @@ def sumarizace():
 
             # Vložení sloupce s názvy krajů do prvního sloupce df
             metriky_df.insert(0, nazev_sloupce, uzemi_unique)
-            
+            vysledek_excel = metriky_df
             # TVORBA TEXT WIDGETU
             # Charakteristiky polohy
             format_column(metriky_df)
             text_widget.delete("1.0","end")
-            text_widget.insert(END, f"\n\nCharakteristiky polohy odpadu na obyvatele v jednotlivých {nazev_uzemi} (g) : \n\n ")
+            text_widget.insert(END, f"\nCharakteristiky polohy odpadu na obyvatele v jednotlivých {nazev_uzemi} (g): \n\n")
+            text_widget.insert(END,f"Indikátor: {volby_indikator}   Kód nakládání: {volby_kod} \nDruh odpadu: {volby_druhOdpadu}   Rok: {volby_rok}\nKraj: {volby_evident_kraj}\nORP: {volby_evident_ORP}  \n\n ")
       
             text_widget.insert('end', metriky_df.to_string(index=False))
 
