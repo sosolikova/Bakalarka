@@ -121,21 +121,21 @@ def format_column(df):
     if 'OdpadNaObyv_g' in df.columns:
         df.loc[:, 'OdpadNaObyv_g'] = df['OdpadNaObyv_g'].apply(lambda x: locale.format_string("%d", x, grouping=True))
     if 'Maximum' in df.columns:
-        df.loc[:, 'Maximum'] = df['Maximum'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+        df.loc[:, 'Maximum'] = df['Maximum'].apply(lambda x: locale.format_string("%d", x, grouping=True)if not np.isnan(x) else "-")
     if 'Minimum' in df.columns:
         df.loc[:, 'Minimum'] = df['Minimum'].apply(lambda x: locale.format_string("%d", x, grouping=True))
     if 'Pocet_hodnot' in df.columns:
-        df.loc[:, 'Pocet_hodnot'] = df['Pocet_hodnot'].apply(lambda x: locale.format_string("%d", x, grouping=True))        
+        df.loc[:, 'Pocet_hodnot'] = df['Pocet_hodnot'].apply(lambda x: locale.format_string("%d", x, grouping=True)if not np.isnan(x) else "-")        
     if 'Median' in df.columns:
-        df.loc[:, 'Median'] = df['Median'].apply(lambda x: locale.format_string("%d", x, grouping=True)) 
+        df.loc[:, 'Median'] = df['Median'].apply(lambda x: locale.format_string("%d", x, grouping=True)if not np.isnan(x) else "-") 
     if 'Prumer' in df.columns:
-        df.loc[:, 'Prumer'] = df['Prumer'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+        df.loc[:, 'Prumer'] = df['Prumer'].apply(lambda x: locale.format_string("%d", x, grouping=True)if not np.isnan(x) else "-")
     if '25.percentil' in df.columns:
-        df.loc[:, '25.percentil'] = df['25.percentil'].apply(lambda x: locale.format_string("%d", x, grouping=True)) 
+        df.loc[:, '25.percentil'] = df['25.percentil'].apply(lambda x: locale.format_string("%d", x, grouping=True)if not np.isnan(x) else "-") 
     if '50.percentil' in df.columns:
-        df.loc[:, '50.percentil'] = df['50.percentil'].apply(lambda x: locale.format_string("%d", x, grouping=True)) 
+        df.loc[:, '50.percentil'] = df['50.percentil'].apply(lambda x: locale.format_string("%d", x, grouping=True)if not np.isnan(x) else "-") 
     if '75.percentil' in df.columns:
-        df.loc[:, '75.percentil'] = df['75.percentil'].apply(lambda x: locale.format_string("%d", x, grouping=True))
+        df.loc[:, '75.percentil'] = df['75.percentil'].apply(lambda x: locale.format_string("%d", x, grouping=True)if not np.isnan(x) else "-")
     if 'Smerodatna_odchylka' in df.columns:
         df.loc[:, 'Smerodatna_odchylka'] = df['Smerodatna_odchylka'].apply(lambda x: locale.format_string("%d", x, grouping=True)if not np.isnan(x) else "-") 
     return df
@@ -682,82 +682,80 @@ def sumarizace():
     global vysledek_excel
     global vyber_dat_vysledek
     if vyber_dat_vysledek is not None:
-        nazev_souboru_unique = hn.LexikonObci
-        nazev_sloupce_lexikon = 'ZUJ_Cislo'
-        nazev_sloupce_unique_nazev = 'ZUJ_Nazev'
-        column_grouped = 'Evident_ZUJ_Cislo'
+        if volby_evident_nazev:
+            text_widget.insert(END, f"\n\nPozor charakteristiky lze vypočítat pouze pro úroveň krajů nebo ORP.\n\n ")
+        else: 
+            nazev_souboru_unique = hn.LexikonObci
+            nazev_sloupce_lexikon = 'ZUJ_Cislo'
+            nazev_sloupce_unique_nazev = 'ZUJ_Nazev'
+            column_grouped = 'Evident_ZUJ_Cislo'
 
-        vysledek = hn.odpadNaObyvatele_g2(vyber_dat_vysledek,column_grouped,hn.LexikonObci,nazev_sloupce_lexikon)
+            vysledek = hn.odpadNaObyvatele_g2(vyber_dat_vysledek,column_grouped,hn.LexikonObci,nazev_sloupce_lexikon)
 
-        vysledek = pd.merge(vysledek, nazev_souboru_unique[[nazev_sloupce_lexikon, nazev_sloupce_unique_nazev,'Kraj_Nazev','ORP_Nazev']], on=nazev_sloupce_lexikon, how='left')
-
-        
-        box_sloupce = ['Kraj_Nazev','ORP_Nazev',nazev_sloupce_unique_nazev, nazev_sloupce_lexikon,'OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg']
-        
-        # Zde se nastavouje, jaká data půjdou do modelu
-        vysledek_graf = vysledek[box_sloupce]
-        vysledek_excel =vysledek[box_sloupce]
-        
-        # Vytvoření prázdného dataframe pro výsledky výpočtu charakteristik polohy
-        metriky_df = pd.DataFrame(columns=['Kraj','Pocet_hodnot', 'Prumer', 'Median','Minimum','25.percentil', '50.percentil', '75.percentil','Maximum', 'Smerodatna_odchylka'])
-
-        # Seznam názvů všech krajů v datasetu
-        kraje = vysledek_graf['Kraj_Nazev'].unique()
-
-        # Seřazení názvů krajů abecedně
-        kraje = sorted(kraje)
-        
-        # Vytvoření seznamu datových souborů odpadu pro jednotlivé kraje
-        odpady_kraje = []
-        for kraj in kraje:
-            odpad_kraje = vysledek_graf.loc[vysledek_graf['Kraj_Nazev'] == kraj, 'OdpadNaObyv_g']
-            odpady_kraje.append(odpad_kraje)
-        
-        # Výpočet charakteristik pro jednotlivé kraje
-        results = []
-        for odpad_kraje in odpady_kraje:
-            minimum = odpad_kraje.min()
-            maximum = odpad_kraje.max()
-            pocet_hodnot = odpad_kraje.count()
-            prumer = odpad_kraje.mean()
-            median = odpad_kraje.median()
-            perc_25 = np.percentile(odpad_kraje, 25)
-            perc_50 = np.percentile(odpad_kraje, 50)
-            perc_75 = np.percentile(odpad_kraje, 75)
-            sm_odchylka = odpad_kraje.std(ddof=1)
-            results.append([pocet_hodnot, prumer, median, minimum, perc_25, perc_50, perc_75, maximum, sm_odchylka])
-
-        # Vytvoření dataframe s výpočty
-        metriky_df = pd.DataFrame(results, columns=['Pocet_hodnot', 'Prumer', 'Median','Minimum','25.percentil', '50.percentil', '75.percentil','Maximum', 'Smerodatna_odchylka'])
-
-        # Vložení sloupce s názvy krajů do prvního sloupce df
-        metriky_df.insert(0, "Kraj", kraje)
-        
-        # TVORBA TEXT WIDGETU
-        # Charakteristiky polohy
-        format_column(metriky_df)
-        text_widget.delete("1.0","end")
-        text_widget.insert(END, f"\n\nCharakteristiky polohy odpadu na obyvatele v jednotlivých krajích (g) : \n\n ")
-        text_widget.insert('end', metriky_df.to_string(index=False))
+            vysledek = pd.merge(vysledek, nazev_souboru_unique[[nazev_sloupce_lexikon, nazev_sloupce_unique_nazev,'Kraj_Nazev','ORP_Nazev']], on=nazev_sloupce_lexikon, how='left')
 
 
-        '''
-        if volby_evident_kraj:
-            vysledek=hn.summary_stat_parametr(vysledek,'ORP_Nazev',hn.list_kraj_orp[volby_evident_kraj],'OdpadNaObyv_g')
+            box_sloupce = ['Kraj_Nazev','ORP_Nazev',nazev_sloupce_unique_nazev, nazev_sloupce_lexikon,'OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg']
+            
+            # Zde se nastavouje, jaká data půjdou do modelu
+            vysledek_graf = vysledek[box_sloupce]
+            vysledek_excel =vysledek[box_sloupce]
+            if volby_evident_kraj:
+                nazev_sloupce = 'ORP'
+                uzemi_sloupec = 'ORP_Nazev'
+                nazev_uzemi = 'ORP'
+            elif volby_evident_ORP:
+                nazev_sloupce = 'ORP'
+                uzemi_sloupec = 'ORP_Nazev'
+                nazev_uzemi = 'ORP'
+            else:
+                nazev_sloupce = 'Kraj'
+                uzemi_sloupec = 'Kraj_Nazev'
+                nazev_uzemi = 'krajích'
+          
+            # Vytvoření prázdného dataframe pro výsledky výpočtu charakteristik polohy
+            metriky_df = pd.DataFrame(columns=[nazev_sloupce,'Pocet_hodnot', 'Prumer', 'Median','Minimum','25.percentil', '50.percentil', '75.percentil','Maximum', 'Smerodatna_odchylka'])
 
-            vysledek_excel = vysledek
+            # Seznam názvů všech krajů v datasetu
+            uzemi_unique = vysledek_graf[uzemi_sloupec].unique()
 
+            # Seřazení názvů krajů abecedně
+            uzemi_unique = sorted(uzemi_unique)
+            
+            # Vytvoření seznamu datových souborů odpadu pro jednotlivé území
+            odpady_seznam = []
+            for i in uzemi_unique:
+                odpad = vysledek_graf.loc[vysledek_graf[uzemi_sloupec] == i, 'OdpadNaObyv_g']
+                odpady_seznam.append(odpad)
+            
+            # Výpočet charakteristik pro jednotlivé kraje
+            results = []
+            for odpad in odpady_seznam:
+                minimum = odpad.min()
+                maximum = odpad.max()
+                pocet_hodnot = odpad.count()
+                prumer = odpad.mean()
+                median = odpad.median()
+                perc_25 = np.percentile(odpad, 25)
+                perc_50 = np.percentile(odpad, 50)
+                perc_75 = np.percentile(odpad, 75)
+                sm_odchylka = odpad.std(ddof=1)
+                results.append([pocet_hodnot, prumer, median, minimum, perc_25, perc_50, perc_75, maximum, sm_odchylka])
+
+            # Vytvoření dataframe s výpočty
+            metriky_df = pd.DataFrame(results, columns=['Pocet_hodnot', 'Prumer', 'Median','Minimum','25.percentil', '50.percentil', '75.percentil','Maximum', 'Smerodatna_odchylka'])
+
+            # Vložení sloupce s názvy krajů do prvního sloupce df
+            metriky_df.insert(0, nazev_sloupce, uzemi_unique)
+            
+            # TVORBA TEXT WIDGETU
+            # Charakteristiky polohy
+            format_column(metriky_df)
             text_widget.delete("1.0","end")
-            text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY PRO ORP v kraji: {volby_evident_kraj}\n {vysledek}\n")
-        elif volby_evident_ORP:
-            vysledek=hn.summary_stat_parametr(vysledek,'ZUJ_Nazev',hn.list_orp_zuj[volby_evident_ORP],'OdpadNaObyv_g')
+            text_widget.insert(END, f"\n\nCharakteristiky polohy odpadu na obyvatele v jednotlivých {nazev_uzemi} (g) : \n\n ")
+      
+            text_widget.insert('end', metriky_df.to_string(index=False))
 
-            text_widget.delete("1.0","end")
-            text_widget.insert("1.0",f"ZÁKLADNÍ STATISTICKÉ VELIČINY PRO ZUJ v ORP: {volby_evident_ORP}\n {vysledek}\n")
-        else:
-            text_widget.delete("1.0","end")
-            text_widget.insert("1.0", "Výběr nesplnil žádný záznam.\n")  
-            '''
     else:
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení.")
 
