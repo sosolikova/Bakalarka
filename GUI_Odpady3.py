@@ -701,45 +701,90 @@ def sumarizace():
     else:
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení.")
 
-# Test odlehlé hodnoty
+
 def odlehle_hodnoty():
     global vysledek_excel
     global vyber_dat_vysledek
     if vyber_dat_vysledek is not None:
-        vysledek = vyber_dat_vysledek
-    
-        pocet_hodnot = len(vysledek['Odpad_vKg'])
-        # Výpočet IQR metody
-        q1, q3 = np.percentile(vysledek['Odpad_vKg'], [25, 75])
-        iqr = q3 - q1
+        nazev_souboru_unique = hn.LexikonObci
+        nazev_sloupce_lexikon = 'ZUJ_Cislo'
+        nazev_sloupce_unique_nazev = 'ZUJ_Nazev'
+        column_grouped = 'Evident_ZUJ_Cislo'
 
-        # Určení odlehlých hodnot
-        lower_bound = q1 - 1.5 * iqr
-        upper_bound = q3 + 1.5 * iqr
-        outliers = vysledek[(vysledek['Odpad_vKg'] < lower_bound) | (vysledek['Odpad_vKg'] > upper_bound)]
-        pocet_odlehlych_hodnot_lower=len(vysledek[(vysledek['Odpad_vKg'] < lower_bound)])
-        pocet_odlehlych_hodnot_upper=len(vysledek[(vysledek['Odpad_vKg'] > upper_bound)])
+        vysledek = hn.odpadNaObyvatele_g2(vyber_dat_vysledek,column_grouped,hn.LexikonObci,nazev_sloupce_lexikon)
+
+        vysledek = pd.merge(vysledek, nazev_souboru_unique[[nazev_sloupce_lexikon, nazev_sloupce_unique_nazev,'Kraj_Nazev','ORP_Nazev']], on=nazev_sloupce_lexikon, how='left')
+
+        vysledek = vysledek.sort_values('OdpadNaObyv_g', ascending=True)  
+        
+        pocet_hodnot = len(vysledek['OdpadNaObyv_g'])
+        perc_lower=0.25
+        perc_higher1 = 0.95
+        perc_higher = 0.75
+        lower_bound1, upper_bound1 = hn.zjisteni_hranic2(vysledek,'OdpadNaObyv_g',perc_lower,perc_higher1)
+        lower_bound, upper_bound = hn.zjisteni_hranic2(vysledek,'OdpadNaObyv_g',perc_lower,perc_higher)
+        outliers1 = vysledek[(vysledek['OdpadNaObyv_g'] < lower_bound1) | (vysledek['OdpadNaObyv_g'] > upper_bound1)]
+        outliers = vysledek[(vysledek['OdpadNaObyv_g'] < lower_bound) | (vysledek['OdpadNaObyv_g'] > upper_bound)]
+        pocet_odlehlych_hodnot_lower=len(vysledek[(vysledek['OdpadNaObyv_g'] < lower_bound)])
+        pocet_odlehlych_hodnot_upper=len(vysledek[(vysledek['OdpadNaObyv_g'] > upper_bound)])
+        vysledek_lowers1 = vysledek[(vysledek['OdpadNaObyv_g'] < upper_bound1)]
         pocet_odlehlych_hodnot = len(outliers)
 
         vysledek_excel = outliers
-
-        if not volby_sloupce:
-            outliers = outliers.loc[:,volby_sloupce_univ]
-        else: outliers = outliers.loc[:,volby_sloupce]
-        if not outliers.empty:
-            format_column(outliers) 
-
+            
+        widget_sloupce = [nazev_sloupce_unique_nazev, nazev_sloupce_lexikon,'OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg']
+        format_column(outliers)
+        format_column(outliers1) 
         # Výsledky testu
         if len(outliers) > 0:
-            vysledek_testu_text = f"V datovém vzorku o {pocet_hodnot} hodnotách existuje {pocet_odlehlych_hodnot} odlehlých hodnot ({pocet_odlehlych_hodnot_lower}, {pocet_odlehlych_hodnot_upper}):\n\n{outliers.to_string(index=False, justify='right')}"
+            vysledek_testu_text = f"V datovém vzorku o {pocet_hodnot} hodnotách existuje celkem {pocet_odlehlych_hodnot} odlehlých hodnot, které přesáhly horní hranici {perc_higher} + IQR x 1,5:\n\n{outliers[widget_sloupce].to_string(index=False, justify='right')}"
             print(outliers)
-
+            if len(outliers1) > 0:
+                vysledek_testu_text1 = f"V datovém vzorku se vyskytly  hodnoty ({len(outliers1)}), které přesáhly horní hranici {perc_higher1} + IQR x 1,5  a v grafu nejsou zobrazeny.\nJedná se o tyto hodnoty:\n\n{outliers1[widget_sloupce].to_string(index=False, justify='right')}\n\n"
+            else:
+                vysledek_testu_text1=""
         else:
             vysledek_testu_text = f"Odlehlé hodnoty v datovém vzorku o {pocet_hodnot} hodnotách nejsou zjištěny."
-        
+            vysledek_testu_text1=""
         text_widget.delete("1.0","end")
-        text_widget.insert(END, "DIXONŮV TEST PRO ODHALENÍ ODLEHLÝCH HODNOT:\n\n ")
+        text_widget.insert(END, "ZOBRAZENÍ ODLEHLÝCH HODNOT:\n\n ")
+        text_widget.insert(END, vysledek_testu_text1)
         text_widget.insert(END, vysledek_testu_text)
+
+        # Tvorba grafu Scatter plot
+        perc_25 = np.percentile(vysledek_lowers1['OdpadNaObyv_g'],25)
+        perc_50 = np.percentile(vysledek_lowers1['OdpadNaObyv_g'],50)
+        perc_75 = np.percentile(vysledek_lowers1['OdpadNaObyv_g'],75)
+        
+        data = vysledek_lowers1['OdpadNaObyv_g']
+        fig, ax = plt.subplots()
+        ax.scatter(range(len(data)), data)
+        ax.axhline(0, color='black', linestyle='solid')
+        ax.axhline(upper_bound, color='orange', linestyle='solid',label = 'q3 + 1,5 x IQR')
+        
+        ax.axhline(perc_25, color='grey', linestyle='--', label='perc. 25')
+        ax.axhline(perc_50, color='green', linestyle='--', label = 'perc. 50')
+        ax.axhline(perc_75, color='blue', linestyle='--', label = 'perc. 75')
+        
+        ax.set_xlabel('Index',fontsize=14)
+        ax.set_ylabel('Odpad na obyvatele (g)', fontsize=14)
+        ax.legend()
+        # Sestavení titulku grafu podle voleb uživatele
+        title_text = tvorba_popisku_grafu('cast')
+        plt.title(title_text,ha='left',loc='left',fontsize=12)
+
+        # Sestavení popisku grafu
+        ax.text(0.95, 1.2, 'Diagram rozptýlení', transform=ax.transAxes, fontsize=16,
+        verticalalignment='top', horizontalalignment='right')
+
+        if len(outliers1) > 0:
+            horni_hranice_zaokr = zaokrouhleni(upper_bound1)
+            horni_hranice_format = locale.format_string("%d", round(horni_hranice_zaokr), grouping=True)
+            ax.text(0.95, 1.15, f'\ngraf sestaven bez vybočujících hodnot ({len(outliers1)})  větších než {horni_hranice_format} g', transform=ax.transAxes, fontsize=12,verticalalignment='top', horizontalalignment='right')
+
+        plt.tight_layout()
+        plt.show()
+
     else:
         messagebox.showwarning("Chyba", "Nebyla nalezena žádná data k zobrazení.")
 
