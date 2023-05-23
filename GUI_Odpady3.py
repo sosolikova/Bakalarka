@@ -694,7 +694,6 @@ def sumarizace():
 
             vysledek = pd.merge(vysledek, nazev_souboru_unique[[nazev_sloupce_lexikon, nazev_sloupce_unique_nazev,'Kraj_Nazev','ORP_Nazev']], on=nazev_sloupce_lexikon, how='left')
 
-
             box_sloupce = ['Kraj_Nazev','ORP_Nazev',nazev_sloupce_unique_nazev, nazev_sloupce_lexikon,'OdpadNaObyv_g','Pocet_Obyvatel','Odpad_vKg']
             
             # Zde se nastavouje, jaká data půjdou do modelu
@@ -729,7 +728,7 @@ def sumarizace():
                 odpady_seznam.append(odpad)
             
             # Výpočet charakteristik pro jednotlivé kraje
-            results = []
+            charakteristiky = []
             for odpad in odpady_seznam:
                 minimum = odpad.min()
                 maximum = odpad.max()
@@ -740,10 +739,10 @@ def sumarizace():
                 perc_50 = np.percentile(odpad, 50)
                 perc_75 = np.percentile(odpad, 75)
                 sm_odchylka = odpad.std(ddof=1)
-                results.append([pocet_hodnot, prumer, median, minimum, perc_25, perc_50, perc_75, maximum, sm_odchylka])
+                charakteristiky.append([pocet_hodnot, prumer, median, minimum, perc_25, perc_50, perc_75, maximum, sm_odchylka])
 
             # Vytvoření dataframe s výpočty
-            metriky_df = pd.DataFrame(results, columns=['Pocet_hodnot', 'Prumer', 'Median','Minimum','25.percentil', '50.percentil', '75.percentil','Maximum', 'Smerodatna_odchylka'])
+            metriky_df = pd.DataFrame(charakteristiky, columns=['Pocet_hodnot', 'Prumer', 'Median','Minimum','25.percentil', '50.percentil', '75.percentil','Maximum', 'Smerodatna_odchylka'])
 
             # Vložení sloupce s názvy krajů do prvního sloupce df
             metriky_df.insert(0, nazev_sloupce, uzemi_unique)
@@ -889,12 +888,14 @@ def seskupeni_dat():
         if not vysledek.empty:
             if 'Odpad_vKg' in vysledek.columns:
                 #grouping
-                vysledek = hn.seskupeni_dat_seznam_sloupcu(vysledek,['Odpad_vKg','Pocet_Obyvatel'],list_seskupeni)
+                vysledek = hn.seskupeni_dat_seznam_sloupcu(vysledek,['Odpad_vKg'],list_seskupeni)
                 vysledek_excel = vysledek
                 format_column(vysledek)
                 pocet_polozek = len(vysledek.index)
                 text_widget.delete("1.0","end")
-                text_widget.insert("1.0",f"SESKUPENÍ DAT DLE 'Odpad_vKg' ({pocet_polozek} položek):\n\n {vysledek.to_string(index=False, justify='right')}\n")
+                text_widget.insert("1.0",f"SESKUPENÍ DAT DLE SLOUPCE 'Odpad_vKg' ({pocet_polozek} položek):\n\n {vysledek.to_string(index=False, justify='right')}\n")
+                text_widget.insert("1.0",f"Indikátor: {volby_indikator}   Kód nakládání: {volby_kod} \nDruh odpadu: {volby_druhOdpadu}   Rok: {volby_rok}\nKraj: {volby_evident_kraj}\nORP: {volby_evident_ORP}  \n\n")
+                text_widget.insert("1.0","Zadané volby pro výběr dat: \n")
         else:
             text_widget.delete("1.0","end")
             text_widget.insert("1.0","Výběr nesplnil žádný záznam. \n")

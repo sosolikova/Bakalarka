@@ -36,8 +36,8 @@ dtypes_obyvatele = {
     'Pocet_Obyvatel':  'int'
 }
 dtypes_lexikonObci ={
-    'ZUJ_Cislo':  'string',
-    'ZUJ_Nazev':  'string',
+    'ZUJ_Cislo':    'string',
+    'ZUJ_Nazev':    'string',
     'ORP_Cislo':  'string',
     'ORP_Nazev':  'string',
     'Kraj_Cislo': 'string',
@@ -208,8 +208,7 @@ def seskupeni_dat_po_sloupcich(data, func_column, *group_columns ):
 'Grouping DataFrame podle listu s názvy sloupců'
 def seskupeni_dat_seznam_sloupcu(data, func_column, group_column_list ):
     grouped_data = data.groupby(group_column_list)[func_column].sum().reset_index()
-    sorted_data = grouped_data.sort_values(by=func_column,ascending=False)
-    return sorted_data
+    return grouped_data
 
 
 'APLIKACE slouceni podle sloupcu Evident, Evidnet_TypSubjektu, funkce bude na sloupci Odpad_vKg'

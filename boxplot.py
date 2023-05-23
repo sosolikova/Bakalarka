@@ -9,14 +9,9 @@ data2 = np.random.normal(0, 1, size=100)
 np.random.seed(1)
 data1 = np.random.normal(2, 1, size=100)
 
-# Vytvoření boxplotu s barevným rozlišením
+# Vytvoření boxplotu
 fig, ax = plt.subplots()
-ax.boxplot([data1, data2], patch_artist=True, boxprops=dict(facecolor='C0'))
-
-# Nastavení barev
-colors = ['C1', 'C2']
-for patch, color in zip(ax.artists, colors):
-    patch.set_facecolor(color)
+ax.boxplot([data1, data2])
 
 # Nastavení popisků os a názvu grafu
 ax.set_xlabel('Druhy odpadů')
