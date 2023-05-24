@@ -3,7 +3,6 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-import Funkce
 import geopandas as gpd
 
 dtypes_nakladani = {
@@ -75,6 +74,9 @@ def load_csv_type_conversion(filename, dtypes):
     df = pd.read_csv(filename, delimiter=';', decimal=',',dtype = dtypes)
     return df
 
+'Funkce pro uložení DataFrame do csv'
+def save_dataframe_to_csv(dataframe, filname):
+    dataframe.to_csv(filname,index = False, header = True)
 
 def load_files_to_df(directory,extension,dtypes,column_name,column_year):
     files = [file for file in os.listdir(directory) if file.endswith(extension)]
@@ -102,7 +104,7 @@ print(unique_kraj)
 Zdrojovy = load_files_to_df('Data','.csv',dtypes_odpady,'Druh_Odpadu','Rok')
 print('________---sloucene soubory ----__________')
 print(Zdrojovy)
-Funkce.save_dataframe_to_csv(Zdrojovy,'Zdrojovy')
+save_dataframe_to_csv(Zdrojovy,'Zdrojovy')
 print('______----Zdrojovy----______')
 Zdrojovy.info()
 
@@ -113,15 +115,7 @@ Pocet_obyvatel = load_csv_type_conversion('Pocet_obyvatel_2021.csv',dtypes_obyva
 LexikonObci = load_csv_type_conversion('LexikonObci.csv',dtypes_lexikonObci)
 #print('_______--lexikon obci--___________')
 #print(LexikonObci)
-'''
-def checknull(df):
-  check = df.isnull().sum()
-  print('_________checknull__________')
-  print(check)
-  return 
 
-checknull(Zdrojovy)
-'''
 def je_soucet_nulovy(df):
     check_sum = df.isnull().sum().sum()  # součet všech NaN hodnot v DataFrame
     if check_sum == 0:
@@ -149,23 +143,13 @@ def merge_left2(df1, df2, column1, column2,suffixes1,suffixes2):
 Zdrojovy = merge_left(Zdrojovy,Pocet_obyvatel,'Evident_ZUJ_Cislo','Kod_Obce')
 
 Zdrojovy_Kody = merge_left(Zdrojovy,Kody_Nakladani,'Kod','Kod')
-Funkce.save_dataframe_to_csv(Zdrojovy_Kody,'Zdrojovy_Kody')
+save_dataframe_to_csv(Zdrojovy_Kody,'Zdrojovy_Kody')
 print('______-------Zdrojovy_Kody----______')
 Zdrojovy_Kody.info()
 print('Je soucet nulovy Zdrojovy_kody')
 
 ZUJ_ORP = load_csv_type_conversion('ZUJ_ORP.csv',dtypes_zuj)
-''' Po přejmenování sloupců zdrojových souborů raději zakomentuji 
-Zdrojovy_Kody_ORP_Evident = merge_left2(Zdrojovy,ZUJ_ORP,'Evident','ZUJ_Kod','Zdroj','Evident')
-Funkce.save_dataframe_to_csv(Zdrojovy_Kody_ORP_Evident,'Zdrojovy_Kody_ORP_Evident')
-print('_____--zdrojovy-ZUJ-ORP-Evident_________-')
-Zdrojovy_Kody_ORP_Evident.info()
 
-Zdrojovy_Kody_ORP_Partner = merge_left2(Zdrojovy_Kody_ORP_Evident,ZUJ_ORP,'Partner','ZUJ_Kod','_Evident','_Partner')
-Funkce.save_dataframe_to_csv(Zdrojovy_Kody_ORP_Partner,'Zdrojovy_Kody_ORP_Partner')
-print('_____--zdrojovy-ZUJ-ORP-Partner_________-')
-Zdrojovy_Kody_ORP_Partner.info()
-'''
 
 'Kontrola sparovani radku'
 def kontrola_sparovani (dataframe,column):
@@ -195,7 +179,7 @@ def vlozit_sloupec_prepocet_odpadNaPocetObyv(df):
 Zdrojovy_Kody_Mnozstvi=vlozit_sloupec_prepocet_mnozstvi(Zdrojovy_Kody)
 Zdrojovy_Kody_Mnozstvi=vlozit_sloupec_prepocet_odpadNaPocetObyv(Zdrojovy_Kody_Mnozstvi)
 
-Funkce.save_dataframe_to_csv(Zdrojovy_Kody_Mnozstvi,'Zdrojovy_kody_mnozstvi')
+save_dataframe_to_csv(Zdrojovy_Kody_Mnozstvi,'Zdrojovy_kody_mnozstvi')
 print('______-------Zdrojovy_Kody_mnozstvi----______')
 Zdrojovy_Kody_Mnozstvi.info()
 
@@ -213,7 +197,7 @@ def seskupeni_dat_seznam_sloupcu(data, func_column, group_column_list ):
 
 'APLIKACE slouceni podle sloupcu Evident, Evidnet_TypSubjektu, funkce bude na sloupci Odpad_vKg'
 Zdrojovy_Kody_Mnozstvi_Seskup = seskupeni_dat_po_sloupcich(Zdrojovy_Kody_Mnozstvi,'Odpad_vKg','Druh_Odpadu','Evident_ZUJ_Cislo','Evident_TypSubjektu')
-Funkce.save_dataframe_to_csv(Zdrojovy_Kody_Mnozstvi_Seskup,'Zdrojovy_kody_mnozstvi_group')
+save_dataframe_to_csv(Zdrojovy_Kody_Mnozstvi_Seskup,'Zdrojovy_kody_mnozstvi_group')
 
 
 'Funkce pro kontrolu, ze u kazde ZUJ vyjde bilance 0'
@@ -239,7 +223,7 @@ def print_non_equal_rows(data, column, value):
 
 'APLIKACE kontrola, zda ZUJ vyjde bilance 0'
 Zdrojovy_kody_mnozstvi_group_nevyhov_0 = filter_sum_after_grouping(Zdrojovy_Kody_Mnozstvi_Seskup,'Odpad_vKg')
-Funkce.save_dataframe_to_csv(Zdrojovy_kody_mnozstvi_group_nevyhov_0,'Zdrojovy_kody_mnozstvi_group_nevyhov_0')
+save_dataframe_to_csv(Zdrojovy_kody_mnozstvi_group_nevyhov_0,'Zdrojovy_kody_mnozstvi_group_nevyhov_0')
 
 equal_rows, non_equal_rows = count_rows(Zdrojovy_Kody_Mnozstvi_Seskup, 'Odpad_vKg', 0)
 print(f"Počet ZUJ, které mají roční zúčtování rovno nule: {equal_rows}")
@@ -248,20 +232,7 @@ print(f"Počet ZUJ, které roční zúčtování nemají vyrovnané: {non_equal_
 print_non_equal_rows(Zdrojovy_Kody_Mnozstvi_Seskup,'Odpad_vKg', 0)
 
 
-'_____________________'
-'Pripojeni tabulky ZUJ_ORP'
-"""
-'Nacteni tabulky ZUJ_ORP'
-ZUJ_ORP = load_csv_type_conversion('ZUJ_ORP.csv',dtypes_zuj)
 
-Zdrojovy_Kody_Mnozstvi_Zuj = merge_left(Zdrojovy_kody_mnozstvi, ZUJ_ORP, 'ZUJ_Kod')
-
-
-'_________GRAFY____________'
-Produkce_and_Prevzeti = Zdrojovy_Kody_Mnozstvi[(Zdrojovy_Kody_Mnozstvi['Indikator'] == "Produkce") | (Zdrojovy_Kody_Mnozstvi['Indikator'] == "Převzetí")]
-print('____produkce a prevzeti_______')
-print(Produkce_and_Prevzeti.groupby('Indikator')['ZmenaMnozstvi'].agg([np.mean,np.median])) 
-"""
 def summary_stat_parametr(df,parametr,volba,column_summary):
     sort = df[(df[parametr] == volba)]
     result = sort.groupby(parametr)[column_summary].agg([np.mean,np.median,np.min,np.max])
@@ -271,21 +242,6 @@ def summary_stat_parametr(df,parametr,volba,column_summary):
     print(result)
     return result
 
-'''
-#Původní - fungovalo dobře
-def summary_stat_parametr(df,parametr,seznam,column_summary):
-    if seznam == ["-all-"]:
-        sort = df
-    else:
-        sort = df[(df[parametr].isin(seznam))]
-    result = sort.groupby(parametr)[column_summary].agg([np.mean,np.median,np.min,np.max])
-    result = result.applymap(lambda x: round(x))
-    locale.setlocale(locale.LC_ALL, '')
-    result = result.applymap(lambda x: locale.format_string('%d', x, grouping=True))
-    print('Výsledek funkce summary_stat_parametr:')
-    print(result)
-    return result
-'''
 
 def summary_stat_parametr(df, parametr, seznam, column_summary):
     sort = df[df[parametr].isin(seznam)]

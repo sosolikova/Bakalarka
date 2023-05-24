@@ -1,3 +1,5 @@
+"PROGRAM KE SPUŠTĚNÍ"
+
 from cgitb import text
 import tkinter
 from tkinter import *
@@ -19,7 +21,6 @@ import json
 import geopandas as gpd
 import matplotlib.pyplot as plt
 import HromadneNacitani as hn
-import Funkce as fc
 import matplotlib.ticker as mtick
 import csv
 import locale
